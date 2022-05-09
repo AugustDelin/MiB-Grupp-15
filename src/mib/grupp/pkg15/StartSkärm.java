@@ -133,7 +133,20 @@ public class StartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginAdminActionPerformed
 
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
-        // TODO add your handling code here:
+        try {
+            String användarnamn = txtStartAnvändarnamn.getText();
+
+            String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
+
+            if (lösenord.equals(pwfStartLogin.getText())) {
+                new AlienStartSkärm().setVisible(true);
+            }
+
+        } catch (InfException ex) {
+            Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
+            lblStartRubrik.setText("Användarnamn eller lösenord är felaktigt.");
+        }
+
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
