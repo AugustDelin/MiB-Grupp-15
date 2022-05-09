@@ -14,9 +14,10 @@ import oru.inf.InfException;
  * @author erike
  */
 public class Main {
+
     private static InfDB idb;
-    
-    public static void main(String[] args) throws InfException{
+
+    public static void main(String[] args) throws InfException {
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         } catch (InfException ex) {
@@ -24,5 +25,8 @@ public class Main {
         }
         new StartSkärm(idb).setVisible(true);
     }
-    
+
+    public static InfDB getDB() {
+        return idb;
+    }
 }

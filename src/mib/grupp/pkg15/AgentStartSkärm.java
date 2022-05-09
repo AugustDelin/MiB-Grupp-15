@@ -4,17 +4,25 @@
  */
 package mib.grupp.pkg15;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author erike
  */
 public class AgentStartSkärm extends javax.swing.JFrame {
-
+    private String användarnamn;
+    private static InfDB idb;
+    
     /**
      * Creates new form AgentSkärm
      */
-    public AgentStartSkärm() {
+    public AgentStartSkärm(String användarnamn) {
         initComponents();
+        this.användarnamn = användarnamn;
+        lblAnvändarnamn.setText("Välkommen: " + användarnamn);
+        idb = Main.getDB();
+        
     }
 
     /**
@@ -26,27 +34,31 @@ public class AgentStartSkärm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblAnvändarnamn = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblAnvändarnamn.setText("lblInloggadSom");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblAnvändarnamn)
+                .addGap(0, 315, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblAnvändarnamn)
+                .addGap(0, 284, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblAnvändarnamn;
     // End of variables declaration//GEN-END:variables
 }

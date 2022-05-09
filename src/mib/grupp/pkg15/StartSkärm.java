@@ -7,6 +7,7 @@ package mib.grupp.pkg15;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -150,23 +151,28 @@ public class StartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
+        if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
+            try {
+                //hämtar användarnamn ifrån loginruta
+                String användarnamn = txtStartAnvändarnamn.getText();
 
-        try {
-            //hämtar användarnamn ifrån loginruta
-            String användarnamn = txtStartAnvändarnamn.getText();
-            
-            // hämta lösenordet som matchar angivet användarnamn ifrån databasen
-            String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn+"'");
-            //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-            if (lösenord.equals(pwfStartLogin.getText())) {
-                new AgentStartSkärm().setVisible(true);
-                
-           
+                // hämta lösenordet som matchar angivet användarnamn ifrån databasen
+                String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
+
+                //jämför inskrivet lösen med det som står skrivet i rutan lösenord
+                if (lösenord.equals(pwfStartLogin.getText())) {
+                    new AgentStartSkärm(användarnamn).setVisible(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Lösenord är felaktigt.");
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
             }
-
-        } catch (InfException ex) {
-            Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
-            lblStartRubrik.setText("Användarnamn eller lösenord är felaktigt.");
         }
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 
