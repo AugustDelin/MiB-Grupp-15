@@ -22,6 +22,7 @@ public class Main {
         } catch (InfException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        new StartSkärm(idb).setVisible(true);
     }
     
 }
