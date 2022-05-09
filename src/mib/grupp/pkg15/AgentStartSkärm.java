@@ -38,26 +38,29 @@ public class AgentStartSkärm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblAnvändarnamn.setText("lblInloggadSom");
+        lblAnvändarnamn.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(lblAnvändarnamn)
-                .addGap(0, 315, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(lblAnvändarnamn)
-                .addGap(0, 284, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblAnvändarnamn;
     // End of variables declaration//GEN-END:variables
