@@ -170,7 +170,7 @@ public class StartSkärm extends javax.swing.JFrame {
             } catch (InfException ex) {
                 Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
 
-            } catch (Exception e) {
+            } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
             }
         }
