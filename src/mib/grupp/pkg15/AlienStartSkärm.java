@@ -15,6 +15,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
 //join omradeschef o on agent.Agent_ID = o.Agent_ID
 //join alien on Plats = Agent.Omrade
 //where alien.namn = 'Bobbo'
+    //1
 
     /**
      * Creates new form AlienStartSkärm
