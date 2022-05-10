@@ -28,17 +28,58 @@ public class AgentStartSkärm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblRubrik = new javax.swing.JLabel();
+        btnMinSida = new javax.swing.JButton();
+        btnÄndraAlienInfo = new javax.swing.JButton();
+        btnAlienInfo = new javax.swing.JButton();
+        btnAgentUtrustning = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblRubrik.setText("jLabel1");
+
+        btnMinSida.setText("Min Sida");
+
+        btnÄndraAlienInfo.setText("Ändra Alien Info");
+
+        btnAlienInfo.setText("Alien Info");
+
+        btnAgentUtrustning.setText("Agent Utrustning");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(lblRubrik))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAlienInfo)
+                            .addComponent(btnMinSida))
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnÄndraAlienInfo)
+                            .addComponent(btnAgentUtrustning))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblRubrik)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMinSida)
+                    .addComponent(btnÄndraAlienInfo))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAlienInfo)
+                    .addComponent(btnAgentUtrustning))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         pack();
@@ -47,5 +88,10 @@ public class AgentStartSkärm extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgentUtrustning;
+    private javax.swing.JButton btnAlienInfo;
+    private javax.swing.JButton btnMinSida;
+    private javax.swing.JButton btnÄndraAlienInfo;
+    private javax.swing.JLabel lblRubrik;
     // End of variables declaration//GEN-END:variables
 }
