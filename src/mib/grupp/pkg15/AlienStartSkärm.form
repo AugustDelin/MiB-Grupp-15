@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="lblAnvändarnamn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="375" max="32767" attributes="0"/>
+              <EmptySpace pref="312" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,6 +42,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblAnv&#xe4;ndarnamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
