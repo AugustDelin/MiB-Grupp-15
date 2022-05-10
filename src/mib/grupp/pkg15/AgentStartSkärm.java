@@ -4,25 +4,19 @@
  */
 package mib.grupp.pkg15;
 
-import oru.inf.InfDB;
-
 /**
  *
  * @author erike
  */
 public class AgentStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
-    private static InfDB idb;
-    
+
     /**
-     * Creates new form AgentSkärm
+     * Creates new form AgentStartSkärm
      */
     public AgentStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        lblAnvändarnamn.setText("Välkommen: " + användarnamn);
-        idb = Main.getDB();
-        
     }
 
     /**
@@ -34,73 +28,24 @@ public class AgentStartSkärm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAnvändarnamn = new javax.swing.JLabel();
-        btnÄndraAlien = new javax.swing.JButton();
-        btnAlienInfo = new javax.swing.JButton();
-        btnMinSida = new javax.swing.JButton();
-        btnUtrustning = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblAnvändarnamn.setText("Välkommen");
-
-        btnÄndraAlien.setText("Ändra Alien");
-
-        btnAlienInfo.setText("Alien Info");
-
-        btnMinSida.setText("Min Sida");
-
-        btnUtrustning.setText("Utrustning");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-<<<<<<< HEAD
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAnvändarnamn)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnÄndraAlien)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAlienInfo))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(btnMinSida)
-                            .addGap(40, 40, 40)
-                            .addComponent(btnUtrustning))))
-                .addContainerGap(176, Short.MAX_VALUE))
-=======
-                .addComponent(lblAnvändarnamn)
-                .addContainerGap(318, Short.MAX_VALUE))
->>>>>>> d546aa34511913d986e3e895c4c24e0eebbe54b2
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblAnvändarnamn)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnÄndraAlien)
-                    .addComponent(btnAlienInfo))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMinSida)
-                    .addComponent(btnUtrustning))
-                .addContainerGap(154, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlienInfo;
-    private javax.swing.JButton btnMinSida;
-    private javax.swing.JButton btnUtrustning;
-    private javax.swing.JButton btnÄndraAlien;
-    private javax.swing.JLabel lblAnvändarnamn;
     // End of variables declaration//GEN-END:variables
 }

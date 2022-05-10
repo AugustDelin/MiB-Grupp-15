@@ -4,15 +4,12 @@
  */
 package mib.grupp.pkg15;
 
-import oru.inf.InfDB;
-
 /**
  *
- * @author augustdelin
+ * @author erike
  */
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
-    private static InfDB idb;
 
     /**
      * Creates new form AlienStartSkärm
@@ -20,8 +17,6 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     public AlienStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        lblAnvändarnamn.setText("Välkommen: " + användarnamn);
-        idb = Main.getDB();
     }
 
     /**
@@ -33,59 +28,24 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAnvändarnamn = new javax.swing.JLabel();
-        txtRubrik = new javax.swing.JTextField();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblAnvändarnamn.setText("Välkommen");
-
-        txtRubrik.setText("Min sida");
-        txtRubrik.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRubrikActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-<<<<<<< Updated upstream
-                .addComponent(lblAnvändarnamn)
-                .addContainerGap(375, Short.MAX_VALUE))
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAnvändarnamn))
-                .addContainerGap(304, Short.MAX_VALUE))
->>>>>>> Stashed changes
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblAnvändarnamn)
-<<<<<<< Updated upstream
-                .addContainerGap(284, Short.MAX_VALUE))
-=======
-                .addGap(29, 29, 29)
-                .addComponent(txtRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
->>>>>>> Stashed changes
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtRubrikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRubrikActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRubrikActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblAnvändarnamn;
-    private javax.swing.JTextField txtRubrik;
     // End of variables declaration//GEN-END:variables
 }

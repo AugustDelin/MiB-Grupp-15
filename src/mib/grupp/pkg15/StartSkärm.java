@@ -72,11 +72,6 @@ public class StartSkärm extends javax.swing.JFrame {
         lblStartRubrik.setText("Välkommen till MIBs system. Logga in nedan.");
 
         pwfStartLogin.setColumns(5);
-        pwfStartLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwfStartLoginActionPerformed(evt);
-            }
-        });
 
         lblStartAnvändarnamn.setText("Användarnamn");
 
@@ -214,10 +209,6 @@ public class StartSkärm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnLoginAgentActionPerformed
-
-    private void pwfStartLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwfStartLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pwfStartLoginActionPerformed
 
     /**
      * @param args the command line arguments
