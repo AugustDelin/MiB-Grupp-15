@@ -141,7 +141,7 @@ public class StartSkärm extends javax.swing.JFrame {
                 //jämför inskrivet lösen med det som står skrivet i rutan lösenord
                 if (lösenord.equals(pwfStartLogin.getText())) {
                     //om ovan villkor är true skapas en ny ruta
-                    new AgentStartSkärm(användarnamn).setVisible(true);
+                    new AdminStartSkärm(användarnamn).setVisible(true);
                     setVisible(false);
 
                 } else {
