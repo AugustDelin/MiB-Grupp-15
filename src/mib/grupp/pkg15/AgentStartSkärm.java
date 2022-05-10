@@ -42,7 +42,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblAnvändarnamn.setText("jLabel1");
+        lblAnvändarnamn.setText("Välkommen");
 
         btnÄndraAlien.setText("Ändra Alien");
 
@@ -58,6 +58,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAnvändarnamn)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -70,6 +71,10 @@ public class AgentStartSkärm extends javax.swing.JFrame {
                             .addGap(40, 40, 40)
                             .addComponent(btnUtrustning))))
                 .addContainerGap(176, Short.MAX_VALUE))
+=======
+                .addComponent(lblAnvändarnamn)
+                .addContainerGap(318, Short.MAX_VALUE))
+>>>>>>> d546aa34511913d986e3e895c4c24e0eebbe54b2
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
