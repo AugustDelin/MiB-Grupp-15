@@ -24,9 +24,10 @@ public class Validera {
         return resultat;
     }
 
-    public static boolean kollaLösen(JPasswordField lösenruta, String enSträng) {
+    public static boolean kollaLösen(String enSträng, JPasswordField lösenruta) {
+        // kontrollerar om lösenord stämmer
         boolean resultat = true;
-        if (lösenruta.getText().equals(enSträng)) {
+        if (!enSträng.equals(lösenruta.getText())) {
             resultat = false;
             JOptionPane.showMessageDialog(null, "Felaktigt lösenord");
             lösenruta.requestFocus();
