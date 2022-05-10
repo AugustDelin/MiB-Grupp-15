@@ -35,4 +35,13 @@ public class Validera {
         return resultat;
 
     }
+    
+    public static boolean kollaAdmin(String adminstatus) {
+        boolean resultat = true;
+        if(!adminstatus.equals("J")) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Du har inte administratörsbehörigheter!");
+        }
+        return resultat;
+    }
 }
