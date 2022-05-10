@@ -142,13 +142,11 @@ public class StartSkärm extends javax.swing.JFrame {
                 String adminstatus = idb.fetchSingle("Select Administrator from agent where namn = '" + användarnamn + "'");
 
                 //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-                if (Validera.kollaLösen(lösenord, pwfStartLogin)) {
+                if (Validera.kollaLösen(lösenord, pwfStartLogin) && Validera.kollaAdmin(adminstatus)) {
                     //om ovan villkor är true skapas en ny ruta
                     new AdminStartSkärm(användarnamn).setVisible(true);
                     setVisible(false);
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "Lösenord är felaktigt.");
                 }
 
             } catch (InfException ex) {
