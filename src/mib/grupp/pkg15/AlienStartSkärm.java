@@ -4,17 +4,24 @@
  */
 package mib.grupp.pkg15;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author augustdelin
  */
 public class AlienStartSkärm extends javax.swing.JFrame {
+    private String användarnamn;
+    private static InfDB idb;
 
     /**
      * Creates new form AlienStartSkärm
      */
     public AlienStartSkärm() {
         initComponents();
+        this.användarnamn = användarnamn;
+        lblAnvändarnamn.setText("Välkommen: " + användarnamn);
+        idb = Main.getDB();
     }
 
     /**
@@ -26,22 +33,33 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblAnvändarnamn = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblAnvändarnamn.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(lblAnvändarnamn)
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(lblAnvändarnamn)
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblAnvändarnamn;
     // End of variables declaration//GEN-END:variables
 }
