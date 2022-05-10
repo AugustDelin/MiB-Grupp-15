@@ -14,11 +14,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
     private static InfDB idb;
 
-//    SELECT agent.NAMN from agent
-//join omradeschef o on agent.Agent_ID = o.Agent_ID
-//join alien on Plats = Agent.Omrade
-//where alien.namn = 'Bobbo'
-    //1
+
 
     /**
      * Creates new form AlienStartSkärm
@@ -30,7 +26,10 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         lblRubrik.setText("Välkommen: " + användarnamn);
         idb = Main.getDB();
     }
-
+//SELECT agent.NAMN from agent
+//join omradeschef o on agent.Agent_ID = o.Agent_ID
+//join alien on Plats = Agent.Omrade
+//where alien.namn = 'Bobbo'
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
