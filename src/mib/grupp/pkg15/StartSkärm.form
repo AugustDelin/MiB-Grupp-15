@@ -99,7 +99,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblStartRubrik">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till MIBs hemsida. Logga in nedan."/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till MIBs system. Logga in nedan."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pwfStartLogin">

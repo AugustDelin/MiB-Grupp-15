@@ -69,7 +69,7 @@ public class StartSkärm extends javax.swing.JFrame {
             }
         });
 
-        lblStartRubrik.setText("Välkommen till MIBs hemsida. Logga in nedan.");
+        lblStartRubrik.setText("Välkommen till MIBs system. Logga in nedan.");
 
         pwfStartLogin.setColumns(5);
         pwfStartLogin.addActionListener(new java.awt.event.ActionListener() {
