@@ -49,3 +49,5 @@ hs_err_pid*
 .mtj.tmp/
 nbproject/private/private.properties
 nbproject/private/private.properties
+*.properties
+*.properties
