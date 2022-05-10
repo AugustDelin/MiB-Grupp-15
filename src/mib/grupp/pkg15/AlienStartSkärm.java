@@ -4,12 +4,15 @@
  */
 package mib.grupp.pkg15;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author erike
  */
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
+    private static InfDB idb;
 
     /**
      * Creates new form AlienStartSkärm
@@ -17,6 +20,9 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     public AlienStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
+        this.användarnamn = användarnamn;
+        lblRubrik.setText("Välkommen: " + användarnamn);
+        idb = Main.getDB();
     }
 
     /**
@@ -29,13 +35,16 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     private void initComponents() {
 
         lblRubrik = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblMinSida = new javax.swing.JLabel();
+        lblMinOc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblRubrik.setText("Välkommen");
 
-        jLabel1.setText("Mina sida");
+        lblMinSida.setText("Mina sida");
+
+        lblMinOc.setText("Min områdeschef är:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -44,9 +53,10 @@ public class AlienStartSkärm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(lblMinOc)
+                    .addComponent(lblMinSida)
                     .addComponent(lblRubrik))
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -54,8 +64,10 @@ public class AlienStartSkärm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(lblRubrik)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addComponent(lblMinSida)
+                .addGap(18, 18, 18)
+                .addComponent(lblMinOc)
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         pack();
@@ -64,7 +76,8 @@ public class AlienStartSkärm extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblMinOc;
+    private javax.swing.JLabel lblMinSida;
     private javax.swing.JLabel lblRubrik;
     // End of variables declaration//GEN-END:variables
 }
