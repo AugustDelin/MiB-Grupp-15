@@ -25,8 +25,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="lblAnvändarnamn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="312" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtRubrik" min="-2" pref="71" max="-2" attributes="0"/>
+                  <Component id="lblAnvändarnamn" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="304" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -35,7 +38,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="lblAnvändarnamn" min="-2" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
               <EmptySpace pref="284" max="32767" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="txtRubrik" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="217" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,6 +54,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="V&#xe4;lkommen"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtRubrik">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Min sida"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRubrikActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
