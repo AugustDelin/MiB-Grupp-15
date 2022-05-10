@@ -12,6 +12,7 @@ import oru.inf.InfDB;
  */
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
+    private static InfDB idb;
 
 //    SELECT agent.NAMN from agent
 //join omradeschef o on agent.Agent_ID = o.Agent_ID
