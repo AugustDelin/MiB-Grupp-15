@@ -44,16 +44,16 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(20, 20, 20)
                 .addComponent(lblAnvändarnamn)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(15, 15, 15)
                 .addComponent(lblAnvändarnamn)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         pack();
