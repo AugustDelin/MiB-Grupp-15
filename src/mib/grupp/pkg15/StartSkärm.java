@@ -130,16 +130,19 @@ public class StartSkärm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
-       if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
+       if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin) ) {
             try {
                 //hämtar användarnamn ifrån loginruta
                 String användarnamn = txtStartAnvändarnamn.getText();
 
                 // hämta lösenordet som matchar angivet användarnamn ifrån databasen
                 String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
+                
+                // hämta adminstatus från databasen
+                String adminstatus = idb.fetchSingle("Select Adminstrator from agent where namn = '" + användarnamn + "'");
 
                 //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-                if (lösenord.equals(pwfStartLogin.getText())) {
+                if (lösenord.equals(pwfStartLogin.getText()) && adminstatus.equals("J")) {
                     //om ovan villkor är true skapas en ny ruta
                     new AdminStartSkärm(användarnamn).setVisible(true);
                     setVisible(false);
