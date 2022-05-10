@@ -139,7 +139,7 @@ public class StartSkärm extends javax.swing.JFrame {
                 String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
                 
                 // hämta adminstatus från databasen
-                String adminstatus = idb.fetchSingle("Select Adminstrator from agent where namn = '" + användarnamn + "'");
+                String adminstatus = idb.fetchSingle("Select Administrator from agent where namn = '" + användarnamn + "'");
 
                 //jämför inskrivet lösen med det som står skrivet i rutan lösenord
                 if (lösenord.equals(pwfStartLogin.getText()) && adminstatus.equals("J")) {
