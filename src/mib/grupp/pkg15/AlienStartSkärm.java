@@ -17,7 +17,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     /**
      * Creates new form AlienStartSkärm
      */
-    public AlienStartSkärm() {
+    public AlienStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         lblAnvändarnamn.setText("Välkommen: " + användarnamn);

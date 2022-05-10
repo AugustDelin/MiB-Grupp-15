@@ -140,7 +140,7 @@ public class StartSkärm extends javax.swing.JFrame {
             String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
 
             if (lösenord.equals(pwfStartLogin.getText())) {
-                new AlienStartSkärm().setVisible(true);
+                new AlienStartSkärm(användarnamn).setVisible(true);
             }
 
         } catch (InfException ex) {
