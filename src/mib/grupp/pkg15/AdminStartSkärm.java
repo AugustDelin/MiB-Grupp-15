@@ -24,7 +24,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     public AdminStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        lblAnvändarnamn.setText("Välkommen: " + användarnamn);
+        lblRubrik.setText("Välkommen: " + användarnamn);
         idb = Main.getDB();
     }
 
@@ -37,11 +37,11 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAnvändarnamn = new javax.swing.JLabel();
+        lblRubrik = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblAnvändarnamn.setText("Välkommen");
+        lblRubrik.setText("Välkommen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,18 +49,18 @@ public class AdminStartSkärm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lblAnvändarnamn)
+                .addComponent(lblRubrik)
                 .addContainerGap(315, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblAnvändarnamn)
+                .addComponent(lblRubrik)
                 .addContainerGap(269, Short.MAX_VALUE))
         );
 
-        lblAnvändarnamn.getAccessibleContext().setAccessibleName("lblVälkommen");
+        lblRubrik.getAccessibleContext().setAccessibleName("lblVälkommen");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -68,6 +68,6 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblAnvändarnamn;
+    private javax.swing.JLabel lblRubrik;
     // End of variables declaration//GEN-END:variables
 }
