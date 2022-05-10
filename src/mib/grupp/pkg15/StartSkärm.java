@@ -164,12 +164,12 @@ public class StartSkärm extends javax.swing.JFrame {
                 String användarnamn = txtStartAnvändarnamn.getText();
 
                 // hämta lösenordet som matchar angivet användarnamn ifrån databasen
-                String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
+                String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
 
                 //jämför inskrivet lösen med det som står skrivet i rutan lösenord
                 if (lösenord.equals(pwfStartLogin.getText())) {
                     //om ovan villkor är true skapas en ny ruta
-                    new AgentStartSkärm(användarnamn).setVisible(true);
+                    new AlienStartSkärm(användarnamn).setVisible(true);
                     setVisible(false);
 
                 } else {
@@ -183,8 +183,6 @@ public class StartSkärm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
             }
         }
-
-
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
