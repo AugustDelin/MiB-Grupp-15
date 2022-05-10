@@ -10,6 +10,11 @@ package mib.grupp.pkg15;
  */
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
+    
+//    SELECT agent.NAMN from agent
+//join omradeschef o on agent.Agent_ID = o.Agent_ID
+//join alien on Plats = Agent.Omrade
+//where alien.namn = 'Bobbo'
 
     /**
      * Creates new form AlienStartSkärm
