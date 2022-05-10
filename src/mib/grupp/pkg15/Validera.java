@@ -5,6 +5,7 @@
 package mib.grupp.pkg15;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -21,5 +22,17 @@ public class Validera {
             enRuta.requestFocus();
         }
         return resultat;
+    }
+
+    public static boolean kollaLösen(JPasswordField lösenruta, String enSträng) {
+        boolean resultat = true;
+        if (lösenruta.getText().equals(enSträng)) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt lösenord");
+            lösenruta.requestFocus();
+
+        }
+        return resultat;
+
     }
 }
