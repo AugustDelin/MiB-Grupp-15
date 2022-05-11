@@ -58,10 +58,6 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         lblNyttLösenord.setText("Nytt lösenord");
 
-        pwfGammaltLösenord.setText("jPasswordField1");
-
-        pwfNyttLösenord.setText("jPasswordField2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,7 +81,7 @@ public class AlienMinSida extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(btnBytLösenord)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,11 +106,10 @@ public class AlienMinSida extends javax.swing.JFrame {
 
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
         try {
-            boolean resultat = true;
             String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
             if(Validera.kollaLösen(lösenord, pwfGammaltLösenord)){
                 String nyttLösenord = pwfNyttLösenord.getText();
-                idb.update("UPDATE alien SET lösenord=nyttLösenord where namn ='" + användarnamn +  "'");
+                idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
             }
         } catch (InfException ex) {
             Logger.getLogger(AlienMinSida.class.getName()).log(Level.SEVERE, null, ex);
