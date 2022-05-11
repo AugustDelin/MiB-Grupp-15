@@ -16,9 +16,12 @@ import oru.inf.InfDB;
  */
 public class AlienMetoder {
 
-    private static InfDB idb = Main.getDB();
+    private static InfDB idb;
+    private static StartSkärm ettFönster; 
 
-    public AlienMetoder() {
+    public AlienMetoder(StartSkärm ettFönster) {
+        idb = Main.getDB();
+        this.ettFönster = ettFönster;
 
     }
 

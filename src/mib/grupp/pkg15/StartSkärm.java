@@ -19,6 +19,7 @@ public class StartSkärm extends javax.swing.JFrame {
 
     private static InfDB idb;
     private AgentMetoder AgentM;
+    private AlienMetoder AlienM;
 
     /**
      * Creates new form StartSkärm
@@ -27,6 +28,7 @@ public class StartSkärm extends javax.swing.JFrame {
         initComponents();
         idb = db;
         AgentM = new AgentMetoder(this);
+        AlienM = new AlienMetoder(this);
 
     }
 
