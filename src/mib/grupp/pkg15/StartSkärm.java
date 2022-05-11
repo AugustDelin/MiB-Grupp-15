@@ -18,6 +18,7 @@ import oru.inf.InfException;
 public class StartSkärm extends javax.swing.JFrame {
 
     private static InfDB idb;
+    private AgentMetoder AgentM;
 
     /**
      * Creates new form StartSkärm
@@ -25,6 +26,7 @@ public class StartSkärm extends javax.swing.JFrame {
     public StartSkärm(InfDB db) {
         initComponents();
         idb = db;
+        AgentM = new AgentMetoder(this);
 
     }
 
@@ -183,7 +185,8 @@ public class StartSkärm extends javax.swing.JFrame {
 
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
         AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
-        dispose();
+        dispose();    
+        
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 
     /**
