@@ -58,6 +58,10 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         lblNyttLösenord.setText("Nytt lösenord");
 
+        pwfGammaltLösenord.setColumns(5);
+
+        pwfNyttLösenord.setColumns(5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,7 +85,7 @@ public class AlienMinSida extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(btnBytLösenord)))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
