@@ -182,32 +182,8 @@ public class StartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
-        if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
-            try {
-                //hämtar användarnamn ifrån loginruta
-                String användarnamn = txtStartAnvändarnamn.getText();
-
-                // hämta lösenordet som matchar angivet användarnamn ifrån databasen
-                String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
-
-                //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-                if (Validera.kollaLösen(lösenord, pwfStartLogin)) {
-                    
-                    //om ovan villkor är true skapas en ny ruta
-                    new AgentStartSkärm(användarnamn).setVisible(true);
-                    setVisible(false);
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Lösenord är felaktigt.");
-                }
-
-            } catch (InfException ex) {
-                Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
-
-            } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
-            }
-        }
+        AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
+        dispose();
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 
     /**

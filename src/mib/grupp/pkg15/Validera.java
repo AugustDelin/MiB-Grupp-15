@@ -45,4 +45,13 @@ public class Validera {
         }
         return resultat;
     }
+    
+    public static boolean kollaNullvärde(String variabelAttKolla){
+        boolean resultat = true;
+        if(variabelAttKolla == null){
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt användarnamn");
+        }
+        return resultat;
+    }
 }
