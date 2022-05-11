@@ -20,6 +20,7 @@ public class StartSkärm extends javax.swing.JFrame {
     private static InfDB idb;
     private AgentMetoder AgentM;
     private AlienMetoder AlienM;
+    private AdminMetoder AdminM;
 
     /**
      * Creates new form StartSkärm
@@ -29,6 +30,7 @@ public class StartSkärm extends javax.swing.JFrame {
         idb = db;
         AgentM = new AgentMetoder(this);
         AlienM = new AlienMetoder(this);
+        AdminM = new AdminMetoder(this);
 
     }
 
@@ -129,65 +131,41 @@ public class StartSkärm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
-        if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
-            try {
-                //hämtar användarnamn ifrån loginruta
-                String användarnamn = txtStartAnvändarnamn.getText();
-
-                // hämta lösenordet som matchar angivet användarnamn ifrån databasen
-                String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
-
-                // hämta adminstatus från databasen
-                String adminstatus = idb.fetchSingle("Select Administrator from agent where namn = '" + användarnamn + "'");
-
-                //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-                if (Validera.kollaLösen(lösenord, pwfStartLogin) && Validera.kollaAdmin(adminstatus)) {
-                    //om ovan villkor är true skapas en ny ruta
-                    new AdminStartSkärm(användarnamn).setVisible(true);
-                    setVisible(false);
-
-                }
-
-            } catch (InfException ex) {
-                Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
-
-            } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
-            }
-        }
+AdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
+//        if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
+//            try {
+//                //hämtar användarnamn ifrån loginruta
+//                String användarnamn = txtStartAnvändarnamn.getText();
+//
+//                // hämta lösenordet som matchar angivet användarnamn ifrån databasen
+//                String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
+//
+//                // hämta adminstatus från databasen
+//                String adminstatus = idb.fetchSingle("Select Administrator from agent where namn = '" + användarnamn + "'");
+//
+//                //jämför inskrivet lösen med det som står skrivet i rutan lösenord
+//                if (Validera.kollaLösen(lösenord, pwfStartLogin) && Validera.kollaAdmin(adminstatus)) {
+//                    //om ovan villkor är true skapas en ny ruta
+//                    new AdminStartSkärm(användarnamn).setVisible(true);
+//                    setVisible(false);
+//
+//                }
+//
+//            } catch (InfException ex) {
+//                Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
+//
+//            } catch (NullPointerException e) {
+//                JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
+//            }
+//        }
     }//GEN-LAST:event_btnLoginAdminActionPerformed
 
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
-        if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
-            try {
-                //hämtar användarnamn ifrån loginruta
-                String användarnamn = txtStartAnvändarnamn.getText();
-
-                // hämta lösenordet som matchar angivet användarnamn ifrån databasen
-                String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
-
-                //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-                if (Validera.kollaLösen(lösenord, pwfStartLogin)) {
-                    //om ovan villkor är true skapas en ny ruta
-                    new AlienStartSkärm(användarnamn).setVisible(true);
-                    setVisible(false);
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Lösenord är felaktigt.");
-                }
-
-            } catch (InfException ex) {
-                Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
-
-            } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
-            }
-        }
+        AlienMetoder.loggaInAlien(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
-        AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
-        dispose();    
+        AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);   
         
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 
