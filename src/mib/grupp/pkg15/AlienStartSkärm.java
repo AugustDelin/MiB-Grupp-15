@@ -25,11 +25,8 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         this.användarnamn = användarnamn;
         lblRubrik.setText("Välkommen: " + användarnamn);
         idb = Main.getDB();
+        AlienMetoder.visaOC(lblMinOc);
     }
-//SELECT agent.NAMN from agent
-//join omradeschef o on agent.Agent_ID = o.Agent_ID
-//join alien on Plats = Agent.Omrade
-//where alien.namn = 'Bobbo'
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
