@@ -37,7 +37,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         btnAlienInfo = new javax.swing.JButton();
         btnAgentUtrustning = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblRubrik.setText("jLabel1");
 

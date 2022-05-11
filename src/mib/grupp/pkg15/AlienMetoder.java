@@ -40,7 +40,7 @@ public class AlienMetoder {
 
                     //om ovan villkor är true skapas en ny ruta
                     new AlienStartSkärm(användarnamn).setVisible(true);
-                    //StartSkärm.setVisible(false);
+                    ettFönster.dispose();
                 }
 
             } catch (InfException ex) {
@@ -49,9 +49,9 @@ public class AlienMetoder {
         }
     }
     
-    public static void visaOC(JLabel ettFönster) {
+    public static void visaOC(JLabel ettFönster, String användarnamn) {
         try {
-            String OC = idb.fetchSingle("SELECT agent.NAMN from agent join omradeschef o on agent.Agent_ID = o.Agent_ID join alien on Plats = Agent.Omrade where alien .namn = 'Bobbo'");
+            String OC = idb.fetchSingle("SELECT agent.NAMN from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join alien on Plats = Agent.Omrade where alien .namn = '" + användarnamn+"'");
             ettFönster.setText("Din områdeschef är: " + OC);
         } catch (InfException ex) {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);

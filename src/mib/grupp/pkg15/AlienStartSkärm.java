@@ -13,8 +13,6 @@ import oru.inf.InfDB;
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
 
-
-
     /**
      * Creates new form AlienStartSkärm
      */
@@ -22,7 +20,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         lblRubrik.setText("Välkommen: " + användarnamn);
-        AlienMetoder.visaOC(lblMinOc);
+        AlienMetoder.visaOC(lblMinOc, användarnamn);
     }
     
     
@@ -39,7 +37,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         lblMinOc = new javax.swing.JLabel();
         btnMinSida = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblRubrik.setText("Välkommen");
 
