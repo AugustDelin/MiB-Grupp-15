@@ -23,6 +23,16 @@ public class Validera {
         }
         return resultat;
     }
+    
+    public static boolean kollaTomPWF(JPasswordField enRuta) {
+        boolean resultat = true;
+        if (enRuta.getText().isEmpty()) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Någon ruta är tom.");
+            enRuta.requestFocus();
+        }
+        return resultat;
+    }
 
     public static boolean kollaLösen(String enSträng, JPasswordField lösenruta) {
         // kontrollerar om lösenord stämmer

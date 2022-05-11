@@ -7,6 +7,7 @@ package mib.grupp.pkg15;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import oru.inf.InfException;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -59,5 +60,20 @@ public class AlienMetoder {
         
                 
     }
+    
+    public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen){
+        if(Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
+        try {
+            String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
+            if(Validera.kollaLösen(lösenord, gammaltlösen)){
+                String nyttLösenord = nyttlösen.getText();
+                idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
+                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 }
+
 

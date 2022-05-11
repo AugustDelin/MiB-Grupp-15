@@ -14,6 +14,7 @@ import oru.inf.InfException;
  * @author augustdelin
  */
 public class AlienMinSida extends javax.swing.JFrame {
+
     private String användarnamn;
     private static InfDB idb;
 
@@ -109,18 +110,18 @@ public class AlienMinSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
-        try {
-            String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
-            if(Validera.kollaLösen(lösenord, pwfGammaltLösenord)){
-                String nyttLösenord = pwfNyttLösenord.getText();
-                idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(AlienMinSida.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        AlienMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
+//        try {
+//            String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
+//            if(Validera.kollaLösen(lösenord, pwfGammaltLösenord)){
+//                String nyttLösenord = pwfNyttLösenord.getText();
+//                idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
+//            }
+//        } catch (InfException ex) {
+//            Logger.getLogger(AlienMinSida.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_btnBytLösenordActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBytLösenord;
