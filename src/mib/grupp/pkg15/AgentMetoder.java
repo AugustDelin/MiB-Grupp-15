@@ -17,9 +17,12 @@ import oru.inf.InfException;
  */
 public class AgentMetoder {
     
-    private static InfDB idb = Main.getDB();
+    private static InfDB idb; 
+    private static StartSkärm ettFönster;
     
-    public AgentMetoder(){
+    public AgentMetoder(StartSkärm ettFönster){
+        this.ettFönster = ettFönster;
+        idb = Main.getDB();
         
     }
     
@@ -38,8 +41,8 @@ public class AgentMetoder {
 
                     //om ovan villkor är true skapas en ny ruta
                     new AgentStartSkärm(användarnamn).setVisible(true);
-                    //StartSkärm.setVisible(false);
-
+                    ettFönster.dispose();
+                    
                 }
 
             } catch (InfException ex) {
