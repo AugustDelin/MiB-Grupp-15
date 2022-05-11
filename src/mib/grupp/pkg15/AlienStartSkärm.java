@@ -12,7 +12,6 @@ import oru.inf.InfDB;
  */
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
-    private static InfDB idb;
 
 
 
@@ -22,9 +21,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     public AlienStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        this.användarnamn = användarnamn;
         lblRubrik.setText("Välkommen: " + användarnamn);
-        idb = Main.getDB();
         AlienMetoder.visaOC(lblMinOc);
     }
     /**
