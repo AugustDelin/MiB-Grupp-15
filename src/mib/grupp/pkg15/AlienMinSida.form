@@ -24,48 +24,27 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnMinSida" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblMinOc" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="270" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Component id="btnBytLösenord" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="253" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblMinOc" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnMinSida" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="196" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Component id="btnBytLösenord" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="226" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblRubrik">
+    <Component class="javax.swing.JButton" name="btnBytL&#xf6;senord">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen"/>
+        <Property name="text" type="java.lang.String" value="Byt L&#xf6;senord"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblMinOc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Min omr&#xe5;deschef &#xe4;r:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnMinSida">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Min Sida"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinSidaActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

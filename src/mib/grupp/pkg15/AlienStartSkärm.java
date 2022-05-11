@@ -24,6 +24,8 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         lblRubrik.setText("Välkommen: " + användarnamn);
         AlienMetoder.visaOC(lblMinOc);
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,16 +36,21 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     private void initComponents() {
 
         lblRubrik = new javax.swing.JLabel();
-        lblMinSida = new javax.swing.JLabel();
         lblMinOc = new javax.swing.JLabel();
+        btnMinSida = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblRubrik.setText("Välkommen");
 
-        lblMinSida.setText("Mina sida");
-
         lblMinOc.setText("Min områdeschef är:");
+
+        btnMinSida.setText("Min Sida");
+        btnMinSida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinSidaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,8 +59,8 @@ public class AlienStartSkärm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMinSida)
                     .addComponent(lblMinOc)
-                    .addComponent(lblMinSida)
                     .addComponent(lblRubrik))
                 .addContainerGap(270, Short.MAX_VALUE))
         );
@@ -63,20 +70,24 @@ public class AlienStartSkärm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(lblRubrik)
                 .addGap(18, 18, 18)
-                .addComponent(lblMinSida)
-                .addGap(18, 18, 18)
                 .addComponent(lblMinOc)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnMinSida)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
+        new AlienMinSida(användarnamn).setVisible(true);
+    }//GEN-LAST:event_btnMinSidaActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMinSida;
     private javax.swing.JLabel lblMinOc;
-    private javax.swing.JLabel lblMinSida;
     private javax.swing.JLabel lblRubrik;
     // End of variables declaration//GEN-END:variables
 }
