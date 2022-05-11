@@ -51,7 +51,7 @@ public class AlienMetoder {
     
     public static void visaOC(JLabel ettFönster, String användarnamn) {
         try {
-            String OC = idb.fetchSingle("SELECT agent.NAMN from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join alien on Plats = Agent.Omrade where alien .namn = '" + användarnamn+"'");
+            String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '"+ användarnamn+"'");
             ettFönster.setText("Din områdeschef är: " + OC);
         } catch (InfException ex) {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
