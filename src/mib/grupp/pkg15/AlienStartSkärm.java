@@ -13,8 +13,6 @@ import oru.inf.InfDB;
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
 
-
-
     /**
      * Creates new form AlienStartSkärm
      */
@@ -22,7 +20,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         lblRubrik.setText("Välkommen: " + användarnamn);
-        AlienMetoder.visaOC(lblMinOc);
+        AlienMetoder.visaOC(lblMinOc, användarnamn);
     }
     /**
      * This method is called from within the constructor to initialize the form.
