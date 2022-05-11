@@ -35,9 +35,10 @@ public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lö
 
                 // hämta lösenordet som matchar angivet användarnamn ifrån databasen
                 String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
-
+                // hämta adminstatus från databasen
+                String adminstatus = idb.fetchSingle("Select Administrator from agent where namn = '" + användarnamn + "'");
                 //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-                if (Validera.kollaNullvärde(lösenord) && Validera.kollaLösen(lösenord, lösenruta)) {
+                if (Validera.kollaNullvärde(lösenord) && Validera.kollaLösen(lösenord, lösenruta) && Validera.kollaAdmin(adminstatus)) {
 
                     //om ovan villkor är true skapas en ny ruta
                     new AdminStartSkärm(användarnamn).setVisible(true);
