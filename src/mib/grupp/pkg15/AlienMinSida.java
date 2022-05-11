@@ -4,12 +4,18 @@
  */
 package mib.grupp.pkg15;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author augustdelin
  */
 public class AlienMinSida extends javax.swing.JFrame {
     private String användarnamn;
+    private static InfDB idb;
 
     /**
      * Creates new form AlienMinSida
@@ -17,6 +23,8 @@ public class AlienMinSida extends javax.swing.JFrame {
     public AlienMinSida(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
+        lblRubrik.setText(användarnamn);
+        idb = Main.getDB();
     }
 
     /**
@@ -30,10 +38,10 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         btnBytLösenord = new javax.swing.JButton();
         lblRubrik = new javax.swing.JLabel();
-        txtGammaltLösenord = new javax.swing.JTextField();
         lblGammaltLösenord = new javax.swing.JLabel();
         lblNyttLösenord = new javax.swing.JLabel();
-        txtNyttLösenord = new javax.swing.JTextField();
+        pwfGammaltLösenord = new javax.swing.JPasswordField();
+        pwfNyttLösenord = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,13 +54,13 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         lblRubrik.setText("Min Sida");
 
-        txtGammaltLösenord.setText("jTextField1");
-
         lblGammaltLösenord.setText("Gammal lösenord");
 
         lblNyttLösenord.setText("Nytt lösenord");
 
-        txtNyttLösenord.setText("jTextField1");
+        pwfGammaltLösenord.setText("jPasswordField1");
+
+        pwfNyttLösenord.setText("jPasswordField2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,17 +73,19 @@ public class AlienMinSida extends javax.swing.JFrame {
                         .addComponent(lblRubrik))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNyttLösenord)
-                            .addComponent(lblGammaltLösenord))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNyttLösenord)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblGammaltLösenord)
+                                .addGap(60, 60, 60)
+                                .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(btnBytLösenord)))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,12 +94,12 @@ public class AlienMinSida extends javax.swing.JFrame {
                 .addComponent(lblRubrik)
                 .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblGammaltLösenord))
+                    .addComponent(lblGammaltLösenord)
+                    .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyttLösenord)
-                    .addComponent(txtNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(btnBytLösenord)
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -99,8 +109,16 @@ public class AlienMinSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
-        boolean resultat = true;
-        
+        try {
+            boolean resultat = true;
+            String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
+            if(Validera.kollaLösen(lösenord, pwfGammaltLösenord)){
+                String nyttLösenord = pwfNyttLösenord.getText();
+                idb.update("UPDATE alien SET lösenord=nyttLösenord where namn ='" + användarnamn +  "'");
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AlienMinSida.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBytLösenordActionPerformed
 
     
@@ -110,7 +128,7 @@ public class AlienMinSida extends javax.swing.JFrame {
     private javax.swing.JLabel lblGammaltLösenord;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JLabel lblRubrik;
-    private javax.swing.JTextField txtGammaltLösenord;
-    private javax.swing.JTextField txtNyttLösenord;
+    private javax.swing.JPasswordField pwfGammaltLösenord;
+    private javax.swing.JPasswordField pwfNyttLösenord;
     // End of variables declaration//GEN-END:variables
 }
