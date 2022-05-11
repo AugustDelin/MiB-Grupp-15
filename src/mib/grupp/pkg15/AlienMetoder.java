@@ -40,7 +40,7 @@ public class AlienMetoder {
 
                     //om ovan villkor är true skapas en ny ruta
                     new AlienStartSkärm(användarnamn).setVisible(true);
-                    //StartSkärm.setVisible(false);
+                    ettFönster.dispose();
                 }
 
             } catch (InfException ex) {

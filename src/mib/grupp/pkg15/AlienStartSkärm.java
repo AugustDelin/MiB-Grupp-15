@@ -35,7 +35,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         lblMinSida = new javax.swing.JLabel();
         lblMinOc = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblRubrik.setText("Välkommen");
 
