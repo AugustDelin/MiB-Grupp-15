@@ -4,6 +4,8 @@
  */
 package mib.grupp.pkg15;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author erike
@@ -17,6 +19,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
     public AgentStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
+        lblRubrik.setText("Välkommen: " + användarnamn);
     }
 
     /**

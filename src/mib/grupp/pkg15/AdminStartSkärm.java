@@ -10,7 +10,6 @@ import oru.inf.InfDB;
  */
 public class AdminStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
-    private static InfDB idb;
     /**
      * Creates new form AdminStartSkärm
      */
@@ -25,7 +24,6 @@ public class AdminStartSkärm extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         lblRubrik.setText("Välkommen: " + användarnamn);
-        idb = Main.getDB();
     }
 
     /**
