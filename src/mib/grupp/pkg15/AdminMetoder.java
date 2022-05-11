@@ -17,16 +17,17 @@ import oru.inf.InfException;
  * @author Linda
  */
 public class AdminMetoder {
-    private static InfDB idb; 
+
+    private static InfDB idb;
     private static StartSkärm ettFönster;
-    
-    public AdminMetoder(StartSkärm ettFönster){
+
+    public AdminMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
-    
-}
 
-public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lösenruta){
+    }
+
+    public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lösenruta) {
         //idb = Main.getDB();
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {
@@ -43,7 +44,7 @@ public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lö
                     //om ovan villkor är true skapas en ny ruta
                     new AdminStartSkärm(användarnamn).setVisible(true);
                     ettFönster.dispose();
-                    
+
                 }
 
             } catch (InfException ex) {
@@ -52,5 +53,5 @@ public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lö
             }
         }
     }
-    
+
 }

@@ -132,32 +132,6 @@ public class StartSkärm extends javax.swing.JFrame {
 
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
 AdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
-//        if (Validera.kollaTom(txtStartAnvändarnamn) && Validera.kollaTom(pwfStartLogin)) {
-//            try {
-//                //hämtar användarnamn ifrån loginruta
-//                String användarnamn = txtStartAnvändarnamn.getText();
-//
-//                // hämta lösenordet som matchar angivet användarnamn ifrån databasen
-//                String lösenord = idb.fetchSingle("Select Losenord from agent where namn ='" + användarnamn + "'");
-//
-//                // hämta adminstatus från databasen
-//                String adminstatus = idb.fetchSingle("Select Administrator from agent where namn = '" + användarnamn + "'");
-//
-//                //jämför inskrivet lösen med det som står skrivet i rutan lösenord
-//                if (Validera.kollaLösen(lösenord, pwfStartLogin) && Validera.kollaAdmin(adminstatus)) {
-//                    //om ovan villkor är true skapas en ny ruta
-//                    new AdminStartSkärm(användarnamn).setVisible(true);
-//                    setVisible(false);
-//
-//                }
-//
-//            } catch (InfException ex) {
-//                Logger.getLogger(StartSkärm.class.getName()).log(Level.SEVERE, null, ex);
-//
-//            } catch (NullPointerException e) {
-//                JOptionPane.showMessageDialog(null, "Användarnamn finns ej.");
-//            }
-//        }
     }//GEN-LAST:event_btnLoginAdminActionPerformed
 
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
