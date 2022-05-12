@@ -16,8 +16,22 @@ public class Navigera {
     
     public static void openStartSkärm()
     {
-        new StartSkärm();
+        new StartSkärm().setVisible(true);
     }
-            
+    
+    public static void openAlienStartSkärm(String användarnamn)
+    {
+        new AlienStartSkärm(användarnamn).setVisible(true);
+    }
+    
+    public static void openAgentStartSkärm(String användarnamn)
+    {
+        new AgentStartSkärm(användarnamn).setVisible(true);
+    }
+    
+    public static void avslutaProgram()
+    {
+        System.exit(0);
+    }
     
 }
