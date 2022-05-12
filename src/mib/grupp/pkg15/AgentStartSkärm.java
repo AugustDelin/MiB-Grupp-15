@@ -118,7 +118,6 @@ public class AgentStartSkärm extends javax.swing.JFrame {
 
     private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
         Navigera.openAgentMinSida(användarnamn);
-        dispose();
     }//GEN-LAST:event_btnMinSidaActionPerformed
 
     private void lblAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAvslutaActionPerformed
