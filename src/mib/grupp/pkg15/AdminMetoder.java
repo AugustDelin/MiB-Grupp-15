@@ -21,6 +21,7 @@ public class AdminMetoder {
 
     private static InfDB idb;
     private static StartSkärm ettFönster;
+
 // Konstruktorn för klassen AdminMetoder.
     public AdminMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
@@ -28,6 +29,7 @@ public class AdminMetoder {
 
     }
 //Metoden för att logga in som Admin.
+
     public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lösenruta) {
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {

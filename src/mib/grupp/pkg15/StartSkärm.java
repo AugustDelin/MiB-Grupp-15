@@ -15,6 +15,7 @@ import oru.inf.InfException;
  *
  * @author Linda
  */
+// Fälten för Startskärm.
 public class StartSkärm extends javax.swing.JFrame {
 
     private static InfDB idb;
@@ -23,7 +24,7 @@ public class StartSkärm extends javax.swing.JFrame {
     private AdminMetoder AdminM;
 
     /**
-     * Creates new form StartSkärm
+     * Konstruktorn för Startskärm
      */
     public StartSkärm() {
         initComponents();

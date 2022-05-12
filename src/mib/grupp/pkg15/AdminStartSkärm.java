@@ -10,12 +10,11 @@ import oru.inf.InfDB;
  *
  * @author erike
  */
+    //Fälten för klassen AdminStartskärm.
 public class AdminStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
 
-    /**
-     * Creates new form AgentStartSkärm
-     */
+//    Konstruktorn för AdminStartskärm.
     public AdminStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;

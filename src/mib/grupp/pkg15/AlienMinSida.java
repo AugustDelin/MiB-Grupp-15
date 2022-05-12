@@ -13,13 +13,13 @@ import oru.inf.InfException;
  *
  * @author augustdelin
  */
+//Fälten för AlienMinSida.
 public class AlienMinSida extends javax.swing.JFrame {
 
     private String användarnamn;
-    
 
     /**
-     * Creates new form AlienMinSida
+     * Konstruktorn för AlienMinSida.
      */
     public AlienMinSida(String användarnamn) {
         initComponents();
@@ -162,32 +162,23 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Knappen för att starta metoden BytaLösenord.
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
         AlienMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
-//        try {
-//            String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
-//            if(Validera.kollaLösen(lösenord, pwfGammaltLösenord)){
-//                String nyttLösenord = pwfNyttLösenord.getText();
-//                idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
-//            }
-//        } catch (InfException ex) {
-//            Logger.getLogger(AlienMinSida.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }//GEN-LAST:event_btnBytLösenordActionPerformed
-
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
-
+    // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-       Navigera.openAlienStartSkärm(användarnamn);
-       dispose();
+        Navigera.openAlienStartSkärm(användarnamn);
+        dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
-       Navigera.avslutaProgram();
+        Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
 
 

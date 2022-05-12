@@ -20,7 +20,6 @@ import oru.inf.InfException;
  *
  * @author erike
  */
-public class AgentMetoder {
 // Fälten för klassen AgentMetoder.
 
     private static InfDB idb;
@@ -112,20 +111,20 @@ public class AgentMetoder {
         }
 
     }
-    
+
      public static void listaAliensPerRas(JTextArea lista, JComboBox låda)
      {
          String valdRas = Validera.hamtaCbSträng(låda);
          switch(valdRas)
-         { 
+         {
              case "Bogolite":
-                
+
                  break;
              case "Squid":
-                 
+
                  break;
              case "Worm":
-                 
+
                  break;
          }
      }

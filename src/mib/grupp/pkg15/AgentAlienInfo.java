@@ -8,11 +8,12 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
+// Fälten för AgentAlienInfo.
 public class AgentAlienInfo extends javax.swing.JFrame {
     private String användarnamn;
 
     /**
-     * Creates new form AgentAlienInfo
+     * Konstruktorn för AgentAlienInfo.
      */
     public AgentAlienInfo(String användarnamn) {
         initComponents();

@@ -10,11 +10,12 @@ import oru.inf.InfDB;
  *
  * @author erike
  */
+//Fälten för AlienStartSkärm.
 public class AlienStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
 
     /**
-     * Creates new form AlienStartSkärm
+     * Konstruktorn för AlienStartSkärm.
      */
     public AlienStartSkärm(String användarnamn) {
         initComponents();

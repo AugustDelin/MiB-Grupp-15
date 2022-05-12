@@ -13,12 +13,13 @@ import oru.inf.InfException;
  *
  * @author Linda
  */
+//    Fälten för AgentMinSida.
 public class AgentMinSida extends javax.swing.JFrame {
     private String användarnamn;
     private static InfDB idb;
 
     /**
-     * Creates new form AgentMinSida
+     * Konstruktorn för AgentMinSida.
      */
     public AgentMinSida(String användarnamn) {
         initComponents();
@@ -155,20 +156,20 @@ public class AgentMinSida extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Knapppen för att starta metoden BytaLösenord.
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
         AgentMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
     }//GEN-LAST:event_btnBytLösenordActionPerformed
-
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
        Navigera.openStartSkärm();
        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
