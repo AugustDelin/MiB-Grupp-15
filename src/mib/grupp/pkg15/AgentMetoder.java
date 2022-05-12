@@ -21,16 +21,17 @@ import oru.inf.InfException;
  * @author erike
  */
 public class AgentMetoder {
-
+// Fälten för klassen AgentMetoder.
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
+//    Konstruktorn för klassen AgentMetoder.
     public AgentMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
 
     }
-
+// Metoden för att logga in som Agent.
     public static void loggainAgent(JTextField användarnamnRuta, JPasswordField lösenruta) {
 
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
@@ -56,7 +57,7 @@ public class AgentMetoder {
             }
         }
     }
-
+// Metod för att byta lösenord för Agent.
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
