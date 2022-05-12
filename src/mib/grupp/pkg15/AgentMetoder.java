@@ -4,10 +4,12 @@
  */
 package mib.grupp.pkg15;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -66,4 +68,15 @@ public class AgentMetoder {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
+    
+    public static void listaAliensPåPlats(JTextArea lista) {
+        try {
+            ArrayList<String> fråga = idb.fetchColumn("select alien_ID, namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = Västerås");
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    //for(String alien: fråga) {
+    //lista.append(alien);
 }
+
