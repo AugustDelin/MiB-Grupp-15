@@ -17,6 +17,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     public AgentAlienInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
+        cbAlienPlats.setVisible(false);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
         
 
@@ -35,6 +36,9 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         txtAreaListaAliens = new javax.swing.JTextArea();
         cbAlienPlats = new javax.swing.JComboBox<>();
         btnSokAlternativ = new javax.swing.JButton();
+        btnBacka = new javax.swing.JButton();
+        btnAvsluta = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +59,27 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        btnBacka.setText("Föregående Sida");
+        btnBacka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackaActionPerformed(evt);
+            }
+        });
+
+        btnAvsluta.setText("Avsluta program");
+        btnAvsluta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvslutaActionPerformed(evt);
+            }
+        });
+
+        btnLoggaUt.setText("Logga ut");
+        btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggaUtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,20 +91,35 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSokAlternativ)
-                    .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(154, 154, 154))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSokAlternativ)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLoggaUt))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBacka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(btnSokAlternativ)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btnSokAlternativ))
+                    .addComponent(btnLoggaUt))
                 .addGap(26, 26, 26)
                 .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBacka)
+                    .addComponent(btnAvsluta))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -91,7 +131,22 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
     private void btnSokAlternativActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlternativActionPerformed
        AgentMetoder.fyllCBPlats(cbAlienPlats);
+       cbAlienPlats.setVisible(true);
     }//GEN-LAST:event_btnSokAlternativActionPerformed
+
+    private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
+        Navigera.openAgentMinSida(användarnamn);
+        dispose();
+    }//GEN-LAST:event_btnBackaActionPerformed
+
+    private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
+        Navigera.avslutaProgram();
+    }//GEN-LAST:event_btnAvslutaActionPerformed
+
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+        Navigera.openStartSkärm();
+        dispose();
+    }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,6 +154,9 @@ public class AgentAlienInfo extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvsluta;
+    private javax.swing.JButton btnBacka;
+    private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnSokAlternativ;
     private javax.swing.JComboBox<String> cbAlienPlats;
     private javax.swing.JScrollPane jScrollPane2;
