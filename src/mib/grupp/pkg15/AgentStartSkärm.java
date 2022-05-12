@@ -53,6 +53,11 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         btnÄndraAlienInfo.setText("Ändra Alien Info");
 
         btnAlienInfo.setText("Alien Info");
+        btnAlienInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlienInfoActionPerformed(evt);
+            }
+        });
 
         btnAgentUtrustning.setText("Agent Utrustning");
 
@@ -128,6 +133,11 @@ public class AgentStartSkärm extends javax.swing.JFrame {
        Navigera.openStartSkärm();
        dispose();
     }//GEN-LAST:event_lblLoggautActionPerformed
+
+    private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
+        new AgentAlienInfo(användarnamn).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAlienInfoActionPerformed
 
     
 
