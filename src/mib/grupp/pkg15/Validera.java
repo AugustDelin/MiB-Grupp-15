@@ -66,7 +66,7 @@ public class Validera {
         }
         return resultat;
     }
-    //    Används i 
+    // Hämtar och returnerar strängar från komboboxar.
     public static String hamtaCbSträng(JComboBox enLåda) {
         String cbSträng = enLåda.getSelectedItem().toString();
         return cbSträng;
