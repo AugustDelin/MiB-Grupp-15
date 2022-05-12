@@ -64,7 +64,7 @@ public class AgentMetoder {
             if(Validera.kollaLösen(lösenord, gammaltlösen)){
                 String nyttLösenord = nyttlösen.getText();
                 idb.update("UPDATE AGENT SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
-                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats.");
+                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
