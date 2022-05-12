@@ -28,7 +28,6 @@ public class AdminMetoder {
     }
 
     public static void loggainAdmin(JTextField användarnamnRuta, JPasswordField lösenruta) {
-        //idb = Main.getDB();
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {
                 //hämtar användarnamn ifrån loginruta
