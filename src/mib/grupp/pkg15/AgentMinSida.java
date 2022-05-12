@@ -159,6 +159,7 @@ public class AgentMinSida extends javax.swing.JFrame {
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
+        dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
