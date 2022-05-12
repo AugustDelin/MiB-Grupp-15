@@ -43,12 +43,12 @@ public class AlienMinSida extends javax.swing.JFrame {
         lblNyttLösenord = new javax.swing.JLabel();
         pwfGammaltLösenord = new javax.swing.JPasswordField();
         pwfNyttLösenord = new javax.swing.JPasswordField();
-        lblBeskrivning = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBeskrivningLösenord = new javax.swing.JLabel();
+        lblBeskrivningLösenord2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnBytLösenord.setText("Byt Lösenord");
+        btnBytLösenord.setText("Byt lösenord");
         btnBytLösenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBytLösenordActionPerformed(evt);
@@ -57,7 +57,7 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         lblRubrik.setText("Min Sida");
 
-        lblGammaltLösenord.setText("Gammal lösenord");
+        lblGammaltLösenord.setText("Gammalt lösenord");
 
         lblNyttLösenord.setText("Nytt lösenord");
 
@@ -65,9 +65,9 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         pwfNyttLösenord.setColumns(5);
 
-        lblBeskrivning.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord ");
+        lblBeskrivningLösenord.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord ");
 
-        jLabel2.setText("nedan.");
+        lblBeskrivningLösenord2.setText("nedan.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,7 +84,7 @@ public class AlienMinSida extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblBeskrivning)
+                            .addComponent(lblBeskrivningLösenord)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblNyttLösenord)
@@ -94,7 +94,7 @@ public class AlienMinSida extends javax.swing.JFrame {
                                     .addComponent(lblGammaltLösenord)
                                     .addGap(60, 60, 60)
                                     .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel2))))
+                            .addComponent(lblBeskrivningLösenord2))))
                 .addContainerGap(9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,9 +103,9 @@ public class AlienMinSida extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(lblRubrik)
                 .addGap(68, 68, 68)
-                .addComponent(lblBeskrivning)
+                .addComponent(lblBeskrivningLösenord)
                 .addGap(4, 4, 4)
-                .addComponent(jLabel2)
+                .addComponent(lblBeskrivningLösenord2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGammaltLösenord)
@@ -138,8 +138,8 @@ public class AlienMinSida extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBytLösenord;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblBeskrivning;
+    private javax.swing.JLabel lblBeskrivningLösenord;
+    private javax.swing.JLabel lblBeskrivningLösenord2;
     private javax.swing.JLabel lblGammaltLösenord;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JLabel lblRubrik;

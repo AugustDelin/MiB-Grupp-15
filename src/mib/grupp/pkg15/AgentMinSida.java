@@ -27,21 +27,57 @@ public class AgentMinSida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        lblGammaltLösenord = new javax.swing.JLabel();
+        lblNyttLösenord = new javax.swing.JLabel();
+        lblBeskrivningLösenord = new javax.swing.JLabel();
+        lblBeskrivningLösenord2 = new javax.swing.JLabel();
+        pwfGammaltLösenord = new javax.swing.JPasswordField();
+        pwfNyttLösenord = new javax.swing.JPasswordField();
+        btnBytLösenord = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jLabel1.setText("Min Sida");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(38, 23, 46, 16);
+
+        lblGammaltLösenord.setText("Gammalt lösenord");
+        getContentPane().add(lblGammaltLösenord);
+        lblGammaltLösenord.setBounds(10, 150, 98, 16);
+
+        lblNyttLösenord.setText("Nytt lösenord");
+        getContentPane().add(lblNyttLösenord);
+        lblNyttLösenord.setBounds(10, 190, 80, 16);
+
+        lblBeskrivningLösenord.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord");
+        getContentPane().add(lblBeskrivningLösenord);
+        lblBeskrivningLösenord.setBounds(10, 100, 370, 22);
+
+        lblBeskrivningLösenord2.setText("nedan.");
+        getContentPane().add(lblBeskrivningLösenord2);
+        lblBeskrivningLösenord2.setBounds(10, 120, 36, 25);
+        getContentPane().add(pwfGammaltLösenord);
+        pwfGammaltLösenord.setBounds(170, 150, 70, 22);
+        getContentPane().add(pwfNyttLösenord);
+        pwfNyttLösenord.setBounds(170, 190, 70, 22);
+
+        btnBytLösenord.setText("Byt lösenord");
+        btnBytLösenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBytLösenordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBytLösenord);
+        btnBytLösenord.setBounds(50, 240, 100, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBytLösenordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +115,13 @@ public class AgentMinSida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBytLösenord;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblBeskrivningLösenord;
+    private javax.swing.JLabel lblBeskrivningLösenord2;
+    private javax.swing.JLabel lblGammaltLösenord;
+    private javax.swing.JLabel lblNyttLösenord;
+    private javax.swing.JPasswordField pwfGammaltLösenord;
+    private javax.swing.JPasswordField pwfNyttLösenord;
     // End of variables declaration//GEN-END:variables
 }
