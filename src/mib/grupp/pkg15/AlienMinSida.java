@@ -36,6 +36,7 @@ public class AlienMinSida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         btnBytLösenord = new javax.swing.JButton();
         lblRubrik = new javax.swing.JLabel();
         lblGammaltLösenord = new javax.swing.JLabel();
@@ -108,8 +109,7 @@ public class AlienMinSida extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnBytLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 10, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -123,6 +123,10 @@ public class AlienMinSida extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnAvsluta)))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(btnBytLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,9 +146,9 @@ public class AlienMinSida extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblNyttLösenord))
                     .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(btnBytLösenord)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
                     .addComponent(btnBacka))
@@ -187,6 +191,7 @@ public class AlienMinSida extends javax.swing.JFrame {
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnBytLösenord;
     private javax.swing.JButton btnLoggaut;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel lblBeskrivningLösenord;
     private javax.swing.JLabel lblGammaltLösenord;
     private javax.swing.JLabel lblNyttLösenord;
