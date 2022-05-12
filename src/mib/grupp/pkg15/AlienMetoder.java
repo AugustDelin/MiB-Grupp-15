@@ -17,16 +17,17 @@ import oru.inf.InfDB;
  * @author augustdelin
  */
 public class AlienMetoder {
-
+//Fälten för klassen AlienMetoder.
     private static InfDB idb;
     private static StartSkärm ettFönster; 
 
+//    Konstruktorn för klassen AlienMetoder.
     public AlienMetoder(StartSkärm ettFönster) {
         idb = Main.getDB();
         this.ettFönster = ettFönster;
 
     }
-
+//  Metoden för att logga in som Alien.
     public static void loggaInAlien(JTextField användarnamnRuta, JPasswordField lösenruta) {
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {
@@ -49,7 +50,7 @@ public class AlienMetoder {
             }
         }
     }
-    
+//    Metoden för att visa områdeschef.
     public static void visaOC(JLabel ettFönster, String användarnamn) {
         try {
             String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '"+ användarnamn+"'");
@@ -60,7 +61,7 @@ public class AlienMetoder {
         
                 
     }
-    
+//    Metoden för att byta lösenord för Alien.
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen){
         if(Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {

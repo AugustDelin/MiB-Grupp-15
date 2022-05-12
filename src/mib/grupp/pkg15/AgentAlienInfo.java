@@ -124,7 +124,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
     private void cbAlienPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatsActionPerformed
         AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlats);
     }//GEN-LAST:event_cbAlienPlatsActionPerformed
