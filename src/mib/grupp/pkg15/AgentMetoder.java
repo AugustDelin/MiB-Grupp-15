@@ -87,6 +87,11 @@ public class AgentMetoder {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void hamtaCbSträng()
+    {
+        
+    }
 
     
 }
