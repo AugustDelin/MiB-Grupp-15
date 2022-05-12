@@ -4,6 +4,7 @@
  */
 package mib.grupp.pkg15;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -63,5 +64,11 @@ public class Validera {
             JOptionPane.showMessageDialog(null, "Felaktigt användarnamn");
         }
         return resultat;
+    }
+    
+    public static String hamtaCbSträng(JComboBox enLåda)
+    {
+     String cbSträng = enLåda.getSelectedItem().toString();
+     return cbSträng;
     }
 }

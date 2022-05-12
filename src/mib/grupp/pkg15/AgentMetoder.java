@@ -73,12 +73,13 @@ public class AgentMetoder {
 
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
         try {
+            String valdPlats;
             ArrayList<String> platser = idb.fetchColumn("select benamning from plats");
-            for(String plats : platser) {
-                låda.addItem(plats);
+            for(String enPlats : platser) {
+                låda.addItem(enPlats);
             }
-           
-            ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = 'Västerås'");
+           valdPlats = Validera.hamtaCbSträng(låda);
+            ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats +"'");
             for (String alien : aliensPåPlats) {
                 lista.append(alien + "\n");
             }
@@ -88,10 +89,7 @@ public class AgentMetoder {
         }
     }
     
-    public void hamtaCbSträng()
-    {
-        
-    }
+    
 
     
 }
