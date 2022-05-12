@@ -17,7 +17,9 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     public AgentAlienInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
+        AgentMetoder.fyllCB(cbAlienPlats);
         AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlats);
+        
 
     }
 

@@ -21,18 +21,18 @@ import oru.inf.InfException;
  * @author erike
  */
 public class AgentMetoder {
-    
-    private static InfDB idb; 
+
+    private static InfDB idb;
     private static StartSkärm ettFönster;
-    
-    public AgentMetoder(StartSkärm ettFönster){
+
+    public AgentMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
-        
+
     }
-    
-    public static void loggainAgent(JTextField användarnamnRuta, JPasswordField lösenruta){
-  
+
+    public static void loggainAgent(JTextField användarnamnRuta, JPasswordField lösenruta) {
+
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {
                 //hämtar användarnamn ifrån loginruta
@@ -47,7 +47,7 @@ public class AgentMetoder {
                     //om ovan villkor är true skapas en ny ruta
                     new AgentStartSkärm(användarnamn).setVisible(true);
                     ettFönster.dispose();
-                    
+
                 }
 
             } catch (InfException ex) {
@@ -56,41 +56,47 @@ public class AgentMetoder {
             }
         }
     }
-    
-    public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen){
-        if(Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
+
+    public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
+        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
             String lösenord = idb.fetchSingle("Select Losenord from AGENT where namn ='" + användarnamn + "'");
-            if(Validera.kollaLösen(lösenord, gammaltlösen)){
+            if (Validera.kollaLösen(lösenord, gammaltlösen)) {
                 String nyttLösenord = nyttlösen.getText();
-                idb.update("UPDATE AGENT SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
+                idb.update("UPDATE AGENT SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+    }
 
-    public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
+    public static void fyllCB(JComboBox låda) {
         try {
-            String valdPlats;
             ArrayList<String> platser = idb.fetchColumn("select benamning from plats order by benamning");
-            for(String enPlats : platser) {
+            for (String enPlats : platser) {
                 låda.addItem(enPlats);
-            }
-           valdPlats = Validera.hamtaCbSträng(låda);
-            ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats +"'");
-            for (String alien : aliensPåPlats) {
-                lista.append(alien + "\n");
             }
 
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
 
-    
+
+    public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
+
+        try {
+            //fyllCB(låda);
+            String valdPlats = Validera.hamtaCbSträng(låda);
+            ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats + "'");
+            for (String alien : aliensPåPlats) {
+                lista.append(alien + "\n");
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 }
-
