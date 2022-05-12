@@ -17,8 +17,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     public AgentAlienInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        AgentMetoder.fyllCB(cbAlienPlats);
-        AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlats);
+        AgentMetoder.fyllCBPlats(cbAlienPlats);
         
 
     }
@@ -41,6 +40,12 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         txtAreaListaAliens.setColumns(20);
         txtAreaListaAliens.setRows(5);
         jScrollPane2.setViewportView(txtAreaListaAliens);
+
+        cbAlienPlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlienPlatsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,6 +72,10 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbAlienPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatsActionPerformed
+        AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlats);
+    }//GEN-LAST:event_cbAlienPlatsActionPerformed
 
     /**
      * @param args the command line arguments

@@ -71,7 +71,7 @@ public class AgentMetoder {
         }
     }
 
-    public static void fyllCB(JComboBox låda) {
+    public static void fyllCBPlats(JComboBox låda) {
         try {
             ArrayList<String> platser = idb.fetchColumn("select benamning from plats order by benamning");
             for (String enPlats : platser) {
@@ -87,8 +87,9 @@ public class AgentMetoder {
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
 
         try {
-            //fyllCB(låda);
-            String valdPlats = Validera.hamtaCbSträng(låda);
+            //fyllCBPlats(låda);
+            String valdPlats = låda.getSelectedItem().toString();
+                    //Validera.hamtaCbSträng(låda);
             ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats + "'");
             for (String alien : aliensPåPlats) {
                 lista.append(alien + "\n");
