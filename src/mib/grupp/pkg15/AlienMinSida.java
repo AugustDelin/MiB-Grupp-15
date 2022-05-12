@@ -44,7 +44,9 @@ public class AlienMinSida extends javax.swing.JFrame {
         pwfGammaltLösenord = new javax.swing.JPasswordField();
         pwfNyttLösenord = new javax.swing.JPasswordField();
         lblBeskrivningLösenord = new javax.swing.JLabel();
-        lblBeskrivningLösenord2 = new javax.swing.JLabel();
+        btnLoggaut = new javax.swing.JButton();
+        btnBacka = new javax.swing.JButton();
+        btnAvsluta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,58 +67,85 @@ public class AlienMinSida extends javax.swing.JFrame {
 
         pwfNyttLösenord.setColumns(5);
 
-        lblBeskrivningLösenord.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord ");
+        lblBeskrivningLösenord.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord nedan: ");
 
-        lblBeskrivningLösenord2.setText("nedan.");
+        btnLoggaut.setText("Logga ut");
+        btnLoggaut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggautActionPerformed(evt);
+            }
+        });
+
+        btnBacka.setText("Föregående sida");
+        btnBacka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackaActionPerformed(evt);
+            }
+        });
+
+        btnAvsluta.setText("Avsluta program");
+        btnAvsluta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvslutaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblRubrik)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLoggaut))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblRubrik))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(btnBytLösenord))
+                        .addContainerGap()
+                        .addComponent(lblBeskrivningLösenord))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblBeskrivningLösenord)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBytLösenord)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNyttLösenord)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblGammaltLösenord)
-                                    .addGap(60, 60, 60)
-                                    .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblBeskrivningLösenord2))))
-                .addContainerGap(9, Short.MAX_VALUE))
+                                    .addComponent(lblGammaltLösenord))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBacka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrik)
+                    .addComponent(btnLoggaut))
                 .addGap(23, 23, 23)
-                .addComponent(lblRubrik)
-                .addGap(68, 68, 68)
                 .addComponent(lblBeskrivningLösenord)
-                .addGap(4, 4, 4)
-                .addComponent(lblBeskrivningLösenord2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGammaltLösenord)
-                    .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNyttLösenord)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblGammaltLösenord)
+                            .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNyttLösenord))
                     .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnBytLösenord)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBacka)
+                    .addComponent(btnAvsluta)))
         );
 
         pack();
@@ -135,11 +164,26 @@ public class AlienMinSida extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_btnBytLösenordActionPerformed
 
+    private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
+       Navigera.openStartSkärm();
+       dispose();
+    }//GEN-LAST:event_btnLoggautActionPerformed
+
+    private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
+       Navigera.openAlienStartSkärm(användarnamn);
+    }//GEN-LAST:event_btnBackaActionPerformed
+
+    private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
+       Navigera.avslutaProgram();
+    }//GEN-LAST:event_btnAvslutaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvsluta;
+    private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnBytLösenord;
+    private javax.swing.JButton btnLoggaut;
     private javax.swing.JLabel lblBeskrivningLösenord;
-    private javax.swing.JLabel lblBeskrivningLösenord2;
     private javax.swing.JLabel lblGammaltLösenord;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JLabel lblRubrik;
