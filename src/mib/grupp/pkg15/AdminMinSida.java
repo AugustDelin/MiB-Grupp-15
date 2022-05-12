@@ -23,7 +23,7 @@ public class AdminMinSida extends javax.swing.JFrame {
     public AdminMinSida(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        FyllText.inloggadSomAdmin(jLabel1, användarnamn);
+        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
     }
 
     /**
@@ -35,7 +35,7 @@ public class AdminMinSida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblMinSida = new javax.swing.JLabel();
         lblGammaltLösenord = new javax.swing.JLabel();
         lblNyttLösenord = new javax.swing.JLabel();
         lblBeskrivningLösenord = new javax.swing.JLabel();
@@ -49,7 +49,7 @@ public class AdminMinSida extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Min Sida");
+        lblMinSida.setText("Min Sida");
 
         lblGammaltLösenord.setText("Gammalt lösenord");
 
@@ -117,7 +117,7 @@ public class AdminMinSida extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblMinSida)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnLoggaut))
                             .addGroup(layout.createSequentialGroup()
@@ -133,7 +133,7 @@ public class AdminMinSida extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLoggaut)
-                    .addComponent(jLabel1))
+                    .addComponent(lblMinSida))
                 .addGap(18, 18, 18)
                 .addComponent(lblBeskrivningLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
@@ -179,10 +179,10 @@ public class AdminMinSida extends javax.swing.JFrame {
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnBytLösenord;
     private javax.swing.JButton btnLoggaut;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBeskrivningLösenord;
     private javax.swing.JLabel lblGammaltLösenord;
     private javax.swing.JLabel lblInloggadSom;
+    private javax.swing.JLabel lblMinSida;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JPasswordField pwfGammaltLösenord;
     private javax.swing.JPasswordField pwfNyttLösenord;

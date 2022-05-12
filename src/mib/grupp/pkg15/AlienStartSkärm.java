@@ -36,6 +36,8 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         lblRubrik = new javax.swing.JLabel();
         lblMinOc = new javax.swing.JLabel();
         btnMinSida = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
+        btnAvsluta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -50,6 +52,20 @@ public class AlienStartSkärm extends javax.swing.JFrame {
             }
         });
 
+        btnLoggaUt.setText("Logga ut");
+        btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggaUtActionPerformed(evt);
+            }
+        });
+
+        btnAvsluta.setText("Avsluta program");
+        btnAvsluta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvslutaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,21 +73,33 @@ public class AlienStartSkärm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMinSida)
-                    .addComponent(lblMinOc)
-                    .addComponent(lblRubrik))
-                .addContainerGap(270, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMinSida)
+                            .addComponent(lblMinOc))
+                        .addContainerGap(270, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblRubrik)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLoggaUt))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblRubrik)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblRubrik))
+                    .addComponent(btnLoggaUt))
                 .addGap(18, 18, 18)
                 .addComponent(lblMinOc)
                 .addGap(18, 18, 18)
                 .addComponent(btnMinSida)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
         );
 
         pack();
@@ -81,9 +109,20 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         new AlienMinSida(användarnamn).setVisible(true);
     }//GEN-LAST:event_btnMinSidaActionPerformed
 
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+       Navigera.openStartSkärm();
+       dispose();
+    }//GEN-LAST:event_btnLoggaUtActionPerformed
+
+    private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
+        Navigera.avslutaProgram();
+    }//GEN-LAST:event_btnAvslutaActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvsluta;
+    private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnMinSida;
     private javax.swing.JLabel lblMinOc;
     private javax.swing.JLabel lblRubrik;

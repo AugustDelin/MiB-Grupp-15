@@ -25,16 +25,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnMinSida" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAlienInfo" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnAlienInfo" max="32767" attributes="0"/>
+                  <Component id="btnMinSida" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnÄndraAlienInfo" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAgentUtrustning" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnÄndraAlienInfo" max="32767" attributes="0"/>
+                  <Component id="btnAgentUtrustning" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <EmptySpace pref="106" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAgentUtrustning">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agent Utrustning"/>
+        <Property name="text" type="java.lang.String" value="Utrustning"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="lblLoggaut">

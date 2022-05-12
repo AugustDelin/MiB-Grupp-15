@@ -18,6 +18,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         cbAlienPlats.setVisible(false);
+        FyllText.inloggadSom(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
         
 
@@ -39,6 +40,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         btnBacka = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
+        lblInloggadSom = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +82,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        lblInloggadSom.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,9 +91,10 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInloggadSom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -108,7 +113,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addComponent(lblInloggadSom)
+                        .addGap(3, 3, 3)
                         .addComponent(btnSokAlternativ))
                     .addComponent(btnLoggaUt))
                 .addGap(26, 26, 26)
@@ -135,7 +141,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSokAlternativActionPerformed
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        Navigera.openAgentMinSida(användarnamn);
+        Navigera.openAgentStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
@@ -160,6 +166,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnSokAlternativ;
     private javax.swing.JComboBox<String> cbAlienPlats;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JTextArea txtAreaListaAliens;
     // End of variables declaration//GEN-END:variables
 }

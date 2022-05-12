@@ -22,6 +22,7 @@ import oru.inf.InfException;
  */
 public class AgentMetoder {
 // Fälten för klassen AgentMetoder.
+
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
@@ -32,6 +33,7 @@ public class AgentMetoder {
 
     }
 // Metoden för att logga in som Agent.
+
     public static void loggainAgent(JTextField användarnamnRuta, JPasswordField lösenruta) {
 
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
@@ -58,6 +60,7 @@ public class AgentMetoder {
         }
     }
 // Metod för att byta lösenord för Agent.
+
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
@@ -84,14 +87,11 @@ public class AgentMetoder {
         }
     }
 
-
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
-        
+
         lista.setText("");
         try {
-            //fyllCBPlats(låda);
-            String valdPlats = låda.getSelectedItem().toString();
-            //Validera.hamtaCbSträng(låda);
+            String valdPlats = Validera.hamtaCbSträng(låda);
             ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats + "'");
             for (String alien : aliensPåPlats) {
                 lista.append(alien + "\n");
@@ -100,4 +100,33 @@ public class AgentMetoder {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public static void fyllCBras(JComboBox enLåda) {
+        //Skapa en ArrayList och fyller denna med de tre raserna som finns
+        ArrayList<String> raslista = new ArrayList();
+        raslista.add("Bogolite");
+        raslista.add("Squid");
+        raslista.add("Worm");
+        for (String rasnamn : raslista) {
+            enLåda.addItem(rasnamn);
+        }
+
+    }
+    
+     public static void listaAliensPerRas(JTextArea lista, JComboBox låda)
+     {
+         String valdRas = Validera.hamtaCbSträng(låda);
+         switch(valdRas)
+         { 
+             case "Bogolite":
+                
+                 break;
+             case "Squid":
+                 
+                 break;
+             case "Worm":
+                 
+                 break;
+         }
+     }
 }
