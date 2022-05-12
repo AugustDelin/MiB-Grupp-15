@@ -5,11 +5,17 @@
  */
 package mib.grupp.pkg15;
 
+import oru.inf.InfDB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfException;
 /**
  *
  * @author Linda
  */
 public class AgentMinSida extends javax.swing.JFrame {
+    private String användarnamn;
+    private static InfDB idb;
 
     /**
      * Creates new form AgentMinSida
@@ -76,7 +82,7 @@ public class AgentMinSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
-        // TODO add your handling code here:
+        AgentMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
     }//GEN-LAST:event_btnBytLösenordActionPerformed
 
     /**
