@@ -17,7 +17,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     public AgentAlienInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        AgentMetoder.fyllCBPlats(cbAlienPlats);
+        //AgentMetoder.fyllCBPlats(cbAlienPlats);
         
 
     }
@@ -34,6 +34,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaListaAliens = new javax.swing.JTextArea();
         cbAlienPlats = new javax.swing.JComboBox<>();
+        btnSokAlternativ = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,13 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        btnSokAlternativ.setText("Välj Söktyp");
+        btnSokAlternativ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokAlternativActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,13 +65,17 @@ public class AgentAlienInfo extends javax.swing.JFrame {
                 .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(157, 157, 157))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSokAlternativ)
+                    .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(154, 154, 154))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(19, 19, 19)
+                .addComponent(btnSokAlternativ)
+                .addGap(26, 26, 26)
                 .addComponent(cbAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -77,12 +89,17 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlats);
     }//GEN-LAST:event_cbAlienPlatsActionPerformed
 
+    private void btnSokAlternativActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlternativActionPerformed
+       AgentMetoder.fyllCBPlats(cbAlienPlats);
+    }//GEN-LAST:event_btnSokAlternativActionPerformed
+
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSokAlternativ;
     private javax.swing.JComboBox<String> cbAlienPlats;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtAreaListaAliens;
