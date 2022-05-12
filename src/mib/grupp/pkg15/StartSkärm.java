@@ -25,9 +25,9 @@ public class StartSkärm extends javax.swing.JFrame {
     /**
      * Creates new form StartSkärm
      */
-    public StartSkärm(InfDB db) {
+    public StartSkärm() {
         initComponents();
-        idb = db;
+        idb = Main.getDB();
         AgentM = new AgentMetoder(this);
         AlienM = new AlienMetoder(this);
         AdminM = new AdminMetoder(this);
