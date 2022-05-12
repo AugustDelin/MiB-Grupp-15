@@ -20,8 +20,9 @@ public class AgentMinSida extends javax.swing.JFrame {
     /**
      * Creates new form AgentMinSida
      */
-    public AgentMinSida() {
+    public AgentMinSida(String användarnamn) {
         initComponents();
+        this.användarnamn = användarnamn;
     }
 
     /**
@@ -37,37 +38,22 @@ public class AgentMinSida extends javax.swing.JFrame {
         lblGammaltLösenord = new javax.swing.JLabel();
         lblNyttLösenord = new javax.swing.JLabel();
         lblBeskrivningLösenord = new javax.swing.JLabel();
-        lblBeskrivningLösenord2 = new javax.swing.JLabel();
         pwfGammaltLösenord = new javax.swing.JPasswordField();
         pwfNyttLösenord = new javax.swing.JPasswordField();
         btnBytLösenord = new javax.swing.JButton();
+        btnBacka = new javax.swing.JButton();
+        btnLoggaut = new javax.swing.JButton();
+        btnAvsluta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jLabel1.setText("Min Sida");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(38, 23, 46, 16);
 
         lblGammaltLösenord.setText("Gammalt lösenord");
-        getContentPane().add(lblGammaltLösenord);
-        lblGammaltLösenord.setBounds(10, 150, 98, 16);
 
         lblNyttLösenord.setText("Nytt lösenord");
-        getContentPane().add(lblNyttLösenord);
-        lblNyttLösenord.setBounds(10, 190, 80, 16);
 
-        lblBeskrivningLösenord.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord");
-        getContentPane().add(lblBeskrivningLösenord);
-        lblBeskrivningLösenord.setBounds(10, 100, 370, 22);
-
-        lblBeskrivningLösenord2.setText("nedan.");
-        getContentPane().add(lblBeskrivningLösenord2);
-        lblBeskrivningLösenord2.setBounds(10, 120, 36, 25);
-        getContentPane().add(pwfGammaltLösenord);
-        pwfGammaltLösenord.setBounds(170, 150, 70, 22);
-        getContentPane().add(pwfNyttLösenord);
-        pwfNyttLösenord.setBounds(170, 190, 70, 22);
+        lblBeskrivningLösenord.setText("För att ändra lösenord, vänligen mata in ditt gamla och nya lösenord nedan.");
 
         btnBytLösenord.setText("Byt lösenord");
         btnBytLösenord.addActionListener(new java.awt.event.ActionListener() {
@@ -75,8 +61,85 @@ public class AgentMinSida extends javax.swing.JFrame {
                 btnBytLösenordActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBytLösenord);
-        btnBytLösenord.setBounds(50, 240, 100, 22);
+
+        btnBacka.setText("Föregående sida");
+        btnBacka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackaActionPerformed(evt);
+            }
+        });
+
+        btnLoggaut.setText("Logga ut");
+        btnLoggaut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggautActionPerformed(evt);
+            }
+        });
+
+        btnAvsluta.setText("Avsluta program");
+        btnAvsluta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvslutaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(btnBytLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblBeskrivningLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblGammaltLösenord)
+                            .addComponent(lblNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLoggaut))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBacka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLoggaut)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(lblBeskrivningLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGammaltLösenord)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pwfGammaltLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pwfNyttLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNyttLösenord))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBytLösenord)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBacka)
+                    .addComponent(btnAvsluta)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,11 +148,26 @@ public class AgentMinSida extends javax.swing.JFrame {
         AgentMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
     }//GEN-LAST:event_btnBytLösenordActionPerformed
 
+    private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
+       Navigera.openStartSkärm();
+       dispose();
+    }//GEN-LAST:event_btnLoggautActionPerformed
+
+    private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
+        Navigera.avslutaProgram();
+    }//GEN-LAST:event_btnAvslutaActionPerformed
+
+    private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
+        Navigera.openAgentStartSkärm(användarnamn);
+    }//GEN-LAST:event_btnBackaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvsluta;
+    private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnBytLösenord;
+    private javax.swing.JButton btnLoggaut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBeskrivningLösenord;
-    private javax.swing.JLabel lblBeskrivningLösenord2;
     private javax.swing.JLabel lblGammaltLösenord;
     private javax.swing.JLabel lblNyttLösenord;
     private javax.swing.JPasswordField pwfGammaltLösenord;

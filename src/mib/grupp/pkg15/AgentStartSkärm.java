@@ -42,6 +42,11 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         lblRubrik.setText("jLabel1");
 
         btnMinSida.setText("Min Sida");
+        btnMinSida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinSidaActionPerformed(evt);
+            }
+        });
 
         btnÄndraAlienInfo.setText("Ändra Alien Info");
 
@@ -87,6 +92,11 @@ public class AgentStartSkärm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
+        new AgentMinSida(användarnamn).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnMinSidaActionPerformed
 
     
 
