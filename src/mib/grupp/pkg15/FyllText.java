@@ -17,9 +17,19 @@ public class FyllText {
         
     }
     
-    public void fyllLabel(JLabel textruta)
+    public static void välkomstLabel(JLabel textruta, String användarnamn)
     {
-        textruta.setText();
+        textruta.setText("Välkommen " + användarnamn + ".");
+    }
+    
+    public static void inloggadSom(JLabel textruta, String användarnamn)
+    {
+        textruta.setText("Du är inloggad som:" + användarnamn + ".");
+    }
+    
+    public static void inloggadSomAdmin(JLabel textruta, String användarnamn)
+    {
+        textruta.setText("Du är inloggad som: " + användarnamn + "(Administratör).");
     }
     
 }
