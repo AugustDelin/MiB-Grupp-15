@@ -29,6 +29,11 @@ public class Navigera {
         new AgentStartSkärm(användarnamn).setVisible(true);
     }
     
+    public static void openAgentMinSida(String användarnamn)
+    {
+        new AgentMinSida(användarnamn);
+    }
+    
     public static void avslutaProgram()
     {
         System.exit(0);

@@ -171,6 +171,7 @@ public class AlienMinSida extends javax.swing.JFrame {
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
        Navigera.openAlienStartSkärm(användarnamn);
+       dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
