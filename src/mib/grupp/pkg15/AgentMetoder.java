@@ -74,7 +74,7 @@ public class AgentMetoder {
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
         try {
             String valdPlats;
-            ArrayList<String> platser = idb.fetchColumn("select benamning from plats");
+            ArrayList<String> platser = idb.fetchColumn("select benamning from plats order by benamning");
             for(String enPlats : platser) {
                 låda.addItem(enPlats);
             }
