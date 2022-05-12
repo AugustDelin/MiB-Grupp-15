@@ -19,7 +19,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     public AlienStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        lblRubrik.setText("Välkommen: " + användarnamn);
+        lblRubrik.setText("Välkommen " + användarnamn + ".");
         AlienMetoder.visaOC(lblMinOc, användarnamn);
     }
     

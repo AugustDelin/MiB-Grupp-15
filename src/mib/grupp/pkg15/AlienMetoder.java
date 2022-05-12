@@ -53,7 +53,7 @@ public class AlienMetoder {
     public static void visaOC(JLabel ettFönster, String användarnamn) {
         try {
             String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '"+ användarnamn+"'");
-            ettFönster.setText("Din områdeschef är: " + OC);
+            ettFönster.setText("Din områdeschef är: " + OC + ".");
         } catch (InfException ex) {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,7 +68,7 @@ public class AlienMetoder {
             if(Validera.kollaLösen(lösenord, gammaltlösen)){
                 String nyttLösenord = nyttlösen.getText();
                 idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
-                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
+                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats.");
             }
         } catch (InfException ex) {
             Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);

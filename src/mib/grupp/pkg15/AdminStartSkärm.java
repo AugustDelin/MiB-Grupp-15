@@ -23,7 +23,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     public AdminStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        lblRubrik.setText("Välkommen: " + användarnamn);
+        lblRubrik.setText("Välkommen " + användarnamn + ".");
     }
 
     /**
