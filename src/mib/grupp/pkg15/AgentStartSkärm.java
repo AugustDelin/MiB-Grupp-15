@@ -12,6 +12,7 @@ import oru.inf.InfDB;
  */
 //   Fälten för AgentStartSkärm.
 public class AgentStartSkärm extends javax.swing.JFrame {
+
     private String användarnamn;
 
     /**
@@ -121,26 +122,25 @@ public class AgentStartSkärm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Knappen för att logga in på Min Sida.
     private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
         Navigera.openAgentMinSida(användarnamn);
     }//GEN-LAST:event_btnMinSidaActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void lblAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_lblAvslutaActionPerformed
-
+    // Knappen för att starta metoden Logga ut.
     private void lblLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_lblLoggautActionPerformed
-
+    // Knappen för att starta metoden AgentAlienInfo.
     private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
         new AgentAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAlienInfoActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgentUtrustning;
