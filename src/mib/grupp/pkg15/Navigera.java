@@ -37,7 +37,7 @@ public class Navigera {
     {
         new AgentMinSida(användarnamn).setVisible(true);
     }
-    
+//    Avslutar programmet.
     public static void avslutaProgram()
     {
         System.exit(0);

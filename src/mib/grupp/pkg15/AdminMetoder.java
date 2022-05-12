@@ -18,9 +18,9 @@ import oru.inf.InfException;
  */
 //Fälten för klassen AdminMetoder.
 public class AdminMetoder {
-
     private static InfDB idb;
     private static StartSkärm ettFönster;
+    
 // Konstruktorn för klassen AdminMetoder.
     public AdminMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;

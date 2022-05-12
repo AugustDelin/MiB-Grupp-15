@@ -10,11 +10,12 @@ import oru.inf.InfDB;
  *
  * @author erike
  */
+//   Fälten för AgentStartSkärm.
 public class AgentStartSkärm extends javax.swing.JFrame {
     private String användarnamn;
 
     /**
-     * Creates new form AgentStartSkärm
+     * Konstruktorn för AgentStartSkärm.
      */
     public AgentStartSkärm(String användarnamn) {
         initComponents();

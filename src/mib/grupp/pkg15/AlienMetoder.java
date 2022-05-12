@@ -16,8 +16,8 @@ import oru.inf.InfDB;
  *
  * @author augustdelin
  */
-public class AlienMetoder {
 //Fälten för klassen AlienMetoder.
+public class AlienMetoder {
     private static InfDB idb;
     private static StartSkärm ettFönster; 
 

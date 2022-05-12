@@ -20,8 +20,8 @@ import oru.inf.InfException;
  *
  * @author erike
  */
-public class AgentMetoder {
 // Fälten för klassen AgentMetoder.
+public class AgentMetoder {
     private static InfDB idb;
     private static StartSkärm ettFönster;
 

@@ -13,13 +13,13 @@ import oru.inf.InfException;
  *
  * @author augustdelin
  */
+//Fälten för AlienMinSida.
 public class AlienMinSida extends javax.swing.JFrame {
-
     private String användarnamn;
     private static InfDB idb;
 
     /**
-     * Creates new form AlienMinSida
+     * Konstruktorn för AlienMinSida.
      */
     public AlienMinSida(String användarnamn) {
         initComponents();
