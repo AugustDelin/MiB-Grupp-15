@@ -85,11 +85,12 @@ public class AgentMetoder {
 
 
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
-
+        
+        lista.setText("");
         try {
             //fyllCBPlats(låda);
             String valdPlats = låda.getSelectedItem().toString();
-                    //Validera.hamtaCbSträng(låda);
+            //Validera.hamtaCbSträng(låda);
             ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats + "'");
             for (String alien : aliensPåPlats) {
                 lista.append(alien + "\n");
@@ -97,7 +98,5 @@ public class AgentMetoder {
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
 }
