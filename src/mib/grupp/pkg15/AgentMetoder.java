@@ -178,8 +178,11 @@ public class AgentMetoder {
         
     
     
-    public static void laggTillUtrustningPåAgent(int agentID, int utrustningsID)
+   public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn)
     {
+        String valdUtrustning = Validera.hamtaCbSträng(enLåda);
+        int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
+        int agentID = hämtaAgentIDFrånNamn(användarnamn);
         try {
             idb.insert("Insert into Innehar_Utrustning values(" +agentID+ ", + " +utrustningsID+ ",'00-00-00')");
             

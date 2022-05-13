@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package mib.grupp.pkg15;
-
-import oru.inf.InfDB;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import oru.inf.InfException;
 /**
  *
  * @author Linda
@@ -20,6 +15,7 @@ public class AgentUtrustning extends javax.swing.JFrame {
 
     /**
      * Konstruktorn för AgentMinSida.
+     * @param användarnamn
      */
     public AgentUtrustning(String användarnamn) {
         initComponents();
@@ -140,12 +136,7 @@ public class AgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-       String valdUtrustning = Validera.hamtaCbSträng(cbVäljUtrustning);
-       
-       int agentID = AgentMetoder.hämtaAgentIDFrånNamn(användarnamn);
-//System.out.print(agentID);
-       int utrustningsID = AgentMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
-       AgentMetoder.laggTillUtrustningPåAgent(agentID, utrustningsID);
+         AgentMetoder.laggTillUtrustningPåAgent(cbVäljUtrustning, användarnamn);
        
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
