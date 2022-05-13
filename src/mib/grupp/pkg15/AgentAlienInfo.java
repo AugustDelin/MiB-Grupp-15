@@ -10,6 +10,7 @@ package mib.grupp.pkg15;
  */
 // Fälten för AgentAlienInfo.
 public class AgentAlienInfo extends javax.swing.JFrame {
+
     private String användarnamn;
 
     /**
@@ -18,10 +19,10 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     public AgentAlienInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        cbAlienAlternativ.setVisible(false);
+        cbAlienPlatser.setVisible(false);
+        cbAlienRaser.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
-        
 
     }
 
@@ -36,13 +37,14 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaListaAliens = new javax.swing.JTextArea();
-        cbAlienAlternativ = new javax.swing.JComboBox<>();
+        cbAlienPlatser = new javax.swing.JComboBox<>();
         btnSokPlats = new javax.swing.JButton();
         btnBacka = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
         btnSokRas = new javax.swing.JButton();
+        cbAlienRaser = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,9 +52,9 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         txtAreaListaAliens.setRows(5);
         jScrollPane2.setViewportView(txtAreaListaAliens);
 
-        cbAlienAlternativ.addActionListener(new java.awt.event.ActionListener() {
+        cbAlienPlatser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAlienAlternativActionPerformed(evt);
+                cbAlienPlatserActionPerformed(evt);
             }
         });
 
@@ -93,6 +95,13 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        cbAlienRaser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbAlienRaser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlienRaserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,12 +115,14 @@ public class AgentAlienInfo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbAlienAlternativ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSokRas)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 370, Short.MAX_VALUE)
+                        .addGap(0, 371, Short.MAX_VALUE)
                         .addComponent(btnLoggaUt))))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnBacka)
@@ -132,8 +143,9 @@ public class AgentAlienInfo extends javax.swing.JFrame {
                 .addComponent(btnSokPlats)
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbAlienAlternativ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSokRas))
+                    .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSokRas)
+                    .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
@@ -146,15 +158,14 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
-    private void cbAlienAlternativActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienAlternativActionPerformed
-        //AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienAlternativ);
-        AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienAlternativ);
-    }//GEN-LAST:event_cbAlienAlternativActionPerformed
+    private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
+        AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
+    }//GEN-LAST:event_cbAlienPlatserActionPerformed
 
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
-       //cbAlienPlats.removeAllItems();
-       AgentMetoder.fyllCBPlats(cbAlienAlternativ);
-       cbAlienAlternativ.setVisible(true);
+        cbAlienRaser.setVisible(false);
+        AgentMetoder.fyllCBPlats(cbAlienPlatser);
+        cbAlienPlatser.setVisible(true);
     }//GEN-LAST:event_btnSokPlatsActionPerformed
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
@@ -172,21 +183,20 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
-        cbAlienAlternativ.removeAllItems();
-        
-        if(cbAlienAlternativ.getSelectedItem() == null)
-        {
-            
-        
-        AgentMetoder.fyllCBras(cbAlienAlternativ);
-        cbAlienAlternativ.setVisible(true);
-        }
+        cbAlienPlatser.setVisible(false);
+        //cbAlienPlatser.removeAllItems();
+        cbAlienRaser.setVisible(true);
+        AgentMetoder.fyllCBras(cbAlienRaser);
+
     }//GEN-LAST:event_btnSokRasActionPerformed
+
+    private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
+        AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
+    }//GEN-LAST:event_cbAlienRaserActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
@@ -194,7 +204,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnSokPlats;
     private javax.swing.JButton btnSokRas;
-    private javax.swing.JComboBox<String> cbAlienAlternativ;
+    private javax.swing.JComboBox<String> cbAlienPlatser;
+    private javax.swing.JComboBox<String> cbAlienRaser;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JTextArea txtAreaListaAliens;
