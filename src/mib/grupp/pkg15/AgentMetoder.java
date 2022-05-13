@@ -106,7 +106,7 @@ public class AgentMetoder {
         //Skapa en ArrayList och fyller denna med de tre raserna som finns
         //enLåda.addItem("");
         ArrayList<String> raslista = new ArrayList();
-        raslista.add("Bogolite");
+        raslista.add("Boglodite");
         raslista.add("Squid");
         raslista.add("Worm");
           
@@ -119,10 +119,16 @@ public class AgentMetoder {
     }
 
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
+        lista.setText("");
         try {
+            
             String valdRas = Validera.hamtaCbSträng(låda);
             ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join "+valdRas+" on alien.alien_id ="+valdRas+".alien_id");
         System.out.println(alienavRas);
+        for(String enAlien: alienavRas)
+        {
+            lista.append(enAlien);
+        }
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
