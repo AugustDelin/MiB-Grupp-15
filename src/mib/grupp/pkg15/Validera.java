@@ -25,17 +25,8 @@ public class Validera {
         }
         return resultat;
     }
-    // Metod för att kolla om rutan för användarnamn är tom. Ifall rutan är tom skriver ut ett felmeddelande 
-    //som beskriver problemet.
-    public static boolean kollaTomPWF(JPasswordField enRuta) {
-        boolean resultat = true;
-        if (enRuta.getText().isEmpty()) {
-            resultat = false;
-            JOptionPane.showMessageDialog(null, "Någon ruta är tom.");
-            enRuta.requestFocus();
-        }
-        return resultat;
-    }
+    
+    
     //Kontrollerar så att lösenordet som skrivs in och som finns i databasen stämmer överens.
     public static boolean kollaLösen(String enSträng, JPasswordField lösenruta) {
         boolean resultat = true;
@@ -57,6 +48,7 @@ public class Validera {
         }
         return resultat;
     }
+    
     // Kontrollerar så att användarnamnet i databasen stämmer överens med det inmatade användarnamnet.
     public static boolean kollaNullvärde(String variabelAttKolla) {
         boolean resultat = true;

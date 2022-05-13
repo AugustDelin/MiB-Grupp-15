@@ -62,6 +62,11 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         });
 
         btnAgentUtrustning.setText("Utrustning");
+        btnAgentUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgentUtrustningActionPerformed(evt);
+            }
+        });
 
         lblLoggaut.setText("Logga ut");
         lblLoggaut.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +142,11 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         new AgentAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAlienInfoActionPerformed
+
+    private void btnAgentUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentUtrustningActionPerformed
+        new AgentUtrustning(användarnamn).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAgentUtrustningActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
