@@ -21,7 +21,7 @@ import oru.inf.InfException;
  * @author erike
  */
 // Fälten för klassen AgentMetoder.
-public class AgentMetoder{
+public class AgentMetoder {
 
     private static InfDB idb;
     private static StartSkärm ettFönster;
@@ -75,11 +75,12 @@ public class AgentMetoder{
         }
     }
 
-    public static void fyllCBPlats(JComboBox låda) {
+    public static void fyllCBPlats(JComboBox enLåda) {
         try {
+            //enLåda.removeAllItems();
             ArrayList<String> platser = idb.fetchColumn("select benamning from plats order by benamning");
             for (String enPlats : platser) {
-                låda.addItem(enPlats);
+                enLåda.addItem(enPlats);
             }
 
         } catch (InfException ex) {
@@ -103,30 +104,28 @@ public class AgentMetoder{
 
     public static void fyllCBras(JComboBox enLåda) {
         //Skapa en ArrayList och fyller denna med de tre raserna som finns
+        //enLåda.addItem("");
         ArrayList<String> raslista = new ArrayList();
         raslista.add("Bogolite");
         raslista.add("Squid");
         raslista.add("Worm");
+          
+        
+        
         for (String rasnamn : raslista) {
             enLåda.addItem(rasnamn);
         }
 
     }
 
-     public static void listaAliensPerRas(JTextArea lista, JComboBox låda)
-     {
-         String valdRas = Validera.hamtaCbSträng(låda);
-         switch(valdRas)
-         {
-             case "Bogolite":
+    public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
+        try {
+            String valdRas = Validera.hamtaCbSträng(låda);
+            ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join "+valdRas+" on alien.alien_id ="+valdRas+".alien_id");
+        System.out.println(alienavRas);
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-                 break;
-             case "Squid":
-
-                 break;
-             case "Worm":
-
-                 break;
-         }
-     }
+    }
 }
