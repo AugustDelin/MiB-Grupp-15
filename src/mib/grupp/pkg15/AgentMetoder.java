@@ -135,7 +135,7 @@ public class AgentMetoder {
     public static void fyllAgentUtrustning(JComboBox enLåda) {
 
         try {
-            ArrayList<String> utrustningsLista = idb.fetchColumn("Select benamning from utrustning");
+            ArrayList<String> utrustningsLista = idb.fetchColumn("Select benamning from utrustning order by benamning");
 
             for (String enUtrustning : utrustningsLista) {
                 enLåda.addItem(enUtrustning);
@@ -145,50 +145,74 @@ public class AgentMetoder {
         }
 
     }
-    
-    public static int hämtaAgentIDFrånNamn(String användarnamn)
-    {
+
+    public static int hämtaAgentIDFrånNamn(String användarnamn) {
         String agentID = "Finns ej";
         int agentNR = 99;
         try {
-            agentID = idb.fetchSingle("Select Agent_ID from Agent where namn ='" + användarnamn+ "'");
+            agentID = idb.fetchSingle("Select Agent_ID from Agent where namn ='" + användarnamn + "'");
             agentNR = Integer.parseInt(agentID);
-            
+
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
         return agentNR;
     }
-    
-    public static int hämtaUtrustningsIDFrånNamn(String benämning)
-    {
+
+    public static int hämtaUtrustningsIDFrånNamn(String benämning) {
         String utrustningsID = "Finns ej";
-        int utrustningsNR = 99; 
-       
+        int utrustningsNR = 99;
+
         try {
-            utrustningsID = idb.fetchSingle("Select utrustnings_ID from utrustning where benamning ='"+benämning+"'");
+            utrustningsID = idb.fetchSingle("Select utrustnings_ID from utrustning where benamning ='" + benämning + "'");
             utrustningsNR = Integer.parseInt(utrustningsID);
-            
+
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return utrustningsNR;
     }
-        
-    
-    
-   public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn)
-    {
-        String valdUtrustning = Validera.hamtaCbSträng(enLåda);
-        int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
-        int agentID = hämtaAgentIDFrånNamn(användarnamn);
+
+    public static ArrayList<String> getUtrustningsIDnFrånAgentID(int agentID) {
+        ArrayList<String> utrustningslista = null;
         try {
-            idb.insert("Insert into Innehar_Utrustning values(" +agentID+ ", + " +utrustningsID+ ",'00-00-00')");
-            
+            utrustningslista = idb.fetchColumn("Select Utrustnings_ID from innehar_utrustning where agent_ID=" + agentID);
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return utrustningslista;
     }
+
+    public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn) {
+        String valdUtrustning = Validera.hamtaCbSträng(enLåda);
+        int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
+        int agentID = hämtaAgentIDFrånNamn(användarnamn);
+        String utrustningsIDSomSträng = Integer.toString(utrustningsID);
+        if (Validera.kollavärdeIStringArrayList(getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng)) {
+
+            try {
+                idb.insert("Insert into Innehar_Utrustning values(" + agentID + ", + " + utrustningsID + ",'00-00-00')");
+                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + "till din lista!");
+
+            } catch (InfException ex) {
+                Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }
+
+//   public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn)
+//    {
+//        String valdUtrustning = Validera.hamtaCbSträng(enLåda);
+//        int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
+//        int agentID = hämtaAgentIDFrånNamn(användarnamn);
+//        try {
+//            idb.insert("Insert into Innehar_Utrustning values(" +agentID+ ", + " +utrustningsID+ ",'00-00-00')");
+//            
+//        } catch (InfException ex) {
+//            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
 }

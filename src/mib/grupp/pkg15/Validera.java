@@ -4,6 +4,7 @@
  */
 package mib.grupp.pkg15;
 
+import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -62,5 +63,16 @@ public class Validera {
     public static String hamtaCbSträng(JComboBox enLåda) {
         String cbSträng = enLåda.getSelectedItem().toString();
         return cbSträng;
+    }
+    
+    public static boolean kollavärdeIStringArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra) {
+        boolean resultat = true;
+        for (String enSträng : ArrayListSträng) {
+            if (enSträng.equals(strängAttJämföra)) {
+                resultat = false;
+                JOptionPane.showMessageDialog(null, "Objektet är redan registrerat, försök med ett annat!");
+            }
+        }
+        return resultat;
     }
 }
