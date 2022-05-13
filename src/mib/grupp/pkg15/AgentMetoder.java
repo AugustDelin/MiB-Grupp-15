@@ -109,9 +109,7 @@ public class AgentMetoder {
         raslista.add("Boglodite");
         raslista.add("Squid");
         raslista.add("Worm");
-          
-        
-        
+
         for (String rasnamn : raslista) {
             enLåda.addItem(rasnamn);
         }
@@ -121,14 +119,70 @@ public class AgentMetoder {
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
         lista.setText("");
         try {
-            
+
             String valdRas = Validera.hamtaCbSträng(låda);
-            ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join "+valdRas+" on alien.alien_id ="+valdRas+".alien_id");
-        System.out.println(alienavRas);
-        for(String enAlien: alienavRas)
-        {
-            lista.append(enAlien);
+            ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join " + valdRas + " on alien.alien_id =" + valdRas + ".alien_id");
+            System.out.println(alienavRas);
+            for (String enAlien : alienavRas) {
+                lista.append(enAlien);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    public static void fyllAgentUtrustning(JComboBox enLåda) {
+
+        try {
+            ArrayList<String> utrustningsLista = idb.fetchColumn("Select benamning from utrustning");
+
+            for (String enUtrustning : utrustningsLista) {
+                enLåda.addItem(enUtrustning);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public static int hämtaAgentIDFrånNamn(String användarnamn)
+    {
+        String agentID = "Finns ej";
+        int agentNR = 99;
+        try {
+            agentID = idb.fetchSingle("Select Agent_ID from Agent where namn ='" + användarnamn+ "'");
+            agentNR = Integer.parseInt(agentID);
+            
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        return agentNR;
+    }
+    
+    public static int hämtaUtrustningsIDFrånNamn(String benämning)
+    {
+        String utrustningsID = "Finns ej";
+        int utrustningsNR = 99; 
+       
+        try {
+            utrustningsID = idb.fetchSingle("Select utrustnings_ID from utrustning where benamning ='"+benämning+"'");
+            utrustningsNR = Integer.parseInt(utrustningsID);
+            
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utrustningsNR;
+    }
+        
+    
+    
+    public static void laggTillUtrustningPåAgent(int agentID, int utrustningsID)
+    {
+        try {
+            idb.insert("Insert into Innehar_Utrustning values(" +agentID+ ", + " +utrustningsID+ ",'00-00-00')");
+            
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }

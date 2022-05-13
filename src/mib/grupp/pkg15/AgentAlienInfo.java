@@ -12,6 +12,7 @@ package mib.grupp.pkg15;
 public class AgentAlienInfo extends javax.swing.JFrame {
 
     private String användarnamn;
+    
 
     /**
      * Konstruktorn för AgentAlienInfo.
