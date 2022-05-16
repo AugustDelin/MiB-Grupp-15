@@ -6,6 +6,7 @@ package mib.grupp.pkg15;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -115,6 +116,20 @@ public class AgentMetoder {
         }
 
     }
+    public static void fyllCBAlienNamn(JComboBox enLåda) {
+        try {
+            //Skapa en ArrayList och fyller denna med de tre raserna som finns
+            //enLåda.addItem("");
+            ArrayList<String> namnLista = idb.fetchColumn("select namn from alien");
+            
+            
+            for (String ettNamn : namnLista) {
+                enLåda.addItem(ettNamn);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
 
@@ -125,6 +140,23 @@ public class AgentMetoder {
             ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join " + valdRas + " on alien.alien_id =" + valdRas + ".alien_id");
             for (String enAlien : alienavRas) {
                 lista.append(enAlien);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
+
+        lista.setText("");
+        try {
+
+            String valdAlien = Validera.hamtaCbSträng(låda);
+            HashMap<String,String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
+            for (String enAlien : alienAvNamn.keySet()) {
+                lista.append(enAlien + "\n");
+                
             }
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);

@@ -22,6 +22,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         this.användarnamn = användarnamn;
         cbAlienPlatser.setVisible(false);
         cbAlienRaser.setVisible(false);
+        cbAlienNamn.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
@@ -46,6 +47,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         lblInloggadSom = new javax.swing.JLabel();
         btnSokRas = new javax.swing.JButton();
         cbAlienRaser = new javax.swing.JComboBox<>();
+        btnSokAlien = new javax.swing.JButton();
+        cbAlienNamn = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,14 +105,23 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        btnSokAlien.setText("Sök alien");
+        btnSokAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokAlienActionPerformed(evt);
+            }
+        });
+
+        cbAlienNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlienNamnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(lblInloggadSom)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,6 +130,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
                         .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSokRas)
                         .addContainerGap())
@@ -128,9 +142,16 @@ public class AgentAlienInfo extends javax.swing.JFrame {
                 .addComponent(btnBacka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAvsluta))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSokPlats)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSokAlien))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSokPlats)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -145,9 +166,15 @@ public class AgentAlienInfo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSokRas)
-                    .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnSokAlien)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBacka)
@@ -164,11 +191,12 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
         cbAlienRaser.setVisible(false);
+        cbAlienNamn.setVisible(false);
         cbAlienPlatser.setVisible(true);
-if(cbAlienPlatser.getItemCount() == 0){
+        if (cbAlienPlatser.getItemCount() == 0) {
 
-        AgentMetoder.fyllCBPlats(cbAlienPlatser);
-}
+            AgentMetoder.fyllCBPlats(cbAlienPlatser);
+        }
     }//GEN-LAST:event_btnSokPlatsActionPerformed
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
@@ -187,6 +215,7 @@ if(cbAlienPlatser.getItemCount() == 0){
 
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
         cbAlienPlatser.setVisible(false);
+        cbAlienNamn.setVisible(false);
         cbAlienRaser.setVisible(true);
         if(cbAlienRaser.getItemCount() == 0){
         AgentMetoder.fyllCBras(cbAlienRaser);
@@ -198,6 +227,19 @@ if(cbAlienPlatser.getItemCount() == 0){
         AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
     }//GEN-LAST:event_cbAlienRaserActionPerformed
 
+    private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
+        cbAlienPlatser.setVisible(false);
+        cbAlienRaser.setVisible(false);
+        cbAlienNamn.setVisible(true);
+        if(cbAlienNamn.getItemCount() == 0){
+            AgentMetoder.fyllCBAlienNamn(cbAlienNamn);
+        }
+    }//GEN-LAST:event_btnSokAlienActionPerformed
+
+    private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
+        AgentMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
+    }//GEN-LAST:event_cbAlienNamnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -206,8 +248,10 @@ if(cbAlienPlatser.getItemCount() == 0){
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaUt;
+    private javax.swing.JButton btnSokAlien;
     private javax.swing.JButton btnSokPlats;
     private javax.swing.JButton btnSokRas;
+    private javax.swing.JComboBox<String> cbAlienNamn;
     private javax.swing.JComboBox<String> cbAlienPlatser;
     private javax.swing.JComboBox<String> cbAlienRaser;
     private javax.swing.JScrollPane jScrollPane2;
