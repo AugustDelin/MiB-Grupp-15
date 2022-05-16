@@ -4,6 +4,7 @@
  */
 package mib.grupp.pkg15;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -188,11 +189,11 @@ public class AgentMetoder {
         int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
         int agentID = hämtaAgentIDFrånNamn(användarnamn);
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
-        String dagensDatum = DatumHanterare.getDagensDatum();
+        LocalDate dagensDatum = DatumHanterare.getDagensDatum();
         if (Validera.kollavärdeIStringArrayList(getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng)) {
 
             try {
-                idb.insert("Insert into Innehar_Utrustning values(" + agentID + ", + " + utrustningsID + ",'" + dagensDatum + "'");
+                idb.insert("Insert into Innehar_Utrustning values(" + agentID + ", + " + utrustningsID + ", '" + dagensDatum + "'");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + "till din lista!");
 
             } catch (InfException ex) {

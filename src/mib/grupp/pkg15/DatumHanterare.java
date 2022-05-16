@@ -5,6 +5,7 @@
 package mib.grupp.pkg15;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 
 /**
@@ -13,16 +14,14 @@ import java.time.LocalDate;
  */
 public class DatumHanterare {
 
-    private static LocalDate ettDatum;
 
     public DatumHanterare() {
-        String Dagensdatum = LocalDate.now().toString();
-        System.out.println(Dagensdatum);
+        
     }
 
-    public static String getDagensDatum() {
-        String DagensDatum = LocalDate.now().toString();
-        return DagensDatum;
+    public static LocalDate getDagensDatum() {
+        LocalDate dagensDatum = LocalDate.now();
+        return dagensDatum;
     }
 }
 
