@@ -122,7 +122,6 @@ public class AgentMetoder {
 
             String valdRas = Validera.hamtaCbSträng(låda);
             ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join " + valdRas + " on alien.alien_id =" + valdRas + ".alien_id");
-            System.out.println(alienavRas);
             for (String enAlien : alienavRas) {
                 lista.append(enAlien);
             }
