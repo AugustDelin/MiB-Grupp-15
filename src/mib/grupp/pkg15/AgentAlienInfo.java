@@ -189,6 +189,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_cbAlienPlatserActionPerformed
 
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
+        txtAreaListaAliens.setText("");
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(false);
         cbAlienPlatser.setVisible(true);
@@ -213,6 +214,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
+        txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
         cbAlienNamn.setVisible(false);
         cbAlienRaser.setVisible(true);
@@ -227,6 +229,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_cbAlienRaserActionPerformed
 
     private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
+        txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(true);
