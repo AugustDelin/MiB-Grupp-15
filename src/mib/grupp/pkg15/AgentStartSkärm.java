@@ -35,7 +35,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
 
         lblRubrik = new javax.swing.JLabel();
         btnMinSida = new javax.swing.JButton();
-        btnAgentInfo = new javax.swing.JButton();
+        btnVisaOC = new javax.swing.JButton();
         btnAlienInfo = new javax.swing.JButton();
         btnAgentUtrustning = new javax.swing.JButton();
         lblLoggaut = new javax.swing.JButton();
@@ -52,10 +52,10 @@ public class AgentStartSkärm extends javax.swing.JFrame {
             }
         });
 
-        btnAgentInfo.setText("Agent Info");
-        btnAgentInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnVisaOC.setText("Områdeschefer");
+        btnVisaOC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgentInfoActionPerformed(evt);
+                btnVisaOCActionPerformed(evt);
             }
         });
 
@@ -98,9 +98,9 @@ public class AgentStartSkärm extends javax.swing.JFrame {
                     .addComponent(btnMinSida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAgentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVisaOC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgentUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblRubrik)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,7 +118,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAlienInfo)
-                    .addComponent(btnAgentInfo))
+                    .addComponent(btnVisaOC))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMinSida)
@@ -153,16 +153,17 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAgentUtrustningActionPerformed
 
-    private void btnAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentInfoActionPerformed
-       new AgentAgentInfo(användarnamn).setVisible(true);
-    }//GEN-LAST:event_btnAgentInfoActionPerformed
+    private void btnVisaOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaOCActionPerformed
+       new AgentOCinfo(användarnamn).setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btnVisaOCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgentInfo;
     private javax.swing.JButton btnAgentUtrustning;
     private javax.swing.JButton btnAlienInfo;
     private javax.swing.JButton btnMinSida;
+    private javax.swing.JButton btnVisaOC;
     private javax.swing.JButton lblAvsluta;
     private javax.swing.JButton lblLoggaut;
     private javax.swing.JLabel lblRubrik;

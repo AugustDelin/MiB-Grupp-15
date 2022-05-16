@@ -223,7 +223,7 @@ public class AgentMetoder {
     public static void fyllCBchefsOmråden(JComboBox enLåda) {
 
         try {
-            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade");
+            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
             
             for (String ettOmråde : områdesLista) {
                 enLåda.addItem(ettOmråde);
