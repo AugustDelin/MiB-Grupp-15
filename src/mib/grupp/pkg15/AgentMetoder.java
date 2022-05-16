@@ -77,7 +77,7 @@ public class AgentMetoder {
 
     public static void fyllCBPlats(JComboBox enLåda) {
         try {
-            //enLåda.removeAllItems();
+            enLåda.removeAllItems();
             ArrayList<String> platser = idb.fetchColumn("select benamning from plats order by benamning");
             for (String enPlats : platser) {
                 enLåda.addItem(enPlats);
@@ -89,7 +89,6 @@ public class AgentMetoder {
     }
 
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
-
         lista.setText("");
         try {
             String valdPlats = Validera.hamtaCbSträng(låda);
@@ -117,6 +116,7 @@ public class AgentMetoder {
     }
 
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
+      
         lista.setText("");
         try {
 
