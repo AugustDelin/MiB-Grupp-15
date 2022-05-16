@@ -29,4 +29,5 @@ public class Main {
     public static InfDB getDB() {
         return idb;
     }
+    
 }
