@@ -32,6 +32,8 @@ public class StartSkärm extends javax.swing.JFrame {
         AgentM = new AgentMetoder(this);
         AlienM = new AlienMetoder(this);
         AdminM = new AdminMetoder(this);
+        txtStartAnvändarnamn.setText("Agent O");
+        pwfStartLogin.setText("planka");
 
     }
 
