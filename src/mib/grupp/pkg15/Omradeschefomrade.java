@@ -9,7 +9,7 @@ package mib.grupp.pkg15;
  * @author augustdelin
  */
 // Fälten för AgentAlienInfo.
-public class AgentAlienInfo extends javax.swing.JFrame {
+public class Omradeschefomrade extends javax.swing.JFrame {
 
     private String användarnamn;
     
@@ -17,7 +17,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     /**
      * Konstruktorn för AgentAlienInfo.
      */
-    public AgentAlienInfo(String användarnamn) {
+    public Omradeschefomrade(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         cbAlienPlatser.setVisible(false);
@@ -96,6 +96,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        cbAlienRaser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbAlienRaser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbAlienRaserActionPerformed(evt);
@@ -164,11 +165,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
         cbAlienRaser.setVisible(false);
-        cbAlienPlatser.setVisible(true);
-if(cbAlienPlatser.getItemCount() == 0){
-
         AgentMetoder.fyllCBPlats(cbAlienPlatser);
-}
+        cbAlienPlatser.setVisible(true);
     }//GEN-LAST:event_btnSokPlatsActionPerformed
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
@@ -187,10 +185,9 @@ if(cbAlienPlatser.getItemCount() == 0){
 
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
         cbAlienPlatser.setVisible(false);
+        //cbAlienPlatser.removeAllItems();
         cbAlienRaser.setVisible(true);
-        if(cbAlienRaser.getItemCount() == 0){
         AgentMetoder.fyllCBras(cbAlienRaser);
-        }
 
     }//GEN-LAST:event_btnSokRasActionPerformed
 
