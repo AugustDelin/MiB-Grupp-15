@@ -37,7 +37,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cbAlienPlatser" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnSokRas" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSokChef" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -51,11 +51,6 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnSokPlats" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -65,12 +60,10 @@
                   <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
                   <Component id="btnLoggaUt" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnSokPlats" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cbAlienPlatser" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSokRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSokChef" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbAlienRaser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -111,14 +104,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSokPlats">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="S&#xf6;k plats"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokPlatsActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnBacka">
       <Properties>
         <Property name="text" type="java.lang.String" value="F&#xf6;reg&#xe5;ende Sida"/>
@@ -148,12 +133,12 @@
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSokRas">
+    <Component class="javax.swing.JButton" name="btnSokChef">
       <Properties>
-        <Property name="text" type="java.lang.String" value="S&#xf6;k ras"/>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k chef"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokRasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokChefActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbAlienRaser">

@@ -20,8 +20,8 @@ public class Omradeschefomrade extends javax.swing.JFrame {
     public Omradeschefomrade(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        cbAlienPlatser.setVisible(false);
-        cbAlienRaser.setVisible(false);
+        cbChefer.setVisible(false);
+        cbCheferAvOmrade.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
@@ -39,12 +39,11 @@ public class Omradeschefomrade extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaListaAliens = new javax.swing.JTextArea();
         cbAlienPlatser = new javax.swing.JComboBox<>();
-        btnSokPlats = new javax.swing.JButton();
         btnBacka = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
-        btnSokRas = new javax.swing.JButton();
+        btnSokChef = new javax.swing.JButton();
         cbAlienRaser = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,13 +55,6 @@ public class Omradeschefomrade extends javax.swing.JFrame {
         cbAlienPlatser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbAlienPlatserActionPerformed(evt);
-            }
-        });
-
-        btnSokPlats.setText("Sök plats");
-        btnSokPlats.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSokPlatsActionPerformed(evt);
             }
         });
 
@@ -89,10 +81,10 @@ public class Omradeschefomrade extends javax.swing.JFrame {
 
         lblInloggadSom.setText("jLabel1");
 
-        btnSokRas.setText("Sök ras");
-        btnSokRas.addActionListener(new java.awt.event.ActionListener() {
+        btnSokChef.setText("Sök chef");
+        btnSokChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSokRasActionPerformed(evt);
+                btnSokChefActionPerformed(evt);
             }
         });
 
@@ -120,7 +112,7 @@ public class Omradeschefomrade extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSokRas)
+                        .addComponent(btnSokChef)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 371, Short.MAX_VALUE)
@@ -129,10 +121,6 @@ public class Omradeschefomrade extends javax.swing.JFrame {
                 .addComponent(btnBacka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAvsluta))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSokPlats)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,12 +128,10 @@ public class Omradeschefomrade extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInloggadSom)
                     .addComponent(btnLoggaUt))
-                .addGap(18, 18, 18)
-                .addComponent(btnSokPlats)
-                .addGap(5, 5, 5)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSokRas)
+                    .addComponent(btnSokChef)
                     .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,12 +149,6 @@ public class Omradeschefomrade extends javax.swing.JFrame {
         AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
     }//GEN-LAST:event_cbAlienPlatserActionPerformed
 
-    private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
-        cbAlienRaser.setVisible(false);
-        AgentMetoder.fyllCBPlats(cbAlienPlatser);
-        cbAlienPlatser.setVisible(true);
-    }//GEN-LAST:event_btnSokPlatsActionPerformed
-
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
@@ -183,13 +163,12 @@ public class Omradeschefomrade extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
-    private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
-        cbAlienPlatser.setVisible(false);
-        //cbAlienPlatser.removeAllItems();
-        cbAlienRaser.setVisible(true);
-        AgentMetoder.fyllCBras(cbAlienRaser);
+    private void btnSokChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokChefActionPerformed
+        cbChefer.setVisible(false);
+        cbCheferAvOmrade.setVisible(true);
+        AgentMetoder.fyllCBchef(cbChefer);
 
-    }//GEN-LAST:event_btnSokRasActionPerformed
+    }//GEN-LAST:event_btnSokChefActionPerformed
 
     private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
         AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
@@ -203,8 +182,7 @@ public class Omradeschefomrade extends javax.swing.JFrame {
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaUt;
-    private javax.swing.JButton btnSokPlats;
-    private javax.swing.JButton btnSokRas;
+    private javax.swing.JButton btnSokChef;
     private javax.swing.JComboBox<String> cbAlienPlatser;
     private javax.swing.JComboBox<String> cbAlienRaser;
     private javax.swing.JScrollPane jScrollPane2;
