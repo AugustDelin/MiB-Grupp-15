@@ -132,7 +132,7 @@ public class StartSkärm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
-AdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
+        AdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAdminActionPerformed
 
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
