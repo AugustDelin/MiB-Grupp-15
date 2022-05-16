@@ -7,6 +7,7 @@ package mib.grupp.pkg15;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -116,20 +117,20 @@ public class AgentMetoder {
         }
 
     }
+
     public static void fyllCBAlienNamn(JComboBox enLåda) {
         try {
             //Skapa en ArrayList och fyller denna med de tre raserna som finns
             //enLåda.addItem("");
             ArrayList<String> namnLista = idb.fetchColumn("select namn from alien");
-            
-            
+
             for (String ettNamn : namnLista) {
                 enLåda.addItem(ettNamn);
             }
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+    }
 
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
 
@@ -146,22 +147,33 @@ public class AgentMetoder {
         }
 
     }
-    
+
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
         lista.setText("");
         try {
 
             String valdAlien = Validera.hamtaCbSträng(låda);
-            HashMap<String,String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
-            for (String enAlien : alienAvNamn.keySet()) {
-                lista.append(enAlien + "\n");
-                
+            HashMap<String, String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
+
+            for (String nyckel : alienAvNamn.keySet()) {
+                lista.append(nyckel + ":\t");
+
             }
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            lista.append("\n");
+            for (String nyckel1 : alienAvNamn.keySet()) {
+                lista.append(alienAvNamn.get(nyckel1) + "\t");
+
+            }
         }
 
+    
+    catch (InfException ex
+
+    
+        ) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }
 
     public static void fyllAgentUtrustning(JComboBox enLåda) {
@@ -242,7 +254,7 @@ public class AgentMetoder {
         try {
 
             String valtOmrade = Validera.hamtaCbSträng(låda);
-            ArrayList<String> chefAvOmrade = idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" +valtOmrade+ "'");
+            ArrayList<String> chefAvOmrade = idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
             for (String enChef : chefAvOmrade) {
                 lista.append(enChef);
             }
@@ -256,7 +268,7 @@ public class AgentMetoder {
 
         try {
             ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
-            
+
             for (String ettOmråde : områdesLista) {
                 enLåda.addItem(ettOmråde);
             }
