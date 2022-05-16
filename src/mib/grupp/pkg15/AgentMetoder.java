@@ -189,11 +189,11 @@ public class AgentMetoder {
         int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
         int agentID = hämtaAgentIDFrånNamn(användarnamn);
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
-        LocalDate dagensDatum = DatumHanterare.getDagensDatum();
+        String dagensDatum = DatumHanterare.getDagensDatum().toString();
         if (Validera.kollavärdeIStringArrayList(getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng)) {
 
             try {
-                idb.insert("Insert into Innehar_Utrustning values(" + agentID + ", + " + utrustningsID + ", '" + dagensDatum + "'");
+                idb.insert("Insert into Innehar_Utrustning values(" + agentID + ", " + utrustningsID + ",'" + dagensDatum + "'");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + "till din lista!");
 
             } catch (InfException ex) {
