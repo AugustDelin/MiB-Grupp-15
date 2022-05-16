@@ -156,15 +156,16 @@ public class AgentMetoder {
             String valdAlien = Validera.hamtaCbSträng(låda);
             //HashMap<String, String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
                 
-            HashMap<String, String> alienAvNamn =idb.fetchRow("select Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
-            lista.append("ID\tNamn\tTelefon\tPlats\tAnsvarig Agent\tRegdatum\t\n");
+            HashMap<String, String> alienAvNamn =idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
+            lista.append("ID\tNamn\tTelefon\tPlats\tAnsvarig Agent\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID")+"\t");
             lista.append(valdAlien+"\t");
             //lista.append(alienAvNamn.get("alien.Namn")+"\t");
             lista.append(alienAvNamn.get("Telefon")+"\t");
             lista.append(alienAvNamn.get("Benamning")+"\t");
             lista.append(alienAvNamn.get("Namn")+"\t");
-            lista.append(alienAvNamn.get("Registreringsdatum"));
+            lista.append(alienAvNamn.get("Registreringsdatum")+"\t");
+             lista.append(alienAvNamn.get("Losenord"));
 //            for (String nyckel : alienAvNamn.keySet()) {
 //                lista.append(nyckel + ":\t");
 //
