@@ -9,7 +9,7 @@ package mib.grupp.pkg15;
  * @author augustdelin
  */
 // Fälten för AgentAlienInfo.
-public class Omradeschefomrade extends javax.swing.JFrame {
+public class AgentAgentInfo extends javax.swing.JFrame {
 
     private String användarnamn;
     
@@ -17,11 +17,11 @@ public class Omradeschefomrade extends javax.swing.JFrame {
     /**
      * Konstruktorn för AgentAlienInfo.
      */
-    public Omradeschefomrade(String användarnamn) {
+    public AgentAgentInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        cbChefer.setVisible(false);
-        cbCheferAvOmrade.setVisible(false);
+       cbValtOmråde.setVisible(false);
+       txtAreaListaChefer.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
@@ -37,24 +37,23 @@ public class Omradeschefomrade extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtAreaListaAliens = new javax.swing.JTextArea();
-        cbAlienPlatser = new javax.swing.JComboBox<>();
+        txtAreaListaChefer = new javax.swing.JTextArea();
+        cbValtOmråde = new javax.swing.JComboBox<>();
         btnBacka = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
         btnSokChef = new javax.swing.JButton();
-        cbAlienRaser = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtAreaListaAliens.setColumns(20);
-        txtAreaListaAliens.setRows(5);
-        jScrollPane2.setViewportView(txtAreaListaAliens);
+        txtAreaListaChefer.setColumns(20);
+        txtAreaListaChefer.setRows(5);
+        jScrollPane2.setViewportView(txtAreaListaChefer);
 
-        cbAlienPlatser.addActionListener(new java.awt.event.ActionListener() {
+        cbValtOmråde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAlienPlatserActionPerformed(evt);
+                cbValtOmrådeActionPerformed(evt);
             }
         });
 
@@ -88,39 +87,30 @@ public class Omradeschefomrade extends javax.swing.JFrame {
             }
         });
 
-        cbAlienRaser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbAlienRaser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAlienRaserActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(lblInloggadSom)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSokChef)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 371, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
                         .addComponent(btnLoggaUt))))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnBacka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAvsluta))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbValtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,9 +120,8 @@ public class Omradeschefomrade extends javax.swing.JFrame {
                     .addComponent(btnLoggaUt))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSokChef)
-                    .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbValtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSokChef))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
@@ -145,9 +134,9 @@ public class Omradeschefomrade extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
-    private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
-        AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
-    }//GEN-LAST:event_cbAlienPlatserActionPerformed
+    private void cbValtOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValtOmrådeActionPerformed
+        AgentMetoder.listaChefAvOmrade(txtAreaListaChefer, cbValtOmråde);
+    }//GEN-LAST:event_cbValtOmrådeActionPerformed
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
@@ -164,15 +153,11 @@ public class Omradeschefomrade extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokChefActionPerformed
-        cbChefer.setVisible(false);
-        cbCheferAvOmrade.setVisible(true);
-        AgentMetoder.fyllCBchef(cbChefer);
+       cbValtOmråde.setVisible(true);
+       txtAreaListaChefer.setVisible(true);
+       AgentMetoder.fyllCBchefsOmråden(cbValtOmråde);
 
     }//GEN-LAST:event_btnSokChefActionPerformed
-
-    private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
-        AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
-    }//GEN-LAST:event_cbAlienRaserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +168,9 @@ public class Omradeschefomrade extends javax.swing.JFrame {
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnSokChef;
-    private javax.swing.JComboBox<String> cbAlienPlatser;
-    private javax.swing.JComboBox<String> cbAlienRaser;
+    private javax.swing.JComboBox<String> cbValtOmråde;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblInloggadSom;
-    private javax.swing.JTextArea txtAreaListaAliens;
+    private javax.swing.JTextArea txtAreaListaChefer;
     // End of variables declaration//GEN-END:variables
 }

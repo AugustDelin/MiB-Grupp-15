@@ -31,10 +31,10 @@
               </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnÄndraAlienInfo" max="32767" attributes="0"/>
+                  <Component id="btnAgentInfo" max="32767" attributes="0"/>
                   <Component id="btnAgentUtrustning" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="106" max="32767" attributes="0"/>
+              <EmptySpace pref="135" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAlienInfo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnÄndraAlienInfo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAgentInfo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -84,10 +84,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinSidaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn&#xc4;ndraAlienInfo">
+    <Component class="javax.swing.JButton" name="btnAgentInfo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra Alien Info"/>
+        <Property name="text" type="java.lang.String" value="Agent Info"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgentInfoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAlienInfo">
       <Properties>

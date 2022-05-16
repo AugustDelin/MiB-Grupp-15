@@ -121,11 +121,8 @@ public class AgentMetoderLinda {
         try {
 
             String valtOmrade = Validera.hamtaCbSträng(låda);
-            ArrayList<String> chefAvOmrade = idb.fetchColumn("select agent.agent_id, Agent.namn from agent
-join omradeschef on omradeschef.Agent_ID = agent.Agent_ID
-join omrade on omrade.Omrades_ID= omradeschef.Agent_ID
-where omrade.benamning= 'Götaland';");
-            for (String enChef : ChefAvOmrade) {
+            ArrayList<String> chefAvOmrade = idb.fetchColumn("select agent.agent_id, Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= 'Götaland'");
+            for (String enChef : chefAvOmrade) {
                 lista.append(enChef);
             }
         } catch (InfException ex) {

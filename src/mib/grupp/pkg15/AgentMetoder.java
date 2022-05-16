@@ -117,7 +117,7 @@ public class AgentMetoder {
     }
 
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
-      
+
         lista.setText("");
         try {
 
@@ -194,7 +194,7 @@ public class AgentMetoder {
 
             try {
 //                idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'00-00-00')");
-                idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'"+dagensDatum+"')");
+                idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + "till din lista!");
 
             } catch (InfException ex) {
@@ -204,17 +204,33 @@ public class AgentMetoder {
         }
     }
 
-//   public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn)
-//    {
-//        String valdUtrustning = Validera.hamtaCbSträng(enLåda);
-//        int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
-//        int agentID = hämtaAgentIDFrånNamn(användarnamn);
-//        try {
-//            idb.insert("Insert into Innehar_Utrustning values(" +agentID+ ", + " +utrustningsID+ ",'00-00-00')");
-//            
-//        } catch (InfException ex) {
-//            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//    }
+    public static void listaChefAvOmrade(JTextArea lista, JComboBox låda) {
+
+        lista.setText("");
+        try {
+
+            String valtOmrade = Validera.hamtaCbSträng(låda);
+            ArrayList<String> chefAvOmrade = idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" +valtOmrade+ "'");
+            for (String enChef : chefAvOmrade) {
+                lista.append(enChef);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoderLinda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public static void fyllCBchefsOmråden(JComboBox enLåda) {
+
+        try {
+            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade");
+            
+            for (String ettOmråde : områdesLista) {
+                enLåda.addItem(ettOmråde);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }
