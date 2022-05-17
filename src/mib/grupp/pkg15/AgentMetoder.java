@@ -157,7 +157,7 @@ public class AgentMetoder {
             //HashMap<String, String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
 
             HashMap<String, String> alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
-            lista.append("ID\tNamn\tTelefon\tPlats\tAnsvarig Agent\tRegdatum\tLösenord\n");
+            lista.append("ID\tNamn\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID") + "\t");
             lista.append(valdAlien + "\t");
             //lista.append(alienAvNamn.get("alien.Namn")+"\t");
@@ -271,6 +271,17 @@ public class AgentMetoder {
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
+    
+    public static String getRasFrånNamn(String enSträng)
+    {
+        String ras = null;
+        String bogolite = idb.fetchSingle()
+        String squid
+        String worm
+        
+        if()
+        
+    }
+    return ras;
 }
