@@ -275,7 +275,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-       AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter);
+       AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
@@ -286,7 +286,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
         }
-        else if(valdRas.equals("Squid"))
+        if(valdRas.equals("Squid"))
         {
             lblRasAttribut.setText("Antal armar");
             lblRasAttribut.setVisible(true);
@@ -294,7 +294,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         }
         if(valdRas.equals("Worm"))
         {
-            //lblRasAttribut.setText("Antal boogies");
+            lblRasAttribut.setText("0");
             lblRasAttribut.setVisible(false);
             txtRasAttribut.setVisible(false);
         }

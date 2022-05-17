@@ -319,13 +319,20 @@ public class AgentMetoder {
         }
     }
 
-    public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda) {
+    public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+        if(Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält))
+            {
+                
+            
         try {
+            
             String ettIDString = id.getText();
             int ettID = Integer.parseInt(ettIDString);
             String ettDatum = datum.getText();
             String ettNamn = namnFält.getText();
-            String enRas = rasLåda.getSelectedItem().toString();
+            String valdRas = rasLåda.getSelectedItem().toString();
+            String mängdAtributString = attributFält.getText();
+            int mängdAtribut = Integer.parseInt(mängdAtributString);
             String ettLösen = lösenFält.getText();
             String ettTelNr = telNrFält.getText();
             String enPlats = platsLåda.getSelectedItem().toString();
@@ -335,18 +342,31 @@ public class AgentMetoder {
             String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
             int agentID = Integer.parseInt(agentIDSträng);
 
-            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "''" + ettTelNr + "'" + platsID + "," + agentID);
-            idb.insert("insert into boglodite values(");
+            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID+")");
+            if(valdRas.equals("Boglodite"))
+                
+        {
+            idb.insert("insert into boglodite values("+ettID+","+ mängdAtribut+")");
+        }
+        if(valdRas.equals("Squid"))
+        {
+            idb.insert("insert into squid values("+ettID+","+ mängdAtribut+")");
+        }
+        if(valdRas.equals("Worm"))
+        {
+            idb.insert("insert into worm values("+ettID+")");
+        }
+            
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }
     }
 
     public static String getAlienID() {
         String nextId = null;
         try {
             nextId = idb.getAutoIncrement("alien", "Alien_ID");
-            //nextId = idb.getAutoIncrement("agent","Agent_Id");
 
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
