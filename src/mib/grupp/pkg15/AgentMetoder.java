@@ -154,12 +154,14 @@ public class AgentMetoder {
         try {
 
             String valdAlien = Validera.hamtaCbSträng(låda);
+            String ras = getRasFrånNamn(valdAlien);
             //HashMap<String, String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
 
             HashMap<String, String> alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
-            lista.append("ID\tNamn\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
+            lista.append("ID\tNamn\tRas\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID") + "\t");
             lista.append(valdAlien + "\t");
+            lista.append(ras + "\t");
             //lista.append(alienAvNamn.get("alien.Namn")+"\t");
             lista.append(alienAvNamn.get("Telefon") + "\t");
             lista.append(alienAvNamn.get("Benamning") + "\t");
@@ -273,15 +275,32 @@ public class AgentMetoder {
         }
     }
     
-    public static String getRasFrånNamn(String enSträng)
+    public static String getRasFrånNamn(String ettNamn)
     {
         String ras = null;
-        String bogolite = idb.fetchSingle()
-        String squid
-        String worm
-        
-        if()
-        
+        try {
+            
+            String bogolite = idb.fetchSingle("Select Namn from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '"+ ettNamn+"'");
+            String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '"+ettNamn+"'");
+            String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '"+ettNamn+"'");
+            
+            if(!Validera.kollaNullSträng(bogolite))
+            {
+                ras = "Bogolite";
+            }
+            if(!Validera.kollaNullSträng(squid))
+            {
+                ras = "Squid";
+            }
+            if(!Validera.kollaNullSträng(worm))
+            {
+                ras = "Worm";
+            }
+                
+                } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ras;
     }
-    return ras;
+    
 }
