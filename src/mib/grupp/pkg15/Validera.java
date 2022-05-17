@@ -75,4 +75,13 @@ public class Validera {
         }
         return resultat;
     }
+    public static boolean kollaNullSträng(String enSträng)
+    {
+        boolean resultat = true;
+        if(enSträng == null)
+        {
+            resultat = false;
+        }
+        return resultat;
+    }
 }
