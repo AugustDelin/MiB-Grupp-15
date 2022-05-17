@@ -46,7 +46,6 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         lblInloggadSom = new javax.swing.JLabel();
         lblRegistreraAlien = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnRegistreraAlien = new javax.swing.JButton();
         lblRubrikRegd = new javax.swing.JLabel();
         lblDagensDatum = new javax.swing.JLabel();
         lblRubrikNamn = new javax.swing.JLabel();
@@ -63,6 +62,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         cbAgenter = new javax.swing.JComboBox<>();
         lblRasAttribut = new javax.swing.JLabel();
         txtRasAttribut = new javax.swing.JTextField();
+        btnRegistreraAlien = new javax.swing.JButton();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
 
@@ -93,13 +93,6 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRegistreraAlien.setText("Registrera alien");
 
-        btnRegistreraAlien.setText("Registrera Alien");
-        btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistreraAlienActionPerformed(evt);
-            }
-        });
-
         lblRubrikRegd.setText("Registreringsdatum");
 
         lblDagensDatum.setText("Dagens datum");
@@ -110,7 +103,11 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRubrikRas.setText("Ras");
 
-        cbRaser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbRaser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbRaserActionPerformed(evt);
+            }
+        });
 
         lblRubrikLösen.setText("Lösenord");
 
@@ -122,16 +119,18 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRubrikPlats.setText("Plats");
 
-        cbPlatser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lblRubrikAgent.setText("Ansvarig Agent");
 
-        cbAgenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblRasAttribut.setText("jLabel1");
+        lblRasAttribut.setText("Attribut");
 
         txtRasAttribut.setColumns(5);
-        txtRasAttribut.setText("jTextField1");
+
+        btnRegistreraAlien.setText("Slutför registrering");
+        btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistreraAlienActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,16 +155,16 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
                             .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
+                                .addGap(18, 18, 18)
                                 .addComponent(lblRasAttribut)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDagensDatum)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
+                        .addGap(95, 95, 95)
                         .addComponent(btnRegistreraAlien)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +199,9 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRegistreraAlien)
-                .addContainerGap())
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         lbRubrikID.setText("ID-nummer");
@@ -234,7 +233,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(lblvisaID))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 105, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +249,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
                     .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
                     .addComponent(btnBacka))
@@ -278,6 +277,28 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
        AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
+
+    private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
+        String valdRas = Validera.hamtaCbSträng(cbRaser);
+        if(valdRas.equals("Boglodite"))
+        {
+            lblRasAttribut.setText("Antal boogies");
+            lblRasAttribut.setVisible(true);
+            txtRasAttribut.setVisible(true);
+        }
+        else if(valdRas.equals("Squid"))
+        {
+            lblRasAttribut.setText("Antal armar");
+            lblRasAttribut.setVisible(true);
+            txtRasAttribut.setVisible(true);
+        }
+        if(valdRas.equals("Worm"))
+        {
+            //lblRasAttribut.setText("Antal boogies");
+            lblRasAttribut.setVisible(false);
+            txtRasAttribut.setVisible(false);
+        }
+    }//GEN-LAST:event_cbRaserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;

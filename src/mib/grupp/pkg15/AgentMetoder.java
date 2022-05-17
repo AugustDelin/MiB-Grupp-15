@@ -276,53 +276,49 @@ public class AgentMetoder {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static String getRasFrånNamn(String ettNamn)
-    {
+
+    public static String getRasFrånNamn(String ettNamn) {
         String ras = null;
         try {
-            
-            String bogolite = idb.fetchSingle("Select Namn from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '"+ ettNamn+"'");
-            String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '"+ettNamn+"'");
-            String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '"+ettNamn+"'");
-            
-            if(Validera.kollaNullSträng(bogolite))
-            {
+
+            String bogolite = idb.fetchSingle("Select Namn from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '" + ettNamn + "'");
+            String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '" + ettNamn + "'");
+            String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
+
+            if (Validera.kollaNullSträng(bogolite)) {
                 ras = "Bogolite";
             }
-            if(Validera.kollaNullSträng(squid))
-            {
+            if (Validera.kollaNullSträng(squid)) {
                 ras = "Squid";
             }
-            if(Validera.kollaNullSträng(worm))
-            {
+            if (Validera.kollaNullSträng(worm)) {
                 ras = "Worm";
             }
-                
-                } catch (InfException ex) {
+
+        } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ras;
     }
-    
-    public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea){
-        if(Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)){
-        try {
-            //ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + fält1 + "'and'" + fält2 + "'");
-            String datum1 = fält1.getText();
-            String datum2 = fält2.getText();
-            ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
-            System.out.println(alien);
-            
-            for(HashMap<String, String> enRad : alien){
-                enArea.append(enRad.get("Namn") + "\n");
+
+    public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea) {
+        if (Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)) {
+            try {
+                //ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + fält1 + "'and'" + fält2 + "'");
+                String datum1 = fält1.getText();
+                String datum2 = fält2.getText();
+                ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
+                System.out.println(alien);
+
+                for (HashMap<String, String> enRad : alien) {
+                    enArea.append(enRad.get("Namn") + "\n");
+                }
+            } catch (InfException ex) {
+                Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
         }
     }
-    
+
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda) {
         try {
             String ettIDString = id.getText();
@@ -333,35 +329,32 @@ public class AgentMetoder {
             String ettLösen = lösenFält.getText();
             String ettTelNr = telNrFält.getText();
             String enPlats = platsLåda.getSelectedItem().toString();
-            String platsIDSträng = idb.fetchSingle("select Plats_ID from plats where Benamning = '"+enPlats+"'");
+            String platsIDSträng = idb.fetchSingle("select Plats_ID from plats where Benamning = '" + enPlats + "'");
             int platsID = Integer.parseInt(platsIDSträng);
             String enAgent = agentLåda.getSelectedItem().toString();
-            String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '"+enAgent+"'");
+            String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
             int agentID = Integer.parseInt(agentIDSträng);
-            
+
             idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "''" + ettTelNr + "'" + platsID + "," + agentID);
-            idb.insert("insert into boglodite values(" );
+            idb.insert("insert into boglodite values(");
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static String getAlienID()
-    {
+
+    public static String getAlienID() {
         String nextId = null;
         try {
-           nextId = idb.getAutoIncrement("alien", "Alien_ID");
+            nextId = idb.getAutoIncrement("alien", "Alien_ID");
             //nextId = idb.getAutoIncrement("agent","Agent_Id");
-           System.out.println(nextId);
-           
-            
+
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return nextId;
     }
-    
-     public static void fyllCBAgentNamn(JComboBox enLåda) {
+
+    public static void fyllCBAgentNamn(JComboBox enLåda) {
 
         try {
             ArrayList<String> namnListaAgent = idb.fetchColumn("Select Namn from Agent order by namn");
