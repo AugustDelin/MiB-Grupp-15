@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
@@ -304,7 +305,7 @@ public class AgentMetoder {
     }
     
     public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea){
-        if(Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat2(fält1) && Validera.kollaDatumFormat2(fält2)){
+        if(Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)){
         try {
             //ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + fält1 + "'and'" + fält2 + "'");
             String datum1 = fält1.getText();
@@ -318,6 +319,22 @@ public class AgentMetoder {
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+    }
+    
+    public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda) {
+        try {
+            int ettID = id.getText();
+            String ettDatum = datum.getText();
+            String ettNamn = namnFält.getText();
+            String enRas = rasLåda.getSelectedItem().toString();
+            String ettLösen = lösenFält.getText();
+            String ettTelNr = telNrFält.getText();
+            int enPlats = platsLåda.getText();
+            int enAgent = agentLåda.getText();
+            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + enRas + "','" + ettTelNr + "'" + enPlats + "," + enAgent);
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
