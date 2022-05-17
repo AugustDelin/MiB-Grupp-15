@@ -4,7 +4,10 @@
  */
 package mib.grupp.pkg15;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -81,6 +84,24 @@ public class Validera {
         if(enSträng == null)
         {
             resultat = false;
+        }
+        return resultat;
+    }
+    
+    public static boolean kollaDatumFormat(JTextField fält1) {
+        Boolean resultat = true;
+        String datum1 = fält1.getText();
+        String format = "yyyy-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        sdf.setLenient(false);
+        try {
+            Date date = sdf.parse(datum1);
+            if (!sdf.format(date).equals(datum1)) {
+                resultat = false;
+                throw new ParseException(datum1 + " is not a valid format for " + format, 0);
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
         }
         return resultat;
     }
