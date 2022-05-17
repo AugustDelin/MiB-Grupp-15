@@ -116,7 +116,11 @@
                           <Component id="jSplitPane1" min="-2" max="-2" attributes="0"/>
                           <Component id="jSplitPane3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSplitPane4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSplitPane5" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblRubrikLösen" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jSplitPane5" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="jSplitPane6" min="-2" max="-2" attributes="0"/>
                           <Component id="jSplitPane7" min="-2" max="-2" attributes="0"/>
                           <Component id="jSplitPane8" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -145,15 +149,23 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="jSplitPane4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jSplitPane5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="jSplitPane6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jSplitPane7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jSplitPane8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
-                  <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jSplitPane5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jSplitPane6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jSplitPane7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jSplitPane8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lblRubrikLösen" min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -288,16 +300,6 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblRubrikL&#xf6;sen">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-                  <JSplitPaneConstraints position="left"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JPasswordField" name="txtL&#xf6;senord">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
@@ -412,6 +414,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraAlienActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblRubrikL&#xf6;sen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
