@@ -53,6 +53,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtAreaListaAliens.setEditable(false);
         txtAreaListaAliens.setColumns(20);
         txtAreaListaAliens.setRows(5);
         jScrollPane2.setViewportView(txtAreaListaAliens);
