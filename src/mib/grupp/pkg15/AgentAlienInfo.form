@@ -46,6 +46,7 @@
                               <Component id="cbAlienPlatser" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cbAlienNamn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="52" max="32767" attributes="0"/>
@@ -229,6 +230,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="S&#xf6;k registreringsdatum"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnS&#xf6;kRegDatumActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
