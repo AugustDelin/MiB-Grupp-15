@@ -183,7 +183,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbldagensDatum">
+            <Component class="javax.swing.JLabel" name="lblDagensDatum">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dagens datum"/>
               </Properties>

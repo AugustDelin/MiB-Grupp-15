@@ -21,6 +21,8 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
+        lblDagensDatum.setText(DatumHanterare.getDagensDatum());
+        
        
     }
 
@@ -42,7 +44,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         lblRubrikRegd = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        lbldagensDatum = new javax.swing.JLabel();
+        lblDagensDatum = new javax.swing.JLabel();
         jSplitPane2 = new javax.swing.JSplitPane();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
@@ -98,8 +100,8 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
         jSplitPane1.setRightComponent(jTextField1);
 
-        lbldagensDatum.setText("Dagens datum");
-        jSplitPane1.setRightComponent(lbldagensDatum);
+        lblDagensDatum.setText("Dagens datum");
+        jSplitPane1.setRightComponent(lblDagensDatum);
 
         lbRubrikID.setText("ID-nummer");
         jSplitPane2.setLeftComponent(lbRubrikID);
@@ -260,6 +262,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbRubrikID;
+    private javax.swing.JLabel lblDagensDatum;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblRegistreraAlien;
     private javax.swing.JLabel lblRubrikAgent;
@@ -269,7 +272,6 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblRubrikRas;
     private javax.swing.JLabel lblRubrikRegd;
     private javax.swing.JLabel lblRubrikTelefon;
-    private javax.swing.JLabel lbldagensDatum;
     private javax.swing.JLabel lblvisaID;
     private javax.swing.JPasswordField txtLösenord;
     private javax.swing.JTextField txtNamn;

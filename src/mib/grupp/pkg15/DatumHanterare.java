@@ -19,8 +19,8 @@ public class DatumHanterare {
         
     }
 
-    public static LocalDate getDagensDatum() {
-        LocalDate dagensDatum = LocalDate.now();
+    public static String getDagensDatum() {
+        String dagensDatum = LocalDate.now().toString();
         return dagensDatum;
     }
 }

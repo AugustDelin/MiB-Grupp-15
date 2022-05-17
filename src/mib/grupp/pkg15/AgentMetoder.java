@@ -231,7 +231,7 @@ public class AgentMetoder {
         int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
         int agentID = hämtaAgentIDFrånNamn(användarnamn);
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
-        String dagensDatum = DatumHanterare.getDagensDatum().toString();
+        String dagensDatum = DatumHanterare.getDagensDatum();
         if (Validera.kollavärdeIStringArrayList(getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng)) {
 
             try {
