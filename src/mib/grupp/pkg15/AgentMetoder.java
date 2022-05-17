@@ -325,15 +325,21 @@ public class AgentMetoder {
     
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda) {
         try {
-            int ettID = id.getText();
+            String ettIDString = id.getText();
+            int ettID = Integer.parseInt(ettIDString);
             String ettDatum = datum.getText();
             String ettNamn = namnFält.getText();
             String enRas = rasLåda.getSelectedItem().toString();
             String ettLösen = lösenFält.getText();
             String ettTelNr = telNrFält.getText();
-            int enPlats = platsLåda.getText();
-            int enAgent = agentLåda.getText();
-            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "''" + ettTelNr + "'" + enPlats + "," + enAgent);
+            String enPlats = platsLåda.getSelectedItem().toString();
+            String platsIDSträng = idb.fetchSingle("select Plats_ID from plats where Benamning = '"+enPlats+"'");
+            int platsID = Integer.parseInt(platsIDSträng);
+            String enAgent = agentLåda.getSelectedItem().toString();
+            String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '"+enAgent+"'");
+            int agentID = Integer.parseInt(agentIDSträng);
+            
+            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "''" + ettTelNr + "'" + platsID + "," + agentID);
             idb.insert("insert into boglodite values(" );
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
