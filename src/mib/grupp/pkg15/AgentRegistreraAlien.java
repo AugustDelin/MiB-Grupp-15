@@ -25,6 +25,10 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
         lblvisaID.setText(AgentMetoder.getAlienID());
+        AgentMetoder.fyllCBPlats(cbPlatser);
+        AgentMetoder.fyllCBras(cbRaser);
+        AgentMetoder.fyllCBAgentNamn(cbAgenter);
+        
        }
 
     /**
@@ -102,7 +106,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRubrikNamn.setText("Namn");
 
-        txtNamn.setText("jTextField2");
+        txtNamn.setColumns(5);
 
         lblRubrikRas.setText("Ras");
 
@@ -110,9 +114,11 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRubrikLösen.setText("Lösenord");
 
+        txtLösenord.setColumns(5);
+
         lblRubrikTelefon.setText("Telefonnummer");
 
-        txtTelefon.setText("jTextField3");
+        txtTelefon.setColumns(5);
 
         lblRubrikPlats.setText("Plats");
 
@@ -124,6 +130,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRasAttribut.setText("jLabel1");
 
+        txtRasAttribut.setColumns(5);
         txtRasAttribut.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -269,7 +276,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        // TODO add your handling code here:
+       AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

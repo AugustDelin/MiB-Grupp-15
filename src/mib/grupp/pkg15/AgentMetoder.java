@@ -360,4 +360,18 @@ public class AgentMetoder {
         }
         return nextId;
     }
+    
+     public static void fyllCBAgentNamn(JComboBox enLåda) {
+
+        try {
+            ArrayList<String> namnListaAgent = idb.fetchColumn("Select Namn from Agent order by namn");
+
+            for (String enAgent : namnListaAgent) {
+                enLåda.addItem(enAgent);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }
