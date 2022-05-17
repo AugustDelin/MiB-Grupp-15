@@ -24,7 +24,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
-        lblvisaID.setText(AgentMetoder.getAntalAliens());
+        lblvisaID.setText(AgentMetoder.getAlienID());
        }
 
     /**

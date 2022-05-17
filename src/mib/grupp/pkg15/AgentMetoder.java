@@ -7,6 +7,7 @@ package mib.grupp.pkg15;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -339,18 +340,18 @@ public class AgentMetoder {
         }
     }
     
-    public static String getAntalAliens()
+    public static String getAlienID()
     {
-        String antalAliens = null;
-        try {  
-            String SträngantalAliens = idb.fetchSingle("Select count(namn) from Agent");
-            int antalAliensint = Integer.parseInt(SträngantalAliens);
-            antalAliensint++;
-            antalAliens = Integer.toString(antalAliensint);
+        String nextId = null;
+        try {
+           nextId = idb.getAutoIncrement("alien", "Alien_ID");
+            //nextId = idb.getAutoIncrement("agent","Agent_Id");
+           System.out.println(nextId);
+           
             
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return antalAliens;
+        return nextId;
     }
 }
