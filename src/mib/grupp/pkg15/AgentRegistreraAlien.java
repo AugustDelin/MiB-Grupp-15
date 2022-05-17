@@ -41,30 +41,21 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         lblInloggadSom = new javax.swing.JLabel();
         lblRegistreraAlien = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
+        btnRegistreraAlien = new javax.swing.JButton();
         lblRubrikRegd = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         lblDagensDatum = new javax.swing.JLabel();
-        jSplitPane3 = new javax.swing.JSplitPane();
         lblRubrikNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
-        jSplitPane4 = new javax.swing.JSplitPane();
         lblRubrikRas = new javax.swing.JLabel();
         cbRaser = new javax.swing.JComboBox<>();
-        jSplitPane5 = new javax.swing.JSplitPane();
         lblRubrikLösen = new javax.swing.JLabel();
         txtLösenord = new javax.swing.JPasswordField();
-        jSplitPane6 = new javax.swing.JSplitPane();
         lblRubrikTelefon = new javax.swing.JLabel();
         txtTelefon = new javax.swing.JTextField();
-        jSplitPane7 = new javax.swing.JSplitPane();
         lblRubrikPlats = new javax.swing.JLabel();
         cbPlatser = new javax.swing.JComboBox<>();
-        jSplitPane8 = new javax.swing.JSplitPane();
         lblRubrikAgent = new javax.swing.JLabel();
         cbAgenter = new javax.swing.JComboBox<>();
-        btnRegistreraAlien = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
 
@@ -95,49 +86,6 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         lblRegistreraAlien.setText("Registrera alien");
 
-        lblRubrikRegd.setText("Registreringsdatum");
-        jSplitPane1.setLeftComponent(lblRubrikRegd);
-
-        jTextField1.setText("jTextField1");
-        jSplitPane1.setRightComponent(jTextField1);
-
-        lblDagensDatum.setText("Dagens datum");
-        jSplitPane1.setRightComponent(lblDagensDatum);
-
-        lblRubrikNamn.setText("Namn");
-        jSplitPane3.setLeftComponent(lblRubrikNamn);
-
-        txtNamn.setText("jTextField2");
-        jSplitPane3.setRightComponent(txtNamn);
-
-        lblRubrikRas.setText("Ras");
-        jSplitPane4.setLeftComponent(lblRubrikRas);
-
-        cbRaser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jSplitPane4.setRightComponent(cbRaser);
-
-        lblRubrikLösen.setText("Lösenord");
-        jSplitPane5.setLeftComponent(lblRubrikLösen);
-        jSplitPane5.setRightComponent(txtLösenord);
-
-        lblRubrikTelefon.setText("Telefonnummer");
-        jSplitPane6.setLeftComponent(lblRubrikTelefon);
-
-        txtTelefon.setText("jTextField3");
-        jSplitPane6.setRightComponent(txtTelefon);
-
-        lblRubrikPlats.setText("Plats");
-        jSplitPane7.setLeftComponent(lblRubrikPlats);
-
-        cbPlatser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jSplitPane7.setRightComponent(cbPlatser);
-
-        lblRubrikAgent.setText("Ansvarig Agent");
-        jSplitPane8.setLeftComponent(lblRubrikAgent);
-
-        cbAgenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jSplitPane8.setRightComponent(cbAgenter);
-
         btnRegistreraAlien.setText("Registrera Alien");
         btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +93,31 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Linda1");
+        lblRubrikRegd.setText("Registreringsdatum");
+
+        lblDagensDatum.setText("Dagens datum");
+
+        lblRubrikNamn.setText("Namn");
+
+        txtNamn.setText("jTextField2");
+
+        lblRubrikRas.setText("Ras");
+
+        cbRaser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblRubrikLösen.setText("Lösenord");
+
+        lblRubrikTelefon.setText("Telefonnummer");
+
+        txtTelefon.setText("jTextField3");
+
+        lblRubrikPlats.setText("Plats");
+
+        cbPlatser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblRubrikAgent.setText("Ansvarig Agent");
+
+        cbAgenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,42 +125,61 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSplitPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSplitPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSplitPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSplitPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSplitPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSplitPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(btnRegistreraAlien))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRubrikRegd)
+                            .addComponent(lblRubrikNamn)
+                            .addComponent(lblRubrikRas)
+                            .addComponent(lblRubrikLösen)
+                            .addComponent(lblRubrikTelefon)
+                            .addComponent(lblRubrikPlats)
+                            .addComponent(lblRubrikAgent))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDagensDatum)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                        .addGap(149, 149, 149)
+                        .addComponent(btnRegistreraAlien)))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikRegd)
+                    .addComponent(lblDagensDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSplitPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jSplitPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(jSplitPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(jSplitPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikRas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikLösen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jSplitPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jSplitPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(btnRegistreraAlien)
                 .addContainerGap())
         );
@@ -275,16 +266,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbAgenter;
     private javax.swing.JComboBox<String> cbPlatser;
     private javax.swing.JComboBox<String> cbRaser;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JSplitPane jSplitPane3;
-    private javax.swing.JSplitPane jSplitPane4;
-    private javax.swing.JSplitPane jSplitPane5;
-    private javax.swing.JSplitPane jSplitPane6;
-    private javax.swing.JSplitPane jSplitPane7;
-    private javax.swing.JSplitPane jSplitPane8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbRubrikID;
     private javax.swing.JLabel lblDagensDatum;
     private javax.swing.JLabel lblInloggadSom;
