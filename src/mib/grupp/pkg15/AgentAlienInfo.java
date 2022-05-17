@@ -275,11 +275,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
-        txtAreaListaAliens.setText("");
-        cbAlienPlatser.setVisible(false);
-        cbAlienNamn.setVisible(false);
-        cbAlienRaser.setVisible(false);
-        
+        new AgentAlienRegDatum(användarnamn).setVisible(true);  
+        dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
 
     /**

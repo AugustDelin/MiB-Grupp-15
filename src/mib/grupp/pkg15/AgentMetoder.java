@@ -303,4 +303,20 @@ public class AgentMetoder {
         return ras;
     }
     
+    public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea){
+        try {
+            //ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + fält1 + "'and'" + fält2 + "'");
+            String datum1 = fält1.getText();
+            String datum2 = fält2.getText();
+            ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
+            System.out.println(alien);
+            
+            for(HashMap<String, String> enRad : alien){
+                enArea.append(enRad.get("Namn") + "\n");
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    
 }

@@ -165,7 +165,8 @@ public class AgentAlienRegDatum extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSökAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökAliensActionPerformed
-        // TODO add your handling code here:
+        AgentMetoder.getAlienFrånRegDatum(txtDatum1, txtDatum2, txtAreaListaAliens);
+        
     }//GEN-LAST:event_btnSökAliensActionPerformed
 
     /**
