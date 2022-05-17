@@ -284,15 +284,15 @@ public class AgentMetoder {
             String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '"+ettNamn+"'");
             String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '"+ettNamn+"'");
             
-            if(!Validera.kollaNullSträng(bogolite))
+            if(Validera.kollaNullSträng(bogolite))
             {
                 ras = "Bogolite";
             }
-            if(!Validera.kollaNullSträng(squid))
+            if(Validera.kollaNullSträng(squid))
             {
                 ras = "Squid";
             }
-            if(!Validera.kollaNullSträng(worm))
+            if(Validera.kollaNullSträng(worm))
             {
                 ras = "Worm";
             }
