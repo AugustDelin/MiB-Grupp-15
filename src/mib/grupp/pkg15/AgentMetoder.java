@@ -338,4 +338,18 @@ public class AgentMetoder {
         }
     }
     
+    public static String getAntalAliens()
+    {
+        String antalAliens = null;
+        try {  
+            String SträngantalAliens = idb.fetchSingle("Select count(namn) from Agent");
+            int antalAliensint = Integer.parseInt(SträngantalAliens);
+            antalAliensint++;
+            antalAliens = Integer.toString(antalAliensint);
+            
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return antalAliens;
+    }
 }

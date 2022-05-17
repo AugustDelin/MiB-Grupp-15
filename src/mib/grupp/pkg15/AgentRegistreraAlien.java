@@ -22,6 +22,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
+        lblvisaID.setText(AgentMetoder.getAntalAliens());
         
        
     }
