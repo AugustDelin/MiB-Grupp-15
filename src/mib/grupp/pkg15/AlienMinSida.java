@@ -91,7 +91,7 @@ public class AlienMinSida extends javax.swing.JFrame {
             }
         });
 
-        lblInloggadSom.setText("jLabel1");
+        lblInloggadSom.setText("Inloggad som");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

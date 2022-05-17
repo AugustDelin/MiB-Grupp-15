@@ -177,7 +177,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblInloggadSom">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="Inloggad som"/>
       </Properties>
     </Component>
   </SubComponents>
