@@ -332,7 +332,8 @@ public class AgentMetoder {
             String ettTelNr = telNrFält.getText();
             int enPlats = platsLåda.getText();
             int enAgent = agentLåda.getText();
-            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + enRas + "','" + ettTelNr + "'" + enPlats + "," + enAgent);
+            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "''" + ettTelNr + "'" + enPlats + "," + enAgent);
+            idb.insert("insert into boglodite values(" );
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
