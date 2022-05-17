@@ -93,24 +93,6 @@ public class Validera {
 
     public static boolean kollaDatumFormat(JTextField fält1) {
         boolean resultat = true;
-        String datum1 = fält1.getText();
-        String format = "yyyy-MM-dd";
-        SimpleDateFormat sdf = new SimpleDateFormat(format);
-        sdf.setLenient(false);
-        try {
-            Date date = sdf.parse(datum1);
-            if (!sdf.format(date).equals(datum1)) {
-                resultat = false;
-                throw new ParseException(datum1 + " is not a valid format for " + format, 0);
-            }
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-        return resultat;
-    }
-
-    public static boolean kollaDatumFormat2(JTextField fält1) {
-        boolean resultat = true;
         String ettDatum = fält1.getText();
         Pattern pattern = Pattern.compile("\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$");
         Matcher matcher = pattern.matcher(ettDatum);
