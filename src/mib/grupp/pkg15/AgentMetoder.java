@@ -304,7 +304,7 @@ public class AgentMetoder {
     }
     
     public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea){
-        if(Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)){
+        if(Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat2(fält1) && Validera.kollaDatumFormat2(fält2)){
         try {
             //ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + fält1 + "'and'" + fält2 + "'");
             String datum1 = fält1.getText();
