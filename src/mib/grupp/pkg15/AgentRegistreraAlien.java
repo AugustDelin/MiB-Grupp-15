@@ -145,7 +145,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Linda");
+        jLabel1.setText("August");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
