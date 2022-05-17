@@ -140,7 +140,13 @@
                               <Component id="cbPlatser" min="-2" max="-2" attributes="0"/>
                               <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
                               <Component id="txtLösenord" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbRaser" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cbRaser" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="lblRasAttribut" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtRasAttribut" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
                               <Component id="lblDagensDatum" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -150,7 +156,7 @@
                           <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="282" max="32767" attributes="0"/>
+                  <EmptySpace pref="131" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -171,6 +177,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRubrikRas" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="cbRaser" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRasAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtRasAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -304,6 +312,16 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblRasAttribut">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtRasAttribut">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

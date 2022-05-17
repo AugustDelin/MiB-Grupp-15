@@ -22,9 +22,9 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
-        
-       
-    }
+        lblRasAttribut.setVisible(false);
+        txtRasAttribut.setVisible(false);
+       }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,6 +56,8 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         cbPlatser = new javax.swing.JComboBox<>();
         lblRubrikAgent = new javax.swing.JLabel();
         cbAgenter = new javax.swing.JComboBox<>();
+        lblRasAttribut = new javax.swing.JLabel();
+        txtRasAttribut = new javax.swing.JTextField();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
 
@@ -119,6 +121,10 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
 
         cbAgenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        lblRasAttribut.setText("jLabel1");
+
+        txtRasAttribut.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -140,13 +146,18 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
                             .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(90, 90, 90)
+                                .addComponent(lblRasAttribut)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDagensDatum)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(btnRegistreraAlien)))
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +173,9 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikRas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRasAttribut)
+                    .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikLösen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,6 +283,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lbRubrikID;
     private javax.swing.JLabel lblDagensDatum;
     private javax.swing.JLabel lblInloggadSom;
+    private javax.swing.JLabel lblRasAttribut;
     private javax.swing.JLabel lblRegistreraAlien;
     private javax.swing.JLabel lblRubrikAgent;
     private javax.swing.JLabel lblRubrikLösen;
@@ -281,6 +295,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblvisaID;
     private javax.swing.JPasswordField txtLösenord;
     private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtRasAttribut;
     private javax.swing.JTextField txtTelefon;
     // End of variables declaration//GEN-END:variables
 }
