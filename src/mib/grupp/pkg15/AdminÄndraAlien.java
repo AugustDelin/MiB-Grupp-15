@@ -9,7 +9,7 @@ package mib.grupp.pkg15;
  * @author Linda
  */
 //    Fälten för AgentÄndraAlien.
-public class AdminÄndraAlien1 extends javax.swing.JFrame {
+public class AdminÄndraAlien extends javax.swing.JFrame {
     private String användarnamn;
 
 
@@ -17,7 +17,7 @@ public class AdminÄndraAlien1 extends javax.swing.JFrame {
      * Konstruktorn för AgentÄndraAlien.
      * @param användarnamn
      */
-    public AdminÄndraAlien1(String användarnamn) {
+    public AdminÄndraAlien(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);

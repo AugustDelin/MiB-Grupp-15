@@ -9,7 +9,7 @@ package mib.grupp.pkg15;
  * @author augustdelin
  */
 // Fälten för AgentAlienInfo.
-public class AdminAlienRegDatum1 extends javax.swing.JFrame {
+public class AdminAlienRegDatum extends javax.swing.JFrame {
 
     private String användarnamn;
     
@@ -17,7 +17,7 @@ public class AdminAlienRegDatum1 extends javax.swing.JFrame {
     /**
      * Konstruktorn för AgentAlienInfo.
      */
-    public AdminAlienRegDatum1(String användarnamn) {
+    public AdminAlienRegDatum(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
