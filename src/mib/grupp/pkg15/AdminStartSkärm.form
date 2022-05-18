@@ -32,7 +32,7 @@
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnAgentInfo" max="32767" attributes="0"/>
-                  <Component id="btnAgentUtrustning" max="32767" attributes="0"/>
+                  <Component id="btnAdminUtrustning" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="138" max="32767" attributes="0"/>
           </Group>
@@ -66,7 +66,7 @@
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnMinSida" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAgentUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdminUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="81" max="32767" attributes="0"/>
               <Component id="lblAvsluta" min="-2" max="-2" attributes="0"/>
@@ -104,10 +104,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlienInfoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAgentUtrustning">
+    <Component class="javax.swing.JButton" name="btnAdminUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Utrustning"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminUtrustningActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="lblLoggaut">
       <Properties>
