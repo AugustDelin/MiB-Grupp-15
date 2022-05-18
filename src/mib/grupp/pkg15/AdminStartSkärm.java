@@ -34,7 +34,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
         btnMinSida = new javax.swing.JButton();
         btnAgentInfo = new javax.swing.JButton();
         btnAlienInfo = new javax.swing.JButton();
-        btnAgentUtrustning = new javax.swing.JButton();
+        btnAdminUtrustning = new javax.swing.JButton();
         lblLoggaut = new javax.swing.JButton();
         lblAvsluta = new javax.swing.JButton();
 
@@ -63,7 +63,12 @@ public class AdminStartSkärm extends javax.swing.JFrame {
             }
         });
 
-        btnAgentUtrustning.setText("Utrustning");
+        btnAdminUtrustning.setText("Utrustning");
+        btnAdminUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminUtrustningActionPerformed(evt);
+            }
+        });
 
         lblLoggaut.setText("Logga ut");
         lblLoggaut.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +96,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgentUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAdminUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(138, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
@@ -117,7 +122,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMinSida)
-                    .addComponent(btnAgentUtrustning))
+                    .addComponent(btnAdminUtrustning))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(lblAvsluta))
         );
@@ -148,11 +153,16 @@ public class AdminStartSkärm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgentInfoActionPerformed
 
+    private void btnAdminUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUtrustningActionPerformed
+        new AdminUtrustning(användarnamn).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAdminUtrustningActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdminUtrustning;
     private javax.swing.JButton btnAgentInfo;
-    private javax.swing.JButton btnAgentUtrustning;
     private javax.swing.JButton btnAlienInfo;
     private javax.swing.JButton btnMinSida;
     private javax.swing.JButton lblAvsluta;

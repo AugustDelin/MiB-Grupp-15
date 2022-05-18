@@ -135,4 +135,16 @@ public class Validera {
         return resultat;
     }
     
+    public static boolean kollaLängdLösenord(JTextField ettFält)
+    {
+        boolean resultat = true;
+        String lösenord = ettFält.getText();
+        if(lösenord.length() != 6)
+        {
+             resultat = false;
+             JOptionPane.showMessageDialog(null, "Ditt lösenord måste vara sex tecken långt!");
+        }
+       return resultat; 
+    }
+    
 }

@@ -8,13 +8,13 @@ package mib.grupp.pkg15;
  *
  * @author Linda
  */
-//    Fälten för AgentMinSida.
+//    Fälten för AdminUtrustning.
 public class AdminUtrustning extends javax.swing.JFrame {
     private String användarnamn;
     
 
     /**
-     * Konstruktorn för AgentMinSida.
+     * Konstruktorn för AdminUtrustning.
      * @param användarnamn
      */
     public AdminUtrustning(String användarnamn) {
@@ -131,7 +131,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
      //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        Navigera.openAgentStartSkärm(användarnamn);
+        Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
