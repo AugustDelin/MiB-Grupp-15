@@ -37,5 +37,10 @@ public class Navigera {
     public static void avslutaProgram() {
         System.exit(0);
     }
+    
+    //Metod som öppnar en ny sida av AdminStartskärm
+    public static void openAdminStartSkärm(String användarnamn) {
+        new AdminStartSkärm(användarnamn).setVisible(true);
+    }
 
 }

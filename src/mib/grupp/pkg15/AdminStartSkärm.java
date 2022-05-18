@@ -32,7 +32,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
 
         lblRubrik = new javax.swing.JLabel();
         btnMinSida = new javax.swing.JButton();
-        btnÄndraAlienInfo = new javax.swing.JButton();
+        btnAgentInfo = new javax.swing.JButton();
         btnAlienInfo = new javax.swing.JButton();
         btnAgentUtrustning = new javax.swing.JButton();
         lblLoggaut = new javax.swing.JButton();
@@ -49,7 +49,12 @@ public class AdminStartSkärm extends javax.swing.JFrame {
             }
         });
 
-        btnÄndraAlienInfo.setText("Ändra Alien Info");
+        btnAgentInfo.setText("Agent Info");
+        btnAgentInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgentInfoActionPerformed(evt);
+            }
+        });
 
         btnAlienInfo.setText("Alien Info");
         btnAlienInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -85,9 +90,9 @@ public class AdminStartSkärm extends javax.swing.JFrame {
                     .addComponent(btnMinSida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnÄndraAlienInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgentUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblRubrik)
@@ -108,7 +113,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAlienInfo)
-                    .addComponent(btnÄndraAlienInfo))
+                    .addComponent(btnAgentInfo))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMinSida)
@@ -134,17 +139,21 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLoggautActionPerformed
 
     private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
-        new AgentAlienInfo(användarnamn).setVisible(true);
+        new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAlienInfoActionPerformed
+
+    private void btnAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgentInfoActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgentInfo;
     private javax.swing.JButton btnAgentUtrustning;
     private javax.swing.JButton btnAlienInfo;
     private javax.swing.JButton btnMinSida;
-    private javax.swing.JButton btnÄndraAlienInfo;
     private javax.swing.JButton lblAvsluta;
     private javax.swing.JButton lblLoggaut;
     private javax.swing.JLabel lblRubrik;
