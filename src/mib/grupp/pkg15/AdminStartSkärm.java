@@ -150,7 +150,8 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlienInfoActionPerformed
 
     private void btnAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentInfoActionPerformed
-        // TODO add your handling code here:
+        new AdminAgentInfo(användarnamn).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnAgentInfoActionPerformed
 
     private void btnAdminUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUtrustningActionPerformed
