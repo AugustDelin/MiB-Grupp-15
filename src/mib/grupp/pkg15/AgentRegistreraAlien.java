@@ -278,6 +278,11 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
        if(!AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut))
        {
            lblvisaID.setText(AgentMetoder.getAlienID());
+           txtNamn.setText("");
+           txtLösenord.setText("");
+           txtTelefon.setText("");
+           txtRasAttribut.setText("");
+           
            
        }
        
