@@ -219,7 +219,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
         AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
     }//GEN-LAST:event_cbAlienPlatserActionPerformed
-
+    
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienRaser.setVisible(false);
@@ -230,21 +230,21 @@ public class AdminAlienInfo extends javax.swing.JFrame {
             AgentMetoder.fyllCBPlats(cbAlienPlatser);
         }
     }//GEN-LAST:event_btnSokPlatsActionPerformed
-
+    //Öppnar AdminStartSkärm när knappen Föregående Sida trycks
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Avslutar programmet när knappen Avsluta Program trycks
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+    // Öppnar Startskärmen när knappen Logga ut trycks
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+    
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
@@ -255,7 +255,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSokRasActionPerformed
-
+    
     private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
         AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
     }//GEN-LAST:event_cbAlienRaserActionPerformed
@@ -269,21 +269,21 @@ public class AdminAlienInfo extends javax.swing.JFrame {
             AgentMetoder.fyllCBAlienNamn(cbAlienNamn);
         }
     }//GEN-LAST:event_btnSokAlienActionPerformed
-
+    
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
         AgentMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
-
+    // Öppnar fönstret AdminRegistreraAlien när knappen Registrera alien trycks
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
         new AdminRegistreraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-
+    // Öppnar fönstret AdminAlienRegDatum när knappen Sök registreringsdatum trycks
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
         new AdminAlienRegDatum(användarnamn).setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
-
+    // Öppnar fönstret AdminÄndraAlien när knappen Ändra alien information trycks
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         new AdminÄndraAlien(användarnamn).setVisible(true);
         dispose();

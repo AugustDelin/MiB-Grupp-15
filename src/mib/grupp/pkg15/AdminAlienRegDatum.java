@@ -161,16 +161,16 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Öppnar AdminAlienInfo när knappen Föregående Sida trycks
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AdminAlienInfo(användarnamn).setVisible(true);
         dispose(); 
     }//GEN-LAST:event_btnBackaActionPerformed
-
+     // Avslutar programmet när knappen Avsluta Program trycks
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+    // Öppnar Startskärmen när knappen Logga ut trycks
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();

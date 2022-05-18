@@ -268,9 +268,9 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-     //    Knappen för att starta metoden Backa.
+     // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AgentAlienInfo(användarnamn).setVisible(true);
+        new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 

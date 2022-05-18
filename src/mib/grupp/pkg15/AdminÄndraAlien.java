@@ -91,7 +91,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        lblÄndraAlien.setText("Registrera alien");
+        lblÄndraAlien.setText("Ändra alien info");
 
         lblRubrikRegd.setText("Registreringsdatum");
 
@@ -270,7 +270,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
      //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AgentAlienInfo(användarnamn).setVisible(true);
+        new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 

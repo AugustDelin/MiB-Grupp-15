@@ -26,7 +26,7 @@ public class AdminMinSida extends javax.swing.JFrame {
     public AdminMinSida(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
+        FyllText.inloggadSomAdmin(lblInloggadSom , användarnamn);
     }
 
     /**
@@ -88,7 +88,7 @@ public class AdminMinSida extends javax.swing.JFrame {
             }
         });
 
-        lblInloggadSom.setText("jLabel2");
+        lblInloggadSom.setText("Välkommen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +173,7 @@ public class AdminMinSida extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        Navigera.openAgentStartSkärm(användarnamn);
+        Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
