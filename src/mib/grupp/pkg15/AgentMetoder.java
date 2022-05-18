@@ -319,9 +319,11 @@ public class AgentMetoder {
         }
     }
 
-    public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+    public static boolean nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+        boolean resultat = true;
         if(Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält))
             {
+                resultat = false;
                 String ettNamn = null;
             
         try {
@@ -362,6 +364,7 @@ public class AgentMetoder {
         }
         JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
             }
+        return resultat;
         
     }
 
