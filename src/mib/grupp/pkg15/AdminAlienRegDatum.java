@@ -163,7 +163,7 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AgentAlienInfo(användarnamn).setVisible(true);
+        new AdminAlienInfo(användarnamn).setVisible(true);
         dispose(); 
     }//GEN-LAST:event_btnBackaActionPerformed
 

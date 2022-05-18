@@ -275,17 +275,17 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_cbAlienNamnActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        new AgentRegistreraAlien(användarnamn).setVisible(true);
+        new AdminRegistreraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
-        new AgentAlienRegDatum(användarnamn).setVisible(true);  
+        new AdminAlienRegDatum(användarnamn).setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
 
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
-        new AgentÄndraAlien(användarnamn).setVisible(true);
+        new AdminÄndraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
 

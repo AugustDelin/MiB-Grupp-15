@@ -14,14 +14,14 @@ import oru.inf.InfException;
  *
  * @author Linda
  */
-// Fälten för AgentMinSida.
+// Fälten för AdminMinSida.
 public class AdminMinSida extends javax.swing.JFrame {
 
     private String användarnamn;
     private static InfDB idb;
 
     /**
-     * Konstruktorn för AgentMinSida.
+     * Konstruktorn för AdminMinSida.
      */
     public AdminMinSida(String användarnamn) {
         initComponents();
