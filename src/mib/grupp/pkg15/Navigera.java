@@ -42,5 +42,9 @@ public class Navigera {
     public static void openAdminStartSkärm(String användarnamn) {
         new AdminStartSkärm(användarnamn).setVisible(true);
     }
+    
+    public static void openAdminMinSida(String användarnamn) {
+        new AdminMinSida(användarnamn).setVisible(true);
+    }
 
 }

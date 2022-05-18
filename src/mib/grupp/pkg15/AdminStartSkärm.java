@@ -126,7 +126,8 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
-        Navigera.openAgentMinSida(användarnamn);
+        Navigera.openAdminMinSida(användarnamn);
+        dispose();
     }//GEN-LAST:event_btnMinSidaActionPerformed
 
     private void lblAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAvslutaActionPerformed
