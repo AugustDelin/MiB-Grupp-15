@@ -320,16 +320,16 @@ public class AgentMetoder {
     }
 
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
-        if(Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält))
+        if(Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält))
             {
-                
+                String ettNamn = null;
             
         try {
             
             String ettIDString = id.getText();
             int ettID = Integer.parseInt(ettIDString);
             String ettDatum = datum.getText();
-            String ettNamn = namnFält.getText();
+            ettNamn = namnFält.getText();
             String valdRas = rasLåda.getSelectedItem().toString();
             String mängdAtributString = attributFält.getText();
             int mängdAtribut = Integer.parseInt(mängdAtributString);
@@ -360,7 +360,9 @@ public class AgentMetoder {
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+        JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
             }
+        
     }
 
     public static String getAlienID() {

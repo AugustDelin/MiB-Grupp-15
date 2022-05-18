@@ -104,4 +104,34 @@ public class Validera {
         return resultat;
     }
 
+    public static boolean kollaMaxTvåsiffror(JTextField ettFält) {
+        boolean resultat = true;
+        String ettTal = ettFält.getText();
+        Pattern pattern = Pattern.compile("^(1[0-9]|[1-9])$");
+        Matcher matcher = pattern.matcher(ettTal);
+        boolean matchFound = matcher.find();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet format, fältet tar tal mellan 1-19");
+            ettFält.requestFocus();
+
+        }
+        return resultat;
+    }
+
+    public static boolean kollaTelefonnummer(JTextField ettFält) {
+        boolean resultat = true;
+        String ettTelefonnummer = ettFält.getText();
+        Pattern pattern = Pattern.compile("[0-9]+");
+        Matcher matcher = pattern.matcher(ettTelefonnummer);
+        boolean matchFound = matcher.find();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet format, du kan endast ange siffror i detta fält");
+            ettFält.requestFocus();
+        }
+
+        return resultat;
+    }
+
 }

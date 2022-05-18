@@ -294,7 +294,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         }
         if(valdRas.equals("Worm"))
         {
-            lblRasAttribut.setText("0");
+            txtRasAttribut.setText("0");
             lblRasAttribut.setVisible(false);
             txtRasAttribut.setVisible(false);
         }
