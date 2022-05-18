@@ -39,6 +39,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
         lblInloggadSom = new javax.swing.JLabel();
         cbVäljUtrustning = new javax.swing.JComboBox<>();
         btnLaggtillUtrustning = new javax.swing.JButton();
+        lblLäggaTill = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +73,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
+        lblLäggaTill.setText("Här kan du lägga till utrustning på dig själv.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +85,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblLäggaTill)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnLoggaut))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBacka)
@@ -104,9 +108,14 @@ public class AdminUtrustning extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblInloggadSom)
-                .addGap(14, 14, 14)
-                .addComponent(btnLoggaut)
-                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(btnLoggaut))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(lblLäggaTill)))
+                .addGap(17, 17, 17)
                 .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(btnLaggtillUtrustning)
@@ -147,5 +156,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private javax.swing.JButton btnLoggaut;
     private javax.swing.JComboBox<String> cbVäljUtrustning;
     private javax.swing.JLabel lblInloggadSom;
+    private javax.swing.JLabel lblLäggaTill;
     // End of variables declaration//GEN-END:variables
 }

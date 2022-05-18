@@ -88,7 +88,7 @@ public class AdminMinSida extends javax.swing.JFrame {
             }
         });
 
-        lblInloggadSom.setText("Välkommen");
+        lblInloggadSom.setText("Inloggad som");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
