@@ -20,8 +20,8 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
     public AdminAlienRegDatum(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        FyllText.inloggadSom(lblInloggadSom, användarnamn);
-        //AgentMetoder.fyllCBPlats(cbAlienPlats);
+        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
+        
 
     }
 

@@ -23,7 +23,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         cbAlienPlatser.setVisible(false);
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(false);
-        FyllText.inloggadSom(lblInloggadSom, användarnamn);
+        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
     }

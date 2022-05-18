@@ -20,7 +20,7 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
     public AdminRegistreraAlien(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        FyllText.inloggadSom(lblInloggadSom, användarnamn);
+        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);

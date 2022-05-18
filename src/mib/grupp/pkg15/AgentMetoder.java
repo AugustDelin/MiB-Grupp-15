@@ -105,10 +105,9 @@ public class AgentMetoder {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public static void fyllCBras(JComboBox enLåda) {
         //Skapa en ArrayList och fyller denna med de tre raserna som finns
         //enLåda.addItem("");
+    public static void fyllCBras(JComboBox enLåda) {
         ArrayList<String> raslista = new ArrayList();
         raslista.add("Boglodite");
         raslista.add("Squid");
@@ -119,11 +118,10 @@ public class AgentMetoder {
         }
 
     }
-
+//Skapa en ArrayList och fyller denna med de tre raserna som finns
+            //enLåda.addItem("");
     public static void fyllCBAlienNamn(JComboBox enLåda) {
         try {
-            //Skapa en ArrayList och fyller denna med de tre raserna som finns
-            //enLåda.addItem("");
             ArrayList<String> namnLista = idb.fetchColumn("select namn from alien");
 
             for (String ettNamn : namnLista) {
