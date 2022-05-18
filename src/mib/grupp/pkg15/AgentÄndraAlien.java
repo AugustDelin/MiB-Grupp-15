@@ -91,7 +91,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        lblÄndraAlien.setText("Registrera alien");
+        lblÄndraAlien.setText("Ändra alien info");
 
         lblRubrikRegd.setText("Registreringsdatum");
 
