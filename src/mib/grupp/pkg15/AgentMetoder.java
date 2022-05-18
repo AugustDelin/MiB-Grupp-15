@@ -389,4 +389,24 @@ public class AgentMetoder {
         }
 
     }
+    
+    //metod för att udvika dubbla ID
+    // public static boolean kollaID(JLabel ettLabel) {
+        //try {
+            //boolean resultat = false;
+            //String ettIDString = ettLabel.getText();
+            //int ettID = Integer.parseInt(ettIDString);
+            //String idLista = idb.fetchSingle("Select Alien_ID from alien");
+           // int idListan = Integer.parseInt(idLista);
+            //ArrayList<Integer> idListaAliens = idListan;
+            
+            //for(String ettID : )
+            //if (ettID.) {
+                
+          //  }
+        //} catch (InfException ex) {
+         //   Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+       // }
+   // }
 }
+
