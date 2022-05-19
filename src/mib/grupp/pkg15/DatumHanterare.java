@@ -5,6 +5,7 @@
 package mib.grupp.pkg15;
 
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Date;
 
 /**
@@ -22,5 +23,11 @@ public class DatumHanterare {
     public static String getDagensDatum() {
         String dagensDatum = LocalDate.now().toString();
         return dagensDatum;
+    }
+
+    public static String getNuvarandeÅrtal() {
+        String nuvarandeÅr = Year.now().toString();
+        return nuvarandeÅr;
+
     }
 }

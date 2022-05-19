@@ -91,17 +91,26 @@ public class Validera {
         }
         return resultat;
     }
-
+    
+    // Metod för att kolla så att man angivet rätt datumformat
     public static boolean kollaDatumFormat(JTextField fält1) {
         boolean resultat = true;
         String ettDatum = fält1.getText();
         Pattern pattern = Pattern.compile("\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$");
         Matcher matcher = pattern.matcher(ettDatum);
         boolean matchFound = matcher.find();
+        String valtÅrtal = ettDatum.substring(0, 4);
+        int kollaÅrtal = Integer.parseInt(valtÅrtal);
+        int nuvarandeÅr = Integer.parseInt(DatumHanterare.getNuvarandeÅrtal());
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt datumformat(korrekt format är YYYY-MM-DD");
+            JOptionPane.showMessageDialog(null, "Felaktigt datumformat(korrekt format är YYYY-MM-DD)");
         }
+         if (kollaÅrtal < 1950 || kollaÅrtal > nuvarandeÅr ) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt årsintervall (tidigaste godkända årtal år 1950)");
+             
+         }
         return resultat;
     }
 

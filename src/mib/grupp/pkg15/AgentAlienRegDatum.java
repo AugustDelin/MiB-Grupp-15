@@ -78,8 +78,10 @@ public class AgentAlienRegDatum extends javax.swing.JFrame {
         lblInloggadSom.setText("Inloggad som");
 
         txtDatum1.setColumns(9);
+        txtDatum1.setText("1950-01-01");
 
         txtDatum2.setColumns(9);
+        txtDatum2.setText("2022-12-31");
 
         lblDatum1.setText("Från datum:");
 
