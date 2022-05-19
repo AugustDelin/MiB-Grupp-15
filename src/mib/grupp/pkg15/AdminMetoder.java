@@ -141,6 +141,19 @@ public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
             Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static void fyllCBAgentNamn(JComboBox enLåda) {
+        try {
+            ArrayList<String> namnLista = idb.fetchColumn("select namn from agent");
+            
+            for (String ettNamn : namnLista) {
+                enLåda.addItem(ettNamn);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            
     //Skapar en hashmap och visar all information om varje enskild alien.
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
@@ -165,6 +178,8 @@ public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
             Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
+    
     public static String getRasFrånNamn(String ettNamn) {
         String ras = null;
         try {
@@ -188,6 +203,7 @@ public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
         }
         return ras;
     }
+    
     
 public static void fyllAdminUtrustning(JComboBox enLåda) {
 

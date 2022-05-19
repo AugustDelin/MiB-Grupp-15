@@ -19,9 +19,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     public AdminAgentInfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        cbAlienPlatser.setVisible(false);
-        cbAlienRaser.setVisible(false);
-        cbAlienNamn.setVisible(false);
+        cbAgentNamn.setVisible(false);
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
         //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
@@ -37,40 +35,23 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtAreaListaAliens = new javax.swing.JTextArea();
-        cbAlienPlatser = new javax.swing.JComboBox<>();
-        btnSokPlats = new javax.swing.JButton();
+        txtAreaListaAgenter = new javax.swing.JTextArea();
         btnBacka = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
-        btnSokRas = new javax.swing.JButton();
-        cbAlienRaser = new javax.swing.JComboBox<>();
-        btnSokAlien = new javax.swing.JButton();
-        cbAlienNamn = new javax.swing.JComboBox<>();
-        btnRegistreraAlien = new javax.swing.JButton();
-        btnSökRegDatum = new javax.swing.JButton();
-        btnÄndraAlien = new javax.swing.JButton();
+        btnSokAgent = new javax.swing.JButton();
+        cbAgentNamn = new javax.swing.JComboBox<>();
+        btnRegistreraAgent = new javax.swing.JButton();
+        btnÄndraAgent = new javax.swing.JButton();
+        btnTaBortAgent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtAreaListaAliens.setEditable(false);
-        txtAreaListaAliens.setColumns(20);
-        txtAreaListaAliens.setRows(5);
-        jScrollPane2.setViewportView(txtAreaListaAliens);
-
-        cbAlienPlatser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAlienPlatserActionPerformed(evt);
-            }
-        });
-
-        btnSokPlats.setText("Sök plats");
-        btnSokPlats.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSokPlatsActionPerformed(evt);
-            }
-        });
+        txtAreaListaAgenter.setEditable(false);
+        txtAreaListaAgenter.setColumns(20);
+        txtAreaListaAgenter.setRows(5);
+        jScrollPane2.setViewportView(txtAreaListaAgenter);
 
         btnBacka.setText("Föregående Sida");
         btnBacka.addActionListener(new java.awt.event.ActionListener() {
@@ -95,52 +76,34 @@ public class AdminAgentInfo extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        btnSokRas.setText("Sök ras");
-        btnSokRas.addActionListener(new java.awt.event.ActionListener() {
+        btnSokAgent.setText("Sök agent");
+        btnSokAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSokRasActionPerformed(evt);
+                btnSokAgentActionPerformed(evt);
             }
         });
 
-        cbAlienRaser.addActionListener(new java.awt.event.ActionListener() {
+        cbAgentNamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAlienRaserActionPerformed(evt);
+                cbAgentNamnActionPerformed(evt);
             }
         });
 
-        btnSokAlien.setText("Sök alien");
-        btnSokAlien.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistreraAgent.setText("Registrera agent");
+        btnRegistreraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSokAlienActionPerformed(evt);
+                btnRegistreraAgentActionPerformed(evt);
             }
         });
 
-        cbAlienNamn.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndraAgent.setText("Ändra agent information");
+        btnÄndraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAlienNamnActionPerformed(evt);
+                btnÄndraAgentActionPerformed(evt);
             }
         });
 
-        btnRegistreraAlien.setText("Registrera alien");
-        btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistreraAlienActionPerformed(evt);
-            }
-        });
-
-        btnSökRegDatum.setText("Sök registreringsdatum");
-        btnSökRegDatum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSökRegDatumActionPerformed(evt);
-            }
-        });
-
-        btnÄndraAlien.setText("Ändra alien information");
-        btnÄndraAlien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnÄndraAlienActionPerformed(evt);
-            }
-        });
+        btnTaBortAgent.setText("Ta bort agent");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,33 +113,25 @@ public class AdminAgentInfo extends javax.swing.JFrame {
                 .addComponent(lblInloggadSom)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLoggaUt))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btnBacka)
-                .addGap(375, 375, 375)
-                .addComponent(btnAvsluta)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSokAlien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSökRegDatum, javax.swing.GroupLayout.Alignment.TRAILING)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistreraAlien)
-                    .addComponent(btnÄndraAlien))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegistreraAgent)
+                    .addComponent(btnÄndraAgent, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                .addGap(365, 365, 365)
+                .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSokPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSokRas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBacka)
+                        .addGap(375, 375, 375)
+                        .addComponent(btnAvsluta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnTaBortAgent)
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,26 +142,20 @@ public class AdminAgentInfo extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnSokPlats)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSokRas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSokAlien)
-                            .addComponent(cbAlienRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSökRegDatum)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(109, 109, 109)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegistreraAlien)
+                        .addComponent(btnRegistreraAgent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnÄndraAlien)
-                        .addGap(165, 165, 165)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnÄndraAgent)
+                            .addComponent(btnSokAgent))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnTaBortAgent)
+                            .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(130, 130, 130)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBacka)
                     .addComponent(btnAvsluta)))
@@ -214,21 +163,6 @@ public class AdminAgentInfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
-    private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
-        AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
-    }//GEN-LAST:event_cbAlienPlatserActionPerformed
-
-    private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
-        txtAreaListaAliens.setText("");
-        cbAlienRaser.setVisible(false);
-        cbAlienNamn.setVisible(false);
-        cbAlienPlatser.setVisible(true);
-        if (cbAlienPlatser.getItemCount() == 0) {
-
-            AgentMetoder.fyllCBPlats(cbAlienPlatser);
-        }
-    }//GEN-LAST:event_btnSokPlatsActionPerformed
     // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAdminStartSkärm(användarnamn);
@@ -245,50 +179,29 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-//Knappen som startar metoden för att söka alienraser.
-    private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
-        txtAreaListaAliens.setText("");
-        cbAlienPlatser.setVisible(false);
-        cbAlienNamn.setVisible(false);
-        cbAlienRaser.setVisible(true);
-        if (cbAlienRaser.getItemCount() == 0) {
-            AgentMetoder.fyllCBras(cbAlienRaser);
+
+    private void btnSokAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAgentActionPerformed
+        txtAreaListaAgenter.setText("");
+        cbAgentNamn.setVisible(true);
+        if (cbAgentNamn.getItemCount() == 0) {
+            AdminMetoder.fyllCBAgentNamn(cbAgentNamn);
         }
+    }//GEN-LAST:event_btnSokAgentActionPerformed
 
-    }//GEN-LAST:event_btnSokRasActionPerformed
+    private void cbAgentNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentNamnActionPerformed
+        AdminMetoder.listaEnskildaAliens(txtAreaListaAgenter, cbAgentNamn);
+    }//GEN-LAST:event_cbAgentNamnActionPerformed
 
-    private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
-        AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
-    }//GEN-LAST:event_cbAlienRaserActionPerformed
-//
-    private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
-        txtAreaListaAliens.setText("");
-        cbAlienPlatser.setVisible(false);
-        cbAlienRaser.setVisible(false);
-        cbAlienNamn.setVisible(true);
-        if (cbAlienNamn.getItemCount() == 0) {
-            AgentMetoder.fyllCBAlienNamn(cbAlienNamn);
-        }
-    }//GEN-LAST:event_btnSokAlienActionPerformed
-
-    private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
-        AgentMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
-    }//GEN-LAST:event_cbAlienNamnActionPerformed
-
-    private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        new AdminRegistreraAlien(användarnamn).setVisible(true);
+    private void btnRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAgentActionPerformed
+        new AdminRegistreraAgent(användarnamn).setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-//Öppnar ett nytt fönster för klassen SökRegDatum.
-    private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
-        new AdminAlienRegDatum(användarnamn).setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnSökRegDatumActionPerformed
+    }//GEN-LAST:event_btnRegistreraAgentActionPerformed
+
 //Öppnar ett nytt fönster för klassen ÄndraAlien.
-    private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
-        new AdminÄndraAlien(användarnamn).setVisible(true);
+    private void btnÄndraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAgentActionPerformed
+        new AdminÄndraAgent(användarnamn).setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnÄndraAlienActionPerformed
+    }//GEN-LAST:event_btnÄndraAgentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,17 +211,13 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaUt;
-    private javax.swing.JButton btnRegistreraAlien;
-    private javax.swing.JButton btnSokAlien;
-    private javax.swing.JButton btnSokPlats;
-    private javax.swing.JButton btnSokRas;
-    private javax.swing.JButton btnSökRegDatum;
-    private javax.swing.JButton btnÄndraAlien;
-    private javax.swing.JComboBox<String> cbAlienNamn;
-    private javax.swing.JComboBox<String> cbAlienPlatser;
-    private javax.swing.JComboBox<String> cbAlienRaser;
+    private javax.swing.JButton btnRegistreraAgent;
+    private javax.swing.JButton btnSokAgent;
+    private javax.swing.JButton btnTaBortAgent;
+    private javax.swing.JButton btnÄndraAgent;
+    private javax.swing.JComboBox<String> cbAgentNamn;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblInloggadSom;
-    private javax.swing.JTextArea txtAreaListaAliens;
+    private javax.swing.JTextArea txtAreaListaAgenter;
     // End of variables declaration//GEN-END:variables
 }
