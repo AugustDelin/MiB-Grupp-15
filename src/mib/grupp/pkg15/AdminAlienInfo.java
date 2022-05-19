@@ -8,14 +8,14 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
-// Fälten för AgentAlienInfo.
+// Fälten för AdminAlienInfo.
 public class AdminAlienInfo extends javax.swing.JFrame {
 
     private String användarnamn;
     
 
     /**
-     * Konstruktorn för AgentAlienInfo.
+     * Konstruktorn för AdminAlienInfo.
      */
     public AdminAlienInfo(String användarnamn) {
         initComponents();
@@ -219,7 +219,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
         AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
     }//GEN-LAST:event_cbAlienPlatserActionPerformed
-    
+//    Knappen startar metoden för att söka plats för aliens.
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienRaser.setVisible(false);
@@ -230,16 +230,16 @@ public class AdminAlienInfo extends javax.swing.JFrame {
             AgentMetoder.fyllCBPlats(cbAlienPlatser);
         }
     }//GEN-LAST:event_btnSokPlatsActionPerformed
-    //Öppnar AdminStartSkärm när knappen Föregående Sida trycks
+      //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-    // Avslutar programmet när knappen Avsluta Program trycks
+  // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-    // Öppnar Startskärmen när knappen Logga ut trycks
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();

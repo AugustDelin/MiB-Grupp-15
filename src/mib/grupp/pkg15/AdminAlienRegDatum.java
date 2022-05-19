@@ -161,12 +161,12 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Öppnar AdminAlienInfo när knappen Föregående Sida trycks
+   //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AdminAlienInfo(användarnamn).setVisible(true);
         dispose(); 
     }//GEN-LAST:event_btnBackaActionPerformed
-     // Avslutar programmet när knappen Avsluta Program trycks
+      // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
@@ -175,7 +175,7 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+// Knappen för att starta metoden för att söka efter aliens mellan två valda datum.
     private void btnSökAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökAliensActionPerformed
         AgentMetoder.getAlienFrånRegDatum(txtDatum1, txtDatum2, txtAreaListaAliens);
         
