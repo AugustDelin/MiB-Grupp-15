@@ -27,7 +27,7 @@ public class FyllText {
     }
 
     public static void inloggadSomAdmin(JLabel textruta, String användarnamn) {
-        textruta.setText("Du är inloggad som: " + användarnamn + "(Administratör).");
+        textruta.setText("Du är inloggad som: " + användarnamn + " (Administratör).");
     }
 
 }
