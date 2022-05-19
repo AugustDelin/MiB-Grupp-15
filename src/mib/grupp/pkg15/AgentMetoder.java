@@ -234,7 +234,6 @@ public class AgentMetoder {
         if (Validera.kollavärdeIStringArrayList(getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng)) {
 
             try {
-//                idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'00-00-00')");
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
 
@@ -301,7 +300,6 @@ public class AgentMetoder {
     public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea) {
         if (Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)) {
             try {
-                //ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + fält1 + "'and'" + fält2 + "'");
                 String datum1 = fält1.getText();
                 String datum2 = fält2.getText();
                 ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
