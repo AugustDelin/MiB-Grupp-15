@@ -93,5 +93,16 @@ public class GetMetoder {
         }
         return nextId;
     }
+    
+    public static String getNextAgentID() {
+        String nextId = null;
+        try {
+            nextId = idb.getAutoIncrement("agent", "Agent_ID");
+
+        } catch (InfException ex) {
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nextId;
+    }
 }
 

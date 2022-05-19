@@ -103,7 +103,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
             }
         });
 
-        btnTaBortAgent.setText("Ta bort agent");
+        btnTaBortAgent.setText("Ta bort vald agent");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

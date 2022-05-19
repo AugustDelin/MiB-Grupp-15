@@ -175,7 +175,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTaBortAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ta bort agent"/>
+        <Property name="text" type="java.lang.String" value="Ta bort vald agent"/>
       </Properties>
     </Component>
   </SubComponents>
