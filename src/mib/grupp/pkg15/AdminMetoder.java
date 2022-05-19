@@ -125,7 +125,7 @@ public static int hämtaAgentIDFrånNamn(String användarnamn) {
 
         }
     }
-    
+    //Går att ta bort ur systemet men går ej om utrustning har lagts till på agent
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);

@@ -139,7 +139,7 @@ public class AgentMetoder {
             String valdRas = Validera.hamtaCbSträng(låda);
             ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join " + valdRas + " on alien.alien_id =" + valdRas + ".alien_id");
             for (String enAlien : alienavRas) {
-                lista.append(enAlien);
+                lista.append(enAlien + "\n");
             }
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
