@@ -125,4 +125,18 @@ public static int hämtaAgentIDFrånNamn(String användarnamn) {
 
         }
     }
+    
+    public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
+        try {
+            String valdUtrustning = Validera.hamtaCbSträng(enLåda);
+            int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
+            idb.delete("delete from utrustning where benamning ='" + valdUtrustning + "'");
+            idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
+            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
+            enLåda.removeItem(valdUtrustning);
+        } catch (InfException ex) {
+            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+              
+    }
 }
