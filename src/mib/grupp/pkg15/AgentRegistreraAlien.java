@@ -277,14 +277,14 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        if (!AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut)) {
-            lblvisaID.setText(AgentMetoder.getAlienID());
-            txtNamn.setText("");
-            txtLösenord.setText("");
-            txtTelefon.setText("");
-            txtRasAttribut.setText("");
+        AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
+//            lblvisaID.setText(AgentMetoder.getAlienID());
+//            txtNamn.setText("");
+//            txtLösenord.setText("");
+//            txtTelefon.setText("");
+//            txtRasAttribut.setText("");
 
-        }
+        
 
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
