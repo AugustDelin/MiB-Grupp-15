@@ -21,7 +21,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        AgentMetoder.fyllAgentUtrustning(cbVäljUtrustning);
+        AdminMetoder.fyllAdminUtrustning(cbVäljUtrustning);
+        AdminMetoder.fyllAdminUtrustning(cbTaBort);
     }
 
     /**
@@ -40,7 +41,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
         cbVäljUtrustning = new javax.swing.JComboBox<>();
         btnLaggtillUtrustning = new javax.swing.JButton();
         lblLäggaTill = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbTaBort = new javax.swing.JComboBox<>();
         lblTaBort = new javax.swing.JLabel();
         btnTaBort = new javax.swing.JButton();
 
@@ -127,14 +128,15 @@ public class AdminUtrustning extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(lblLäggaTill)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                         .addComponent(lblTaBort)
                         .addGap(52, 52, 52))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +162,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
                             .addComponent(lblLäggaTill))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -189,7 +191,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
-        // TODO add your handling code here:
+        AdminMetoder.taBortUtrustningUrSystemet(cbTaBort);
     }//GEN-LAST:event_btnTaBortActionPerformed
 
     private void cbVäljUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljUtrustningActionPerformed
@@ -202,8 +204,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private javax.swing.JButton btnLaggtillUtrustning;
     private javax.swing.JButton btnLoggaut;
     private javax.swing.JButton btnTaBort;
+    private javax.swing.JComboBox<String> cbTaBort;
     private javax.swing.JComboBox<String> cbVäljUtrustning;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblLäggaTill;
     private javax.swing.JLabel lblTaBort;
