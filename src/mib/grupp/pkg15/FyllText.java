@@ -11,25 +11,23 @@ import javax.swing.JTextField;
  *
  * @author erike
  */
+//Fälten för klassen FyllText.
 public class FyllText {
-    
-    public FyllText(){
-        
+
+    public FyllText() {
+
     }
-    
-    public static void välkomstLabel(JLabel textruta, String användarnamn)
-    {
+
+    public static void välkomstLabel(JLabel textruta, String användarnamn) {
         textruta.setText("Välkommen " + användarnamn + ".");
     }
-    
-    public static void inloggadSom(JLabel textruta, String användarnamn)
-    {
+
+    public static void inloggadSom(JLabel textruta, String användarnamn) {
         textruta.setText("Du är inloggad som: " + användarnamn + ".");
     }
-    
-    public static void inloggadSomAdmin(JLabel textruta, String användarnamn)
-    {
+
+    public static void inloggadSomAdmin(JLabel textruta, String användarnamn) {
         textruta.setText("Du är inloggad som: " + användarnamn + "(Administratör).");
     }
-    
+
 }

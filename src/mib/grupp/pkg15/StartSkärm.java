@@ -132,18 +132,18 @@ public class StartSkärm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// Knappen som startar metoden för att logga in som Admin.
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
         AdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAdminActionPerformed
-
+// Knappen som startar metoden för att logga in som Alien.
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
         AlienMetoder.loggaInAlien(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAlienActionPerformed
-
+// Knappen som startar metoden för att logga in som Agent.
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
-        AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);   
-        
+        AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
+
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 
     /**

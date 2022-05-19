@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author erike
  */
-// Metod för att kolla om rutan för användarnamn är tom. Ifall rutan är tom skriver ut ett felmeddelande 
+// Metod för att kolla om rutan för användarnamn är tom. Ifall rutan är tom skrivs ett felmeddelande ut 
 //som beskriver problemet.
 public class Validera {
 
@@ -134,17 +134,15 @@ public class Validera {
 
         return resultat;
     }
-    
-    public static boolean kollaLängdLösenord(JTextField ettFält)
-    {
+
+    public static boolean kollaLängdLösenord(JTextField ettFält) {
         boolean resultat = true;
         String lösenord = ettFält.getText();
-        if(lösenord.length() != 6)
-        {
-             resultat = false;
-             JOptionPane.showMessageDialog(null, "Ditt lösenord måste vara sex tecken långt!");
+        if (lösenord.length() != 6) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Ditt lösenord måste vara sex tecken långt!");
         }
-       return resultat; 
+        return resultat;
     }
-    
+
 }
