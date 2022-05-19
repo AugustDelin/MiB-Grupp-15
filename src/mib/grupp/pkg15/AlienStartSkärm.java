@@ -12,6 +12,7 @@ import oru.inf.InfDB;
  */
 //Fälten för AlienStartSkärm.
 public class AlienStartSkärm extends javax.swing.JFrame {
+
     private String användarnamn;
 
     /**
@@ -23,8 +24,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         FyllText.välkomstLabel(lblRubrik, användarnamn);
         AlienMetoder.visaOC(lblMinOc, användarnamn);
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,20 +105,20 @@ public class AlienStartSkärm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Knappen för att öppna ett nytt fönster med klassen AlienMinSida.
     private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
         new AlienMinSida(användarnamn).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnMinSidaActionPerformed
-
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

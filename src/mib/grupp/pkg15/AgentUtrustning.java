@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 package mib.grupp.pkg15;
+
 /**
  *
  * @author Linda
  */
-//    Fälten för AgentMinSida.
+//    Fälten för AgentUtrustning.
 public class AgentUtrustning extends javax.swing.JFrame {
+
     private String användarnamn;
-    
 
     /**
-     * Konstruktorn för AgentMinSida.
+     * Konstruktorn för AgentUtrustning.
+     *
      * @param användarnamn
      */
     public AgentUtrustning(String användarnamn) {
@@ -128,24 +130,24 @@ public class AgentUtrustning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   // Knappen för att starta metoden Logga ut.
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
     // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-     //    Knappen för att starta metoden Backa.
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-         AgentMetoder.laggTillUtrustningPåAgent(cbVäljUtrustning, användarnamn);
-       
+        AgentMetoder.laggTillUtrustningPåAgent(cbVäljUtrustning, användarnamn);
+
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

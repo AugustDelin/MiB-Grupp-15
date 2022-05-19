@@ -9,12 +9,14 @@ import oru.inf.InfDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfException;
+
 /**
  *
  * @author Linda
  */
 //    Fälten för AgentMinSida.
 public class AgentMinSida extends javax.swing.JFrame {
+
     private String användarnamn;
     private static InfDB idb;
 
@@ -162,14 +164,14 @@ public class AgentMinSida extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBytLösenordActionPerformed
     // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
     // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-     //    Knappen för att starta metoden Backa.
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();

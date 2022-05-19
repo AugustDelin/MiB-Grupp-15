@@ -10,8 +10,9 @@ import oru.inf.InfDB;
  *
  * @author erike
  */
-    //Fälten för klassen AdminStartskärm.
+//Fälten för klassen AdminStartskärm.
 public class AdminStartSkärm extends javax.swing.JFrame {
+
     private String användarnamn;
 
 //    Konstruktorn för AdminStartskärm.
@@ -140,8 +141,8 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAvslutaActionPerformed
 // Knappen för att starta metoden Logga ut.
     private void lblLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_lblLoggautActionPerformed
 // Knappen öppnar ett nytt fönster med klassen Alien Info.
     private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
@@ -159,7 +160,6 @@ public class AdminStartSkärm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAdminUtrustningActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdminUtrustning;
