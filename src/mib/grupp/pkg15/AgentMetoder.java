@@ -65,7 +65,6 @@ public class AgentMetoder {
         }
     }
 // Metod för att byta lösenord för Agent.
-
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {

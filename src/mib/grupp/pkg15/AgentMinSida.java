@@ -86,7 +86,7 @@ public class AgentMinSida extends javax.swing.JFrame {
             }
         });
 
-        lblInloggadSom.setText("jLabel2");
+        lblInloggadSom.setText("Inloggad som");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

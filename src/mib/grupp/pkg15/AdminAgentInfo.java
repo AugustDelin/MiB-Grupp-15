@@ -235,16 +235,16 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+// Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+// Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+//Knappen som startar metoden för att söka alienraser.
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
@@ -259,7 +259,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
         AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
     }//GEN-LAST:event_cbAlienRaserActionPerformed
-
+//
     private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
@@ -278,12 +278,12 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         new AdminRegistreraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-
+//Öppnar ett nytt fönster för klassen SökRegDatum.
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
         new AdminAlienRegDatum(användarnamn).setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
-
+//Öppnar ett nytt fönster för klassen ÄndraAlien.
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         new AdminÄndraAlien(användarnamn).setVisible(true);
         dispose();

@@ -8,14 +8,14 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
-// Fälten för AgentAlienInfo.
+// Fälten för AgentAlienRegDatum.
 public class AgentAlienRegDatum extends javax.swing.JFrame {
 
     private String användarnamn;
     
 
     /**
-     * Konstruktorn för AgentAlienInfo.
+     * Konstruktorn för AgentAlienRegDatum.
      */
     public AgentAlienRegDatum(String användarnamn) {
         initComponents();
@@ -161,21 +161,21 @@ public class AgentAlienRegDatum extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AgentAlienInfo(användarnamn).setVisible(true);
         dispose(); 
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+ // Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+// Knappen för att starta metoden som listar alla aliens mellan två valda datum.
     private void btnSökAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökAliensActionPerformed
         AgentMetoder.getAlienFrånRegDatum(txtDatum1, txtDatum2, txtAreaListaAliens);
         
