@@ -75,7 +75,7 @@ public class AgentMetoder {
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

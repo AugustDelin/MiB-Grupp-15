@@ -61,7 +61,20 @@ public class AdminMetoder {
             }
         }
     }
-    
+    // Metod för att byta lösenord för Admin och Agent.
+    public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
+        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
+        try {
+            String lösenord = idb.fetchSingle("Select Losenord from AGENT where namn ='" + användarnamn + "'");
+            if (Validera.kollaLösen(lösenord, gammaltlösen)) {
+                String nyttLösenord = nyttlösen.getText();
+                idb.update("UPDATE AGENT SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
+                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
      public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
         lista.setText("");
         try {
