@@ -26,10 +26,6 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
-        lblvisaID.setText(AgentMetoder.getAlienID());
-        AgentMetoder.fyllCBPlats(cbPlatser);
-        AgentMetoder.fyllCBras(cbRaser);
-        AgentMetoder.fyllCBAgentNamn(cbAgenter);
 
     }
 
@@ -277,7 +273,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
+        AdminMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed

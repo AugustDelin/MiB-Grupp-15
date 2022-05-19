@@ -271,12 +271,12 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
         AgentMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
-
+// Knappen för att öppna ett nytt fönster för klassen RegistreraAlien.
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
         new AgentRegistreraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-
+//Knappen för att öppna ett nytt fönster för klassen SökRegdatum.
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
         new AgentAlienRegDatum(användarnamn).setVisible(true);
         dispose();

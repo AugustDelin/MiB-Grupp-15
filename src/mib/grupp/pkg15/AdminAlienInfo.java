@@ -215,7 +215,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
     private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
-        AgentMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
+        AdminMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
     }//GEN-LAST:event_cbAlienPlatserActionPerformed
 //    Knappen startar metoden för att söka plats för aliens.
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
@@ -225,7 +225,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
         cbAlienPlatser.setVisible(true);
         if (cbAlienPlatser.getItemCount() == 0) {
 
-            AgentMetoder.fyllCBPlats(cbAlienPlatser);
+            AdminMetoder.fyllCBPlats(cbAlienPlatser);
         }
     }//GEN-LAST:event_btnSokPlatsActionPerformed
     //    Knappen för att starta metoden Backa.
@@ -249,13 +249,13 @@ public class AdminAlienInfo extends javax.swing.JFrame {
         cbAlienNamn.setVisible(false);
         cbAlienRaser.setVisible(true);
         if (cbAlienRaser.getItemCount() == 0) {
-            AgentMetoder.fyllCBras(cbAlienRaser);
+            AdminMetoder.fyllCBras(cbAlienRaser);
         }
 
     }//GEN-LAST:event_btnSokRasActionPerformed
 
     private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
-        AgentMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
+        AdminMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
     }//GEN-LAST:event_cbAlienRaserActionPerformed
 
     private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
@@ -264,24 +264,24 @@ public class AdminAlienInfo extends javax.swing.JFrame {
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(true);
         if (cbAlienNamn.getItemCount() == 0) {
-            AgentMetoder.fyllCBAlienNamn(cbAlienNamn);
+            AdminMetoder.fyllCBAlienNamn(cbAlienNamn);
         }
     }//GEN-LAST:event_btnSokAlienActionPerformed
 
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
-        AgentMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
+        AdminMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
-    // Öppnar fönstret AdminRegistreraAlien när knappen Registrera alien trycks
+    // Knappen för att öppna ett nytt fönster för klassen RegistreraAlien.
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
         new AdminRegistreraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-    // Öppnar fönstret AdminAlienRegDatum när knappen Sök registreringsdatum trycks
+    //Knappen för att öppna ett nytt fönster för klassen SökRegdatum.
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
         new AdminAlienRegDatum(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
-    // Öppnar fönstret AdminÄndraAlien när knappen Ändra alien information trycks
+   // Knappen för att öppna ett nytt fönster för klassen AgentÄndraAlien.
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         new AdminÄndraAlien(användarnamn).setVisible(true);
         dispose();

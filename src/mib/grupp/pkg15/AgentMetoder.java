@@ -146,7 +146,7 @@ public class AgentMetoder {
         }
 
     }
-
+//Skapar en hashmap och visar all information om varje enskild alien.
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
         lista.setText("");
@@ -154,14 +154,12 @@ public class AgentMetoder {
 
             String valdAlien = Validera.hamtaCbSträng(låda);
             String ras = getRasFrånNamn(valdAlien);
-            //HashMap<String, String> alienAvNamn = idb.fetchRow("select * from alien where namn ='" + valdAlien + "'");
-
+            
             HashMap<String, String> alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
             lista.append("ID\tNamn\tRas\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID") + "\t");
             lista.append(valdAlien + "\t");
             lista.append(ras + "\t");
-            //lista.append(alienAvNamn.get("alien.Namn")+"\t");
             lista.append(alienAvNamn.get("Telefon") + "\t");
             lista.append(alienAvNamn.get("Benamning") + "\t");
             lista.append(alienAvNamn.get("Namn") + "\t");
