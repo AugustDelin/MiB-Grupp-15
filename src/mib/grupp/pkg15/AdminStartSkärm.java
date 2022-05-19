@@ -18,7 +18,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     public AdminStartSkärm(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        lblRubrik.setText("Välkommen " + användarnamn + ".");
+        lblRubrik.setText("Välkommen " + användarnamn + "(Administratör).");
     }
 
     /**
@@ -129,31 +129,31 @@ public class AdminStartSkärm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// Knappen öppnar ett nytt fönster med klassen MinSida.
     private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
         Navigera.openAdminMinSida(användarnamn);
         dispose();
     }//GEN-LAST:event_btnMinSidaActionPerformed
-
+// Knappen för att starta metoden Avsluta program.
     private void lblAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_lblAvslutaActionPerformed
-
+// Knappen för att starta metoden Logga ut.
     private void lblLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblLoggautActionPerformed
        Navigera.openStartSkärm();
        dispose();
     }//GEN-LAST:event_lblLoggautActionPerformed
-
+// Knappen öppnar ett nytt fönster med klassen Alien Info.
     private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
         new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAlienInfoActionPerformed
-
+//Knappen öppnar ett nytt fönster med klassen Agent Info.
     private void btnAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentInfoActionPerformed
         new AdminAgentInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgentInfoActionPerformed
-
+//Knappen öppnar ett nytt fönster med klassen Utrustning.
     private void btnAdminUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUtrustningActionPerformed
         new AdminUtrustning(användarnamn).setVisible(true);
         dispose();
