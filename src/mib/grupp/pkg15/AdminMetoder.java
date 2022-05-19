@@ -125,11 +125,12 @@ public static int hämtaAgentIDFrånNamn(String användarnamn) {
 
         }
     }
-    
-    public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
+    //Går att ta bort ur systemet men går ej om utrustning har lagts till på agent
+    public static void taBortUtrustningUrSystemet(JComboBox enLåda, String användarnamn) {
         try {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);
             int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
+            int agentID = hämtaAgentIDFrånNamn(valdUtrustning);
             idb.delete("delete from utrustning where benamning ='" + valdUtrustning + "'");
             idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
