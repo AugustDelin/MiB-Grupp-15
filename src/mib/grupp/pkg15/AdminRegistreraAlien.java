@@ -24,10 +24,10 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
-        lblvisaID.setText(AgentMetoder.getAlienID());
-        AgentMetoder.fyllCBPlats(cbPlatser);
-        AgentMetoder.fyllCBras(cbRaser);
-        AgentMetoder.fyllCBAgentNamn(cbAgenter);
+        lblvisaID.setText(GetMetoder.getNextAlienID());
+        ComboBoxar.fyllCBPlats(cbPlatser);
+        ComboBoxar.fyllCBras(cbRaser);
+        ComboBoxar.fyllCBAgentNamn(cbAgenter);
         
        }
 

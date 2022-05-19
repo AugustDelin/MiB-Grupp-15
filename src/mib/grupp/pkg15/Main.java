@@ -24,6 +24,8 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         Navigera.openStartSkärm();
+        new ComboBoxar();
+        new GetMetoder();
     }
 
     public static InfDB getDB() {

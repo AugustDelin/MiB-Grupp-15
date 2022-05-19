@@ -22,8 +22,8 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
         this.användarnamn = användarnamn;
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
         lblDagensDatum.setText(DatumHanterare.getDagensDatum());
-        lblvisaID.setText(AgentMetoder.getAlienID());
-        AgentMetoder.fyllCBPlats(cbOmråden);
+        lblvisaID.setText(GetMetoder.getNextAlienID());
+        ComboBoxar.fyllCBPlats(cbOmråden);
       
         
        }

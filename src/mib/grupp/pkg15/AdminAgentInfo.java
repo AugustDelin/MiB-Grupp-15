@@ -184,12 +184,12 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         txtAreaListaAgenter.setText("");
         cbAgentNamn.setVisible(true);
         if (cbAgentNamn.getItemCount() == 0) {
-            AdminMetoder.fyllCBAgentNamn(cbAgentNamn);
+            ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
         }
     }//GEN-LAST:event_btnSokAgentActionPerformed
 
     private void cbAgentNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentNamnActionPerformed
-        AdminMetoder.listaEnskildaAliens(txtAreaListaAgenter, cbAgentNamn);
+        AgentMetoder.listaEnskildaAliens(txtAreaListaAgenter, cbAgentNamn);
     }//GEN-LAST:event_cbAgentNamnActionPerformed
 
     private void btnRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAgentActionPerformed

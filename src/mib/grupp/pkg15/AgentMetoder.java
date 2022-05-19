@@ -65,6 +65,7 @@ public class AgentMetoder {
         }
     }
 // Metod för att byta lösenord för Agent.
+
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
@@ -79,19 +80,6 @@ public class AgentMetoder {
         }
     }
 
-    public static void fyllCBPlats(JComboBox enLåda) {
-        try {
-            enLåda.removeAllItems();
-            ArrayList<String> platser = idb.fetchColumn("select benamning from plats order by benamning");
-            for (String enPlats : platser) {
-                enLåda.addItem(enPlats);
-            }
-
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
         lista.setText("");
         try {
@@ -99,32 +87,6 @@ public class AgentMetoder {
             ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats + "'");
             for (String alien : aliensPåPlats) {
                 lista.append(alien + "\n");
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-        //Skapa en ArrayList och fyller denna med de tre raserna som finns
-        //enLåda.addItem("");
-    public static void fyllCBras(JComboBox enLåda) {
-        ArrayList<String> raslista = new ArrayList();
-        raslista.add("Boglodite");
-        raslista.add("Squid");
-        raslista.add("Worm");
-
-        for (String rasnamn : raslista) {
-            enLåda.addItem(rasnamn);
-        }
-
-    }
-//Skapa en ArrayList och fyller denna med de tre raserna som finns
-            //enLåda.addItem("");
-    public static void fyllCBAlienNamn(JComboBox enLåda) {
-        try {
-            ArrayList<String> namnLista = idb.fetchColumn("select namn from alien");
-
-            for (String ettNamn : namnLista) {
-                enLåda.addItem(ettNamn);
             }
         } catch (InfException ex) {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,14 +109,15 @@ public class AgentMetoder {
 
     }
 //Skapar en hashmap och visar all information om varje enskild alien.
+
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
         lista.setText("");
         try {
 
             String valdAlien = Validera.hamtaCbSträng(låda);
-            String ras = getRasFrånNamn(valdAlien);
-            
+            String ras = GetMetoder.getRasFrånNamn(valdAlien);
+
             HashMap<String, String> alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
             lista.append("ID\tNamn\tRas\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID") + "\t");
@@ -171,65 +134,14 @@ public class AgentMetoder {
         }
     }
 
-    public static void fyllAgentUtrustning(JComboBox enLåda) {
-
-        try {
-            ArrayList<String> utrustningsLista = idb.fetchColumn("Select benamning from utrustning order by benamning");
-
-            for (String enUtrustning : utrustningsLista) {
-                enLåda.addItem(enUtrustning);
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public static int hämtaAgentIDFrånNamn(String användarnamn) {
-        String agentID = "Finns ej";
-        int agentNR = 99;
-        try {
-            agentID = idb.fetchSingle("Select Agent_ID from Agent where namn ='" + användarnamn + "'");
-            agentNR = Integer.parseInt(agentID);
-
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return agentNR;
-    }
-
-    public static int hämtaUtrustningsIDFrånNamn(String benämning) {
-        String utrustningsID = "Finns ej";
-        int utrustningsNR = 99;
-
-        try {
-            utrustningsID = idb.fetchSingle("Select utrustnings_ID from utrustning where benamning ='" + benämning + "'");
-            utrustningsNR = Integer.parseInt(utrustningsID);
-
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return utrustningsNR;
-    }
-
-    public static ArrayList<String> getUtrustningsIDnFrånAgentID(int agentID) {
-        ArrayList<String> utrustningslista = null;
-        try {
-            utrustningslista = idb.fetchColumn("Select Utrustnings_ID from innehar_utrustning where agent_ID=" + agentID);
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return utrustningslista;
-    }
-
     public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn) {
+        String felmeddelande = "Denna utrusnting är redan registrerad på " + användarnamn;
         String valdUtrustning = Validera.hamtaCbSträng(enLåda);
-        int utrustningsID = hämtaUtrustningsIDFrånNamn(valdUtrustning);
-        int agentID = hämtaAgentIDFrånNamn(användarnamn);
+        int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
+        int agentID = GetMetoder.hämtaAgentIDFrånNamn(användarnamn);
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
         String dagensDatum = DatumHanterare.getDagensDatum();
-        if (Validera.kollavärdeIStringArrayList(getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng)) {
+        if (Validera.kollaOmvärdeFinnsIArrayList(GetMetoder.getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng, felmeddelande)) {
 
             try {
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
@@ -258,44 +170,7 @@ public class AgentMetoder {
 
     }
 
-    public static void fyllCBchefsOmråden(JComboBox enLåda) {
-
-        try {
-            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
-
-            for (String ettOmråde : områdesLista) {
-                enLåda.addItem(ettOmråde);
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public static String getRasFrånNamn(String ettNamn) {
-        String ras = null;
-        try {
-
-            String bogolite = idb.fetchSingle("Select Namn from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '" + ettNamn + "'");
-            String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '" + ettNamn + "'");
-            String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
-
-            if (Validera.kollaNullSträng(bogolite)) {
-                ras = "Bogolite";
-            }
-            if (Validera.kollaNullSträng(squid)) {
-                ras = "Squid";
-            }
-            if (Validera.kollaNullSträng(worm)) {
-                ras = "Worm";
-            }
-
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return ras;
-    }
-
-    public static void getAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea) {
+    public static void visaAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea) {
         if (Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)) {
             try {
                 String datum1 = fält1.getText();
@@ -312,101 +187,67 @@ public class AgentMetoder {
         }
     }
 
-    public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) { 
-        if(Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält))
-            {
-                
-                String ettNamn = null;
-            
-        try {
-            
-            String ettIDString = id.getText();
-            int ettID = Integer.parseInt(ettIDString);
-            String ettDatum = datum.getText();
-            ettNamn = namnFält.getText();
-            String valdRas = rasLåda.getSelectedItem().toString();
-            String mängdAtributString = attributFält.getText();
-            int mängdAtribut = Integer.parseInt(mängdAtributString);
-            String ettLösen = lösenFält.getText();
-            String ettTelNr = telNrFält.getText();
-            String enPlats = platsLåda.getSelectedItem().toString();
-            String platsIDSträng = idb.fetchSingle("select Plats_ID from plats where Benamning = '" + enPlats + "'");
-            int platsID = Integer.parseInt(platsIDSträng);
-            String enAgent = agentLåda.getSelectedItem().toString();
-            String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
-            int agentID = Integer.parseInt(agentIDSträng);
+    public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
-            idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID+")");
-            if(valdRas.equals("Boglodite"))
-                
-        {
-            idb.insert("insert into boglodite values("+ettID+","+ mängdAtribut+")");
-        }
-        if(valdRas.equals("Squid"))
-        {
-            idb.insert("insert into squid values("+ettID+","+ mängdAtribut+")");
-        }
-        if(valdRas.equals("Worm"))
-        {
-            idb.insert("insert into worm values("+ettID+")");
-        }
-            
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
-         id.setText(AgentMetoder.getAlienID());
+            String ettNamn = null;
+
+            try {
+
+                String ettIDString = id.getText();
+                int ettID = Integer.parseInt(ettIDString);
+                String ettDatum = datum.getText();
+                ettNamn = namnFält.getText();
+                String valdRas = rasLåda.getSelectedItem().toString();
+                String mängdAtributString = attributFält.getText();
+                int mängdAtribut = Integer.parseInt(mängdAtributString);
+                String ettLösen = lösenFält.getText();
+                String ettTelNr = telNrFält.getText();
+                String enPlats = platsLåda.getSelectedItem().toString();
+                String platsIDSträng = idb.fetchSingle("select Plats_ID from plats where Benamning = '" + enPlats + "'");
+                int platsID = Integer.parseInt(platsIDSträng);
+                String enAgent = agentLåda.getSelectedItem().toString();
+                String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
+                int agentID = Integer.parseInt(agentIDSträng);
+
+                idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                if (valdRas.equals("Boglodite")) {
+                    idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
+                }
+                if (valdRas.equals("Squid")) {
+                    idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
+                }
+                if (valdRas.equals("Worm")) {
+                    idb.insert("insert into worm values(" + ettID + ")");
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+            id.setText(GetMetoder.getNextAlienID());
             namnFält.setText("");
             lösenFält.setText("");
             telNrFält.setText("");
             attributFält.setText("");
-            }
-        
-        
-    }
-
-    public static String getAlienID() {
-        String nextId = null;
-        try {
-            nextId = idb.getAutoIncrement("alien", "Alien_ID");
-
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return nextId;
-    }
-
-    public static void fyllCBAgentNamn(JComboBox enLåda) {
-
-        try {
-            ArrayList<String> namnListaAgent = idb.fetchColumn("Select Namn from Agent order by namn");
-
-            for (String enAgent : namnListaAgent) {
-                enLåda.addItem(enAgent);
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-    
+
     //metod för att udvika dubbla ID
     // public static boolean kollaID(JLabel ettLabel) {
-        //try {
-            //boolean resultat = false;
-            //String ettIDString = ettLabel.getText();
-            //int ettID = Integer.parseInt(ettIDString);
-            //String idLista = idb.fetchSingle("Select Alien_ID from alien");
-           // int idListan = Integer.parseInt(idLista);
-            //ArrayList<Integer> idListaAliens = idListan;
-            
-            //for(String ettID : )
-            //if (ettID.) {
-                
-          //  }
-        //} catch (InfException ex) {
-         //   Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
-       // }
-   // }
+    //try {
+    //boolean resultat = false;
+    //String ettIDString = ettLabel.getText();
+    //int ettID = Integer.parseInt(ettIDString);
+    //String idLista = idb.fetchSingle("Select Alien_ID from alien");
+    // int idListan = Integer.parseInt(idLista);
+    //ArrayList<Integer> idListaAliens = idListan;
+    //for(String ettID : )
+    //if (ettID.) {
+    //  }
+    //} catch (InfException ex) {
+    //   Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+    // }
+    // }
 }
-

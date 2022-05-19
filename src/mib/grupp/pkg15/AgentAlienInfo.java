@@ -225,7 +225,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         cbAlienPlatser.setVisible(true);
         if (cbAlienPlatser.getItemCount() == 0) {
 
-            AgentMetoder.fyllCBPlats(cbAlienPlatser);
+            ComboBoxar.fyllCBPlats(cbAlienPlatser);
         }
     }//GEN-LAST:event_btnSokPlatsActionPerformed
     //    Knappen för att starta metoden Backa.
@@ -249,7 +249,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         cbAlienNamn.setVisible(false);
         cbAlienRaser.setVisible(true);
         if (cbAlienRaser.getItemCount() == 0) {
-            AgentMetoder.fyllCBras(cbAlienRaser);
+            ComboBoxar.fyllCBras(cbAlienRaser);
         }
 
     }//GEN-LAST:event_btnSokRasActionPerformed
@@ -264,7 +264,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(true);
         if (cbAlienNamn.getItemCount() == 0) {
-            AgentMetoder.fyllCBAlienNamn(cbAlienNamn);
+            ComboBoxar.fyllCBAlienNamn(cbAlienNamn);
         }
     }//GEN-LAST:event_btnSokAlienActionPerformed
 

@@ -23,7 +23,8 @@ public class AgentUtrustning extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
-        AgentMetoder.fyllAgentUtrustning(cbVäljUtrustning);
+        ComboBoxar.fyllCBAgentUtrustning(cbVäljUtrustning);
+
     }
 
     /**

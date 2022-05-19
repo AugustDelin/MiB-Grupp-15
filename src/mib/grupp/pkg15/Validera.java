@@ -73,12 +73,12 @@ public class Validera {
         return cbSträng;
     }
 
-    public static boolean kollavärdeIStringArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra) {
+    public static boolean kollaOmvärdeFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
         boolean resultat = true;
         for (String enSträng : ArrayListSträng) {
             if (enSträng.equals(strängAttJämföra)) {
                 resultat = false;
-                JOptionPane.showMessageDialog(null, "Objektet är redan registrerat, försök med ett annat!");
+                JOptionPane.showMessageDialog(null, felmeddelande);
             }
         }
         return resultat;
@@ -123,26 +123,29 @@ public class Validera {
     public static boolean kollaTelefonnummer(JTextField ettFält) {
         boolean resultat = true;
         String ettTelefonnummer = ettFält.getText();
-        Pattern pattern = Pattern.compile("[0-9]+");
+        Pattern pattern = Pattern.compile("^-?[0-9]{1,10}$");
         Matcher matcher = pattern.matcher(ettTelefonnummer);
         boolean matchFound = matcher.find();
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt angivet format, du kan endast ange siffror i detta fält");
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet telefonnummer, du kan ange max tio siffror i detta fält");
             ettFält.requestFocus();
         }
 
         return resultat;
     }
-
-    public static boolean kollaLängdLösenord(JTextField ettFält) {
+    
+    public static boolean kollaLängdLösenord(JTextField ettFält)
+    {
         boolean resultat = true;
         String lösenord = ettFält.getText();
-        if (lösenord.length() != 6) {
-            resultat = false;
-            JOptionPane.showMessageDialog(null, "Ditt lösenord måste vara sex tecken långt!");
+        if(lösenord.length() > 6)
+        {
+             resultat = false;
+             JOptionPane.showMessageDialog(null, "Ditt lösenord får vara max sex tecken långt!");
+             ettFält.requestFocus();
         }
-        return resultat;
+       return resultat; 
     }
 
 }

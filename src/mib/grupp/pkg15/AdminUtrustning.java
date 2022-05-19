@@ -21,8 +21,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        AdminMetoder.fyllAdminUtrustning(cbVäljUtrustning);
-        AdminMetoder.fyllAdminUtrustning(cbTaBort);
+        ComboBoxar.fyllCBAgentUtrustning(cbVäljUtrustning);
+        ComboBoxar.fyllCBAgentUtrustning(cbTaBort);
     }
 
     /**
@@ -180,7 +180,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-         AdminMetoder.laggTillUtrustningPåAdmin(cbVäljUtrustning, användarnamn);
+         //AdminMetoder.laggTillUtrustningPåAdmin(cbVäljUtrustning, användarnamn);
        
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
