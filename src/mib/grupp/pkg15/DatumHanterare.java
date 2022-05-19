@@ -7,16 +7,16 @@ package mib.grupp.pkg15;
 import java.time.LocalDate;
 import java.util.Date;
 
-
 /**
  *
  * @author augustdelin
  */
+//Fälten för klassen DatumHanterare.
 public class DatumHanterare {
 
-
+//Konstruktorn för klassen DatumHanterare.
     public DatumHanterare() {
-        
+
     }
 
     public static String getDagensDatum() {
@@ -24,4 +24,3 @@ public class DatumHanterare {
         return dagensDatum;
     }
 }
-

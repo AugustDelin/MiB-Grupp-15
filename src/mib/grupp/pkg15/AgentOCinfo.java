@@ -12,18 +12,16 @@ package mib.grupp.pkg15;
 public class AgentOCinfo extends javax.swing.JFrame {
 
     private String användarnamn;
-    
 
     /**
-     * Konstruktorn för AgentAlienInfo.
+     * Konstruktorn för AgentOCInfo.
      */
     public AgentOCinfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-       cbValtOmråde.setVisible(false);
-       txtAreaListaChefer.setVisible(false);
+        cbValtOmråde.setVisible(false);
+        txtAreaListaChefer.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
-        //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
     }
 
@@ -132,29 +130,29 @@ public class AgentOCinfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
+    // Knappen för att starta metoden Lista alla aliens på en plats.
     private void cbValtOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValtOmrådeActionPerformed
         AgentMetoder.listaChefAvOmrade(txtAreaListaChefer, cbValtOmråde);
     }//GEN-LAST:event_cbValtOmrådeActionPerformed
-
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokChefActionPerformed
-       cbValtOmråde.setVisible(true);
-       txtAreaListaChefer.setVisible(true);
-       AgentMetoder.fyllCBchefsOmråden(cbValtOmråde);
+        cbValtOmråde.setVisible(true);
+        txtAreaListaChefer.setVisible(true);
+        AgentMetoder.fyllCBchefsOmråden(cbValtOmråde);
 
     }//GEN-LAST:event_btnSokChefActionPerformed
 

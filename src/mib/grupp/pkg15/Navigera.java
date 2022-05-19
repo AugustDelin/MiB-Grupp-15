@@ -8,6 +8,7 @@ package mib.grupp.pkg15;
  *
  * @author erike
  */
+//Fälten för klassen Navigera.
 public class Navigera {
 
     public Navigera() {
@@ -33,16 +34,18 @@ public class Navigera {
     public static void openAgentMinSida(String användarnamn) {
         new AgentMinSida(användarnamn).setVisible(true);
     }
+
     //    Metod som Avslutar programmet.
     public static void avslutaProgram() {
         System.exit(0);
     }
-    
+
     //Metod som öppnar en ny sida av AdminStartskärm
     public static void openAdminStartSkärm(String användarnamn) {
         new AdminStartSkärm(användarnamn).setVisible(true);
     }
-    
+//    Metod som öppnar en ny sida av AdminMinSida.
+
     public static void openAdminMinSida(String användarnamn) {
         new AdminMinSida(användarnamn).setVisible(true);
     }

@@ -12,7 +12,6 @@ package mib.grupp.pkg15;
 public class AgentAlienInfo extends javax.swing.JFrame {
 
     private String användarnamn;
-    
 
     /**
      * Konstruktorn för AgentAlienInfo.
@@ -24,7 +23,6 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
-        //AgentMetoder.fyllCBPlats(cbAlienPlats);
 
     }
 
@@ -230,16 +228,16 @@ public class AgentAlienInfo extends javax.swing.JFrame {
             AgentMetoder.fyllCBPlats(cbAlienPlatser);
         }
     }//GEN-LAST:event_btnSokPlatsActionPerformed
-
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();
@@ -250,8 +248,8 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         cbAlienPlatser.setVisible(false);
         cbAlienNamn.setVisible(false);
         cbAlienRaser.setVisible(true);
-        if(cbAlienRaser.getItemCount() == 0){
-        AgentMetoder.fyllCBras(cbAlienRaser);
+        if (cbAlienRaser.getItemCount() == 0) {
+            AgentMetoder.fyllCBras(cbAlienRaser);
         }
 
     }//GEN-LAST:event_btnSokRasActionPerformed
@@ -265,7 +263,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
         cbAlienPlatser.setVisible(false);
         cbAlienRaser.setVisible(false);
         cbAlienNamn.setVisible(true);
-        if(cbAlienNamn.getItemCount() == 0){
+        if (cbAlienNamn.getItemCount() == 0) {
             AgentMetoder.fyllCBAlienNamn(cbAlienNamn);
         }
     }//GEN-LAST:event_btnSokAlienActionPerformed
@@ -280,10 +278,10 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     private void btnSökRegDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökRegDatumActionPerformed
-        new AgentAlienRegDatum(användarnamn).setVisible(true);  
+        new AgentAlienRegDatum(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
-
+// Knappen för att öppna ett nytt fönster för klassen AgentÄndraAlien.
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         new AgentÄndraAlien(användarnamn).setVisible(true);
         dispose();

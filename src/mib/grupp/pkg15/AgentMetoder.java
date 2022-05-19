@@ -236,7 +236,7 @@ public class AgentMetoder {
             try {
 //                idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'00-00-00')");
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
-                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + "till din lista!");
+                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
 
             } catch (InfException ex) {
                 Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);

@@ -26,7 +26,7 @@ public class AdminMinSida extends javax.swing.JFrame {
     public AdminMinSida(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        FyllText.inloggadSomAdmin(lblInloggadSom , användarnamn);
+        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
     }
 
     /**
