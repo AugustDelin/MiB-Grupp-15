@@ -81,6 +81,7 @@ public class GetMetoder {
         return utrustningslista;
     }
 //
+
     public static String getRasFrånNamn(String ettNamn) {
         String ras = null;
         try {
@@ -105,6 +106,7 @@ public class GetMetoder {
         return ras;
     }
 // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+
     public static String getNextAlienID() {
         String nextId = null;
         try {
@@ -116,6 +118,7 @@ public class GetMetoder {
         return nextId;
     }
 // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+
     public static String getNextAgentID() {
         String nextId = null;
         try {
@@ -137,7 +140,8 @@ public class GetMetoder {
         return alienAvNamn;
 
     }
-public static String getRasAttributFrånID(String ettID) {
+
+    public static String getRasAttributFrånID(String ettID) {
         String mängdAttribut = null;
         try {
 //Hämtar antal armar eller boogies från lista berende på ras.
@@ -159,19 +163,39 @@ public static String getRasAttributFrånID(String ettID) {
             Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mängdAttribut;
+    }
+
+    public static HashMap<String, String> getEnAgent(String valdAgent) {
+        HashMap<String, String> agentAvNamn = null;
+        try {
+            agentAvNamn = idb.fetchRow("Select Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Benamning from agent join omrade on omrade = omrade.Omrades_ID where namn = '" + valdAgent + "'");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return agentAvNamn;
 
+    }
 
-        public static HashMap<String, String> getEnAgent(String valdAgent) {
-            HashMap<String, String> agentAvNamn = null;
-            try {
-                agentAvNamn = idb.fetchRow("Select Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Benamning from agent join omrade on omrade = omrade.Omrades_ID where namn = '"+valdAgent+"'");
-            } catch (InfException ex) {
-                Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return agentAvNamn;
-
+    public static ArrayList<String> getAgentNamn() {
+        ArrayList<String> NamnListaAgent = null;
+        try {
+            NamnListaAgent = idb.fetchColumn("Select namn from Agent order by namn");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return NamnListaAgent;
 
+    }
 
+    public static ArrayList<String> getAlienNamn() {
+        ArrayList<String> NamnListaAlien = null;
+        try {
+            NamnListaAlien = idb.fetchColumn("Select namn from Agent order by namn");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return NamnListaAlien;
+
+    }
 }
+
