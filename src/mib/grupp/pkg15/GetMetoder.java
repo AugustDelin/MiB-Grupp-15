@@ -150,7 +150,8 @@ public static String getRasAttributFrånID(String ettID) {
         public static HashMap<String, String> getEnAgent(String valdAgent) {
             HashMap<String, String> agentAvNamn = null;
             try {
-                agentAvNamn = idb.fetchRow("select agent.Losenord, Agent_ID, agent.Namn, Anstallningssdatum, agent.Telefon, Administrator,omrade '" + valdAgent + "'");
+                agentAvNamn = idb.fetchRow("Select Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Benamning from agent join omrade on omrade = omrade.Omrades_ID where namn = '"+valdAgent+"'");
+                        ;
             } catch (InfException ex) {
                 Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
