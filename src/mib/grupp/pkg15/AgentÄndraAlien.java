@@ -25,7 +25,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
-        lblvisaID.setText(GetMetoder.getNextAlienID());
+        //lblvisaID.setText(GetMetoder.getNextAlienID());
         ComboBoxar.fyllCBAlienNamn(cbAlienNamn);
         ComboBoxar.fyllCBPlats(cbPlatser);
         ComboBoxar.fyllCBras(cbRas);
@@ -63,7 +63,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
         cbAgent = new javax.swing.JComboBox<>();
         lblRasAttribut = new javax.swing.JLabel();
         txtRasAttribut = new javax.swing.JTextField();
-        btnRegistreraAlien = new javax.swing.JButton();
+        btnÄndraAlien = new javax.swing.JButton();
         txtDatum = new javax.swing.JTextField();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
@@ -143,10 +143,10 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
 
         txtRasAttribut.setColumns(5);
 
-        btnRegistreraAlien.setText("Ändra data");
-        btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndraAlien.setText("Ändra data");
+        btnÄndraAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistreraAlienActionPerformed(evt);
+                btnÄndraAlienActionPerformed(evt);
             }
         });
 
@@ -183,7 +183,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
                             .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(btnRegistreraAlien)))
+                        .addComponent(btnÄndraAlien)))
                 .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -220,7 +220,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
                     .addComponent(lblRubrikAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistreraAlien)
+                .addComponent(btnÄndraAlien)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -304,9 +304,9 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
-    private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        //
-    }//GEN-LAST:event_btnRegistreraAlienActionPerformed
+    private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
+        AgentochAdminMetoder.ändraAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
+    }//GEN-LAST:event_btnÄndraAlienActionPerformed
 
     private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
         String valdRas = Validera.hamtaCbSträng(cbRas);
@@ -314,11 +314,13 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
             lblRasAttribut.setText("Antal boogies");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
+            txtRasAttribut.setText("");
         }
         if (valdRas.equals("Squid")) {
             lblRasAttribut.setText("Antal armar");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
+            txtRasAttribut.setText("");
         }
         if (valdRas.equals("Worm")) {
             txtRasAttribut.setText("0");
@@ -347,7 +349,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaut;
-    private javax.swing.JButton btnRegistreraAlien;
+    private javax.swing.JButton btnÄndraAlien;
     private javax.swing.JComboBox<String> cbAgent;
     private javax.swing.JComboBox<String> cbAlienNamn;
     private javax.swing.JComboBox<String> cbPlatser;
