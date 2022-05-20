@@ -125,11 +125,11 @@ public class GetMetoder {
 public static String getRasAttributFrånID(String ettID) {
         String mängdAttribut = null;
         try {
-
+//Hämtar antal armar eller boogies från lista berende på ras.
             String boogies = idb.fetchSingle("Select Antal_Boogies from boglodite where Alien_ID = '" + ettID + "'");
             String armar = idb.fetchSingle("Select Antal_Armar from squid where Alien_ID = '" + ettID + "'");
             //String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
-
+//Om den inte hittar något är går detta vidare till nästa ras
             if (Validera.kollaNullSträng(boogies)) {
                 mängdAttribut = boogies;
             }
@@ -151,7 +151,6 @@ public static String getRasAttributFrånID(String ettID) {
             HashMap<String, String> agentAvNamn = null;
             try {
                 agentAvNamn = idb.fetchRow("Select Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Benamning from agent join omrade on omrade = omrade.Omrades_ID where namn = '"+valdAgent+"'");
-                        ;
             } catch (InfException ex) {
                 Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
