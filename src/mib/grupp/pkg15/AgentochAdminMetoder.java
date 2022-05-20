@@ -255,10 +255,40 @@ public class AgentochAdminMetoder {
 
     }
     
-    public static void ändraInformationAlien()
+    /**
+     *
+     * @param valdAlien
+     * @param IDFält
+     * @param RegFält
+     */
+    public static void ändraInformationAlien(JComboBox alienLåda, JTextField IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent)
     {
-        HashMap<String, String> allInfoOmALien;
+       String valdAlien = Validera.hamtaCbSträng(alienLåda);
+        HashMap<String, String> alienAvNamn = GetMetoder.getEnAlien(valdAlien);
+        
+            IDFält.setText(alienAvNamn.get("Alien_ID"));
+            RegFält.setText(alienAvNamn.get("Registreringsdatum"));
+            NamnFält.setText(valdAlien);
+            RasFält.setText("");
+            LösenFält.setText(alienAvNamn.get("Losenord"));
+            TeleFält.setText(alienAvNamn.get("Telefon"));
+            PlatsFält.setText(alienAvNamn.get("Benamning"));
+            AnsvarigAgent.setText(alienAvNamn.get("Namn"));
     }
+            
+        
+//            ID.SET(alienAvNamn.get("Alien_ID") + "\t");
+//            lista.append(valdAlien + "\t");
+//            lista.append(ras + "\t");
+//            lista.append(alienAvNamn.get("Telefon") + "\t");
+//            lista.append(alienAvNamn.get("Benamning") + "\t");
+//            lista.append(alienAvNamn.get("Namn") + "\t");
+//            lista.append(alienAvNamn.get("Registreringsdatum") + "\t");
+//            lista.append(alienAvNamn.get("Losenord"));
+    }
+
+        
+    
 
     //metod för att udvika dubbla ID
     // public static boolean kollaID(JLabel ettLabel) {
@@ -276,4 +306,5 @@ public class AgentochAdminMetoder {
     //   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
     // }
     // }
-}
+
+
