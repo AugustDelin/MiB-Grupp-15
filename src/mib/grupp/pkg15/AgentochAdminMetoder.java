@@ -118,12 +118,13 @@ public class AgentochAdminMetoder {
 
     }
 //Skapar en hashmap och visar all information om varje enskild alien.
+
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
         //Sätter textfältet som tomt
         lista.setText("");
         try {
-        // hämtar variabler ifrån fälten
+            // hämtar variabler ifrån fälten
             String valdAlien = Validera.hamtaCbSträng(låda);
             String ras = GetMetoder.getRasFrånNamn(valdAlien);
 
@@ -260,27 +261,23 @@ public class AgentochAdminMetoder {
      * @param IDFält
      * @param RegFält
      */
-    public static void visaInformationAlien(JComboBox alienLåda, JLabel IDFält, JTextField RegFält, JTextField NamnFält, JComboBox RasFält, JTextField LösenFält, JTextField TeleFält, JComboBox PlatsFält, JComboBox AnsvarigAgent, JTextField rasAttribut)
-    {
-       String valdAlien = Validera.hamtaCbSträng(alienLåda);
-       String ras = GetMetoder.getRasFrånNamn(valdAlien);
+    public static void visaInformationAlien(JComboBox alienLåda, JLabel IDFält, JTextField RegFält, JTextField NamnFält, JComboBox RasFält, JTextField LösenFält, JTextField TeleFält, JComboBox PlatsFält, JComboBox AnsvarigAgent, JTextField rasAttribut) {
+        String valdAlien = Validera.hamtaCbSträng(alienLåda);
+        String ras = GetMetoder.getRasFrånNamn(valdAlien);
         HashMap<String, String> alienAvNamn = GetMetoder.getEnAlien(valdAlien);
 
-            IDFält.setText(alienAvNamn.get("Alien_ID"));
-            RegFält.setText(alienAvNamn.get("Registreringsdatum"));
-            NamnFält.setText(valdAlien);
-            RasFält.setSelectedItem(ras);
-            LösenFält.setText(alienAvNamn.get("Losenord"));
-            TeleFält.setText(alienAvNamn.get("Telefon"));
-            PlatsFält.setSelectedItem(alienAvNamn.get("Benamning"));
-            AnsvarigAgent.setSelectedItem(alienAvNamn.get("Namn"));
-            
-            String mängd = GetMetoder.getRasAttributFrånID(alienAvNamn.get("Alien_ID"));
-            rasAttribut.setText(mängd);
+        IDFält.setText(alienAvNamn.get("Alien_ID"));
+        RegFält.setText(alienAvNamn.get("Registreringsdatum"));
+        NamnFält.setText(valdAlien);
+        RasFält.setSelectedItem(ras);
+        LösenFält.setText(alienAvNamn.get("Losenord"));
+        TeleFält.setText(alienAvNamn.get("Telefon"));
+        PlatsFält.setSelectedItem(alienAvNamn.get("Benamning"));
+        AnsvarigAgent.setSelectedItem(alienAvNamn.get("Namn"));
+
+        String mängd = GetMetoder.getRasAttributFrånID(alienAvNamn.get("Alien_ID"));
+        rasAttribut.setText(mängd);
     }
-
-
-
 
 //metod för att udvika dubbla ID
 // public static boolean kollaID(JLabel ettLabel) {
@@ -298,15 +295,15 @@ public class AgentochAdminMetoder {
 //   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 // }
 // }
-
-
-public static void ändraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+    public static void ändraAlien(JComboBox gammaltNamnLåda, JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
-
             String ettNamn = null;
-
             try {
+
+                String gammaltNamn = Validera.hamtaCbSträng(gammaltNamnLåda);
+                String gammalRas = GetMetoder.getRasFrånNamn(gammaltNamn);
+
 //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
@@ -324,7 +321,19 @@ public static void ändraAlien(JLabel id, JLabel datum, JTextField namnFält, JC
                 String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
                 int agentID = Integer.parseInt(agentIDSträng);
 
-                idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                idb.update("Update alien set Registreringsdatum ='" + ettDatum + "', Losenord = '" + ettLösen + "', Namn = '" + ettNamn + "', Telefon = '" + ettTelNr + "', Plats =" + platsID + ", Ansvarig_Agent =" + agentID + " where Alien_ID =" + ettID);
+
+                if (gammalRas.equals("Boglodite")) {
+                    idb.delete("Delete from boglodite where Alien_ID =" + ettID);
+                }
+                if (gammalRas.equals("Squid")) {
+                    idb.delete("Delete from squid where Alien_ID =" + ettID);
+                }
+
+                if (gammalRas.equals("Worm")) {
+                    idb.delete("Delete from worm where Alien_ID =" + ettID);
+                }
+
                 if (valdRas.equals("Boglodite")) {
                     idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
                 }
@@ -343,6 +352,9 @@ public static void ändraAlien(JLabel id, JLabel datum, JTextField namnFält, JC
             lösenFält.setText("");
             telNrFält.setText("");
             attributFält.setText("");
+            datum.setText("");
+            
         }
-}
+
+    }
 }
