@@ -130,13 +130,13 @@ public class UnikaAdminMetoder {
     public static void taBortAlienUrSystemet(JComboBox enLåda) {
         String valdAlien = Validera.hamtaCbSträng(enLåda);
         try {
-            int AlienID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
-            idb.delete("delete from omradeschef where agent_id =" + AgentID);
-            idb.delete("delete from kontorschef where agent_id =" + AgentID);
-            idb.delete("delete from faltagent where agent_id =" + AgentID);
-            idb.delete("delete from agent where agent_id =" + AgentID);
-            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
-            enLåda.removeItem(valdAgent);
+            int AlienID = GetMetoder.hämtaAgentIDFrånNamn(valdAlien);
+            idb.delete("delete from omradeschef where agent_id =" + AlienID);
+            idb.delete("delete from kontorschef where agent_id =" + AlienID);
+            idb.delete("delete from faltagent where agent_id =" + AlienID);
+            idb.delete("delete from agent where agent_id =" + AlienID);
+            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAlien + " ur systemet");
+            enLåda.removeItem(valdAlien);
         } catch (InfException ex) {
             Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
