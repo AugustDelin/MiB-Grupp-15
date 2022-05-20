@@ -300,11 +300,13 @@ public class AgentochAdminMetoder {
 // }
 
 
-public static void ändraAlien(JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+public static void ändraAlien(JComboBox gammaltNamnLåda,JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
             String ettNamn = null;
+            String gammaltNamn = Validera.hamtaCbSträng(gammaltNamnLåda);
+            String gammalRas = GetMetoder.getRasFrånNamn(gammaltNamn);
 
             try {
 //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
@@ -325,6 +327,18 @@ public static void ändraAlien(JLabel id, JTextField datum, JTextField namnFält
                 int agentID = Integer.parseInt(agentIDSträng);
 
                 idb.insert("Update alien set Registreringsdatum ='"+ettDatum+"', Losenord = '"+ ettLösen+"', Namn = '"+ ettNamn+"', Telefon = '"+ettTelNr+"', Plats ="+platsID+", Ansvarig_Agent ="+agentID+" where Alien_ID ="+ettID);
+                if (gammalRas.equals("Boglodite")) {
+                    idb.delete("Delete from boglodite where Alien_ID =" + ettID);
+                }
+                if (gammalRas.equals("Squid")) {
+                    idb.delete("Delete from squid where Alien_ID =" + ettID);
+                }
+                    
+                }
+                if (gammalRas.equals("Worm")) {
+                    idb.delete("Delete from worm where Alien_ID =" + ettID);
+                   
+                
                 if (valdRas.equals("Boglodite")) {
                     idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
                 }
