@@ -274,7 +274,9 @@ public class AgentochAdminMetoder {
             TeleFält.setText(alienAvNamn.get("Telefon"));
             PlatsFält.setSelectedItem(alienAvNamn.get("Benamning"));
             AnsvarigAgent.setSelectedItem(alienAvNamn.get("Namn"));
-            GetMetoder.getRasAttributFrånID(alienAvNamn.get("Alien_ID"));
+            
+            String mängd = GetMetoder.getRasAttributFrånID(alienAvNamn.get("Alien_ID"));
+            rasAttribut.setText(mängd);
     }
 
 //            ID.SET(alienAvNamn.get("Alien_ID") + "\t");

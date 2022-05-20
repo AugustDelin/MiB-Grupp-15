@@ -126,15 +126,15 @@ public static String getRasAttributFrånID(String ettID) {
         String mängdAttribut = null;
         try {
 
-            String boogies = idb.fetchSingle("Select Antal_Boogies from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '" + ettID + "'");
-            String armar = idb.fetchSingle("Select Antal_Armar from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '" + ettID + "'");
+            String boogies = idb.fetchSingle("Select Antal_Boogies from boglodite where Alien_ID = '" + ettID + "'");
+            String armar = idb.fetchSingle("Select Antal_Armar from squid where Alien_ID = '" + ettID + "'");
             //String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
 
             if (Validera.kollaNullSträng(boogies)) {
-                mängdAttribut = "boogies";
+                mängdAttribut = boogies;
             }
             if (Validera.kollaNullSträng(armar)) {
-                mängdAttribut = "armar";
+                mängdAttribut = armar;
             }
 //            if (Validera.kollaNullSträng(worm)) {
 //                ras = "Worm";
