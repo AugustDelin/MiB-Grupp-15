@@ -25,7 +25,6 @@ public class GetMetoder {
         idb = Main.getDB();
     }
 //    Get-metod för att hämta ID från Agent med användarnamnet.
-
     public static int hämtaAgentIDFrånNamn(String användarnamn) {
         String agentID = "Finns ej";
         int agentNR = 99;
@@ -40,6 +39,22 @@ public class GetMetoder {
         return agentNR;
     }
 
+    //    Get-metod för att hämta ID från Agent med användarnamnet.
+    public static int hämtaAgentIDFrånNamn(String användarnamn) {
+        String agentID = "Finns ej";
+        int agentNR = 99;
+        try {
+            agentID = idb.fetchSingle("Select Agent_ID from Agent where namn ='" + användarnamn + "'");
+            agentNR = Integer.parseInt(agentID);
+
+        } catch (InfException ex) {
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return agentNR;
+    }
+
+    
 //    Get-metod för att hämta ID från utrustning med det inmatade namnet.
     public static int hämtaUtrustningsIDFrånNamn(String benämning) {
         String utrustningsID = "Finns ej";

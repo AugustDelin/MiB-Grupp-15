@@ -120,7 +120,22 @@ public class UnikaAdminMetoder {
             idb.delete("delete from kontorschef where agent_id =" + AgentID);
             idb.delete("delete from faltagent where agent_id =" + AgentID);
             idb.delete("delete from agent where agent_id =" + AgentID);
-            JOptionPane.showMessageDialog(null, "Du har tagit bort " + AgentID + " ur systemet");
+            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
+            enLåda.removeItem(valdAgent);
+        } catch (InfException ex) {
+            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void taBortAlienUrSystemet(JComboBox enLåda) {
+        String valdAlien = Validera.hamtaCbSträng(enLåda);
+        try {
+            int AlienID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
+            idb.delete("delete from omradeschef where agent_id =" + AgentID);
+            idb.delete("delete from kontorschef where agent_id =" + AgentID);
+            idb.delete("delete from faltagent where agent_id =" + AgentID);
+            idb.delete("delete from agent where agent_id =" + AgentID);
+            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
             enLåda.removeItem(valdAgent);
         } catch (InfException ex) {
             Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
