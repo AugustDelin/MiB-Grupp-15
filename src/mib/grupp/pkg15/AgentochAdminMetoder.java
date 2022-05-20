@@ -230,6 +230,14 @@ public class AgentochAdminMetoder {
                 String enAgent = agentLåda.getSelectedItem().toString();
                 String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
                 int agentID = Integer.parseInt(agentIDSträng);
+                ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
+                
+                if(!Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad"))
+                {
+                    
+                }
+                    
+                
 
                 idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
                 if (valdRas.equals("Boglodite")) {
@@ -320,6 +328,12 @@ public class AgentochAdminMetoder {
                 String enAgent = agentLåda.getSelectedItem().toString();
                 String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
                 int agentID = Integer.parseInt(agentIDSträng);
+                ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
+                
+                if(Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad"))
+                {
+                    
+                }
 
                 idb.update("Update alien set Registreringsdatum ='" + ettDatum + "', Losenord = '" + ettLösen + "', Namn = '" + ettNamn + "', Telefon = '" + ettTelNr + "', Plats =" + platsID + ", Ansvarig_Agent =" + agentID + " where Alien_ID =" + ettID);
 
