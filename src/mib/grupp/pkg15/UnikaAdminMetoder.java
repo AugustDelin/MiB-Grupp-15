@@ -65,12 +65,12 @@ public class UnikaAdminMetoder {
     public static void listaEnskildAgent(JTextArea lista, JComboBox låda) {
         //Sätter textfältet som tomt
         lista.setText("");
-        try {
+
         // hämtar variabler ifrån fälten
             String valdAgent = Validera.hamtaCbSträng(låda);
 
             //HashMapen gås igenom. Först namnges rubriker, sedan hämtas data med hjälp av nyckeln som skrivs ut i listan.
-            HashMap<String, String> agentAvNamn = GetMetoder.getEnAgent();
+            HashMap<String, String> agentAvNamn = GetMetoder.getEnAgent(valdAgent);
             lista.append("ID\tNamn\tTelefon\tOmrade\tAdmin\tAnsDaum\tLösenord\n");
             lista.append(agentAvNamn.get("Agent_ID") + "\t");
             lista.append(valdAgent + "\t");
@@ -80,10 +80,8 @@ public class UnikaAdminMetoder {
             lista.append(agentAvNamn.get("Anstallningsdatum") + "\t");
             lista.append(agentAvNamn.get("Losenord"));
 
-        } catch (InfException ex) {
-            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
+
 
 
     // Metod för att byta lösenord för Admin.
