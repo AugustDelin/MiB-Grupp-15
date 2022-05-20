@@ -288,11 +288,13 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
             lblRasAttribut.setText("Antal boogies");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
+            txtRasAttribut.setText("");
         }
         if (valdRas.equals("Squid")) {
             lblRasAttribut.setText("Antal armar");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
+            txtRasAttribut.setText("");
         }
         if (valdRas.equals("Worm")) {
             txtRasAttribut.setText("1");

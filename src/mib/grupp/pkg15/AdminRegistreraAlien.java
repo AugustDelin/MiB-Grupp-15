@@ -284,18 +284,20 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         if(valdRas.equals("Boglodite"))
         {
             lblRasAttribut.setText("Antal boogies");
+            txtRasAttribut.setText("");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
         }
         if(valdRas.equals("Squid"))
         {
             lblRasAttribut.setText("Antal armar");
+            txtRasAttribut.setText("");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
         }
         if(valdRas.equals("Worm"))
         {
-            txtRasAttribut.setText("0");
+            txtRasAttribut.setText("1");
             lblRasAttribut.setVisible(false);
             txtRasAttribut.setVisible(false);
         }
