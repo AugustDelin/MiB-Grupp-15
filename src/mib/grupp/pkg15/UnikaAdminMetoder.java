@@ -72,7 +72,7 @@ public class UnikaAdminMetoder {
             //HashMapen gås igenom. Först namnges rubriker, sedan hämtas data med hjälp av nyckeln som skrivs ut i listan.
 
             HashMap<String, String> agentAvNamn = GetMetoder.getEnAgent(valdAgent);
-            lista.append("ID\tNamn\tTelefon\tOmrade\tAdmin\tAnsDaum\tLösenord\n");
+            lista.append("ID\tNamn\tTelefon\tOmrade\tAdmin\tAnsDatum\tLösenord\n");
 
             lista.append(agentAvNamn.get("Agent_ID") + "\t");
             lista.append(valdAgent + "\t");
@@ -112,7 +112,21 @@ public class UnikaAdminMetoder {
         } catch (InfException ex) {
             Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
+        public static void taBortAgentUrSystemet(JComboBox enLåda) {
+                String valdAgent= Validera.hamtaCbSträng(enLåda);
+            try { 
+            int AgentID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
+            idb.delete("delete from omradeschef where agent_id =" + AgentID);
+            idb.delete("delete from kontorschef where agent_id =" + AgentID);
+            idb.delete("delete from faltagent where agent_id =" + AgentID);
+            idb.delete("delete from agent where agent_id =" + AgentID);
+            JOptionPane.showMessageDialog(null, "Du har tagit bort " + AgentID + " ur systemet");
+            enLåda.removeItem(valdAgent);
+        } catch (InfException ex) {
+            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
