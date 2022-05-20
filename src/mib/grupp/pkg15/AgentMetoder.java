@@ -67,9 +67,12 @@ public class AgentMetoder {
 // Metod för att byta lösenord för Agent.
 
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
+        //Kontrollerar att båda fälten är ifyllda
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
+            //Hämtar lösenord som tillhör inskrivet ID ifrån databasen
             String lösenord = idb.fetchSingle("Select Losenord from AGENT where namn ='" + användarnamn + "'");
+            //Kollar så att det nya stämmer överens med det gamla 
             if (Validera.kollaLösen(lösenord, gammaltlösen)) {
                 String nyttLösenord = nyttlösen.getText();
                 idb.update("UPDATE AGENT SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
@@ -81,9 +84,12 @@ public class AgentMetoder {
     }
 
     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
+        //Nollsätter listan
         lista.setText("");
         try {
+            //Hämtar Sträng och namnger denna till valdPlats ifrån Combobox
             String valdPlats = Validera.hamtaCbSträng(låda);
+            //Listan gås igenom och listar namnen på aliens som finns på vald plats
             ArrayList<String> aliensPåPlats = idb.fetchColumn("select namn from alien join plats on alien.Plats = plats.Plats_ID where plats.benamning = '" + valdPlats + "'");
             for (String alien : aliensPåPlats) {
                 lista.append(alien + "\n");
@@ -93,12 +99,15 @@ public class AgentMetoder {
         }
     }
 
+    //Visar alla aliens som tillhör vald ras
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
 
+        //Listan sätts blank
         lista.setText("");
         try {
-
+//Hämtar sträng ifrån COmboBox
             String valdRas = Validera.hamtaCbSträng(låda);
+            //Hämtar en ArrayList av vald ras och skriver ut denna i listan
             ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join " + valdRas + " on alien.alien_id =" + valdRas + ".alien_id");
             for (String enAlien : alienavRas) {
                 lista.append(enAlien + "\n");
@@ -112,12 +121,14 @@ public class AgentMetoder {
 
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
+        //Sätter textfältet som tomt
         lista.setText("");
         try {
-
+// hämtar varibler ifrån fälten
             String valdAlien = Validera.hamtaCbSträng(låda);
             String ras = GetMetoder.getRasFrånNamn(valdAlien);
 
+            //HashMapen gås igenom. Först namnges rubriker sedan hämtas data med hjälp av nyckeln som skrivs ut i listan
             HashMap<String, String> alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
             lista.append("ID\tNamn\tRas\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID") + "\t");
@@ -135,14 +146,17 @@ public class AgentMetoder {
     }
 
     public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn) {
+        //Deklrarerar felmeddlande som ska användas i om utrustning redan finns på agenten
         String felmeddelande = "Denna utrusnting är redan registrerad på " + användarnamn;
+        //Hämtar vald utrustning ifrån en Combobox och gör om String variabler till integers
         String valdUtrustning = Validera.hamtaCbSträng(enLåda);
         int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(användarnamn);
+        //Här görs IDt om till strängar för att kunna jämföra om agenten har utrustningen registrerad på sig eller inte
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
         String dagensDatum = DatumHanterare.getDagensDatum();
         if (Validera.kollaOmvärdeFinnsIArrayList(GetMetoder.getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng, felmeddelande)) {
-
+// om Valideringen godkänns registreras den nya utrustningen på agenten
             try {
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
@@ -155,12 +169,14 @@ public class AgentMetoder {
     }
 
     public static void listaChefAvOmrade(JTextArea lista, JComboBox låda) {
-
+        //Sätter textfältet blankt
         lista.setText("");
         try {
-
+            //Hämtar en sträng ifrån en Combobox, i detta fall valt område
             String valtOmrade = Validera.hamtaCbSträng(låda);
+            //Hämtar lista ifrån DB
             ArrayList<String> chefAvOmrade = idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
+            //Listar alla agenet i valt område
             for (String enChef : chefAvOmrade) {
                 lista.append(enChef);
             }
@@ -171,13 +187,16 @@ public class AgentMetoder {
     }
 
     public static void visaAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea) {
+        //Nödvändiga valideringar görs innan programet körs
         if (Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)) {
             try {
+
+                //variabler hämtas ifrån getfält
                 String datum1 = fält1.getText();
                 String datum2 = fält2.getText();
                 ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
-                System.out.println(alien);
 
+                //listan gås igenom och läggs upp i en textarea
                 for (HashMap<String, String> enRad : alien) {
                     enArea.append(enRad.get("Namn") + "\n");
                 }
@@ -187,13 +206,15 @@ public class AgentMetoder {
         }
     }
 // Metod för att registrera en ny Alien.
+
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
             String ettNamn = null;
 
             try {
-
+//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 String ettDatum = datum.getText();
