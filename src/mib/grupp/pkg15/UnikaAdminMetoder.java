@@ -130,7 +130,7 @@ public class UnikaAdminMetoder {
     public static void taBortAlienUrSystemet(JComboBox enLåda) {
         String valdAlien = Validera.hamtaCbSträng(enLåda);
         try {
-            int AlienID = GetMetoder.hämtaAgentIDFrånNamn(valdAlien);
+            int AlienID = GetMetoder.hämtaAlienIDFrånNamn(valdAlien);
             idb.delete("delete from boglodite where alien_id =" + AlienID);
             idb.delete("delete from worm where alien_id =" + AlienID);
             idb.delete("delete from squid where alien_id =" + AlienID);

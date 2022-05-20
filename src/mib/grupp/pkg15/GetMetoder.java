@@ -44,11 +44,11 @@ public class GetMetoder {
         String alienID = "Finns ej";
         int alienNR = 99;
         try {
-            alienID = idb.fetchSingle("Select Alien_ID from Alien where namn ='" + användarnamn + "'");
-            alienNR = Integer.parseInt(alienID);
+           alienID = idb.fetchSingle("Select Alien_ID from Alien where namn ='" + användarnamn + "'");
+          alienNR = Integer.parseInt(alienID);
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return alienNR;
