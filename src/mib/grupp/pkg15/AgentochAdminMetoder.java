@@ -72,7 +72,7 @@ public class AgentochAdminMetoder {
         try {
             //Hämtar lösenord som tillhör inskrivet ID ifrån databasen
             String lösenord = idb.fetchSingle("Select Losenord from AGENT where namn ='" + användarnamn + "'");
-            //Kollar så att det nya stämmer överens med det gamla 
+            //Kollar så att det nya stämmer överens med det gamla
             if (Validera.kollaLösen(lösenord, gammaltlösen)) {
                 String nyttLösenord = nyttlösen.getText();
                 idb.update("UPDATE AGENT SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
@@ -260,18 +260,21 @@ public class AgentochAdminMetoder {
      * @param IDFält
      * @param RegFält
      */
-    public static void ändraInformationAlien(JComboBox alienLåda, JTextField IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent) {
-        String valdAlien = Validera.hamtaCbSträng(alienLåda);
+    public static void visaInformationAlien(JComboBox alienLåda, JLabel IDFält, JTextField RegFält, JTextField NamnFält, JComboBox RasFält, JTextField LösenFält, JTextField TeleFält, JComboBox PlatsFält, JComboBox AnsvarigAgent, JTextField rasAttribut)
+    {
+       String valdAlien = Validera.hamtaCbSträng(alienLåda);
+       String ras = GetMetoder.getRasFrånNamn(valdAlien);
         HashMap<String, String> alienAvNamn = GetMetoder.getEnAlien(valdAlien);
 
-        IDFält.setText(alienAvNamn.get("Alien_ID"));
-        RegFält.setText(alienAvNamn.get("Registreringsdatum"));
-        NamnFält.setText(valdAlien);
-        RasFält.setText("");
-        LösenFält.setText(alienAvNamn.get("Losenord"));
-        TeleFält.setText(alienAvNamn.get("Telefon"));
-        PlatsFält.setText(alienAvNamn.get("Benamning"));
-        AnsvarigAgent.setText(alienAvNamn.get("Namn"));
+            IDFält.setText(alienAvNamn.get("Alien_ID"));
+            RegFält.setText(alienAvNamn.get("Registreringsdatum"));
+            NamnFält.setText(valdAlien);
+            RasFält.setSelectedItem(ras);
+            LösenFält.setText(alienAvNamn.get("Losenord"));
+            TeleFält.setText(alienAvNamn.get("Telefon"));
+            PlatsFält.setSelectedItem(alienAvNamn.get("Benamning"));
+            AnsvarigAgent.setSelectedItem(alienAvNamn.get("Namn"));
+            GetMetoder.getRasAttributFrånID(alienAvNamn.get("Alien_ID"));
     }
 
 //            ID.SET(alienAvNamn.get("Alien_ID") + "\t");
@@ -300,4 +303,3 @@ public class AgentochAdminMetoder {
 //   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 // }
 // }
-

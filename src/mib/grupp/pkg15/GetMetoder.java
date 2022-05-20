@@ -70,12 +70,12 @@ public class GetMetoder {
         String ras = null;
         try {
 
-            String bogolite = idb.fetchSingle("Select Namn from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '" + ettNamn + "'");
+            String boglodite = idb.fetchSingle("Select Namn from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '" + ettNamn + "'");
             String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '" + ettNamn + "'");
             String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
 
-            if (Validera.kollaNullSträng(bogolite)) {
-                ras = "Bogolite";
+            if (Validera.kollaNullSträng(boglodite)) {
+                ras = "Boglodite";
             }
             if (Validera.kollaNullSträng(squid)) {
                 ras = "Squid";
@@ -122,15 +122,39 @@ public class GetMetoder {
         return alienAvNamn;
 
     }
-    
-    public static HashMap<String, String> getEnAgent(String valdAgent) {
-        HashMap<String, String> agentAvNamn = null;
+public static String getRasAttributFrånID(String ettID) {
+        String mängdAttribut = null;
         try {
-            agentAvNamn = idb.fetchRow("select agent.Losenord, Agent_ID, agent.Namn, Anstallningssdatum, agent.Telefon, Administrator,omrade, " + valdAgent + "'");
-        } catch (InfException ex) {
-            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return agentAvNamn;
 
-    }
+            String boogies = idb.fetchSingle("Select Antal_Boogies from alien join boglodite b on alien.Alien_ID = b.Alien_ID where namn = '" + ettID + "'");
+            String armar = idb.fetchSingle("Select Antal_Armar from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '" + ettID + "'");
+            //String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
+
+            if (Validera.kollaNullSträng(boogies)) {
+                mängdAttribut = "boogies";
+            }
+            if (Validera.kollaNullSträng(armar)) {
+                mängdAttribut = "armar";
+            }
+//            if (Validera.kollaNullSträng(worm)) {
+//                ras = "Worm";
+//            }
+
+        } catch (InfException ex) {
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mängdAttribut;
+        }
+        public static HashMap<String, String> getEnAgent(String valdAgent) {
+            HashMap<String, String> agentAvNamn = null;
+            try {
+                agentAvNamn = idb.fetchRow("select agent.Losenord, Agent_ID, agent.Namn, Anstallningssdatum, agent.Telefon, Administrator,omrade, " + valdAgent + "'");
+            } catch (InfException ex) {
+                Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return agentAvNamn;
+
+        }
+
+
 }
