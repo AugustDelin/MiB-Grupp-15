@@ -89,7 +89,7 @@ public class GetMetoder {
         }
         return ras;
     }
-
+// Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
     public static String getNextAlienID() {
         String nextId = null;
         try {
@@ -100,7 +100,7 @@ public class GetMetoder {
         }
         return nextId;
     }
-
+// Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
     public static String getNextAgentID() {
         String nextId = null;
         try {
@@ -120,6 +120,17 @@ public class GetMetoder {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return alienAvNamn;
+
+    }
+    
+    public static HashMap<String, String> getEnAgent(String valdAgent) {
+        HashMap<String, String> agentAvNamn = null;
+        try {
+            agentAvNamn = idb.fetchRow("select agent.Losenord, Agent_ID, agent.Namn, Anstallningssdatum, agent.Telefon, Administrator,omrade, " + valdAgent + "'");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return agentAvNamn;
 
     }
 }

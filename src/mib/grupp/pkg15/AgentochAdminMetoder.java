@@ -118,13 +118,12 @@ public class AgentochAdminMetoder {
 
     }
 //Skapar en hashmap och visar all information om varje enskild alien.
-
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
         //Sätter textfältet som tomt
         lista.setText("");
         try {
-// hämtar varibler ifrån fälten
+        // hämtar variabler ifrån fälten
             String valdAlien = Validera.hamtaCbSträng(låda);
             String ras = GetMetoder.getRasFrånNamn(valdAlien);
 
@@ -146,7 +145,7 @@ public class AgentochAdminMetoder {
     }
 
     public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn) {
-        //Deklrarerar felmeddlande som ska användas i om utrustning redan finns på agenten
+        //Deklarerar felmeddelande som ska användas i om utrustning redan finns på agenten
         String felmeddelande = "Denna utrusnting är redan registrerad på " + användarnamn;
         //Hämtar vald utrustning ifrån en Combobox och gör om String variabler till integers
         String valdUtrustning = Validera.hamtaCbSträng(enLåda);
@@ -181,7 +180,7 @@ public class AgentochAdminMetoder {
                 lista.append(enChef);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoderLinda.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -254,29 +253,27 @@ public class AgentochAdminMetoder {
         }
 
     }
-    
+
     /**
      *
      * @param valdAlien
      * @param IDFält
      * @param RegFält
      */
-    public static void ändraInformationAlien(JComboBox alienLåda, JTextField IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent)
-    {
-       String valdAlien = Validera.hamtaCbSträng(alienLåda);
+    public static void ändraInformationAlien(JComboBox alienLåda, JTextField IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent) {
+        String valdAlien = Validera.hamtaCbSträng(alienLåda);
         HashMap<String, String> alienAvNamn = GetMetoder.getEnAlien(valdAlien);
-        
-            IDFält.setText(alienAvNamn.get("Alien_ID"));
-            RegFält.setText(alienAvNamn.get("Registreringsdatum"));
-            NamnFält.setText(valdAlien);
-            RasFält.setText("");
-            LösenFält.setText(alienAvNamn.get("Losenord"));
-            TeleFält.setText(alienAvNamn.get("Telefon"));
-            PlatsFält.setText(alienAvNamn.get("Benamning"));
-            AnsvarigAgent.setText(alienAvNamn.get("Namn"));
+
+        IDFält.setText(alienAvNamn.get("Alien_ID"));
+        RegFält.setText(alienAvNamn.get("Registreringsdatum"));
+        NamnFält.setText(valdAlien);
+        RasFält.setText("");
+        LösenFält.setText(alienAvNamn.get("Losenord"));
+        TeleFält.setText(alienAvNamn.get("Telefon"));
+        PlatsFält.setText(alienAvNamn.get("Benamning"));
+        AnsvarigAgent.setText(alienAvNamn.get("Namn"));
     }
-            
-        
+
 //            ID.SET(alienAvNamn.get("Alien_ID") + "\t");
 //            lista.append(valdAlien + "\t");
 //            lista.append(ras + "\t");
@@ -285,26 +282,22 @@ public class AgentochAdminMetoder {
 //            lista.append(alienAvNamn.get("Namn") + "\t");
 //            lista.append(alienAvNamn.get("Registreringsdatum") + "\t");
 //            lista.append(alienAvNamn.get("Losenord"));
-    }
+}
 
-        
-    
-
-    //metod för att udvika dubbla ID
-    // public static boolean kollaID(JLabel ettLabel) {
-    //try {
-    //boolean resultat = false;
-    //String ettIDString = ettLabel.getText();
-    //int ettID = Integer.parseInt(ettIDString);
-    //String idLista = idb.fetchSingle("Select Alien_ID from alien");
-    // int idListan = Integer.parseInt(idLista);
-    //ArrayList<Integer> idListaAliens = idListan;
-    //for(String ettID : )
-    //if (ettID.) {
-    //  }
-    //} catch (InfException ex) {
-    //   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
-    // }
-    // }
-
+//metod för att udvika dubbla ID
+// public static boolean kollaID(JLabel ettLabel) {
+//try {
+//boolean resultat = false;
+//String ettIDString = ettLabel.getText();
+//int ettID = Integer.parseInt(ettIDString);
+//String idLista = idb.fetchSingle("Select Alien_ID from alien");
+// int idListan = Integer.parseInt(idLista);
+//ArrayList<Integer> idListaAliens = idListan;
+//for(String ettID : )
+//if (ettID.) {
+//  }
+//} catch (InfException ex) {
+//   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+// }
+// }
 
