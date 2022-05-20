@@ -279,15 +279,8 @@ public class AgentochAdminMetoder {
             rasAttribut.setText(mängd);
     }
 
-//            ID.SET(alienAvNamn.get("Alien_ID") + "\t");
-//            lista.append(valdAlien + "\t");
-//            lista.append(ras + "\t");
-//            lista.append(alienAvNamn.get("Telefon") + "\t");
-//            lista.append(alienAvNamn.get("Benamning") + "\t");
-//            lista.append(alienAvNamn.get("Namn") + "\t");
-//            lista.append(alienAvNamn.get("Registreringsdatum") + "\t");
-//            lista.append(alienAvNamn.get("Losenord"));
-}
+
+
 
 //metod för att udvika dubbla ID
 // public static boolean kollaID(JLabel ettLabel) {
@@ -305,3 +298,51 @@ public class AgentochAdminMetoder {
 //   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 // }
 // }
+
+
+public static void ändraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
+
+            String ettNamn = null;
+
+            try {
+//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+                String ettIDString = id.getText();
+                int ettID = Integer.parseInt(ettIDString);
+                String ettDatum = datum.getText();
+                ettNamn = namnFält.getText();
+                String valdRas = rasLåda.getSelectedItem().toString();
+                String mängdAtributString = attributFält.getText();
+                int mängdAtribut = Integer.parseInt(mängdAtributString);
+                String ettLösen = lösenFält.getText();
+                String ettTelNr = telNrFält.getText();
+                String enPlats = platsLåda.getSelectedItem().toString();
+                String platsIDSträng = idb.fetchSingle("select Plats_ID from plats where Benamning = '" + enPlats + "'");
+                int platsID = Integer.parseInt(platsIDSträng);
+                String enAgent = agentLåda.getSelectedItem().toString();
+                String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
+                int agentID = Integer.parseInt(agentIDSträng);
+
+                idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                if (valdRas.equals("Boglodite")) {
+                    idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
+                }
+                if (valdRas.equals("Squid")) {
+                    idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
+                }
+                if (valdRas.equals("Worm")) {
+                    idb.insert("insert into worm values(" + ettID + ")");
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, ettNamn + " är nu omregistrerad");
+            namnFält.setText("");
+            lösenFält.setText("");
+            telNrFält.setText("");
+            attributFält.setText("");
+        }
+}
+}
