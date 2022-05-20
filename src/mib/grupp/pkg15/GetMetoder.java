@@ -190,7 +190,7 @@ public class GetMetoder {
     public static ArrayList<String> getAlienNamn() {
         ArrayList<String> NamnListaAlien = null;
         try {
-            NamnListaAlien = idb.fetchColumn("Select namn from Agent order by namn");
+            NamnListaAlien = idb.fetchColumn("Select namn from Alien order by namn");
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
