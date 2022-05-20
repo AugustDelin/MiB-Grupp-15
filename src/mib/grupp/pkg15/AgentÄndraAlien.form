@@ -144,26 +144,16 @@
                               <Component id="txtLösenord" min="-2" max="-2" attributes="0"/>
                               <Component id="txtDatum" min="-2" pref="71" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="cbNyPlatser" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtGammalRas" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="cbNyRas" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="cbNyAgent" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbRas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblRasAttribut" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txtRasAttribut" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="txtGammalPlats" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="txtGammalAgent" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
                               <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbPlatser" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbAgent" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -171,7 +161,7 @@
                           <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="123" max="32767" attributes="0"/>
+                  <EmptySpace pref="211" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -191,10 +181,9 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRubrikRas" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="cbNyRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbRas" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblRasAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtRasAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtGammalRas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -209,14 +198,12 @@
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRubrikPlats" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="cbNyPlatser" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtGammalPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbPlatser" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRubrikAgent" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="cbNyAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtGammalAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
@@ -249,14 +236,14 @@
             <Property name="text" type="java.lang.String" value="Ras"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbNyRas">
+        <Component class="javax.swing.JComboBox" name="cbRas">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNyRasActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbRasActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -287,12 +274,15 @@
             <Property name="text" type="java.lang.String" value="Plats"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbNyPlatser">
+        <Component class="javax.swing.JComboBox" name="cbPlatser">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbPlatserActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -302,12 +292,15 @@
             <Property name="text" type="java.lang.String" value="Ansvarig Agent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbNyAgent">
+        <Component class="javax.swing.JComboBox" name="cbAgent">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbAgentActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -334,18 +327,6 @@
           <Properties>
             <Property name="columns" type="int" value="5"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtGammalRas">
-          <Properties>
-            <Property name="columns" type="int" value="5"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtGammalPlats">
-          <Properties>
-            <Property name="columns" type="int" value="5"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtGammalAgent">
         </Component>
       </SubComponents>
     </Container>

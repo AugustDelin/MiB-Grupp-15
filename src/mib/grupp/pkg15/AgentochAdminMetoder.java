@@ -261,7 +261,7 @@ public class AgentochAdminMetoder {
      * @param IDFält
      * @param RegFält
      */
-    public static void visaInformationAlien(JComboBox alienLåda, JLabel IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent)
+    public static void visaInformationAlien(JComboBox alienLåda, JLabel IDFält, JTextField RegFält, JTextField NamnFält, JComboBox RasFält, JTextField LösenFält, JTextField TeleFält, JComboBox PlatsFält, JComboBox AnsvarigAgent, JTextField rasAttribut)
     {
        String valdAlien = Validera.hamtaCbSträng(alienLåda);
        String ras = GetMetoder.getRasFrånNamn(valdAlien);
@@ -270,11 +270,12 @@ public class AgentochAdminMetoder {
             IDFält.setText(alienAvNamn.get("Alien_ID"));
             RegFält.setText(alienAvNamn.get("Registreringsdatum"));
             NamnFält.setText(valdAlien);
-            RasFält.setText(ras);
+            RasFält.setSelectedItem(ras);
             LösenFält.setText(alienAvNamn.get("Losenord"));
             TeleFält.setText(alienAvNamn.get("Telefon"));
-            PlatsFält.setText(alienAvNamn.get("Benamning"));
-            AnsvarigAgent.setText(alienAvNamn.get("Namn"));
+            PlatsFält.setSelectedItem(alienAvNamn.get("Benamning"));
+            AnsvarigAgent.setSelectedItem(alienAvNamn.get("Namn"));
+            GetMetoder.getRasAttributFrånID(alienAvNamn.get("Alien_ID"));
     }
             
         
