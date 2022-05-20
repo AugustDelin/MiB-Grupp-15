@@ -70,13 +70,18 @@ public class UnikaAdminMetoder {
             String valdAgent = Validera.hamtaCbSträng(låda);
 
             //HashMapen gås igenom. Först namnges rubriker, sedan hämtas data med hjälp av nyckeln som skrivs ut i listan.
+<<<<<<< Updated upstream
             HashMap<String, String> agentAvNamn = GetMetoder.getEnAgent(valdAgent);
             lista.append("ID\tNamn\tTelefon\tOmrade\tAdmin\tAnsDaum\tLösenord\n");
+=======
+            HashMap<String, String> agentAvNamn = GetMetoder.getEnAgent();
+            lista.append("ID\tNamn\tTelefon\tOmrade\tAdmin\tAnsDatum\tLösenord\n");
+>>>>>>> Stashed changes
             lista.append(agentAvNamn.get("Agent_ID") + "\t");
             lista.append(valdAgent + "\t");
             lista.append(agentAvNamn.get("Telefon") + "\t");
+            lista.append(agentAvNamn.get("Benamning") + "\t");
             lista.append(agentAvNamn.get("Administrator") + "\t");
-            lista.append(agentAvNamn.get("Namn") + "\t");
             lista.append(agentAvNamn.get("Anstallningsdatum") + "\t");
             lista.append(agentAvNamn.get("Losenord"));
 
