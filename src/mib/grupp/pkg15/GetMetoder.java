@@ -15,13 +15,17 @@ import oru.inf.InfException;
  *
  * @author erike
  */
+//Fälten för GetMetoder.
 public class GetMetoder {
-    
+
     private static InfDB idb;
-       
-    public GetMetoder(){
+
+//    Konstruktorn för GetMetoder.
+    public GetMetoder() {
         idb = Main.getDB();
     }
+//    Get-metod för att hämta ID från Agent med användarnamnet.
+
     public static int hämtaAgentIDFrånNamn(String användarnamn) {
         String agentID = "Finns ej";
         int agentNR = 99;
@@ -36,6 +40,7 @@ public class GetMetoder {
         return agentNR;
     }
 
+//    Get-metod för att hämta ID från utrustning med det inmatade namnet.
     public static int hämtaUtrustningsIDFrånNamn(String benämning) {
         String utrustningsID = "Finns ej";
         int utrustningsNR = 99;
@@ -50,6 +55,7 @@ public class GetMetoder {
         return utrustningsNR;
     }
 
+//    Get-metod för att hämta utrustnings-ID från agent med det inmatade Agent-ID.
     public static ArrayList<String> getUtrustningsIDnFrånAgentID(int agentID) {
         ArrayList<String> utrustningslista = null;
         try {
@@ -59,7 +65,7 @@ public class GetMetoder {
         }
         return utrustningslista;
     }
-    
+//
     public static String getRasFrånNamn(String ettNamn) {
         String ras = null;
         try {
@@ -83,7 +89,7 @@ public class GetMetoder {
         }
         return ras;
     }
-    
+
     public static String getNextAlienID() {
         String nextId = null;
         try {
@@ -94,7 +100,7 @@ public class GetMetoder {
         }
         return nextId;
     }
-    
+
     public static String getNextAgentID() {
         String nextId = null;
         try {
@@ -105,9 +111,9 @@ public class GetMetoder {
         }
         return nextId;
     }
-    public static HashMap<String, String> getEnAlien(String valdAlien)
-    {
-        HashMap<String,String> alienAvNamn = null;
+
+    public static HashMap<String, String> getEnAlien(String valdAlien) {
+        HashMap<String, String> alienAvNamn = null;
         try {
             alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
         } catch (InfException ex) {
@@ -117,4 +123,3 @@ public class GetMetoder {
 
     }
 }
-
