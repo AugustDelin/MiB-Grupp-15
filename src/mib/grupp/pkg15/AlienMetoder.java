@@ -51,7 +51,7 @@ public class AlienMetoder {
         }
     }
 //    Metoden för att visa områdeschef.
-    public static void visaOC(JLabel ettFönster, String användarnamn) {
+    public static void visaMinOC(JLabel ettFönster, String användarnamn) {
         try {
             String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '"+ användarnamn+"'");
             ettFönster.setText("Din områdeschef är: " + OC + ".");

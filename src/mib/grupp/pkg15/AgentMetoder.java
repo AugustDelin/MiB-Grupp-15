@@ -186,7 +186,7 @@ public class AgentMetoder {
             }
         }
     }
-
+// Metod för att registrera en ny Alien.
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
