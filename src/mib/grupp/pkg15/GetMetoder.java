@@ -5,6 +5,7 @@
 package mib.grupp.pkg15;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -103,6 +104,17 @@ public class GetMetoder {
             Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return nextId;
+    }
+    public static HashMap<String, String> getEnAlien(String valdAlien)
+    {
+        HashMap<String,String> alienAvNamn = null;
+        try {
+            alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return alienAvNamn;
+
     }
 }
 

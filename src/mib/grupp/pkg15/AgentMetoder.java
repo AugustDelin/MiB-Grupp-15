@@ -254,6 +254,11 @@ public class AgentMetoder {
         }
 
     }
+    
+    public static void ändraInformationAlien()
+    {
+        HashMap<String, String> allInfoOmALien;
+    }
 
     //metod för att udvika dubbla ID
     // public static boolean kollaID(JLabel ettLabel) {

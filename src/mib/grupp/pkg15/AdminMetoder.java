@@ -291,7 +291,7 @@ public class AdminMetoder {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);
             int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
             idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
-            idb.delete("delete from utrustning where benamning ='" + valdUtrustning + "'");
+            idb.delete("delete from utrustning where Utrustnings_ID =" + utrustningsID);
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
             enLåda.removeItem(valdUtrustning);
         } catch (InfException ex) {
