@@ -323,7 +323,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
             txtRasAttribut.setText("");
         }
         if (valdRas.equals("Worm")) {
-            txtRasAttribut.setText("0");
+            txtRasAttribut.setText("1");
             lblRasAttribut.setVisible(false);
             txtRasAttribut.setVisible(false);
         }
