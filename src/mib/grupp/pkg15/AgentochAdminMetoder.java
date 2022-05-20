@@ -231,37 +231,31 @@ public class AgentochAdminMetoder {
                 String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
                 int agentID = Integer.parseInt(agentIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
-                
-                if(Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad"))
-                {
-                    
-                
-                    
-                
 
-                idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
-                if (valdRas.equals("Boglodite")) {
-                    idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
-                }
-                if (valdRas.equals("Squid")) {
-                    idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
-                }
-                if (valdRas.equals("Worm")) {
-                    idb.insert("insert into worm values(" + ettID + ")");
-                }
-                JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
-                id.setText(GetMetoder.getNextAlienID());
-            namnFält.setText("");
-            lösenFält.setText("");
-            telNrFält.setText("");
-            attributFält.setText("");
+                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
+
+                    idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                    if (valdRas.equals("Boglodite")) {
+                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
+                    }
+                    if (valdRas.equals("Squid")) {
+                        idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
+                    }
+                    if (valdRas.equals("Worm")) {
+                        idb.insert("insert into worm values(" + ettID + ")");
+                    }
+                    JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                    id.setText(GetMetoder.getNextAlienID());
+                    namnFält.setText("");
+                    lösenFält.setText("");
+                    telNrFält.setText("");
+                    attributFält.setText("");
 
                 }
 
             } catch (InfException ex) {
                 Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
 
         }
 
@@ -333,45 +327,43 @@ public class AgentochAdminMetoder {
                 String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
                 int agentID = Integer.parseInt(agentIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
-                
-                if(Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad"))
-                {
-                    
-                }
 
-                idb.update("Update alien set Registreringsdatum ='" + ettDatum + "', Losenord = '" + ettLösen + "', Namn = '" + ettNamn + "', Telefon = '" + ettTelNr + "', Plats =" + platsID + ", Ansvarig_Agent =" + agentID + " where Alien_ID =" + ettID);
+                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
 
-                if (gammalRas.equals("Boglodite")) {
-                    idb.delete("Delete from boglodite where Alien_ID =" + ettID);
-                }
-                if (gammalRas.equals("Squid")) {
-                    idb.delete("Delete from squid where Alien_ID =" + ettID);
-                }
+                    idb.update("Update alien set Registreringsdatum ='" + ettDatum + "', Losenord = '" + ettLösen + "', Namn = '" + ettNamn + "', Telefon = '" + ettTelNr + "', Plats =" + platsID + ", Ansvarig_Agent =" + agentID + " where Alien_ID =" + ettID);
 
-                if (gammalRas.equals("Worm")) {
-                    idb.delete("Delete from worm where Alien_ID =" + ettID);
-                }
+                    if (gammalRas.equals("Boglodite")) {
+                        idb.delete("Delete from boglodite where Alien_ID =" + ettID);
+                    }
+                    if (gammalRas.equals("Squid")) {
+                        idb.delete("Delete from squid where Alien_ID =" + ettID);
+                    }
 
-                if (valdRas.equals("Boglodite")) {
-                    idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
-                }
-                if (valdRas.equals("Squid")) {
-                    idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
-                }
-                if (valdRas.equals("Worm")) {
-                    idb.insert("insert into worm values(" + ettID + ")");
+                    if (gammalRas.equals("Worm")) {
+                        idb.delete("Delete from worm where Alien_ID =" + ettID);
+                    }
+
+                    if (valdRas.equals("Boglodite")) {
+                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
+                    }
+                    if (valdRas.equals("Squid")) {
+                        idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
+                    }
+                    if (valdRas.equals("Worm")) {
+                        idb.insert("insert into worm values(" + ettID + ")");
+                    }
+                    JOptionPane.showMessageDialog(null, ettNamn + " är nu omregistrerad");
+                    namnFält.setText("");
+                    lösenFält.setText("");
+                    telNrFält.setText("");
+                    attributFält.setText("");
+                    datum.setText("");
                 }
 
             } catch (InfException ex) {
                 Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(null, ettNamn + " är nu omregistrerad");
-            namnFält.setText("");
-            lösenFält.setText("");
-            telNrFält.setText("");
-            attributFält.setText("");
-            datum.setText("");
-            
+
         }
 
     }
