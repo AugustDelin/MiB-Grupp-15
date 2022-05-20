@@ -300,7 +300,7 @@ public class AgentochAdminMetoder {
 // }
 
 
-public static void ändraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
+public static void ändraAlien(JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
@@ -324,7 +324,7 @@ public static void ändraAlien(JLabel id, JLabel datum, JTextField namnFält, JC
                 String agentIDSträng = idb.fetchSingle("select Agent_ID from agent where namn = '" + enAgent + "'");
                 int agentID = Integer.parseInt(agentIDSträng);
 
-                idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                idb.insert("Update alien set Registreringsdatum ='"+ettDatum+"', Losenord = '"+ ettLösen+"', Namn = '"+ ettNamn+"', Telefon = '"+ettTelNr+"', Plats ="+platsID+", Ansvarig_Agent ="+agentID+" where Alien_ID ="+ettID);
                 if (valdRas.equals("Boglodite")) {
                     idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
                 }
