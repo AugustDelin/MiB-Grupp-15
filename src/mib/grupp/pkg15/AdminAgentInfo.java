@@ -104,6 +104,11 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         });
 
         btnTaBortAgent.setText("Ta bort vald agent");
+        btnTaBortAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTaBortAgentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,6 +207,10 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         new AdminÄndraAgent(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraAgentActionPerformed
+//Trycka knapp, hämta information från kombo-box.
+    private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
+   
+    }//GEN-LAST:event_btnTaBortAgentActionPerformed
 
     /**
      * @param args the command line arguments

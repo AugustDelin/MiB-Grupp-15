@@ -53,7 +53,7 @@ public class ComboBoxar {
         }
 
     }
-//Skapar en ArrayList och fyller denna namnen som finns hos aliens
+//Skapar en ArrayList och fyller denna namnen som finns hos aliens.
 
     public static void fyllCBAlienNamn(JComboBox enLåda) {
         try {
@@ -81,7 +81,7 @@ public class ComboBoxar {
         }
 
     }
-//    Skapa en ArrayList och fuller den med chefer inom de olika områdena.
+//    Skapa en ArrayList och fyller den med chefer inom de olika områdena.
 
     public static void fyllCBchefsOmråden(JComboBox enLåda) {
 
