@@ -19,9 +19,9 @@ import oru.inf.InfException;
 public class StartSkärm extends javax.swing.JFrame {
 
     private static InfDB idb;
-    private AgentMetoder AgentM;
+    private AgentochAdminMetoder AgentM;
     private AlienMetoder AlienM;
-    private AdminMetoder AdminM;
+    private UnikaAdminMetoder AdminM;
 
     /**
      * Konstruktorn för Startskärm
@@ -29,9 +29,9 @@ public class StartSkärm extends javax.swing.JFrame {
     public StartSkärm() {
         initComponents();
         idb = Main.getDB();
-        AgentM = new AgentMetoder(this);
+        AgentM = new AgentochAdminMetoder(this);
         AlienM = new AlienMetoder(this);
-        AdminM = new AdminMetoder(this);
+        AdminM = new UnikaAdminMetoder(this);
         txtStartAnvändarnamn.setText("Agent O");
         pwfStartLogin.setText("planka");
 
@@ -134,7 +134,7 @@ public class StartSkärm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 // Knappen som startar metoden för att logga in som Admin.
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
-        AdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
+        UnikaAdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAdminActionPerformed
 // Knappen som startar metoden för att logga in som Alien.
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
@@ -142,7 +142,7 @@ public class StartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 // Knappen som startar metoden för att logga in som Agent.
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
-        AgentMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
+        AgentochAdminMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
 
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 

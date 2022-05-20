@@ -147,7 +147,7 @@ public class AgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-        AgentMetoder.laggTillUtrustningPåAgent(cbVäljUtrustning, användarnamn);
+        AgentochAdminMetoder.laggTillUtrustningPåAgent(cbVäljUtrustning, användarnamn);
 
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 

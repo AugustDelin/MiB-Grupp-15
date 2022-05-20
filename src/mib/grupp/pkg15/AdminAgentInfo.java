@@ -189,7 +189,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSokAgentActionPerformed
 
     private void cbAgentNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentNamnActionPerformed
-        AgentMetoder.listaEnskildaAliens(txtAreaListaAgenter, cbAgentNamn);
+        AgentochAdminMetoder.listaEnskildaAliens(txtAreaListaAgenter, cbAgentNamn);
     }//GEN-LAST:event_cbAgentNamnActionPerformed
 
     private void btnRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAgentActionPerformed

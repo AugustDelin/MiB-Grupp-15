@@ -22,14 +22,14 @@ import oru.inf.InfException;
  *
  * @author Linda
  */
-//Fälten för klassen AdminMetoder.
-public class AdminMetoder {
+//Fälten för klassen UnikaAdminMetoder.
+public class UnikaAdminMetoder {
 
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
-// Konstruktorn för klassen AdminMetoder.
-    public AdminMetoder(StartSkärm ettFönster) {
+// Konstruktorn för klassen UnikaAdminMetoder.
+    public UnikaAdminMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
 
@@ -72,7 +72,7 @@ public class AdminMetoder {
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 //     public static void listaAliensPåPlats(JTextArea lista, JComboBox låda) {
@@ -84,7 +84,7 @@ public class AdminMetoder {
 //                lista.append(alien + "\n");
 //            }
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //     
@@ -97,7 +97,7 @@ public class AdminMetoder {
 //            }
 //
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //        
@@ -124,7 +124,7 @@ public class AdminMetoder {
 //                lista.append(enAlien + "\n");
 //            }
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //
 //    }
@@ -138,7 +138,7 @@ public class AdminMetoder {
 //                enLåda.addItem(ettNamn);
 //            }
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //    
@@ -150,7 +150,7 @@ public class AdminMetoder {
 //                enLåda.addItem(ettNamn);
 //            }
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //            
@@ -175,7 +175,7 @@ public class AdminMetoder {
 //            lista.append(alienAvNamn.get("Losenord"));
 //
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //   
@@ -199,7 +199,7 @@ public class AdminMetoder {
 //            }
 //
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        return ras;
 //    }
@@ -214,7 +214,7 @@ public class AdminMetoder {
 //                enLåda.addItem(enUtrustning);
 //            }
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //}
 //        public static String getAlienID() {
@@ -223,7 +223,7 @@ public class AdminMetoder {
 //            nextId = idb.getAutoIncrement("alien", "Alien_ID");
 //
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        return nextId;
 //    }
@@ -238,7 +238,7 @@ public class AdminMetoder {
 //            agentNR = Integer.parseInt(agentID);
 //
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //
 //        return agentNR;
@@ -249,7 +249,7 @@ public class AdminMetoder {
 //        try {
 //            utrustningslista = idb.fetchColumn("Select Utrustnings_ID from innehar_utrustning where agent_ID=" + agentID);
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        return utrustningslista;
 // }
@@ -262,7 +262,7 @@ public class AdminMetoder {
 //            utrustningsNR = Integer.parseInt(utrustningsID);
 //
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        return utrustningsNR;
 //    }
@@ -280,7 +280,7 @@ public class AdminMetoder {
 //                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
 //
 //            } catch (InfException ex) {
-//                Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //
 //        }
@@ -295,7 +295,7 @@ public class AdminMetoder {
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
             enLåda.removeItem(valdUtrustning);
         } catch (InfException ex) {
-            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
               
     }
@@ -340,7 +340,7 @@ public class AdminMetoder {
 //        }
 //            
 //        } catch (InfException ex) {
-//            Logger.getLogger(AdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
 //            }

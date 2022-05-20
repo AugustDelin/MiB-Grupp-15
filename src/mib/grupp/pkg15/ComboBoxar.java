@@ -32,7 +32,7 @@ public class ComboBoxar {
             }
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
       //Skapa en ArrayList och fyller denna med de tre raserna som finns
@@ -58,7 +58,7 @@ public class ComboBoxar {
                 enLåda.addItem(ettNamn);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public static void fyllCBAgentUtrustning(JComboBox enLåda) {
@@ -70,7 +70,7 @@ public class ComboBoxar {
                 enLåda.addItem(enUtrustning);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -83,7 +83,7 @@ public class ComboBoxar {
                 enLåda.addItem(ettOmråde);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
       public static void fyllCBAgentNamn(JComboBox enLåda) {
@@ -95,7 +95,7 @@ public class ComboBoxar {
                 enLåda.addItem(enAgent);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

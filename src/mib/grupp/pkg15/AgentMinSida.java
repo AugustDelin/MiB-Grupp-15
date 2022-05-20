@@ -160,7 +160,7 @@ public class AgentMinSida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Knapppen för att starta metoden BytaLösenord.
     private void btnBytLösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLösenordActionPerformed
-        AgentMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
+        AgentochAdminMetoder.bytLösenord(användarnamn, pwfGammaltLösenord, pwfNyttLösenord);
     }//GEN-LAST:event_btnBytLösenordActionPerformed
     // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed

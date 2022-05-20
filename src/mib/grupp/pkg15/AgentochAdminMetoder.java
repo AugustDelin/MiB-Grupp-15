@@ -25,14 +25,14 @@ import oru.inf.InfException;
  *
  * @author erike
  */
-// Fälten för klassen AgentMetoder.
-public class AgentMetoder {
+// Fälten för klassen AgentochAdminMetoder.
+public class AgentochAdminMetoder {
 
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
-//    Konstruktorn för klassen AgentMetoder.
-    public AgentMetoder(StartSkärm ettFönster) {
+//    Konstruktorn för klassen AgentochAdminMetoder.
+    public AgentochAdminMetoder(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
 
@@ -79,7 +79,7 @@ public class AgentMetoder {
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -95,7 +95,7 @@ public class AgentMetoder {
                 lista.append(alien + "\n");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -113,7 +113,7 @@ public class AgentMetoder {
                 lista.append(enAlien + "\n");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -141,7 +141,7 @@ public class AgentMetoder {
             lista.append(alienAvNamn.get("Losenord"));
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -162,7 +162,7 @@ public class AgentMetoder {
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
 
             } catch (InfException ex) {
-                Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -201,7 +201,7 @@ public class AgentMetoder {
                     enArea.append(enRad.get("Namn") + "\n");
                 }
             } catch (InfException ex) {
-                Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -243,7 +243,7 @@ public class AgentMetoder {
                 }
 
             } catch (InfException ex) {
-                Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
             id.setText(GetMetoder.getNextAlienID());
@@ -273,7 +273,7 @@ public class AgentMetoder {
     //if (ettID.) {
     //  }
     //} catch (InfException ex) {
-    //   Logger.getLogger(AgentMetoder.class.getName()).log(Level.SEVERE, null, ex);
+    //   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
     // }
     // }
 }

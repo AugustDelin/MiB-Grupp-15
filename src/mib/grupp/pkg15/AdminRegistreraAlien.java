@@ -275,7 +275,7 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-       AgentMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
+       AgentochAdminMetoder.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 //Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
 //    en extra ruta genom en if-sats för att ange de extra attributen.
