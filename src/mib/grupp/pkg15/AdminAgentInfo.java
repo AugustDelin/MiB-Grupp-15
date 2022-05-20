@@ -209,6 +209,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnÄndraAgentActionPerformed
 //Trycka knapp, hämta information från kombo-box.
     private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
+   UnikaAdminMetoder.taBortAgentUrSystemet(cbAgentNamn);
    
     }//GEN-LAST:event_btnTaBortAgentActionPerformed
 
