@@ -40,18 +40,18 @@ public class GetMetoder {
     }
 
     //    Get-metod för att hämta ID från Agent med användarnamnet.
-    public static int hämtaAgentIDFrånNamn(String användarnamn) {
-        String agentID = "Finns ej";
-        int agentNR = 99;
+    public static int hämtaAlienIDFrånNamn(String användarnamn) {
+        String alienID = "Finns ej";
+        int alienNR = 99;
         try {
-            agentID = idb.fetchSingle("Select Agent_ID from Agent where namn ='" + användarnamn + "'");
-            agentNR = Integer.parseInt(agentID);
+            alienID = idb.fetchSingle("Select Alien_ID from Alien where namn ='" + användarnamn + "'");
+            alienNR = Integer.parseInt(alienID);
 
         } catch (InfException ex) {
             Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return agentNR;
+        return alienNR;
     }
 
     
