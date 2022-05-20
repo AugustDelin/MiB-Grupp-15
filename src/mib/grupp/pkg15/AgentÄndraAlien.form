@@ -147,10 +147,7 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="cbNyPlatser" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="txtGammalRas" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtGammalRas" min="-2" pref="71" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                           <Component id="cbNyRas" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -163,9 +160,10 @@
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="txtGammalPlats" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtGammalAgent" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -242,6 +240,9 @@
           <Properties>
             <Property name="columns" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNamnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRubrikRas">
           <Properties>
@@ -361,12 +362,7 @@
     <Component class="javax.swing.JComboBox" name="cbAlienNamn">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
