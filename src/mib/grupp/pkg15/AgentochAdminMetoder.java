@@ -261,15 +261,16 @@ public class AgentochAdminMetoder {
      * @param IDFält
      * @param RegFält
      */
-    public static void ändraInformationAlien(JComboBox alienLåda, JTextField IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent)
+    public static void ändraInformationAlien(JComboBox alienLåda, JLabel IDFält, JTextField RegFält, JTextField NamnFält, JTextField RasFält, JTextField LösenFält, JTextField TeleFält, JTextField PlatsFält, JTextField AnsvarigAgent)
     {
        String valdAlien = Validera.hamtaCbSträng(alienLåda);
+       String ras = GetMetoder.getRasFrånNamn(valdAlien);
         HashMap<String, String> alienAvNamn = GetMetoder.getEnAlien(valdAlien);
         
             IDFält.setText(alienAvNamn.get("Alien_ID"));
             RegFält.setText(alienAvNamn.get("Registreringsdatum"));
             NamnFält.setText(valdAlien);
-            RasFält.setText("");
+            RasFält.setText(ras);
             LösenFält.setText(alienAvNamn.get("Losenord"));
             TeleFält.setText(alienAvNamn.get("Telefon"));
             PlatsFält.setText(alienAvNamn.get("Benamning"));
