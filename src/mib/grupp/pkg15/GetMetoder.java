@@ -39,7 +39,7 @@ public class GetMetoder {
         return agentNR;
     }
 
-    //    Get-metod för att hämta ID från Agent med användarnamnet.
+    //    Get-metod för att hämta ID från Alien med användarnamnet.
     public static int hämtaAlienIDFrånNamn(String användarnamn) {
         String alienID = "Finns ej";
         int alienNR = 99;

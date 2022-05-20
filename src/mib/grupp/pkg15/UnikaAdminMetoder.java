@@ -131,10 +131,10 @@ public class UnikaAdminMetoder {
         String valdAlien = Validera.hamtaCbSträng(enLåda);
         try {
             int AlienID = GetMetoder.hämtaAgentIDFrånNamn(valdAlien);
-            idb.delete("delete from omradeschef where agent_id =" + AlienID);
-            idb.delete("delete from kontorschef where agent_id =" + AlienID);
-            idb.delete("delete from faltagent where agent_id =" + AlienID);
-            idb.delete("delete from agent where agent_id =" + AlienID);
+            idb.delete("delete from boglodite where alien_id =" + AlienID);
+            idb.delete("delete from worm where alien_id =" + AlienID);
+            idb.delete("delete from squid where alien_id =" + AlienID);
+            idb.delete("delete from alien where alien_id =" + AlienID);
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAlien + " ur systemet");
             enLåda.removeItem(valdAlien);
         } catch (InfException ex) {

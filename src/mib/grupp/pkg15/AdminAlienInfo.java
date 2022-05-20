@@ -300,7 +300,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
 
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
-        // TODO add your handling code here:
+        UnikaAdminMetoder.taBortAlienUrSystemet(cbAlienNamn);
     }//GEN-LAST:event_btnTaBortAlienActionPerformed
 
     /**
