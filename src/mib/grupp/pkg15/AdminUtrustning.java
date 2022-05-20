@@ -181,8 +181,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-         //AdminMetoder.laggTillUtrustningPåAdmin(cbVäljUtrustning, användarnamn);
-       
+         UnikaAdminMetoder.laggTillUtrustningPåValdAgent(cbVäljUtrustning, cbAgenter);
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
