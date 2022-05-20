@@ -232,10 +232,10 @@ public class AgentochAdminMetoder {
                 int agentID = Integer.parseInt(agentIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
                 
-                if(!Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad"))
+                if(Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad"))
                 {
                     
-                }
+                
                     
                 
 
@@ -249,16 +249,20 @@ public class AgentochAdminMetoder {
                 if (valdRas.equals("Worm")) {
                     idb.insert("insert into worm values(" + ettID + ")");
                 }
-
-            } catch (InfException ex) {
-                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
-            id.setText(GetMetoder.getNextAlienID());
+                JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                id.setText(GetMetoder.getNextAlienID());
             namnFält.setText("");
             lösenFält.setText("");
             telNrFält.setText("");
             attributFält.setText("");
+
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+
         }
 
     }
