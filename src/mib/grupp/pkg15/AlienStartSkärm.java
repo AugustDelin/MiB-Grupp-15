@@ -22,7 +22,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.välkomstLabel(lblRubrik, användarnamn);
-        AlienMetoder.visaMinOC(lblMinOc, användarnamn);
+        MetoderAlien.visaMinOC(lblMinOc, användarnamn);
     }
 
     /**

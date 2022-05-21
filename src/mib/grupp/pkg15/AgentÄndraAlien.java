@@ -305,7 +305,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
-        AgentochAdminMetoder.ändraAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
+        MetoderAgentAdmin.ändraAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
 
     private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
@@ -330,7 +330,7 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_cbRasActionPerformed
 
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
-        AgentochAdminMetoder.visaInformationAlien(cbAlienNamn, lblvisaID,txtDatum,txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
+        MetoderAgentAdmin.visaInformationAlien(cbAlienNamn, lblvisaID,txtDatum,txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
 
     private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed

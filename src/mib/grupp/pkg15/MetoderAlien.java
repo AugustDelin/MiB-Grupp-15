@@ -17,12 +17,12 @@ import oru.inf.InfDB;
  * @author augustdelin
  */
 //Fälten för klassen AlienMetoder.
-public class AlienMetoder {
+public class MetoderAlien {
     private static InfDB idb;
     private static StartSkärm ettFönster; 
 
 //    Konstruktorn för klassen AlienMetoder.
-    public AlienMetoder(StartSkärm ettFönster) {
+    public MetoderAlien(StartSkärm ettFönster) {
         idb = Main.getDB();
         this.ettFönster = ettFönster;
 
@@ -56,7 +56,7 @@ public class AlienMetoder {
             String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '"+ användarnamn+"'");
             ettFönster.setText("Din områdeschef är: " + OC + ".");
         } catch (InfException ex) {
-            Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
         
                 
@@ -72,7 +72,7 @@ public class AlienMetoder {
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats.");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AlienMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
 }

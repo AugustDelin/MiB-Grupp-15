@@ -23,13 +23,13 @@ import oru.inf.InfException;
  * @author Linda
  */
 //Fälten för klassen UnikaAdminMetoder.
-public class UnikaAdminMetoder {
+public class MetoderUnikaAdmin {
 
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
 // Konstruktorn för klassen UnikaAdminMetoder.
-    public UnikaAdminMetoder(StartSkärm ettFönster) {
+    public MetoderUnikaAdmin(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
 
@@ -95,7 +95,7 @@ public class UnikaAdminMetoder {
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
-            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -108,7 +108,7 @@ public class UnikaAdminMetoder {
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
             enLåda.removeItem(valdUtrustning);
         } catch (InfException ex) {
-            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -123,7 +123,7 @@ public class UnikaAdminMetoder {
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
             enLåda.removeItem(valdAgent);
         } catch (InfException ex) {
-            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -138,8 +138,52 @@ public class UnikaAdminMetoder {
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAlien + " ur systemet");
             enLåda.removeItem(valdAlien);
         } catch (InfException ex) {
-            Logger.getLogger(UnikaAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void nyRegistreraAgent(JLabel id, JLabel datum, JTextField namnFält, JPasswordField lösenFält, JTextField telNrFält, JComboBox adminLåda, JComboBox områdesLåda) {
+        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
+
+            String ettNamn = null;
+
+            try {
+//Först deklarerars alla variabler, text hämtas från fält och lådar och nödvändiga Stringvaribler konverteras till int
+                String ettIDString = id.getText();
+                int ettID = Integer.parseInt(ettIDString);
+                String ettDatum = datum.getText();
+                ettNamn = namnFält.getText();             
+                String ettLösen = lösenFält.getText();
+                String ettTelNr = telNrFält.getText();
+                String adminStatus = Validera.hamtaCbSträng(adminLåda);
+                String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
+                String omRådesIDSträng = idb.fetchSingle("select Omrades_ID from plats where Benamning = '" + ettOmråde + "'");
+                int områdesID = Integer.parseInt(omRådesIDSträng);
+                
+                ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
+                String felMeddelande = "En Agent vid namn " + ettNamn + " finns redan registrerad.";
+               
+
+                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande)) {
+
+                    idb.insert("insert into agent values(" + ettID + ",'" + ettNamn + "','" + ettTelNr + "','" + ettDatum + "','" + adminStatus + "'," + ettLösen + "," + områdesID + ")");
+                    
+                    JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                    id.setText(GetMetoder.getNextAgentID());
+                    namnFält.setText("");
+                    lösenFält.setText("");
+                    telNrFält.setText("");
+                             
+
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
     }
 
 }

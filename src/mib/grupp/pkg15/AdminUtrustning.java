@@ -185,7 +185,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
-        UnikaAdminMetoder.taBortUtrustningUrSystemet(cbTaBort);
+        MetoderUnikaAdmin.taBortUtrustningUrSystemet(cbTaBort);
     }//GEN-LAST:event_btnTaBortActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -26,13 +26,13 @@ import oru.inf.InfException;
  * @author erike
  */
 // Fälten för klassen AgentochAdminMetoder.
-public class AgentochAdminMetoder {
+public class MetoderAgentAdmin {
 
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
 //    Konstruktorn för klassen AgentochAdminMetoder.
-    public AgentochAdminMetoder(StartSkärm ettFönster) {
+    public MetoderAgentAdmin(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
         idb = Main.getDB();
 
@@ -79,7 +79,7 @@ public class AgentochAdminMetoder {
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -95,7 +95,7 @@ public class AgentochAdminMetoder {
                 lista.append(alien + "\n");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -113,7 +113,7 @@ public class AgentochAdminMetoder {
                 lista.append(enAlien + "\n");
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -141,7 +141,7 @@ public class AgentochAdminMetoder {
             lista.append(alienAvNamn.get("Losenord"));
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -162,7 +162,7 @@ public class AgentochAdminMetoder {
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
 
             } catch (InfException ex) {
-                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -181,7 +181,7 @@ public class AgentochAdminMetoder {
                 lista.append(enChef);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -201,7 +201,7 @@ public class AgentochAdminMetoder {
                     enArea.append(enRad.get("Namn") + "\n");
                 }
             } catch (InfException ex) {
-                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -254,7 +254,7 @@ public class AgentochAdminMetoder {
                 }
 
             } catch (InfException ex) {
-                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -361,7 +361,7 @@ public class AgentochAdminMetoder {
                 }
 
             } catch (InfException ex) {
-                Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }

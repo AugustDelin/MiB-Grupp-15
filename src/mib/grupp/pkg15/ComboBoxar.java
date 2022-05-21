@@ -36,7 +36,7 @@ public class ComboBoxar {
             }
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     //Skapar en ArrayList och fyller denna med de tre raserna som finns
@@ -63,7 +63,7 @@ public class ComboBoxar {
                 enLåda.addItem(ettNamn);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 //    Skapar en ArrayList och fyller den med namnen från utrustningslistan.
@@ -77,7 +77,7 @@ public class ComboBoxar {
                 enLåda.addItem(enUtrustning);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -92,7 +92,7 @@ public class ComboBoxar {
                 enLåda.addItem(ettOmråde);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 //     Skapar en ArrayList och fyller den med namn på agenter.
@@ -106,8 +106,14 @@ public class ComboBoxar {
                 enLåda.addItem(enAgent);
             }
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    public static void fyllAdminStatus(JComboBox enLåda)
+    {
+        enLåda.addItem("J");
+        enLåda.addItem("N");
     }
 }

@@ -19,9 +19,9 @@ import oru.inf.InfException;
 public class StartSkärm extends javax.swing.JFrame {
 
     private static InfDB idb;
-    private AgentochAdminMetoder AgentM;
-    private AlienMetoder AlienM;
-    private UnikaAdminMetoder AdminM;
+    private MetoderAgentAdmin AgentM;
+    private MetoderAlien AlienM;
+    private MetoderUnikaAdmin AdminM;
 
     /**
      * Konstruktorn för Startskärm
@@ -29,9 +29,9 @@ public class StartSkärm extends javax.swing.JFrame {
     public StartSkärm() {
         initComponents();
         idb = Main.getDB();
-        AgentM = new AgentochAdminMetoder(this);
-        AlienM = new AlienMetoder(this);
-        AdminM = new UnikaAdminMetoder(this);
+        AgentM = new MetoderAgentAdmin(this);
+        AlienM = new MetoderAlien(this);
+        AdminM = new MetoderUnikaAdmin(this);
         txtStartAnvändarnamn.setText("Agent O");
         pwfStartLogin.setText("planka");
 
@@ -134,15 +134,15 @@ public class StartSkärm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 // Knappen som startar metoden för att logga in som Admin.
     private void btnLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAdminActionPerformed
-        UnikaAdminMetoder.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
+        MetoderUnikaAdmin.loggainAdmin(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAdminActionPerformed
 // Knappen som startar metoden för att logga in som Alien.
     private void btnLoginAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAlienActionPerformed
-        AlienMetoder.loggaInAlien(txtStartAnvändarnamn, pwfStartLogin);
+        MetoderAlien.loggaInAlien(txtStartAnvändarnamn, pwfStartLogin);
     }//GEN-LAST:event_btnLoginAlienActionPerformed
 // Knappen som startar metoden för att logga in som Agent.
     private void btnLoginAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginAgentActionPerformed
-        AgentochAdminMetoder.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
+        MetoderAgentAdmin.loggainAgent(txtStartAnvändarnamn, pwfStartLogin);
 
     }//GEN-LAST:event_btnLoginAgentActionPerformed
 

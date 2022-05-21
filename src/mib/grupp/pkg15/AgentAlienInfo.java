@@ -215,7 +215,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Tryck på knappen för att starta metoden Lista alla aliens på en plats.
     private void cbAlienPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienPlatserActionPerformed
-        AgentochAdminMetoder.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
+        MetoderAgentAdmin.listaAliensPåPlats(txtAreaListaAliens, cbAlienPlatser);
     }//GEN-LAST:event_cbAlienPlatserActionPerformed
 
     private void btnSokPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokPlatsActionPerformed
@@ -255,7 +255,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSokRasActionPerformed
 
     private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
-        AgentochAdminMetoder.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
+        MetoderAgentAdmin.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
     }//GEN-LAST:event_cbAlienRaserActionPerformed
 
     private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
@@ -269,7 +269,7 @@ public class AgentAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSokAlienActionPerformed
 
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
-        AgentochAdminMetoder.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
+        MetoderAgentAdmin.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
 // Knappen för att öppna ett nytt fönster för klassen RegistreraAlien.
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed

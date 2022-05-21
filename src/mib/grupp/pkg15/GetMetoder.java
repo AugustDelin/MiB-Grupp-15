@@ -33,7 +33,7 @@ public class GetMetoder {
             agentNR = Integer.parseInt(agentID);
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return agentNR;
@@ -48,7 +48,7 @@ public class GetMetoder {
           alienNR = Integer.parseInt(alienID);
 
         } catch (InfException ex) {
-           Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return alienNR;
@@ -65,7 +65,7 @@ public class GetMetoder {
             utrustningsNR = Integer.parseInt(utrustningsID);
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return utrustningsNR;
     }
@@ -76,7 +76,7 @@ public class GetMetoder {
         try {
             utrustningslista = idb.fetchColumn("Select Utrustnings_ID from innehar_utrustning where agent_ID=" + agentID);
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return utrustningslista;
     }
@@ -101,7 +101,7 @@ public class GetMetoder {
             }
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ras;
     }
@@ -113,7 +113,7 @@ public class GetMetoder {
             nextId = idb.getAutoIncrement("alien", "Alien_ID");
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return nextId;
     }
@@ -125,7 +125,7 @@ public class GetMetoder {
             nextId = idb.getAutoIncrement("agent", "Agent_ID");
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return nextId;
     }
@@ -160,7 +160,7 @@ public class GetMetoder {
 //            }
 
         } catch (InfException ex) {
-            Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mängdAttribut;
     }

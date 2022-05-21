@@ -132,7 +132,7 @@ public class AgentOCinfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Knappen för att starta metoden Lista alla aliens på en plats.
     private void cbValtOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValtOmrådeActionPerformed
-        AgentochAdminMetoder.listaChefAvOmrade(txtAreaListaChefer, cbValtOmråde);
+        MetoderAgentAdmin.listaChefAvOmrade(txtAreaListaChefer, cbValtOmråde);
     }//GEN-LAST:event_cbValtOmrådeActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed

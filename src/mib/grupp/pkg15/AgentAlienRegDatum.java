@@ -178,7 +178,7 @@ public class AgentAlienRegDatum extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 // Knappen för att starta metoden som listar alla aliens mellan två valda datum.
     private void btnSökAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökAliensActionPerformed
-        AgentochAdminMetoder.visaAlienFrånRegDatum(txtDatum1, txtDatum2, txtAreaListaAliens);
+        MetoderAgentAdmin.visaAlienFrånRegDatum(txtDatum1, txtDatum2, txtAreaListaAliens);
 
 
     }//GEN-LAST:event_btnSökAliensActionPerformed
