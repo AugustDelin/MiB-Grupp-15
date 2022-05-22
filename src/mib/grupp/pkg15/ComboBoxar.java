@@ -116,4 +116,17 @@ public class ComboBoxar {
         enLåda.addItem("J");
         enLåda.addItem("N");
     }
+    
+    public static void fyllCBområden(JComboBox enLåda)
+    {
+        try {
+            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
+            for(String ettOmråde : områdesLista)
+            {
+                enLåda.addItem(ettOmråde);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(ComboBoxar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

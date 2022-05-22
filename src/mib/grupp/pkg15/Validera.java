@@ -134,7 +134,7 @@ public class Validera {
         String ettTelefonnummer = ettFält.getText();
         Pattern pattern = Pattern.compile("^-?[0-9]{1,10}$");
         Matcher matcher = pattern.matcher(ettTelefonnummer);
-        boolean matchFound = matcher.find();
+        boolean matchFound = matcher.matches();
         if (!matchFound) {
             resultat = false;
             JOptionPane.showMessageDialog(null, "Felaktigt angivet telefonnummer, du kan ange max tio siffror i detta fält");
@@ -155,6 +155,23 @@ public class Validera {
              ettFält.requestFocus();
         }
        return resultat; 
+    }
+    
+    public static boolean kontrolleraAgentNamn(JTextField ettFält)
+    {
+        boolean resultat = true;
+        String ettTelefonnummer = ettFält.getText();
+        Pattern pattern = Pattern.compile("[A-Z]");
+        Matcher matcher = pattern.matcher(ettTelefonnummer);
+        boolean matchFound = matcher.matches();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet Agentnamn, du kan endast ange en bokstav med stora bokstäver i detta fält");
+            ettFält.requestFocus();
+        }
+        
+        return resultat;
+        
     }
 
 }

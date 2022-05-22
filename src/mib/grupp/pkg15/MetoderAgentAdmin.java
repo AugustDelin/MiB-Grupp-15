@@ -358,6 +358,7 @@ public class MetoderAgentAdmin {
                     telNrFält.setText("");
                     attributFält.setText("");
                     datum.setText("");
+                    gammaltNamnLåda.addItem(ettNamn);
                 }
 
             } catch (InfException ex) {

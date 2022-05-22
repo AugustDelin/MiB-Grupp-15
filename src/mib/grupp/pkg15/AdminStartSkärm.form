@@ -34,7 +34,7 @@
                   <Component id="btnAgentInfo" max="32767" attributes="0"/>
                   <Component id="btnAdminUtrustning" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAgentInfo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agent Info"/>
+        <Property name="text" type="java.lang.String" value="Hantera Agenter"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgentInfoActionPerformed"/>
@@ -98,7 +98,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAlienInfo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alien Info"/>
+        <Property name="text" type="java.lang.String" value="Hantera Aliens"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlienInfoActionPerformed"/>

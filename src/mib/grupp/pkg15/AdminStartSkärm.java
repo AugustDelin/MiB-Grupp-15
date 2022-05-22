@@ -50,14 +50,14 @@ public class AdminStartSkärm extends javax.swing.JFrame {
             }
         });
 
-        btnAgentInfo.setText("Agent Info");
+        btnAgentInfo.setText("Hantera Agenter");
         btnAgentInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgentInfoActionPerformed(evt);
             }
         });
 
-        btnAlienInfo.setText("Alien Info");
+        btnAlienInfo.setText("Hantera Aliens");
         btnAlienInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlienInfoActionPerformed(evt);
@@ -98,7 +98,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAdminUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblRubrik)

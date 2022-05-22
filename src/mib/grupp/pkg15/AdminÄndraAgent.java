@@ -9,13 +9,13 @@ package mib.grupp.pkg15;
  *
  * @author Linda
  */
-//    Fälten för AgentÄndraAlien.
+//    Fälten för AgentRegistreraAlien.
 public class AdminÄndraAgent extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
-     * Konstruktorn för AgentÄndraAlien.
+     * Konstruktorn för AgentRegistreraAlien.
      *
      * @param användarnamn
      */
@@ -23,7 +23,9 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        lblDagensDatum.setText(DatumHanterare.getDagensDatum());
+        ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
+        ComboBoxar.fyllCBområden(cbOmråden);
+        ComboBoxar.fyllAdminStatus(cbAdminstatus);
 
     }
 
@@ -40,23 +42,25 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         btnLoggaut = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
-        lblÄndraAgent = new javax.swing.JLabel();
+        lblRegistreraAgent = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblRubrikRegd = new javax.swing.JLabel();
-        lblDagensDatum = new javax.swing.JLabel();
         lblRubrikNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         lblRubrikLösen = new javax.swing.JLabel();
         txtLösenord = new javax.swing.JPasswordField();
         lblRubrikTelefon = new javax.swing.JLabel();
         txtTelefon = new javax.swing.JTextField();
-        cbPlatser = new javax.swing.JComboBox<>();
-        btnRegistreraAlien = new javax.swing.JButton();
-        lblRubrikPlats = new javax.swing.JLabel();
-        lblAdminStatus = new javax.swing.JLabel();
-        btnAdminStatus = new javax.swing.JTextField();
-        lbRubrikID = new javax.swing.JLabel();
+        lblOmråde = new javax.swing.JLabel();
+        cbOmråden = new javax.swing.JComboBox<>();
+        btnOmRegistreraAgent = new javax.swing.JButton();
+        lblAdminstatus = new javax.swing.JLabel();
+        cbAdminstatus = new javax.swing.JComboBox<>();
         lblvisaID = new javax.swing.JLabel();
+        lbRubrikID = new javax.swing.JLabel();
+        lblAgent = new javax.swing.JLabel();
+        cbAgentNamn = new javax.swing.JComboBox<>();
+        txtDatum = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,31 +87,46 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        lblÄndraAgent.setText("Ändra agent info");
+        lblRegistreraAgent.setText("Ändra agentdata");
 
         lblRubrikRegd.setText("Registreringsdatum");
 
-        lblDagensDatum.setText("Dagens datum");
+        lblRubrikNamn.setText("Namn - ange endast en bokstav");
 
-        lblRubrikNamn.setText("Namn");
-
-        txtNamn.setColumns(5);
+        txtNamn.setColumns(6);
 
         lblRubrikLösen.setText("Lösenord");
 
-        txtLösenord.setColumns(5);
+        txtLösenord.setColumns(6);
 
         lblRubrikTelefon.setText("Telefonnummer");
 
-        txtTelefon.setColumns(5);
+        txtTelefon.setColumns(6);
 
-        btnRegistreraAlien.setText("Slutför registrering");
+        lblOmråde.setText("Område");
 
-        lblRubrikPlats.setText("Område");
+        btnOmRegistreraAgent.setText("Slutför omregistrering");
+        btnOmRegistreraAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOmRegistreraAgentActionPerformed(evt);
+            }
+        });
 
-        lblAdminStatus.setText("Adminstatus");
+        lblAdminstatus.setText("Adminstatus");
 
-        btnAdminStatus.setColumns(5);
+        lblvisaID.setText("ett ID");
+
+        lbRubrikID.setText("ID-nummer");
+
+        lblAgent.setText("Välj Agent");
+
+        cbAgentNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAgentNamnActionPerformed(evt);
+            }
+        });
+
+        txtDatum.setColumns(6);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,60 +136,73 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(btnRegistreraAlien))
+                        .addComponent(btnOmRegistreraAgent))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbRubrikID)
+                        .addGap(122, 122, 122)
+                        .addComponent(lblvisaID))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRubrikRegd)
-                            .addComponent(lblRubrikNamn)
                             .addComponent(lblRubrikLösen)
                             .addComponent(lblRubrikTelefon)
-                            .addComponent(lblRubrikPlats)
-                            .addComponent(lblAdminStatus))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDagensDatum))))
-                .addContainerGap(311, Short.MAX_VALUE))
+                            .addComponent(lblAdminstatus)
+                            .addComponent(lblOmråde)
+                            .addComponent(lblRubrikNamn)
+                            .addComponent(lblRubrikRegd)
+                            .addComponent(lblAgent))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cbAgentNamn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNamn)
+                                .addComponent(txtLösenord)
+                                .addComponent(txtTelefon)
+                                .addComponent(txtDatum)
+                                .addComponent(cbAdminstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbOmråden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAgent)
+                    .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbRubrikID)
+                    .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikRegd)
-                    .addComponent(lblDagensDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRubrikLösen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRubrikLösen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRubrikTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRubrikTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAdminStatus)
-                    .addComponent(btnAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblAdminstatus)
+                    .addComponent(cbAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRubrikPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(111, 111, 111)
-                .addComponent(btnRegistreraAlien)
+                    .addComponent(lblOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbOmråden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
+                .addComponent(btnOmRegistreraAgent)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
-
-        lbRubrikID.setText("ID-nummer");
-
-        lblvisaID.setText("ett ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,21 +215,14 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBacka)
-                            .addComponent(lblÄndraAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAvsluta, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLoggaut, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbRubrikID)
-                                .addGap(51, 51, 51)
-                                .addComponent(lblvisaID))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 105, Short.MAX_VALUE))))
+                        .addGap(574, 574, 574)
+                        .addComponent(btnBacka))
+                    .addComponent(lblRegistreraAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAvsluta, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLoggaut, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,18 +231,14 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLoggaut)
-                    .addComponent(lblÄndraAgent))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbRubrikID)
-                    .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblRegistreraAgent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
                     .addComponent(btnBacka))
-                .addGap(14, 14, 14))
+                .addGap(8, 8, 8))
         );
 
         pack();
@@ -232,31 +253,41 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-    //    Knappen för att starta metoden Backa.
+    // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AdminAgentInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
+    private void btnOmRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmRegistreraAgentActionPerformed
+        MetoderUnikaAdmin.ändraAgent(cbAgentNamn, lblvisaID, txtNamn, txtDatum, txtTelefon, txtLösenord, cbAdminstatus, cbOmråden);
+    }//GEN-LAST:event_btnOmRegistreraAgentActionPerformed
+
+    private void cbAgentNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentNamnActionPerformed
+        MetoderUnikaAdmin.visaInformationAgent(cbAgentNamn, lblvisaID, txtNamn, txtDatum, txtTelefon, txtLösenord, cbAdminstatus, cbOmråden);
+    }//GEN-LAST:event_cbAgentNamnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField btnAdminStatus;
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaut;
-    private javax.swing.JButton btnRegistreraAlien;
-    private javax.swing.JComboBox<String> cbPlatser;
+    private javax.swing.JButton btnOmRegistreraAgent;
+    private javax.swing.JComboBox<String> cbAdminstatus;
+    private javax.swing.JComboBox<String> cbAgentNamn;
+    private javax.swing.JComboBox<String> cbOmråden;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbRubrikID;
-    private javax.swing.JLabel lblAdminStatus;
-    private javax.swing.JLabel lblDagensDatum;
+    private javax.swing.JLabel lblAdminstatus;
+    private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblInloggadSom;
+    private javax.swing.JLabel lblOmråde;
+    private javax.swing.JLabel lblRegistreraAgent;
     private javax.swing.JLabel lblRubrikLösen;
     private javax.swing.JLabel lblRubrikNamn;
-    private javax.swing.JLabel lblRubrikPlats;
     private javax.swing.JLabel lblRubrikRegd;
     private javax.swing.JLabel lblRubrikTelefon;
     private javax.swing.JLabel lblvisaID;
-    private javax.swing.JLabel lblÄndraAgent;
+    private javax.swing.JTextField txtDatum;
     private javax.swing.JPasswordField txtLösenord;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtTelefon;

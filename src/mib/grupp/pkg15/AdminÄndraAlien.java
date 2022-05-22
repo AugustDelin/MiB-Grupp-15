@@ -22,10 +22,14 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
     public AdminÄndraAlien(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        lblDagensDatum.setText(DatumHanterare.getDagensDatum());
+        FyllText.inloggadSom(lblInloggadSom, användarnamn);
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
+        //lblvisaID.setText(GetMetoder.getNextAlienID());
+        ComboBoxar.fyllCBAlienNamn(cbAlienNamn);
+        ComboBoxar.fyllCBPlats(cbPlatser);
+        ComboBoxar.fyllCBras(cbRas);
+        ComboBoxar.fyllCBAgentNamn(cbAgent);
 
     }
 
@@ -45,11 +49,10 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
         lblÄndraAlien = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblRubrikRegd = new javax.swing.JLabel();
-        lblDagensDatum = new javax.swing.JLabel();
         lblRubrikNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         lblRubrikRas = new javax.swing.JLabel();
-        cbRaser = new javax.swing.JComboBox<>();
+        cbRas = new javax.swing.JComboBox<>();
         lblRubrikLösen = new javax.swing.JLabel();
         txtLösenord = new javax.swing.JPasswordField();
         lblRubrikTelefon = new javax.swing.JLabel();
@@ -57,12 +60,14 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
         lblRubrikPlats = new javax.swing.JLabel();
         cbPlatser = new javax.swing.JComboBox<>();
         lblRubrikAgent = new javax.swing.JLabel();
-        cbAgenter = new javax.swing.JComboBox<>();
+        cbAgent = new javax.swing.JComboBox<>();
         lblRasAttribut = new javax.swing.JLabel();
         txtRasAttribut = new javax.swing.JTextField();
-        btnRegistreraAlien = new javax.swing.JButton();
+        btnÄndraAlien = new javax.swing.JButton();
+        txtDatum = new javax.swing.JTextField();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
+        cbAlienNamn = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,21 +94,24 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        lblÄndraAlien.setText("Ändra alien info");
+        lblÄndraAlien.setText("Välj Alien:");
 
         lblRubrikRegd.setText("Registreringsdatum");
-
-        lblDagensDatum.setText("Dagens datum");
 
         lblRubrikNamn.setText("Namn");
 
         txtNamn.setColumns(5);
+        txtNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamnActionPerformed(evt);
+            }
+        });
 
         lblRubrikRas.setText("Ras");
 
-        cbRaser.addActionListener(new java.awt.event.ActionListener() {
+        cbRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbRaserActionPerformed(evt);
+                cbRasActionPerformed(evt);
             }
         });
 
@@ -117,18 +125,32 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
 
         lblRubrikPlats.setText("Plats");
 
+        cbPlatser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPlatserActionPerformed(evt);
+            }
+        });
+
         lblRubrikAgent.setText("Ansvarig Agent");
+
+        cbAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAgentActionPerformed(evt);
+            }
+        });
 
         lblRasAttribut.setText("Attribut");
 
         txtRasAttribut.setColumns(5);
 
-        btnRegistreraAlien.setText("Slutför registrering");
-        btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
+        btnÄndraAlien.setText("Ändra data");
+        btnÄndraAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistreraAlienActionPerformed(evt);
+                btnÄndraAlienActionPerformed(evt);
             }
         });
+
+        txtDatum.setColumns(5);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,22 +169,22 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                             .addComponent(lblRubrikAgent))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblRasAttribut)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDagensDatum)))
+                            .addComponent(cbPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(btnRegistreraAlien)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                        .addComponent(btnÄndraAlien)))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +192,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikRegd)
-                    .addComponent(lblDagensDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +200,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikRas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRasAttribut)
                     .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
@@ -196,15 +218,21 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistreraAlien)
+                .addComponent(btnÄndraAlien)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
         lbRubrikID.setText("ID-nummer");
 
         lblvisaID.setText("ett ID");
+
+        cbAlienNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlienNamnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,8 +247,11 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBacka)
-                            .addComponent(lblÄndraAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblÄndraAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 509, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAvsluta, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnLoggaut, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -231,7 +262,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(lblvisaID))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 105, Short.MAX_VALUE))))
+                        .addGap(0, 277, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +271,8 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLoggaut)
-                    .addComponent(lblÄndraAlien))
+                    .addComponent(lblÄndraAlien)
+                    .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbRubrikID)
@@ -268,16 +300,16 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AdminAlienInfo(användarnamn).setVisible(true);
+         new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
-    private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-        MetoderAgentAdmin.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
-    }//GEN-LAST:event_btnRegistreraAlienActionPerformed
+    private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
+        MetoderAgentAdmin.ändraAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
+    }//GEN-LAST:event_btnÄndraAlienActionPerformed
 
-    private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
-        String valdRas = Validera.hamtaCbSträng(cbRaser);
+    private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
+        String valdRas = Validera.hamtaCbSträng(cbRas);
         if (valdRas.equals("Boglodite")) {
             lblRasAttribut.setText("Antal boogies");
             lblRasAttribut.setVisible(true);
@@ -291,23 +323,39 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
             txtRasAttribut.setText("");
         }
         if (valdRas.equals("Worm")) {
-            txtRasAttribut.setText("0");
+            txtRasAttribut.setText("1");
             lblRasAttribut.setVisible(false);
             txtRasAttribut.setVisible(false);
         }
-    }//GEN-LAST:event_cbRaserActionPerformed
+    }//GEN-LAST:event_cbRasActionPerformed
+
+    private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
+        MetoderAgentAdmin.visaInformationAlien(cbAlienNamn, lblvisaID,txtDatum,txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
+    }//GEN-LAST:event_cbAlienNamnActionPerformed
+
+    private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamnActionPerformed
+
+    private void cbPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPlatserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPlatserActionPerformed
+
+    private void cbAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAgentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaut;
-    private javax.swing.JButton btnRegistreraAlien;
-    private javax.swing.JComboBox<String> cbAgenter;
+    private javax.swing.JButton btnÄndraAlien;
+    private javax.swing.JComboBox<String> cbAgent;
+    private javax.swing.JComboBox<String> cbAlienNamn;
     private javax.swing.JComboBox<String> cbPlatser;
-    private javax.swing.JComboBox<String> cbRaser;
+    private javax.swing.JComboBox<String> cbRas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbRubrikID;
-    private javax.swing.JLabel lblDagensDatum;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblRasAttribut;
     private javax.swing.JLabel lblRubrikAgent;
@@ -319,6 +367,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblRubrikTelefon;
     private javax.swing.JLabel lblvisaID;
     private javax.swing.JLabel lblÄndraAlien;
+    private javax.swing.JTextField txtDatum;
     private javax.swing.JPasswordField txtLösenord;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtRasAttribut;
