@@ -345,7 +345,7 @@ public class MetoderUnikaAdmin {
             String enAgent = Validera.hamtaCbSträng(valdAgent);
             String KCStatus = Validera.hamtaCbSträng(KCLåda);
             String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
-            ArrayList<String> agentLista = idb.fetchColumn("select namn from kontorschef join agent on Agent.Agent_ID");
+            ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
 
