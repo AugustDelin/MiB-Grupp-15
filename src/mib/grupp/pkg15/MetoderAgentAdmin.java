@@ -398,4 +398,9 @@ public class MetoderAgentAdmin {
             enArea.append(enUtrustning+ "\n");
         }
     }
+    
+    public static void listaMinaFordon(String användarnamn, JTextArea enArea)
+    {
+        
+    }
 }
