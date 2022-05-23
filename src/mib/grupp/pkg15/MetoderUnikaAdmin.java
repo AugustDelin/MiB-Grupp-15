@@ -348,8 +348,8 @@ public class MetoderUnikaAdmin {
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
-
-
+            idb.insert("insert into kontorschef values('" + enAgent + "','" + ettKontor + "')");
+            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till kontoret " + ettKontor);
 
             }
         } catch (InfException ex) {
