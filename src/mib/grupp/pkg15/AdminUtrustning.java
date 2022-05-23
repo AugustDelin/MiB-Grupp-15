@@ -24,7 +24,9 @@ public class AdminUtrustning extends javax.swing.JFrame {
         ComboBoxar.fyllCBAgentUtrustning(cbVäljUtrustning);
         ComboBoxar.fyllCBAgentUtrustning(cbTaBort);
         ComboBoxar.fyllCBAgentNamn(cbAgenter);
-        txtTypAttribut.setVisible(false);
+        ComboBoxar.fyllCBtyp(cbTyper);
+        txtTypAttribut.setVisible(true);
+        lblTypAttribut.setVisible (true);
         lblvisaID.setText(GetMetoder.getNextUtrustningsID());
     }
 
