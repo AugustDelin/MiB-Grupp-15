@@ -309,24 +309,25 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
 
     private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
-        String valdRas = Validera.hamtaCbSträng(cbRas);
-        if (valdRas.equals("Boglodite")) {
-            lblRasAttribut.setText("Antal boogies");
-            lblRasAttribut.setVisible(true);
-            txtRasAttribut.setVisible(true);
-            txtRasAttribut.setText("");
-        }
-        if (valdRas.equals("Squid")) {
-            lblRasAttribut.setText("Antal armar");
-            lblRasAttribut.setVisible(true);
-            txtRasAttribut.setVisible(true);
-            txtRasAttribut.setText("");
-        }
-        if (valdRas.equals("Worm")) {
-            txtRasAttribut.setText("1");
-            lblRasAttribut.setVisible(false);
-            txtRasAttribut.setVisible(false);
-        }
+        ComboBoxar.CBvaldAlienRas(cbRas, lblRasAttribut, txtRasAttribut);
+//        String valdRas = Validera.hamtaCbSträng(cbRas);
+//        if (valdRas.equals("Boglodite")) {
+//            lblRasAttribut.setText("Antal boogies");
+//            lblRasAttribut.setVisible(true);
+//            txtRasAttribut.setVisible(true);
+//            txtRasAttribut.setText("");
+//        }
+//        if (valdRas.equals("Squid")) {
+//            lblRasAttribut.setText("Antal armar");
+//            lblRasAttribut.setVisible(true);
+//            txtRasAttribut.setVisible(true);
+//            txtRasAttribut.setText("");
+//        }
+//        if (valdRas.equals("Worm")) {
+//            txtRasAttribut.setText("1");
+//            lblRasAttribut.setVisible(false);
+//            txtRasAttribut.setVisible(false);
+//        }
     }//GEN-LAST:event_cbRasActionPerformed
 
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed

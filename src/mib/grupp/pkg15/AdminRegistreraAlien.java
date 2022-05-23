@@ -280,27 +280,29 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
 //Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
 //    en extra ruta genom en if-sats för att ange de extra attributen.
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
-        String valdRas = Validera.hamtaCbSträng(cbRaser);
-        if(valdRas.equals("Boglodite"))
-        {
-            lblRasAttribut.setText("Antal boogies");
-            txtRasAttribut.setText("");
-            lblRasAttribut.setVisible(true);
-            txtRasAttribut.setVisible(true);
-        }
-        if(valdRas.equals("Squid"))
-        {
-            lblRasAttribut.setText("Antal armar");
-            txtRasAttribut.setText("");
-            lblRasAttribut.setVisible(true);
-            txtRasAttribut.setVisible(true);
-        }
-        if(valdRas.equals("Worm"))
-        {
-            txtRasAttribut.setText("1");
-            lblRasAttribut.setVisible(false);
-            txtRasAttribut.setVisible(false);
-        }
+        
+        ComboBoxar.CBvaldAlienRas(cbRaser, lblRasAttribut, txtRasAttribut);
+//        String valdRas = Validera.hamtaCbSträng(cbRaser);
+//        if(valdRas.equals("Boglodite"))
+//        {
+//            lblRasAttribut.setText("Antal boogies");
+//            txtRasAttribut.setText("");
+//            lblRasAttribut.setVisible(true);
+//            txtRasAttribut.setVisible(true);
+//        }
+//        if(valdRas.equals("Squid"))
+//        {
+//            lblRasAttribut.setText("Antal armar");
+//            txtRasAttribut.setText("");
+//            lblRasAttribut.setVisible(true);
+//            txtRasAttribut.setVisible(true);
+//        }
+//        if(valdRas.equals("Worm"))
+//        {
+//            txtRasAttribut.setText("1");
+//            lblRasAttribut.setVisible(false);
+//            txtRasAttribut.setVisible(false);
+//        }
     }//GEN-LAST:event_cbRaserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
