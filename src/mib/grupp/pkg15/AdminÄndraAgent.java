@@ -53,7 +53,6 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         txtLösenord = new javax.swing.JPasswordField();
         lblRubrikTelefon = new javax.swing.JLabel();
         txtTelefon = new javax.swing.JTextField();
-        lblOmråde = new javax.swing.JLabel();
         cbOmråden = new javax.swing.JComboBox<>();
         btnOmRegistreraAgent = new javax.swing.JButton();
         lblAdminstatus = new javax.swing.JLabel();
@@ -71,6 +70,7 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         cbVilketKontor = new javax.swing.JComboBox<>();
         btnAndraOCStatus = new javax.swing.JButton();
         btnAndraKCStatus = new javax.swing.JButton();
+        lblOmråde = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,8 +113,6 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
 
         txtTelefon.setColumns(6);
 
-        lblOmråde.setText("Område");
-
         btnOmRegistreraAgent.setText("Slutför omregistrering");
         btnOmRegistreraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +149,11 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         lblVilketKontor.setText("Kontor");
 
         btnAndraOCStatus.setText("Ändra områdeschefsstatus");
+        btnAndraOCStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAndraOCStatusActionPerformed(evt);
+            }
+        });
 
         btnAndraKCStatus.setText("Ändra kontorschefsstatus");
         btnAndraKCStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +161,8 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 btnAndraKCStatusActionPerformed(evt);
             }
         });
+
+        lblOmråde.setText("Område");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,24 +176,25 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRubrikLösen)
                     .addComponent(lblRubrikTelefon)
-                    .addComponent(lblAdminstatus)
-                    .addComponent(lblOmråde)
                     .addComponent(lblRubrikNamn)
                     .addComponent(lblRubrikRegd)
                     .addComponent(lblAgent)
-                    .addComponent(lbRubrikID))
+                    .addComponent(lbRubrikID)
+                    .addComponent(lblAdminstatus)
+                    .addComponent(lblOmråde))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblvisaID)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbAgentNamn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNamn, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLösenord, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTelefon, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDatum, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbAdminstatus, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbOmråden, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbOmråden, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cbAgentNamn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtNamn, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtLösenord, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTelefon, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtDatum, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbAdminstatus, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(57, 57, 57)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -252,11 +258,11 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdminstatus)
                     .addComponent(cbAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbOmråden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
+                .addGap(60, 60, 60)
                 .addComponent(btnOmRegistreraAgent)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -341,8 +347,14 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_cbKCActionPerformed
 
     private void btnAndraKCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraKCStatusActionPerformed
-        MetoderUnikaAdmin.hamtaKontorsChef(cbVilketKontor, cbAgentNamn);
+        MetoderUnikaAdmin.laggTillKontorsChef(cbVilketKontor, cbAgentNamn);
     }//GEN-LAST:event_btnAndraKCStatusActionPerformed
+
+    private void btnAndraOCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraOCStatusActionPerformed
+        if(cbOC.getSelectedItem().equals("Ja")){
+        MetoderUnikaAdmin.laggTillOmrådesChef(cbAgentNamn, cbOmråden);
+        } 
+    }//GEN-LAST:event_btnAndraOCStatusActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraKCStatus;

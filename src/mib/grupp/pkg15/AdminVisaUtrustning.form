@@ -31,6 +31,8 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblLäggaTill" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cbVäljAgent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -43,19 +45,16 @@
                               <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cbVäljUtrustning" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnLaggtillUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="98" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="btnVisaUtrustning" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnVisFordon" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="btnVisaFordon" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane1" min="-2" pref="329" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="103" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -76,19 +75,18 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblLäggaTill" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblLäggaTill" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbVäljAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cbVäljUtrustning" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnVisaUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnVisFordon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnLaggtillUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVisaUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVisaFordon" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="52" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -130,7 +128,7 @@
         <Property name="text" type="java.lang.String" value="Inloggad som"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbV&#xe4;ljUtrustning">
+    <Component class="javax.swing.JComboBox" name="cbV&#xe4;ljAgent">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -140,17 +138,9 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnLaggtillUtrustning">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="L&#xe4;gg till utrustning"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaggtillUtrustningActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblL&#xe4;ggaTill">
       <Properties>
-        <Property name="text" type="java.lang.String" value="H&#xe4;r kan du l&#xe4;gga till utrustning p&#xe5; dig sj&#xe4;lv."/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lj Agent"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -168,18 +158,18 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnVisaUtrustning">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Visa min Utrustning"/>
+        <Property name="text" type="java.lang.String" value="Visa vald Agents utrustning"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisaUtrustningActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnVisFordon">
+    <Component class="javax.swing.JButton" name="btnVisaFordon">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Visa mina fordon"/>
+        <Property name="text" type="java.lang.String" value="Visa vald Agents fordon"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisFordonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisaFordonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
