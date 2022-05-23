@@ -51,9 +51,9 @@ public class AdminAlienInfo extends javax.swing.JFrame {
         btnSökRegDatum = new javax.swing.JButton();
         btnÄndraAlien = new javax.swing.JButton();
         btnTaBortAlien = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblFörklaring1 = new javax.swing.JLabel();
+        lblFörklaring2 = new javax.swing.JLabel();
+        lblFörklaring3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,11 +152,11 @@ public class AdminAlienInfo extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("För att ta bort en alien ur systemet");
+        lblFörklaring1.setText("För att ta bort en alien ur systemet");
 
-        jLabel2.setText("välj sök alien och markera den alien du vill ta bort");
+        lblFörklaring2.setText("välj sök alien och markera den alien du vill ta bort");
 
-        jLabel3.setText("och tryck sedan på knappen \"Ta bort alien ur systemet\".");
+        lblFörklaring3.setText("och tryck sedan på knappen \"Ta bort alien ur systemet\".");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,10 +179,10 @@ public class AdminAlienInfo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
+                            .addComponent(lblFörklaring1)
+                            .addComponent(lblFörklaring2)
+                            .addComponent(lblFörklaring3))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnSokPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,11 +236,11 @@ public class AdminAlienInfo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTaBortAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(lblFörklaring1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(lblFörklaring2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(lblFörklaring3)
                         .addGap(71, 71, 71)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBacka)
@@ -345,10 +345,10 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbAlienNamn;
     private javax.swing.JComboBox<String> cbAlienPlatser;
     private javax.swing.JComboBox<String> cbAlienRaser;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblFörklaring1;
+    private javax.swing.JLabel lblFörklaring2;
+    private javax.swing.JLabel lblFörklaring3;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JTextArea txtAreaListaAliens;
     // End of variables declaration//GEN-END:variables

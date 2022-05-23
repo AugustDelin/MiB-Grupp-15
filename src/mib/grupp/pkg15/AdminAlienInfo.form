@@ -42,9 +42,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFörklaring1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFörklaring2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFörklaring3" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -115,11 +115,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnTaBortAlien" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblFörklaring2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblFörklaring3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -269,17 +269,17 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaBortAlienActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblF&#xf6;rklaring1">
       <Properties>
         <Property name="text" type="java.lang.String" value="F&#xf6;r att ta bort en alien ur systemet"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblF&#xf6;rklaring2">
       <Properties>
         <Property name="text" type="java.lang.String" value="v&#xe4;lj s&#xf6;k alien och markera den alien du vill ta bort"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="lblF&#xf6;rklaring3">
       <Properties>
         <Property name="text" type="java.lang.String" value="och tryck sedan p&#xe5; knappen &quot;Ta bort alien ur systemet&quot;."/>
       </Properties>

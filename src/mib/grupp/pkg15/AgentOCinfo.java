@@ -77,7 +77,7 @@ public class AgentOCinfo extends javax.swing.JFrame {
             }
         });
 
-        lblInloggadSom.setText("jLabel1");
+        lblInloggadSom.setText("Inloggad Som");
 
         btnSokChef.setText("Sök chef");
         btnSokChef.addActionListener(new java.awt.event.ActionListener() {
@@ -152,8 +152,11 @@ public class AgentOCinfo extends javax.swing.JFrame {
     private void btnSokChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokChefActionPerformed
         cbValtOmråde.setVisible(true);
         txtAreaListaChefer.setVisible(true);
-        ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
+        //ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
+        if (cbValtOmråde.getItemCount() == 0) {
 
+            ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
+    }
     }//GEN-LAST:event_btnSokChefActionPerformed
 
     /**
