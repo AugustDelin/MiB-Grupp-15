@@ -46,6 +46,16 @@ public class AdminUtrustning extends javax.swing.JFrame {
         lblTaBort = new javax.swing.JLabel();
         btnTaBort = new javax.swing.JButton();
         cbAgenter = new javax.swing.JComboBox<>();
+        lblRegistreraUtrustning = new javax.swing.JLabel();
+        btnRegisteraUtrustning = new javax.swing.JButton();
+        lbRubrikID = new javax.swing.JLabel();
+        lblvisaID = new javax.swing.JLabel();
+        lblRubrikNamn = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        lblRubrikTyp = new javax.swing.JLabel();
+        cbRaser = new javax.swing.JComboBox<>();
+        lblRasAttribut = new javax.swing.JLabel();
+        txtRasAttribut = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,9 +89,9 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
-        lblLäggaTill.setText("Lägg till utrustning på vald Agent");
+        lblLäggaTill.setText("Lägg till utrustning på vald Agent.");
 
-        lblTaBort.setText("Ta bort en utrustning från systemet.");
+        lblTaBort.setText("Ta bort utrustning från systemet.");
 
         btnTaBort.setText("Ta bort utrustning");
         btnTaBort.addActionListener(new java.awt.event.ActionListener() {
@@ -90,51 +100,98 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
+        lblRegistreraUtrustning.setText("Registrera ny utrustning i systemet.");
+
+        btnRegisteraUtrustning.setText("Registrera ny utrustning");
+        btnRegisteraUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisteraUtrustningActionPerformed(evt);
+            }
+        });
+
+        lbRubrikID.setText("ID-nummer");
+
+        lblvisaID.setText("ett ID");
+
+        lblRubrikNamn.setText("Namn");
+
+        txtNamn.setColumns(5);
+
+        lblRubrikTyp.setText("Typ");
+
+        cbRaser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbRaserActionPerformed(evt);
+            }
+        });
+
+        lblRasAttribut.setText("Attribut");
+
+        txtRasAttribut.setColumns(5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnLoggaut))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBacka)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAvsluta))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblInloggadSom)
+                                .addComponent(btnAvsluta))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(btnLaggtillUtrustning)
-                                .addGap(106, 106, 106)
-                                .addComponent(btnTaBort)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblLäggaTill))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                        .addComponent(lblTaBort)
-                        .addGap(52, 52, 52))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(lblInloggadSom)
+                                .addGap(0, 621, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addComponent(lblLäggaTill))
+                                    .addComponent(btnLaggtillUtrustning))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(54, 54, 54)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblRegistreraUtrustning)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblTaBort))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbRubrikID)
+                                                    .addComponent(lblRubrikNamn)
+                                                    .addComponent(lblRubrikTyp))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblvisaID)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(29, 29, 29)
+                                                        .addComponent(lblRasAttribut)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnRegisteraUtrustning)
+                                        .addGap(170, 170, 170)
+                                        .addComponent(btnTaBort))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnLoggaut)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,18 +202,32 @@ public class AdminUtrustning extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTaBort)
-                    .addComponent(lblLäggaTill))
+                    .addComponent(lblLäggaTill)
+                    .addComponent(lblRegistreraUtrustning))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbRubrikID)
+                    .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRubrikTyp, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRasAttribut)
+                    .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLaggtillUtrustning)
+                    .addComponent(btnRegisteraUtrustning)
                     .addComponent(btnTaBort))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
                     .addComponent(btnBacka)))
@@ -188,17 +259,55 @@ public class AdminUtrustning extends javax.swing.JFrame {
         MetoderUnikaAdmin.taBortUtrustningUrSystemet(cbTaBort);
     }//GEN-LAST:event_btnTaBortActionPerformed
 
+    private void btnRegisteraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisteraUtrustningActionPerformed
+MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
+    }//GEN-LAST:event_btnRegisteraUtrustningActionPerformed
+
+    private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
+        String valdRas = Validera.hamtaCbSträng(cbRaser);
+        if(valdRas.equals("Boglodite"))
+        {
+            lblRasAttribut.setText("Antal boogies");
+            txtRasAttribut.setText("");
+            lblRasAttribut.setVisible(true);
+            txtRasAttribut.setVisible(true);
+        }
+        if(valdRas.equals("Squid"))
+        {
+            lblRasAttribut.setText("Antal armar");
+            txtRasAttribut.setText("");
+            lblRasAttribut.setVisible(true);
+            txtRasAttribut.setVisible(true);
+        }
+        if(valdRas.equals("Worm"))
+        {
+            txtRasAttribut.setText("1");
+            lblRasAttribut.setVisible(false);
+            txtRasAttribut.setVisible(false);
+        }
+    }//GEN-LAST:event_cbRaserActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLaggtillUtrustning;
     private javax.swing.JButton btnLoggaut;
+    private javax.swing.JButton btnRegisteraUtrustning;
     private javax.swing.JButton btnTaBort;
     private javax.swing.JComboBox<String> cbAgenter;
+    private javax.swing.JComboBox<String> cbRaser;
     private javax.swing.JComboBox<String> cbTaBort;
     private javax.swing.JComboBox<String> cbVäljUtrustning;
+    private javax.swing.JLabel lbRubrikID;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblLäggaTill;
+    private javax.swing.JLabel lblRasAttribut;
+    private javax.swing.JLabel lblRegistreraUtrustning;
+    private javax.swing.JLabel lblRubrikNamn;
+    private javax.swing.JLabel lblRubrikTyp;
     private javax.swing.JLabel lblTaBort;
+    private javax.swing.JLabel lblvisaID;
+    private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtRasAttribut;
     // End of variables declaration//GEN-END:variables
 }

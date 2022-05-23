@@ -99,11 +99,59 @@ public class MetoderUnikaAdmin {
         }
     }
 
+    // Metod för att registrera en ny Alien.
+
+    public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
+        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        if (Validera.kollaTom(namnFält)) {
+
+            String ettNamn = null;
+
+            try {
+//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+                String ettIDString = id.getText();
+                int ettID = Integer.parseInt(ettIDString);
+                ettNamn = namnFält.getText();
+                String valdRas = typLåda.getSelectedItem().toString();
+                String mängdAttributString = attributFält.getText();
+                int mängdAttribut = Integer.parseInt(mängdAttributString);
+                ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
+
+                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
+
+                    idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                    if (valdRas.equals("Boglodite")) {
+                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAttribut + ")");
+                    }
+                    if (valdRas.equals("Squid")) {
+                        idb.insert("insert into squid values(" + ettID + "," + mängdAttribut + ")");
+                    }
+                    if (valdRas.equals("Worm")) {
+                        idb.insert("insert into worm values(" + ettID + ")");
+                    }
+                    JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                    id.setText(GetMetoder.getNextAlienID());
+                    namnFält.setText("");
+                    lösenFält.setText("");
+                    telNrFält.setText("");
+                    attributFält.setText("");
+
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);
             int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
             idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
+            idb.delete("delete from vapen where Utrustnings_ID =" + utrustningsID);
+            idb.delete("delete from kommunikation where Utrustnings_ID =" + utrustningsID);
+            idb.delete("delete from teknik where Utrustnings_ID =" + utrustningsID);
             idb.delete("delete from utrustning where Utrustnings_ID =" + utrustningsID);
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
             enLåda.removeItem(valdUtrustning);
@@ -196,7 +244,7 @@ public class MetoderUnikaAdmin {
 
     }
 
-    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda, JComboBox OCLåda, JComboBox KCLåda, JComboBox kontorsLåda) {
+    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält) && Validera.kollaDatumFormat(datumFält)) {
 
@@ -214,9 +262,6 @@ public class MetoderUnikaAdmin {
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = Validera.hamtaCbSträng(adminLåda);
                 String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
-                String OCStatus = Validera.hamtaCbSträng(OCLåda);
-                String KCStatus = Validera.hamtaCbSträng(KCLåda);
-                String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
                 String omRådesIDSträng = idb.fetchSingle("select Omrades_ID from omrade where Benamning = '" + ettOmråde + "'");
                 int områdesID = Integer.parseInt(omRådesIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
@@ -296,4 +341,23 @@ public class MetoderUnikaAdmin {
             enLåda.addItem("Ja");
             enLåda.addItem("Nej");
         }
+        
+        public static void hamtaKontorsChef(JComboBox KCLåda, JComboBox kontorsLåda, JComboBox valdAgent) {
+        try {
+            String enAgent = Validera.hamtaCbSträng(valdAgent);
+            String KCStatus = Validera.hamtaCbSträng(KCLåda);
+            String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
+            ArrayList<String> agentLista = idb.fetchColumn("select namn from kontorschef join agent on Agent.Agent_ID");
+            String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
+            if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+               
+            
+       
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        
+        
 }
