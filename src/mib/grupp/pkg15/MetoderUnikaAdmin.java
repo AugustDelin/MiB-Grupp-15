@@ -263,6 +263,11 @@ public class MetoderUnikaAdmin {
         }
         
         }
+        
+        public static void cbJaOchNej(JComboBox enLåda) {
+            enLåda.addItem("Ja");
+            enLåda.addItem("Nej");
+        }
 }
 
     

@@ -27,8 +27,10 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         ComboBoxar.fyllCBområden(cbOmråden);
         ComboBoxar.fyllAdminStatus(cbAdminstatus);
         lblVilketKontor.setVisible(false);
-        cbVilketKontor.setVisible(true);
+        cbVilketKontor.setVisible(false);
         MetoderUnikaAdmin.listaAllaKontor(cbVilketKontor);
+        MetoderUnikaAdmin.cbJaOchNej(cbOC);
+        MetoderUnikaAdmin.cbJaOchNej(cbKC);
     }
 
     /**
@@ -279,7 +281,7 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addGap(117, 117, 117)
                         .addComponent(cbVilketKontor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -315,8 +317,11 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_cbAgentNamnActionPerformed
 
     private void cbKCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKCActionPerformed
+        String valtVärde = Validera.hamtaCbSträng(cbKC);
+        if(valtVärde.equals("Ja")) {
         lblVilketKontor.setVisible(true);
-        cbVilketKontor.setVisible(true);
+        cbVilketKontor.setVisible(true); 
+        }
     }//GEN-LAST:event_cbKCActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
