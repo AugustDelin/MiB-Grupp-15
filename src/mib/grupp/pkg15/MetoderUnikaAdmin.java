@@ -247,7 +247,17 @@ public class MetoderUnikaAdmin {
             }
 
         }
-
-    }
-
+     }
+        
+        
+        public static void listaAllaKontor(JComboBox enLåda) {
+        try {
+           ArrayList<String> kontorslista = idb.fetchColumn("select * 'kontorsbeteckning'");
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 }
+
+    
+
