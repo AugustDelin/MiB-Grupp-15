@@ -209,7 +209,7 @@ public class MetoderUnikaAdmin {
                 String ettDatum = datumFält.getText();
                 String agentBokstav = namnFält.getText();
                 String ettNamn = "Agent " + agentBokstav;
-                //String ettNamn = "Agent "+namnFält.getText();             
+                //String ettNamn = "Agent "+namnFält.getText();
                 String ettLösen = lösenFält.getText();
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = Validera.hamtaCbSträng(adminLåda);
@@ -273,6 +273,24 @@ public class MetoderUnikaAdmin {
             }
 
         }
+     }
 
-    }
+
+        public static void listaAllaKontor(JComboBox enLåda) {
+
+        try {
+            ArrayList<String> kontorslista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
+            for (String kontor : kontorslista) {
+                enLåda.addItem(kontor);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        }
+
+        public static void cbJaOchNej(JComboBox enLåda) {
+            enLåda.addItem("Ja");
+            enLåda.addItem("Nej");
+        }
 }
