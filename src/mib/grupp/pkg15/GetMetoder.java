@@ -213,7 +213,7 @@ public class GetMetoder {
     {
      ArrayList<HashMap<String, String>> fordonsNamn = null;
         try {
-            fordonsNamn = idb.fetchRows("select Fordonsbeskrivning, Arsmodell from fordon join innehar_fordon i on fordon.Fordons_ID = i.Fordons_ID join agent a on a.Agent_ID = i.Agent_ID where namn =" + agentNamn);
+            fordonsNamn = idb.fetchRows("select Fordonsbeskrivning, Arsmodell, Utkvitteringsdatum from fordon join innehar_fordon i on fordon.Fordons_ID = i.Fordons_ID join agent a on a.Agent_ID = i.Agent_ID where namn ='" + agentNamn+ "'");
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }

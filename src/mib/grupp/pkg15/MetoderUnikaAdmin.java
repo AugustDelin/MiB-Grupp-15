@@ -143,6 +143,7 @@ public class MetoderUnikaAdmin {
             }
 
         }
+    }
     
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
@@ -361,3 +362,4 @@ public class MetoderUnikaAdmin {
         
         
 }
+        
