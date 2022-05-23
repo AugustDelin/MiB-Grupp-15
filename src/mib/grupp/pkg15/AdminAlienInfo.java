@@ -4,6 +4,8 @@
  */
 package mib.grupp.pkg15;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author augustdelin
@@ -324,7 +326,14 @@ public class AdminAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
 
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
-        MetoderUnikaAdmin.taBortAlienUrSystemet(cbAlienNamn);
+
+        if(cbAlienNamn.getSelectedItem() == null)
+   {
+       JOptionPane.showMessageDialog(null, "Vänligen välj en alien först!");
+   }
+        else MetoderUnikaAdmin.taBortAlienUrSystemet(cbAlienNamn);
+       
+   
     }//GEN-LAST:event_btnTaBortAlienActionPerformed
 
     /**
