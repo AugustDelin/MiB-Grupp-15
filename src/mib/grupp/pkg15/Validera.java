@@ -76,9 +76,10 @@ public class Validera {
     public static boolean kollaOmvärdeFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
         boolean resultat = true;
         for (String enSträng : ArrayListSträng) {
-            if (enSträng.equals(strängAttJämföra)) {
+            if (enSträng.equalsIgnoreCase(strängAttJämföra)) {
                 resultat = false;
                 JOptionPane.showMessageDialog(null, felmeddelande);
+
             }
         }
         return resultat;
@@ -91,7 +92,7 @@ public class Validera {
         }
         return resultat;
     }
-    
+
     // Metod för att kolla så att man angivet rätt datumformat
     public static boolean kollaDatumFormat(JTextField fält1) {
         boolean resultat = true;
@@ -106,11 +107,11 @@ public class Validera {
             resultat = false;
             JOptionPane.showMessageDialog(null, "Felaktigt datumformat(korrekt format är YYYY-MM-DD)");
         }
-         if (kollaÅrtal < 1950 || kollaÅrtal > nuvarandeÅr ) {
+        if (kollaÅrtal < 1950 || kollaÅrtal > nuvarandeÅr) {
             resultat = false;
             JOptionPane.showMessageDialog(null, "Felaktigt årsintervall (tidigaste godkända årtal år 1950)");
-             
-         }
+
+        }
         return resultat;
     }
 
@@ -143,22 +144,19 @@ public class Validera {
 
         return resultat;
     }
-    
-    public static boolean kollaLängdLösenord(JTextField ettFält)
-    {
+
+    public static boolean kollaLängdLösenord(JTextField ettFält) {
         boolean resultat = true;
         String lösenord = ettFält.getText();
-        if(lösenord.length() > 6)
-        {
-             resultat = false;
-             JOptionPane.showMessageDialog(null, "Ditt lösenord får vara max sex tecken långt!");
-             ettFält.requestFocus();
+        if (lösenord.length() > 6) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Ditt lösenord får vara max sex tecken långt!");
+            ettFält.requestFocus();
         }
-       return resultat; 
+        return resultat;
     }
-    
-    public static boolean kontrolleraAgentNamn(JTextField ettFält)
-    {
+
+    public static boolean kontrolleraAgentNamn(JTextField ettFält) {
         boolean resultat = true;
         String ettTelefonnummer = ettFält.getText();
         Pattern pattern = Pattern.compile("[A-Z]");
@@ -169,9 +167,9 @@ public class Validera {
             JOptionPane.showMessageDialog(null, "Felaktigt angivet Agentnamn, du kan endast ange en bokstav med stora bokstäver i detta fält");
             ettFält.requestFocus();
         }
-        
+
         return resultat;
-        
+
     }
 
 }

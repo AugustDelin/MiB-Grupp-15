@@ -126,7 +126,7 @@ public class MetoderUnikaAdmin {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static void taBortAlienUrSystemet(JComboBox enLåda) {
         String valdAlien = Validera.hamtaCbSträng(enLåda);
         try {
@@ -141,9 +141,7 @@ public class MetoderUnikaAdmin {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
+
     public static void nyRegistreraAgent(JLabel id, JLabel datum, JTextField namnFält, JPasswordField lösenFält, JTextField telNrFält, JComboBox adminLåda, JComboBox områdesLåda) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
@@ -153,28 +151,26 @@ public class MetoderUnikaAdmin {
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 String ettDatum = datum.getText();
-                String ettNamn = "Agent "+namnFält.getText();             
+                String ettNamn = "Agent " + namnFält.getText();
                 String ettLösen = lösenFält.getText();
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = Validera.hamtaCbSträng(adminLåda);
                 String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
                 String omRådesIDSträng = idb.fetchSingle("select Omrades_ID from omrade where Benamning = '" + ettOmråde + "'");
                 int områdesID = Integer.parseInt(omRådesIDSträng);
-                
+
                 ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
                 String felMeddelande = "En Agent vid namn " + ettNamn + " finns redan registrerad.";
-               
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande) && Validera.kontrolleraAgentNamn(namnFält)) {
 
                     idb.insert("insert into agent values(" + ettID + ",'" + ettNamn + "','" + ettTelNr + "','" + ettDatum + "','" + adminStatus + "','" + ettLösen + "'," + områdesID + ")");
-                    
+
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
                     id.setText(GetMetoder.getNextAgentID());
                     namnFält.setText("");
                     lösenFält.setText("");
                     telNrFält.setText("");
-                             
 
                 }
 
@@ -185,11 +181,11 @@ public class MetoderUnikaAdmin {
         }
 
     }
-    
-    public static void visaInformationAgent(JComboBox valdAgentFält, JLabel IDFält, JTextField NamnFält,JTextField datumFält, JTextField TeleFält, JTextField LösenFält, JComboBox adminFält, JComboBox områdesFält) {
+
+    public static void visaInformationAgent(JComboBox valdAgentFält, JLabel IDFält, JTextField NamnFält, JTextField datumFält, JTextField TeleFält, JTextField LösenFält, JComboBox adminFält, JComboBox områdesFält) {
         String valdAgent = Validera.hamtaCbSträng(valdAgentFält);
         HashMap<String, String> agentAvNamn = GetMetoder.getEnAgent(valdAgent);
- 
+
         IDFält.setText(agentAvNamn.get("Agent_ID"));
         datumFält.setText(agentAvNamn.get("Anstallningsdatum"));
         NamnFält.setText(valdAgent.substring(6));
@@ -198,10 +194,9 @@ public class MetoderUnikaAdmin {
         adminFält.setSelectedItem(agentAvNamn.get("Administrator"));
         områdesFält.setSelectedItem(agentAvNamn.get("Benamning"));
 
-        
     }
-    
-     public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda) {
+
+    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält) && Validera.kollaDatumFormat(datumFält)) {
 
@@ -210,11 +205,10 @@ public class MetoderUnikaAdmin {
                 String gammaltNamn = Validera.hamtaCbSträng(valdAgentFält);
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
+                System.out.println(ettID);
                 String ettDatum = datumFält.getText();
                 String agentBokstav = namnFält.getText();
-                System.out.print(agentBokstav);
-                String ettNamn = "Agent "+ agentBokstav;
-                System.out.print(ettNamn);
+                String ettNamn = "Agent " + agentBokstav;
                 //String ettNamn = "Agent "+namnFält.getText();             
                 String ettLösen = lösenFält.getText();
                 String ettTelNr = telNrFält.getText();
@@ -222,24 +216,31 @@ public class MetoderUnikaAdmin {
                 String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
                 String omRådesIDSträng = idb.fetchSingle("select Omrades_ID from omrade where Benamning = '" + ettOmråde + "'");
                 int områdesID = Integer.parseInt(omRådesIDSträng);
-                
                 ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
                 String felMeddelande = "En Agent vid namn " + ettNamn + " finns redan registrerad.";
-               
 
-                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande) && Validera.kontrolleraAgentNamn(namnFält)) {
+                if (gammaltNamn.equals(ettNamn)) {
+                    idb.update("Update agent set Namn ='" + ettNamn + "', Telefon = '" + ettTelNr + "', Anstallningsdatum = '" + ettDatum + "', Administrator='" + adminStatus + "', Losenord ='" + ettLösen + "', Omrade=" + områdesID + " where Agent_ID =" + ettID);
 
-                    
-                    idb.update("Update agent set Namn ='" + ettNamn + "', Telefon = '" + ettTelNr + "', Anstallningsdatum = '" + ettDatum + "', Administrator='" + adminStatus + "', Losenord ='" + ettLösen + "', Omrade=" + områdesID +"where agent_ID =" + ettID);
-                   
-                   
                     JOptionPane.showMessageDialog(null, gammaltNamn + " är nu omregistrerad");
                     namnFält.setText("");
                     lösenFält.setText("");
                     telNrFält.setText("");
-                    valdAgentFält.removeItem(gammaltNamn);
-                             
 
+                } else if (!gammaltNamn.equals(ettNamn)) {
+
+                    if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande) && Validera.kontrolleraAgentNamn(namnFält)) {
+
+                        idb.update("Update agent set Namn ='" + ettNamn + "', Telefon = '" + ettTelNr + "', Anstallningsdatum = '" + ettDatum + "', Administrator='" + adminStatus + "', Losenord ='" + ettLösen + "', Omrade=" + områdesID + " Where agent_ID =" + ettID);
+
+                        JOptionPane.showMessageDialog(null, gammaltNamn + " är nu omregistrerad");
+                        namnFält.setText("");
+                        lösenFält.setText("");
+                        telNrFält.setText("");
+                        valdAgentFält.removeItem(gammaltNamn);
+                        valdAgentFält.addItem(ettNamn);
+
+                    }
                 }
 
             } catch (InfException ex) {

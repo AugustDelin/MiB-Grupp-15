@@ -4,6 +4,8 @@
  */
 package mib.grupp.pkg15;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author augustdelin
@@ -232,7 +234,12 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnÄndraAgentActionPerformed
 //Trycka knapp, hämta information från kombo-box.
     private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
-   MetoderUnikaAdmin.taBortAgentUrSystemet(cbAgentNamn);
+
+   if(cbAgentNamn.getSelectedItem() == null)
+   {
+       JOptionPane.showMessageDialog(null, "Vänligen välj en agent först!");
+   }
+   else MetoderUnikaAdmin.taBortAgentUrSystemet(cbAgentNamn);
    
     }//GEN-LAST:event_btnTaBortAgentActionPerformed
 
