@@ -285,22 +285,6 @@ public class MetoderAgentAdmin {
         rasAttribut.setText(mängd);
     }
 
-//metod för att udvika dubbla ID
-// public static boolean kollaID(JLabel ettLabel) {
-//try {
-//boolean resultat = false;
-//String ettIDString = ettLabel.getText();
-//int ettID = Integer.parseInt(ettIDString);
-//String idLista = idb.fetchSingle("Select Alien_ID from alien");
-// int idListan = Integer.parseInt(idLista);
-//ArrayList<Integer> idListaAliens = idListan;
-//for(String ettID : )
-//if (ettID.) {
-//  }
-//} catch (InfException ex) {
-//   Logger.getLogger(AgentochAdminMetoder.class.getName()).log(Level.SEVERE, null, ex);
-// }
-// }
     public static void ändraAlien(JComboBox gammaltNamnLåda, JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMaxTvåsiffror(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {

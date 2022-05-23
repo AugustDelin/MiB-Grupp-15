@@ -209,7 +209,7 @@ public class MetoderUnikaAdmin {
                 String ettDatum = datumFält.getText();
                 String agentBokstav = namnFält.getText();
                 String ettNamn = "Agent " + agentBokstav;
-                //String ettNamn = "Agent "+namnFält.getText();             
+                //String ettNamn = "Agent "+namnFält.getText();
                 String ettLösen = lösenFält.getText();
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = Validera.hamtaCbSträng(adminLåda);
@@ -249,29 +249,51 @@ public class MetoderUnikaAdmin {
             } catch (InfException ex) {
                 Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }
+
+    public static void laggTillUtrustningPåValdAgent(JComboBox utrustningsLåda, JComboBox agentLÅda) {
+        //Deklarerar felmeddelande som ska användas i om utrustning redan finns på agenten
+        String agentNamn = Validera.hamtaCbSträng(agentLÅda);
+
+        //Hämtar vald utrustning ifrån en Combobox och gör om String variabler till integers
+        String valdUtrustning = Validera.hamtaCbSträng(utrustningsLåda);
+        int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
+        int agentID = GetMetoder.hämtaAgentIDFrånNamn(agentNamn);
+        //Här görs IDt om till strängar för att kunna jämföra om agenten har utrustningen registrerad på sig eller inte
+        String utrustningsIDSomSträng = Integer.toString(utrustningsID);
+        String dagensDatum = DatumHanterare.getDagensDatum();
+
+        String felMeddlandeHarUtrustningen = "Denna utrustning är redan registrerad på " + agentNamn;
+        if (Validera.kollaOmvärdeFinnsIArrayList(GetMetoder.getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng, felMeddlandeHarUtrustningen)) {
+// om Valideringen godkänns registreras den nya utrustningen på agenten
+            try {
+                idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
+                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " på " + agentNamn +"s lista!");
+
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
      }
-        
-        
+
+
         public static void listaAllaKontor(JComboBox enLåda) {
-       
+
         try {
             ArrayList<String> kontorslista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
             for (String kontor : kontorslista) {
-                enLåda.addItem(kontor); 
+                enLåda.addItem(kontor);
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         }
-        
+
         public static void cbJaOchNej(JComboBox enLåda) {
             enLåda.addItem("Ja");
             enLåda.addItem("Nej");
         }
 }
-
-    
-
