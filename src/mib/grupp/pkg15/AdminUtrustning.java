@@ -281,29 +281,10 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private void btnRegisteraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisteraUtrustningActionPerformed
 MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn,cbTyper, txtTypAttribut);
     }//GEN-LAST:event_btnRegisteraUtrustningActionPerformed
-
+    
     private void cbTyperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTyperActionPerformed
-        String valdUtrustning = Validera.hamtaCbSträng(cbTyper);
-        if(valdUtrustning.equals("Vapen"))
-        {
-            lblTypAttribut.setText("Kaliber");
-            txtTypAttribut.setText("");
-            lblTypAttribut.setVisible(true);
-            txtTypAttribut.setVisible(true);
-        }
-        if(valdUtrustning.equals("Kommunikation"))
-        {
-            lblTypAttribut.setText("Överföringsteknik");
-            txtTypAttribut.setText("");
-            lblTypAttribut.setVisible(true);
-            txtTypAttribut.setVisible(true);
-        }
-        if(valdUtrustning.equals("Teknik"))
-        {   lblTypAttribut.setText ("Kraftkälla");
-            txtTypAttribut.setText("");
-            lblTypAttribut.setVisible(true);
-            txtTypAttribut.setVisible(true);
-        }
+        ComboBoxar.CBvaldUtrustning(cbTyper, lblTypAttribut, txtTypAttribut);
+    
     }//GEN-LAST:event_cbTyperActionPerformed
 
     private void txtTypAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypAttributActionPerformed

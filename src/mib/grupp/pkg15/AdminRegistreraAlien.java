@@ -123,6 +123,11 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         lblRasAttribut.setText("Attribut");
 
         txtRasAttribut.setColumns(5);
+        txtRasAttribut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRasAttributActionPerformed(evt);
+            }
+        });
 
         btnRegistreraAlien.setText("Slutför registrering");
         btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -276,33 +281,15 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
        MetoderAgentAdmin.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-//Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
-//    en extra ruta genom en if-sats för att ange de extra attributen.
+
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
         
         ComboBoxar.CBvaldAlienRas(cbRaser, lblRasAttribut, txtRasAttribut);
-//        String valdRas = Validera.hamtaCbSträng(cbRaser);
-//        if(valdRas.equals("Boglodite"))
-//        {
-//            lblRasAttribut.setText("Antal boogies");
-//            txtRasAttribut.setText("");
-//            lblRasAttribut.setVisible(true);
-//            txtRasAttribut.setVisible(true);
-//        }
-//        if(valdRas.equals("Squid"))
-//        {
-//            lblRasAttribut.setText("Antal armar");
-//            txtRasAttribut.setText("");
-//            lblRasAttribut.setVisible(true);
-//            txtRasAttribut.setVisible(true);
-//        }
-//        if(valdRas.equals("Worm"))
-//        {
-//            txtRasAttribut.setText("1");
-//            lblRasAttribut.setVisible(false);
-//            txtRasAttribut.setVisible(false);
-//        }
     }//GEN-LAST:event_cbRaserActionPerformed
+
+    private void txtRasAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRasAttributActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRasAttributActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
