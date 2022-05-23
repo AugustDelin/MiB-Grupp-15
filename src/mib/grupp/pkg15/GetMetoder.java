@@ -25,6 +25,7 @@ public class GetMetoder {
         idb = Main.getDB();
     }
 //    Get-metod för att hämta ID från Agent med användarnamnet.
+
     public static int hämtaAgentIDFrånNamn(String användarnamn) {
         String agentID = "Finns ej";
         int agentNR = 99;
@@ -44,17 +45,16 @@ public class GetMetoder {
         String alienID = "Finns ej";
         int alienNR = 99;
         try {
-           alienID = idb.fetchSingle("Select Alien_ID from Alien where namn ='" + användarnamn + "'");
-          alienNR = Integer.parseInt(alienID);
+            alienID = idb.fetchSingle("Select Alien_ID from Alien where namn ='" + användarnamn + "'");
+            alienNR = Integer.parseInt(alienID);
 
         } catch (InfException ex) {
-           Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return alienNR;
     }
 
-    
 //    Get-metod för att hämta ID från utrustning med det inmatade namnet.
     public static int hämtaUtrustningsIDFrånNamn(String benämning) {
         String utrustningsID = "Finns ej";
@@ -197,7 +197,15 @@ public class GetMetoder {
         return NamnListaAlien;
 
     }
-    
-    
-}
 
+    public static ArrayList<String> getUtrustningsNamnfrånAgentnamn(String agentNamn) {
+        ArrayList<String> listan = null;
+        try {
+            listan = idb.fetchColumn("select Benamning from utrustning join innehar_utrustning iu on utrustning.Utrustnings_ID = iu.Utrustnings_ID join agent a on iu.Agent_ID = a.Agent_ID where Namn = '" + agentNamn + "'");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listan;
+
+    }
+}

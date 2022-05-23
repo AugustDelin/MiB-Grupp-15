@@ -388,4 +388,14 @@ public class MetoderAgentAdmin {
         }
 
     }
+    
+    public static void listaAllInnehavandeUtrustning(String användarnamn, JTextArea enArea)
+    {
+        enArea.append("");
+        ArrayList<String> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(användarnamn);
+        for(String enUtrustning: utrustningsLista)
+        {
+            enArea.append(enUtrustning+ "\n");
+        }
+    }
 }
