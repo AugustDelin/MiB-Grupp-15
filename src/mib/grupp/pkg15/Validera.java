@@ -122,7 +122,7 @@ public class Validera {
         boolean matchFound = matcher.find();
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt angivet format, fältet tar tal mellan 1-19");
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet rasattribut, fältet tar tal mellan 1-19");
             ettFält.requestFocus();
 
         }
@@ -137,7 +137,7 @@ public class Validera {
         boolean matchFound = matcher.matches();
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt angivet telefonnummer, du kan ange max tio siffror i detta fält");
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet telefonnummer, du kan ange max tio siffror i detta fält (använd ej bindelstreck!)");
             ettFält.requestFocus();
         }
 
