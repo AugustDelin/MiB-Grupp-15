@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -32,51 +32,76 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="cbVäljUtrustning" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="cbTaBort" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btnLaggtillUtrustning" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnTaBort" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="621" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="lblLäggaTill" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnLaggtillUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblRegistreraUtrustning" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblTaBort" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblRubrikNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblRubrikTyp" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="cbRaser" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                                      <Component id="lblRasAttribut" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="txtRasAttribut" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnRegisteraUtrustning" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="btnTaBort" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="cbVäljUtrustning" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="cbTaBort" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="654" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="lblLäggaTill" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="lblTaBort" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,21 +115,37 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblTaBort" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblLäggaTill" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRegistreraUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cbTaBort" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="cbVäljUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbRubrikID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblvisaID" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="cbAgenter" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cbAgenter" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRubrikNamn" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRubrikTyp" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="cbRaser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRasAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRasAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnLaggtillUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRegisteraUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTaBort" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAvsluta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBacka" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,7 +219,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTaBort">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ta bort en utrustning fr&#xe5;n systemet."/>
+        <Property name="text" type="java.lang.String" value="Ta bort utrustning fr&#xe5;n systemet."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnTaBort">
@@ -199,9 +240,65 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblRegistreraUtrustning">
       <Properties>
-        <Property name="text" type="java.lang.String" value="L&#xe4;gg till en utrustning i systemet."/>
+        <Property name="text" type="java.lang.String" value="Registrera ny utrustning i systemet."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRegisteraUtrustning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registrera ny utrustning"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisteraUtrustningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbRubrikID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID-nummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblvisaID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ett ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRubrikNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Namn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNamn">
+      <Properties>
+        <Property name="columns" type="int" value="5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRubrikTyp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Typ"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbRaser">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbRaserActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRasAttribut">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Attribut"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtRasAttribut">
+      <Properties>
+        <Property name="columns" type="int" value="5"/>
       </Properties>
     </Component>
   </SubComponents>

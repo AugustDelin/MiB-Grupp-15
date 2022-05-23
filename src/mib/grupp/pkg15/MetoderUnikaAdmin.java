@@ -99,6 +99,51 @@ public class MetoderUnikaAdmin {
         }
     }
 
+    // Metod för att registrera en ny Alien.
+
+    public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
+        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        if (Validera.kollaTom(namnFält)) {
+
+            String ettNamn = null;
+
+            try {
+//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+                String ettIDString = id.getText();
+                int ettID = Integer.parseInt(ettIDString);
+                ettNamn = namnFält.getText();
+                String valdRas = typLåda.getSelectedItem().toString();
+                String mängdAttributString = attributFält.getText();
+                int mängdAttribut = Integer.parseInt(mängdAttributString);
+                ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
+
+                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
+
+                    idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
+                    if (valdRas.equals("Boglodite")) {
+                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAttribut + ")");
+                    }
+                    if (valdRas.equals("Squid")) {
+                        idb.insert("insert into squid values(" + ettID + "," + mängdAttribut + ")");
+                    }
+                    if (valdRas.equals("Worm")) {
+                        idb.insert("insert into worm values(" + ettID + ")");
+                    }
+                    JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                    id.setText(GetMetoder.getNextAlienID());
+                    namnFält.setText("");
+                    lösenFält.setText("");
+                    telNrFält.setText("");
+                    attributFält.setText("");
+
+                }
+
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);

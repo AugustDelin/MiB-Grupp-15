@@ -220,8 +220,8 @@ public class MetoderAgentAdmin {
                 String ettDatum = datum.getText();
                 ettNamn = namnFält.getText();
                 String valdRas = rasLåda.getSelectedItem().toString();
-                String mängdAtributString = attributFält.getText();
-                int mängdAtribut = Integer.parseInt(mängdAtributString);
+                String mängdAttributString = attributFält.getText();
+                int mängdAttribut = Integer.parseInt(mängdAttributString);
                 String ettLösen = lösenFält.getText();
                 String ettTelNr = telNrFält.getText();
                 String enPlats = platsLåda.getSelectedItem().toString();
@@ -236,10 +236,10 @@ public class MetoderAgentAdmin {
 
                     idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
                     if (valdRas.equals("Boglodite")) {
-                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
+                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAttribut + ")");
                     }
                     if (valdRas.equals("Squid")) {
-                        idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
+                        idb.insert("insert into squid values(" + ettID + "," + mängdAttribut + ")");
                     }
                     if (valdRas.equals("Worm")) {
                         idb.insert("insert into worm values(" + ettID + ")");
