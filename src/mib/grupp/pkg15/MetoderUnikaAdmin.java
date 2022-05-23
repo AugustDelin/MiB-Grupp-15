@@ -113,13 +113,14 @@ public class MetoderUnikaAdmin {
                 ettNamn = namnFält.getText();
                 String valdUtrustning = typLåda.getSelectedItem().toString();
                 String Attribut = attributFält.getText();
-                int Kaliber = Integer.parseInt(Attribut);
+                
                 ArrayList<String> NamnLista = GetMetoder.getUtrustningsNamn();
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
                     idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
                     if (valdUtrustning.equals("Vapen")) {
+                        int Kaliber = Integer.parseInt(Attribut);
                         idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
                     }
                     if (valdUtrustning.equals("Kommunikation")) {
