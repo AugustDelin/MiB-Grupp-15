@@ -152,7 +152,7 @@ public class AgentOCinfo extends javax.swing.JFrame {
     private void btnSokChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokChefActionPerformed
         cbValtOmråde.setVisible(true);
         txtAreaListaChefer.setVisible(true);
-        ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
+        //ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
         if (cbValtOmråde.getItemCount() == 0) {
 
             ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
