@@ -356,29 +356,31 @@ public class MetoderUnikaAdmin {
         }
     }
 
-        public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
+     public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
         try {
             String enAgent = Validera.hamtaCbSträng(valdAgent);
             String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett område");
+            String ettMeddelande2 = (enAgent + " ansvarar inte för något område");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
             int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
 
-            if(Validera.hamtaCbSträng(OCLåda).equals("Ja")) {
-
-
-            if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)){
-                idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
-                JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
-            }}
-
-            if(Validera.hamtaCbSträng(OCLåda).equals("Nej")) {
-                idb.delete("delete from omradeschef where agent_ID =" + agentID);
-                JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
+            if (Validera.hamtaCbSträng(OCLåda).equals("Ja") && Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+                {
+                    idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
+                    JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
+                }
             }
 
-                    } catch (InfException ex) {
+            if (Validera.hamtaCbSträng(OCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+                {
+                    idb.delete("delete from omradeschef where agent_ID =" + agentID);
+                    JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
+                }
+            }
+
+        } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
