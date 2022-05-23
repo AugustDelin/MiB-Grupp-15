@@ -147,14 +147,22 @@
                               <Component id="cbOmråden" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblKC" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblOC" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="cbKC" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbOC" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblKC" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblOC" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="cbKC" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbOC" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="btnAndraKCStatus" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblVilketKontor" min="-2" max="-2" attributes="0"/>
@@ -195,15 +203,24 @@
                       <Component id="lblRubrikNamn" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRubrikLösen" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRubrikLösen" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblRubrikTelefon" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="btnAndraKCStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -376,6 +393,19 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAndraOCStatus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschefsstatus"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAndraKCStatus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschefsstatus"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraKCStatusActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

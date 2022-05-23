@@ -199,7 +199,7 @@ public class MetoderUnikaAdmin {
 
     }
 
-    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda, JComboBox OCLåda, JComboBox KCLåda, JComboBox kontorsLåda) {
+    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält) && Validera.kollaDatumFormat(datumFält)) {
 
@@ -217,9 +217,6 @@ public class MetoderUnikaAdmin {
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = Validera.hamtaCbSträng(adminLåda);
                 String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
-                String OCStatus = Validera.hamtaCbSträng(OCLåda);
-                String KCStatus = Validera.hamtaCbSträng(KCLåda);
-                String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
                 String omRådesIDSträng = idb.fetchSingle("select Omrades_ID from omrade where Benamning = '" + ettOmråde + "'");
                 int områdesID = Integer.parseInt(omRådesIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
@@ -298,5 +295,21 @@ public class MetoderUnikaAdmin {
         public static void cbJaOchNej(JComboBox enLåda) {
             enLåda.addItem("Ja");
             enLåda.addItem("Nej");
+        }
+        
+        public static void hamtaKontorsChef(JComboBox KCLåda, JComboBox kontorsLåda) {
+        try {
+            boolean resultat = true;
+            String KCStatus = Validera.hamtaCbSträng(KCLåda);
+            String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
+            String agentNamn  = idb.fetchSingle("select namn from agent join kontorschef on Agent.Agent_ID = kontorschef.Agent_ID");
+            ArrayList<String> agentLista = idb.fetchColumn("select namn from kontorschef join agent on Agent.Agent_ID");
+            if(agentLista.contains(agentNamn)){
+                resultat = false;
+                JOptionPane.showMessageDialog(null, agentNamn + "ansvarar redan för ett kontor");
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
 }
