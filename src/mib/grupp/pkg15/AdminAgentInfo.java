@@ -45,9 +45,9 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         btnRegistreraAgent = new javax.swing.JButton();
         btnÄndraAgent = new javax.swing.JButton();
         btnTaBortAgent = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblFörklaring1 = new javax.swing.JLabel();
+        lblFörklaring2 = new javax.swing.JLabel();
+        lblFörklaring3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,11 +113,11 @@ public class AdminAgentInfo extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("För att ta bort en agent ur systemet");
+        lblFörklaring1.setText("För att ta bort en agent ur systemet");
 
-        jLabel2.setText("välj sök agent och markera den agent du vill ta bort");
+        lblFörklaring2.setText("välj sök agent och markera den agent du vill ta bort");
 
-        jLabel3.setText("och tryck sedan på knappen \"Ta bort agent ur systemet\".");
+        lblFörklaring3.setText("och tryck sedan på knappen \"Ta bort agent ur systemet\".");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,13 +144,13 @@ public class AdminAgentInfo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTaBortAgent)
-                            .addComponent(jLabel1))
+                            .addComponent(lblFörklaring1))
                         .addGap(60, 60, 60)
                         .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(lblFörklaring2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFörklaring3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -174,11 +174,11 @@ public class AdminAgentInfo extends javax.swing.JFrame {
                             .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnTaBortAgent))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(lblFörklaring1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
+                        .addComponent(lblFörklaring2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(lblFörklaring3)
                         .addGap(84, 84, 84)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBacka)
@@ -249,10 +249,10 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnTaBortAgent;
     private javax.swing.JButton btnÄndraAgent;
     private javax.swing.JComboBox<String> cbAgentNamn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblFörklaring1;
+    private javax.swing.JLabel lblFörklaring2;
+    private javax.swing.JLabel lblFörklaring3;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JTextArea txtAreaListaAgenter;
     // End of variables declaration//GEN-END:variables
