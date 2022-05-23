@@ -141,7 +141,7 @@ public class MetoderUnikaAdmin {
             }
 
         }}
-    
+
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);
@@ -339,7 +339,7 @@ public class MetoderUnikaAdmin {
             enLåda.addItem("Ja");
             enLåda.addItem("Nej");
         }
-        
+
         public static void hamtaKontorsChef(JComboBox KCLåda, JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
             String enAgent = Validera.hamtaCbSträng(valdAgent);
@@ -348,14 +348,14 @@ public class MetoderUnikaAdmin {
             ArrayList<String> agentLista = idb.fetchColumn("select namn from kontorschef join agent on Agent.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
-               
-            
-       
+
+
+
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-        
-        
+
+
 }
