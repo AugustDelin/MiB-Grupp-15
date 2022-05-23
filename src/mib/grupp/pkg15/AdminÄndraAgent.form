@@ -112,12 +112,6 @@
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Component id="btnOmRegistreraAgent" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lbRubrikID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -128,11 +122,13 @@
                               <Component id="lblRubrikNamn" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblRubrikRegd" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="cbAgentNamn" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="cbAgentNamn" max="32767" attributes="0"/>
                                   <Component id="txtNamn" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtLösenord" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtTelefon" alignment="0" max="32767" attributes="0"/>
