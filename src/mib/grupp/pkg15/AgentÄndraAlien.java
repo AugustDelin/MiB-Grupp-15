@@ -25,7 +25,6 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
-        //lblvisaID.setText(GetMetoder.getNextAlienID());
         ComboBoxar.fyllCBAlienNamn(cbAlienNamn);
         ComboBoxar.fyllCBPlats(cbPlatser);
         ComboBoxar.fyllCBras(cbRas);

@@ -183,5 +183,17 @@ public class ComboBoxar {
             txtTypAttribut.setVisible(true);
         }
         }
+     
+      public static void fyllCBtyp(JComboBox enLåda) {
+        ArrayList<String> typlista = new ArrayList();
+        typlista.add("Vapen");
+        typlista.add("Kommunikation");
+        typlista.add("Teknik");
+
+        for (String typnamn : typlista) {
+            enLåda.addItem(typnamn);
+        }
+
+    }
 }
 
