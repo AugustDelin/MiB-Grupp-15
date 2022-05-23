@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -129,4 +131,28 @@ public class ComboBoxar {
             Logger.getLogger(ComboBoxar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static void CBvaldAlienRas(JComboBox cbRaser,JLabel lblRasAttribut,JTextField txtRasAttribut)
+    {
+            String valdRas = Validera.hamtaCbSträng(cbRaser);
+        if(valdRas.equals("Boglodite"))
+        {
+            lblRasAttribut.setText("Antal boogies");
+            txtRasAttribut.setText("");
+            lblRasAttribut.setVisible(true);
+            txtRasAttribut.setVisible(true);
+        }
+        if(valdRas.equals("Squid"))
+        {
+            lblRasAttribut.setText("Antal armar");
+            txtRasAttribut.setText("");
+            lblRasAttribut.setVisible(true);
+            txtRasAttribut.setVisible(true);
+        }
+        if(valdRas.equals("Worm"))
+        {
+            txtRasAttribut.setText("1");
+            lblRasAttribut.setVisible(false);
+            txtRasAttribut.setVisible(false);
+        }
+}
 }
