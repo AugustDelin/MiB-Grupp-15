@@ -126,7 +126,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblInloggadSom">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="Inloggad Som"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSokChef">
