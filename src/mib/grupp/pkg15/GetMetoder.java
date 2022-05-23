@@ -69,6 +69,19 @@ public class GetMetoder {
         }
         return utrustningsNR;
     }
+    
+    public static int hämtaOmrådesIDFrånNamn(String benämning) {
+        String områdesID = "Finns ej";
+        int områdesNR = 99;
+        
+        try {
+            områdesID = idb.fetchSingle("select omrades_ID from omrade where benamning ='" + benämning + "'");
+            områdesNR = Integer.parseInt(områdesID);
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return områdesNR;
+    }
 
 //    Get-metod för att hämta utrustnings-ID från agent med det inmatade Agent-ID.
     public static ArrayList<String> getUtrustningsIDnFrånAgentID(int agentID) {

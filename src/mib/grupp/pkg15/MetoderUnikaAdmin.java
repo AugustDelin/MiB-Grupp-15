@@ -340,18 +340,36 @@ public class MetoderUnikaAdmin {
             enLåda.addItem("Nej");
         }
 
-        public static void hamtaKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
+        public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
             String enAgent = Validera.hamtaCbSträng(valdAgent);
             String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
+            int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
             if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
-            idb.insert("insert into kontorschef values('" + enAgent + "','" + ettKontor + "')");
+            idb.insert("insert into kontorschef values(" + agentID + "','" + ettKontor + "')");
             JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till kontoret " + ettKontor);
 
             }
         } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        
+        public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda) {
+        try {
+            String enAgent = Validera.hamtaCbSträng(valdAgent);
+            String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
+            ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID");
+            String ettMeddelande = (enAgent + " ansvarar redan för ett område");
+            int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
+            int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
+            if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)){
+                idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
+                JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
+            }
+                    } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
