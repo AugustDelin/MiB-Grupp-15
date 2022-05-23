@@ -104,6 +104,9 @@ public class MetoderUnikaAdmin {
             String valdUtrustning = Validera.hamtaCbSträng(enLåda);
             int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
             idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
+            idb.delete("delete from vapen where Utrustnings_ID =" + utrustningsID);
+            idb.delete("delete from kommunikation where Utrustnings_ID =" + utrustningsID);
+            idb.delete("delete from teknik where Utrustnings_ID =" + utrustningsID);
             idb.delete("delete from utrustning where Utrustnings_ID =" + utrustningsID);
             JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
             enLåda.removeItem(valdUtrustning);
