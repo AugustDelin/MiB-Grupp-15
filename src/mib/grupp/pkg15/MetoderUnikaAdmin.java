@@ -355,6 +355,29 @@ public class MetoderUnikaAdmin {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
+public static void listaAgentsUtrustning(JComboBox namnLåda, JTextArea enArea) {
+    String agentNamn = Validera.hamtaCbSträng(namnLåda);
+    enArea.setText("");
+        enArea.append("Benämning\tUtkvitteringsdatum\n");
+        ArrayList<HashMap<String, String>> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(agentNamn);
+        for (HashMap<String, String> enUtrustning : utrustningsLista) {
+            enArea.append(enUtrustning.get("Benamning") + "\t");
+            enArea.append(enUtrustning.get("Utkvitteringsdatum") + "\n");
+        }
+    }
 
+    public static void listaAgentsFordon(JComboBox namnLåda, JTextArea enArea) {
+         String agentNamn = Validera.hamtaCbSträng(namnLåda);
+        enArea.setText("");
+        enArea.append("Beskrivning\t\tÅrsmodell\tUtkvitteringsdatum\n");
+        ArrayList<HashMap<String, String>> fordonsLista = GetMetoder.getFordonsNamnFrånAgentNamn(agentNamn);
+        for (HashMap<String, String> ettFordon : fordonsLista) {
+
+            enArea.append(ettFordon.get("Fordonsbeskrivning") + "\t\t");
+            enArea.append(ettFordon.get("Arsmodell") + "\t");
+            enArea.append(ettFordon.get("Utkvitteringsdatum") + "\n");
+
+        }
+    }
 
 }

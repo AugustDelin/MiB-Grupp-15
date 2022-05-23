@@ -23,7 +23,7 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
-        ComboBoxar.fyllCBAgentUtrustning(cbVäljUtrustning);
+        ComboBoxar.fyllCBAgentNamn(cbVäljAgent);
 
     }
 
@@ -40,13 +40,12 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
         btnLoggaut = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
-        cbVäljUtrustning = new javax.swing.JComboBox<>();
-        btnLaggtillUtrustning = new javax.swing.JButton();
+        cbVäljAgent = new javax.swing.JComboBox<>();
         lblLäggaTill = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtareaVisaUtrustning = new javax.swing.JTextArea();
         btnVisaUtrustning = new javax.swing.JButton();
-        btnVisFordon = new javax.swing.JButton();
+        btnVisaFordon = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,31 +72,24 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        btnLaggtillUtrustning.setText("Lägg till utrustning");
-        btnLaggtillUtrustning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLaggtillUtrustningActionPerformed(evt);
-            }
-        });
-
-        lblLäggaTill.setText("Här kan du lägga till utrustning på dig själv.");
+        lblLäggaTill.setText("Välj Agent");
 
         txtareaVisaUtrustning.setEditable(false);
         txtareaVisaUtrustning.setColumns(20);
         txtareaVisaUtrustning.setRows(5);
         jScrollPane1.setViewportView(txtareaVisaUtrustning);
 
-        btnVisaUtrustning.setText("Visa min Utrustning");
+        btnVisaUtrustning.setText("Visa vald Agents utrustning");
         btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisaUtrustningActionPerformed(evt);
             }
         });
 
-        btnVisFordon.setText("Visa mina fordon");
-        btnVisFordon.addActionListener(new java.awt.event.ActionListener() {
+        btnVisaFordon.setText("Visa vald Agents fordon");
+        btnVisaFordon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisFordonActionPerformed(evt);
+                btnVisaFordonActionPerformed(evt);
             }
         });
 
@@ -112,6 +104,8 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lblLäggaTill)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbVäljAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLoggaut))
                     .addGroup(layout.createSequentialGroup()
@@ -122,16 +116,14 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnAvsluta))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnLaggtillUtrustning))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(90, 90, 90)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnVisaUtrustning)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnVisFordon))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGap(37, 37, 37)
+                                        .addComponent(btnVisaFordon))
+                                    .addComponent(jScrollPane1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -145,16 +137,15 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
                         .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblLäggaTill)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblLäggaTill)
+                            .addComponent(cbVäljAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVisaUtrustning)
-                    .addComponent(btnVisFordon)
-                    .addComponent(btnLaggtillUtrustning))
+                    .addComponent(btnVisaFordon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
@@ -176,31 +167,25 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        Navigera.openAgentStartSkärm(användarnamn);
+       new AdminUtrustning(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
-    private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-        MetoderAgentAdmin.laggTillUtrustningPåAgent(cbVäljUtrustning, användarnamn);
-
-    }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
-
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
-       MetoderAgentAdmin.listaAllInnehavandeUtrustning(användarnamn, txtareaVisaUtrustning);
+      MetoderUnikaAdmin.listaAgentsUtrustning(cbVäljAgent, txtareaVisaUtrustning);
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
-    private void btnVisFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisFordonActionPerformed
-        MetoderAgentAdmin.listaMinaFordon(användarnamn, txtareaVisaUtrustning);
-    }//GEN-LAST:event_btnVisFordonActionPerformed
+    private void btnVisaFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaFordonActionPerformed
+        MetoderUnikaAdmin.listaAgentsFordon(cbVäljAgent, txtareaVisaUtrustning);
+    }//GEN-LAST:event_btnVisaFordonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
-    private javax.swing.JButton btnLaggtillUtrustning;
     private javax.swing.JButton btnLoggaut;
-    private javax.swing.JButton btnVisFordon;
+    private javax.swing.JButton btnVisaFordon;
     private javax.swing.JButton btnVisaUtrustning;
-    private javax.swing.JComboBox<String> cbVäljUtrustning;
+    private javax.swing.JComboBox<String> cbVäljAgent;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblLäggaTill;
