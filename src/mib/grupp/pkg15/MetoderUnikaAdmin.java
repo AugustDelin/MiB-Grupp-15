@@ -99,10 +99,10 @@ public class MetoderUnikaAdmin {
         }
     }
 
-    // Metod för att registrera en ny Alien.
+    // Metod för att registrera ny utrustning.
     public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
-        if (Validera.kollaTom(namnFält)) {
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(attributFält)) {
 
             String ettNamn = null;
 
