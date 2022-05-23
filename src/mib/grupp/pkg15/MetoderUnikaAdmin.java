@@ -196,7 +196,7 @@ public class MetoderUnikaAdmin {
 
     }
 
-    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda) {
+    public static void ändraAgent(JComboBox valdAgentFält, JLabel id, JTextField namnFält, JTextField datumFält, JTextField telNrFält, JTextField lösenFält, JComboBox adminLåda, JComboBox områdesLåda, JComboBox OCLåda, JComboBox KCLåda, JComboBox kontorsLåda) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält) && Validera.kollaDatumFormat(datumFält)) {
 
@@ -214,6 +214,9 @@ public class MetoderUnikaAdmin {
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = Validera.hamtaCbSträng(adminLåda);
                 String ettOmråde = Validera.hamtaCbSträng(områdesLåda);
+                String OCStatus = Validera.hamtaCbSträng(OCLåda);
+                String KCStatus = Validera.hamtaCbSträng(KCLåda);
+                String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
                 String omRådesIDSträng = idb.fetchSingle("select Omrades_ID from omrade where Benamning = '" + ettOmråde + "'");
                 int områdesID = Integer.parseInt(omRådesIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
