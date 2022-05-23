@@ -340,10 +340,9 @@ public class MetoderUnikaAdmin {
             enLåda.addItem("Nej");
         }
 
-        public static void hamtaKontorsChef(JComboBox KCLåda, JComboBox kontorsLåda, JComboBox valdAgent) {
+        public static void hamtaKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
             String enAgent = Validera.hamtaCbSträng(valdAgent);
-            String KCStatus = Validera.hamtaCbSträng(KCLåda);
             String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
