@@ -112,21 +112,21 @@ public class MetoderUnikaAdmin {
                 int ettID = Integer.parseInt(ettIDString);
                 ettNamn = namnFält.getText();
                 String valdUtrustning = typLåda.getSelectedItem().toString();
-                String mängdAttributString = attributFält.getText();
-                int mängdAttribut = Integer.parseInt(mängdAttributString);
+                String Attribut = attributFält.getText();
+                int Kaliber = Integer.parseInt(Attribut);
                 ArrayList<String> NamnLista = GetMetoder.getUtrustningsNamn();
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
                     idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + ")");
                     if (valdUtrustning.equals("Vapen")) {
-                        idb.insert("insert into Vapen values(" + ettID + "," + mängdAttribut + ")");
+                        idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
                     }
                     if (valdUtrustning.equals("Kommunikation")) {
-                        idb.insert("insert into Kommunikation values(" + ettID + "," + mängdAttribut + ")");
+                        idb.insert("insert into Kommunikation values(" + ettID + "," + Attribut + ")");
                     }
                     if (valdUtrustning.equals("Teknik")) {
-                        idb.insert("insert into Teknik values(" + ettID + ")");
+                        idb.insert("insert into Teknik values(" + ettID + "," + Attribut + ")");
                     }
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
                     id.setText(GetMetoder.getNextUtrustningsID());
