@@ -100,7 +100,6 @@ public class MetoderUnikaAdmin {
     }
 
     // Metod för att registrera en ny Alien.
-
     public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(namnFält)) {
@@ -119,7 +118,7 @@ public class MetoderUnikaAdmin {
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
-                    idb.insert("insert into Utrustning values(" + ettID + ",'"  + ettNamn +")");
+                    idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + ")");
                     if (valdUtrustning.equals("Vapen")) {
                         idb.insert("insert into Vapen values(" + ettID + "," + mängdAttribut + ")");
                     }
@@ -140,7 +139,8 @@ public class MetoderUnikaAdmin {
                 Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        }}
+        }
+    }
 
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
@@ -312,17 +312,16 @@ public class MetoderUnikaAdmin {
 // om Valideringen godkänns registreras den nya utrustningen på agenten
             try {
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
-                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " på " + agentNamn +"s lista!");
+                JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " på " + agentNamn + "s lista!");
 
             } catch (InfException ex) {
                 Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
-     }
+    }
 
-
-        public static void listaAllaKontor(JComboBox enLåda) {
+    public static void listaAllaKontor(JComboBox enLåda) {
 
         try {
             ArrayList<String> kontorslista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
@@ -333,29 +332,29 @@ public class MetoderUnikaAdmin {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        }
+    }
 
-        public static void cbJaOchNej(JComboBox enLåda) {
-            enLåda.addItem("Ja");
-            enLåda.addItem("Nej");
-        }
+    public static void cbJaOchNej(JComboBox enLåda) {
+        enLåda.addItem("Ja");
+        enLåda.addItem("Nej");
+    }
 
-        public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
+    public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
             String enAgent = Validera.hamtaCbSträng(valdAgent);
             String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
-            idb.insert("insert into kontorschef values(" + agentID + "','" + ettKontor + "')");
-            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till kontoret " + ettKontor);
+            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+                idb.insert("insert into kontorschef values(" + agentID + "','" + ettKontor + "')");
+                JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till kontoret " + ettKontor);
 
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+    }
 
         public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
         try {
@@ -365,37 +364,38 @@ public class MetoderUnikaAdmin {
             String ettMeddelande = (enAgent + " ansvarar redan för ett område");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
             int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
-            
+
             if(Validera.hamtaCbSträng(OCLåda).equals("Ja")) {
-                
-            
+
+
             if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)){
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
-            }} 
-            
+            }}
+
             if(Validera.hamtaCbSträng(OCLåda).equals("Nej")) {
                 idb.delete("delete from omradeschef where agent_ID =" + agentID);
                 JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
             }
-            
+
                     } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void listaAgentsUtrustning(JComboBox namnLåda, JTextArea enArea) {
+        String agentNamn = Validera.hamtaCbSträng(namnLåda);
+        enArea.setText("");
+        enArea.append("Benämning\tUtkvitteringsdatum\n");
+        ArrayList<HashMap<String, String>> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(agentNamn);
+        for (HashMap<String, String> enUtrustning : utrustningsLista) {
+            enArea.append(enUtrustning.get("Benamning") + "\t");
+            enArea.append(enUtrustning.get("Utkvitteringsdatum") + "\n");
         }
-        public static void listaAgentsUtrustning(JComboBox namnLåda, JTextArea enArea) {
-            String agentNamn = Validera.hamtaCbSträng(namnLåda);
-            enArea.setText("");
-                enArea.append("Benämning\tUtkvitteringsdatum\n");
-                ArrayList<HashMap<String, String>> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(agentNamn);
-                for (HashMap<String, String> enUtrustning : utrustningsLista) {
-                    enArea.append(enUtrustning.get("Benamning") + "\t");
-                    enArea.append(enUtrustning.get("Utkvitteringsdatum") + "\n");
-                }
-            }
+    }
 
     public static void listaAgentsFordon(JComboBox namnLåda, JTextArea enArea) {
-         String agentNamn = Validera.hamtaCbSträng(namnLåda);
+        String agentNamn = Validera.hamtaCbSträng(namnLåda);
         enArea.setText("");
         enArea.append("Beskrivning\t\tÅrsmodell\tUtkvitteringsdatum\n");
         ArrayList<HashMap<String, String>> fordonsLista = GetMetoder.getFordonsNamnFrånAgentNamn(agentNamn);

@@ -131,6 +131,9 @@ public class ComboBoxar {
             Logger.getLogger(ComboBoxar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    //Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
+//    en extra ruta genom en if-sats för att ange de extra attributen.
     public static void CBvaldAlienRas(JComboBox cbRaser,JLabel lblRasAttribut,JTextField txtRasAttribut)
     {
             String valdRas = Validera.hamtaCbSträng(cbRaser);
@@ -155,4 +158,30 @@ public class ComboBoxar {
             txtRasAttribut.setVisible(false);
         }
 }
+
+     public static void CBvaldUtrustning(JComboBox cbTyper, JLabel lblTypAttribut, JTextField txtTypAttribut)
+    {
+            String valdUtrustning = Validera.hamtaCbSträng(cbTyper);
+        if(valdUtrustning.equals("Vapen"))
+        {
+            lblTypAttribut.setText("Kaliber");
+            txtTypAttribut.setText("");
+            lblTypAttribut.setVisible(true);
+            txtTypAttribut.setVisible(true);
+        }
+        if(valdUtrustning.equals("Kommunikation"))
+        {
+            lblTypAttribut.setText("Överföringsteknik");
+            txtTypAttribut.setText("");
+            lblTypAttribut.setVisible(true);
+            txtTypAttribut.setVisible(true);
+        }
+        if(valdUtrustning.equals("Teknik"))
+        {   lblTypAttribut.setText ("Kraftkälla");
+            txtTypAttribut.setText("");
+            lblTypAttribut.setVisible(true);
+            txtTypAttribut.setVisible(true);
+        }
+        }
 }
+
