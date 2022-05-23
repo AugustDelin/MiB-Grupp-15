@@ -208,4 +208,11 @@ public class GetMetoder {
         return listan;
 
     }
+    
+    public static ArrayList<String> getFordonsNamnFrånAgentNamn(String agentNamn)
+    {
+     ArrayList<String> fordonsNamn = idb.fetchColumn(agentNamn);
+     
+     return fordonsNamn;
+    }
 }
