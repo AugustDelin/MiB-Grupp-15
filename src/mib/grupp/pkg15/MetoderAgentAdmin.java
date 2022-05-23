@@ -391,10 +391,10 @@ public class MetoderAgentAdmin {
 
     public static void listaAllInnehavandeUtrustning(String användarnamn, JTextArea enArea) {
         enArea.setText("");
-        enArea.append("Benämning\tUtkvitteringsdatum\n");
+        enArea.append("Benämning\t\tUtkvitteringsdatum\n");
         ArrayList<HashMap<String, String>> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(användarnamn);
         for (HashMap<String, String> enUtrustning : utrustningsLista) {
-            enArea.append(enUtrustning.get("Benamning") + "\t");
+            enArea.append(enUtrustning.get("Benamning") + "\t\t");
             enArea.append(enUtrustning.get("Utkvitteringsdatum") + "\n");
         }
     }
