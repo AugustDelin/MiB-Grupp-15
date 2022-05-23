@@ -53,9 +53,9 @@ public class AdminUtrustning extends javax.swing.JFrame {
         lblRubrikNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         lblRubrikTyp = new javax.swing.JLabel();
-        cbRaser = new javax.swing.JComboBox<>();
-        lblRasAttribut = new javax.swing.JLabel();
-        txtRasAttribut = new javax.swing.JTextField();
+        cbTyper = new javax.swing.JComboBox<>();
+        lblTypAttribut = new javax.swing.JLabel();
+        txtTypAttribut = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,15 +119,20 @@ public class AdminUtrustning extends javax.swing.JFrame {
 
         lblRubrikTyp.setText("Typ");
 
-        cbRaser.addActionListener(new java.awt.event.ActionListener() {
+        cbTyper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbRaserActionPerformed(evt);
+                cbTyperActionPerformed(evt);
             }
         });
 
-        lblRasAttribut.setText("Attribut");
+        lblTypAttribut.setText("Attribut");
 
-        txtRasAttribut.setColumns(5);
+        txtTypAttribut.setColumns(5);
+        txtTypAttribut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTypAttributActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,11 +178,11 @@ public class AdminUtrustning extends javax.swing.JFrame {
                                                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lblvisaID)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(cbTyper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(29, 29, 29)
-                                                        .addComponent(lblRasAttribut)
+                                                        .addComponent(lblTypAttribut)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(txtTypAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(0, 0, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -219,9 +224,9 @@ public class AdminUtrustning extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikTyp, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbRaser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRasAttribut)
-                    .addComponent(txtRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbTyper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTypAttribut)
+                    .addComponent(txtTypAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLaggtillUtrustning)
@@ -260,32 +265,36 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTaBortActionPerformed
 
     private void btnRegisteraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisteraUtrustningActionPerformed
-MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
+MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn,cbTyper, txtTypAttribut);
     }//GEN-LAST:event_btnRegisteraUtrustningActionPerformed
 
-    private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
-        String valdRas = Validera.hamtaCbSträng(cbRaser);
+    private void cbTyperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTyperActionPerformed
+        String valdRas = Validera.hamtaCbSträng(cbTyper);
         if(valdRas.equals("Boglodite"))
         {
-            lblRasAttribut.setText("Antal boogies");
-            txtRasAttribut.setText("");
-            lblRasAttribut.setVisible(true);
-            txtRasAttribut.setVisible(true);
+            lblTypAttribut.setText("Antal boogies");
+            txtTypAttribut.setText("");
+            lblTypAttribut.setVisible(true);
+            txtTypAttribut.setVisible(true);
         }
         if(valdRas.equals("Squid"))
         {
-            lblRasAttribut.setText("Antal armar");
-            txtRasAttribut.setText("");
-            lblRasAttribut.setVisible(true);
-            txtRasAttribut.setVisible(true);
+            lblTypAttribut.setText("Antal armar");
+            txtTypAttribut.setText("");
+            lblTypAttribut.setVisible(true);
+            txtTypAttribut.setVisible(true);
         }
         if(valdRas.equals("Worm"))
         {
-            txtRasAttribut.setText("1");
-            lblRasAttribut.setVisible(false);
-            txtRasAttribut.setVisible(false);
+            txtTypAttribut.setText("1");
+            lblTypAttribut.setVisible(false);
+            txtTypAttribut.setVisible(false);
         }
-    }//GEN-LAST:event_cbRaserActionPerformed
+    }//GEN-LAST:event_cbTyperActionPerformed
+
+    private void txtTypAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypAttributActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTypAttributActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
@@ -295,19 +304,19 @@ MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, lblDagensDatum, txtNamn, cbR
     private javax.swing.JButton btnRegisteraUtrustning;
     private javax.swing.JButton btnTaBort;
     private javax.swing.JComboBox<String> cbAgenter;
-    private javax.swing.JComboBox<String> cbRaser;
     private javax.swing.JComboBox<String> cbTaBort;
+    private javax.swing.JComboBox<String> cbTyper;
     private javax.swing.JComboBox<String> cbVäljUtrustning;
     private javax.swing.JLabel lbRubrikID;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblLäggaTill;
-    private javax.swing.JLabel lblRasAttribut;
     private javax.swing.JLabel lblRegistreraUtrustning;
     private javax.swing.JLabel lblRubrikNamn;
     private javax.swing.JLabel lblRubrikTyp;
     private javax.swing.JLabel lblTaBort;
+    private javax.swing.JLabel lblTypAttribut;
     private javax.swing.JLabel lblvisaID;
     private javax.swing.JTextField txtNamn;
-    private javax.swing.JTextField txtRasAttribut;
+    private javax.swing.JTextField txtTypAttribut;
     // End of variables declaration//GEN-END:variables
 }

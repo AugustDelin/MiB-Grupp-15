@@ -112,37 +112,35 @@ public class MetoderUnikaAdmin {
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 ettNamn = namnFält.getText();
-                String valdRas = typLåda.getSelectedItem().toString();
+                String valdUtrustning = typLåda.getSelectedItem().toString();
                 String mängdAttributString = attributFält.getText();
                 int mängdAttribut = Integer.parseInt(mängdAttributString);
-                ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
+                ArrayList<String> NamnLista = GetMetoder.getUtrustningsNamn();
 
-                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
+                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
-                    idb.insert("insert into alien values(" + ettID + ",'" + ettDatum + "','" + ettLösen + "','" + ettNamn + "','" + ettTelNr + "'," + platsID + "," + agentID + ")");
-                    if (valdRas.equals("Boglodite")) {
+                    idb.insert("insert into Utrustning values(" + ettID + ",'"  + ettNamn +")");
+                    if (valdUtrustning.equals("Boglodite")) {
                         idb.insert("insert into boglodite values(" + ettID + "," + mängdAttribut + ")");
-                    }
-                    if (valdRas.equals("Squid")) {
-                        idb.insert("insert into squid values(" + ettID + "," + mängdAttribut + ")");
-                    }
-                    if (valdRas.equals("Worm")) {
-                        idb.insert("insert into worm values(" + ettID + ")");
+//                    }
+//                    if (valdRas.equals("Squid")) {
+//                        idb.insert("insert into squid values(" + ettID + "," + mängdAttribut + ")");
+//                    }
+//                    if (valdRas.equals("Worm")) {
+//                        idb.insert("insert into worm values(" + ettID + ")");
                     }
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
-                    id.setText(GetMetoder.getNextAlienID());
+                    id.setText(GetMetoder.getNextUtrustningsID());
                     namnFält.setText("");
-                    lösenFält.setText("");
-                    telNrFält.setText("");
                     attributFält.setText("");
 
                 }
 
             } catch (InfException ex) {
-                Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        }
+        }}
     
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {

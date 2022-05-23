@@ -129,6 +129,19 @@ public class GetMetoder {
         }
         return nextId;
     }
+    
+    // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+
+    public static String getNextUtrustningsID() {
+        String nextId = null;
+        try {
+            nextId = idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
+
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nextId;
+    }
 
     public static HashMap<String, String> getEnAlien(String valdAlien) {
         HashMap<String, String> alienAvNamn = null;
@@ -198,6 +211,17 @@ public class GetMetoder {
 
     }
 
+
+public static ArrayList<String> getUtrustningsNamn() {
+        ArrayList<String> NamnListaUtrustning = null;
+        try {
+            NamnListaUtrustning = idb.fetchColumn("Select benamning from Utrustning order by benamning");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return NamnListaUtrustning;
+}
+
     public static ArrayList<HashMap<String,String>> getUtrustningsNamnfrånAgentnamn(String agentNamn) {
         ArrayList<HashMap<String,String>> listan = null;
         try {
@@ -219,5 +243,4 @@ public class GetMetoder {
         }
      
      return fordonsNamn;
-    }
-}
+    }}
