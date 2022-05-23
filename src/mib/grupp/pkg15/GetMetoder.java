@@ -198,10 +198,10 @@ public class GetMetoder {
 
     }
 
-    public static ArrayList<String> getUtrustningsNamnfrånAgentnamn(String agentNamn) {
-        ArrayList<String> listan = null;
+    public static ArrayList<HashMap<String,String>> getUtrustningsNamnfrånAgentnamn(String agentNamn) {
+        ArrayList<HashMap<String,String>> listan = null;
         try {
-            listan = idb.fetchColumn("select Benamning from utrustning join innehar_utrustning iu on utrustning.Utrustnings_ID = iu.Utrustnings_ID join agent a on iu.Agent_ID = a.Agent_ID where Namn = '" + agentNamn + "'");
+            listan = idb.fetchRows("select Benamning, Utkvitteringsdatum from utrustning join innehar_utrustning iu on utrustning.Utrustnings_ID = iu.Utrustnings_ID join agent a on iu.Agent_ID = a.Agent_ID where Namn = '" + agentNamn + "'");
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -209,9 +209,14 @@ public class GetMetoder {
 
     }
     
-    public static ArrayList<String> getFordonsNamnFrånAgentNamn(String agentNamn)
+    public static ArrayList<HashMap<String,String>> getFordonsNamnFrånAgentNamn(String agentNamn)
     {
-     ArrayList<String> fordonsNamn = idb.fetchColumn(agentNamn);
+     ArrayList<HashMap<String, String>> fordonsNamn = null;
+        try {
+            fordonsNamn = idb.fetchRows("select Fordonsbeskrivning, Arsmodell from fordon join innehar_fordon i on fordon.Fordons_ID = i.Fordons_ID join agent a on a.Agent_ID = i.Agent_ID where namn =" + agentNamn);
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
      
      return fordonsNamn;
     }

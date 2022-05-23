@@ -392,15 +392,28 @@ public class MetoderAgentAdmin {
     public static void listaAllInnehavandeUtrustning(String användarnamn, JTextArea enArea)
     {
         enArea.append("");
-        ArrayList<String> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(användarnamn);
-        for(String enUtrustning: utrustningsLista)
+        enArea.append("Benämning\tUtkvitteringsdatum\n");
+        ArrayList<HashMap<String,String>> utrustningsLista = GetMetoder.getUtrustningsNamnfrånAgentnamn(användarnamn);
+        for(HashMap<String,String> enUtrustning: utrustningsLista)
         {
-            enArea.append(enUtrustning+ "\n");
+            enArea.append(enUtrustning.get("Benamning") + "\t");
+            enArea.append(enUtrustning.get("Utkvitteringsdatum") + "\n");
         }
     }
     
     public static void listaMinaFordon(String användarnamn, JTextArea enArea)
     {
-        
+     enArea.append("");
+        enArea.append("Fordonsbeskrivning\tÅrsodell\tUtkvitteringsdatum\n");
+        ArrayList<HashMap<String,String>> fordonsLista = GetMetoder.getFordonsNamnFrånAgentNamn(användarnamn);
+        for(HashMap<String,String> ettFordon: fordonsLista);
+        {
+            
+            
+            enArea.append(ettFordon.get("Fordonsbeskrivning") + "\t");
+            enArea.append(ettFordon.get("tÅrsodell") + "\n");
+            enArea.append(ettFordon.get);
+           
     }
+}
 }
