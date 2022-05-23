@@ -133,7 +133,7 @@ public class Validera {
     public static boolean kollaTelefonnummer(JTextField ettFält) {
         boolean resultat = true;
         String ettTelefonnummer = ettFält.getText();
-        Pattern pattern = Pattern.compile("^-?[0-9]{1,10}$");
+        Pattern pattern = Pattern.compile("^[0-9]{1,10}$");
         Matcher matcher = pattern.matcher(ettTelefonnummer);
         boolean matchFound = matcher.matches();
         if (!matchFound) {
