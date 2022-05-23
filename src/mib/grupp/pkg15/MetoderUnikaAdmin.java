@@ -120,13 +120,16 @@ public class MetoderUnikaAdmin {
 
                     idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
                     if (valdUtrustning.equals("Vapen")) {
+//                        validering krävs
                         int Kaliber = Integer.parseInt(Attribut);
                         idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
                     }
                     if (valdUtrustning.equals("Kommunikation")) {
+//                        validering krävs
                         idb.insert("insert into Kommunikation values(" + ettID + ",'" + Attribut + "')");
                     }
                     if (valdUtrustning.equals("Teknik")) {
+                        //validering krävs
                         idb.insert("insert into Teknik values(" + ettID + ",'" + Attribut + "')");
                     }
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
