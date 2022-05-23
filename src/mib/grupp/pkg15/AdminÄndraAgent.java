@@ -27,7 +27,8 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         ComboBoxar.fyllCBområden(cbOmråden);
         ComboBoxar.fyllAdminStatus(cbAdminstatus);
         lblVilketKontor.setVisible(false);
-        cbVilketKontor.setVisible(false);
+        cbVilketKontor.setVisible(true);
+        MetoderUnikaAdmin.listaAllaKontor(cbVilketKontor);
     }
 
     /**
@@ -237,8 +238,6 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
                 .addComponent(btnOmRegistreraAgent)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
-
-        cbVilketKontor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
