@@ -328,7 +328,7 @@ public class MetoderAgentAdmin {
                 int agentID = Integer.parseInt(agentIDSträng);
                 ArrayList<String> NamnLista = GetMetoder.getAlienNamn();
 
-                if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
+                if (gammaltNamn.equals(ettNamn)) {
 
                     idb.update("Update alien set Registreringsdatum ='" + ettDatum + "', Losenord = '" + ettLösen + "', Namn = '" + ettNamn + "', Telefon = '" + ettTelNr + "', Plats =" + platsID + ", Ansvarig_Agent =" + agentID + " where Alien_ID =" + ettID);
 
@@ -359,6 +359,42 @@ public class MetoderAgentAdmin {
                     attributFält.setText("");
                     datum.setText("");
                     gammaltNamnLåda.addItem(ettNamn);
+                } else if (!gammaltNamn.equals(ettNamn)) {
+
+                    if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En alien vid namn " + ettNamn + " finns redan registerad")) {
+
+                        idb.update("Update alien set Registreringsdatum ='" + ettDatum + "', Losenord = '" + ettLösen + "', Namn = '" + ettNamn + "', Telefon = '" + ettTelNr + "', Plats =" + platsID + ", Ansvarig_Agent =" + agentID + " where Alien_ID =" + ettID);
+
+                        if (gammalRas.equals("Boglodite")) {
+                            idb.delete("Delete from boglodite where Alien_ID =" + ettID);
+                        }
+                        if (gammalRas.equals("Squid")) {
+                            idb.delete("Delete from squid where Alien_ID =" + ettID);
+                        }
+
+                        if (gammalRas.equals("Worm")) {
+                            idb.delete("Delete from worm where Alien_ID =" + ettID);
+                        }
+
+                        if (valdRas.equals("Boglodite")) {
+                            idb.insert("insert into boglodite values(" + ettID + "," + mängdAtribut + ")");
+                        }
+                        if (valdRas.equals("Squid")) {
+                            idb.insert("insert into squid values(" + ettID + "," + mängdAtribut + ")");
+                        }
+                        if (valdRas.equals("Worm")) {
+                            idb.insert("insert into worm values(" + ettID + ")");
+                        }
+                        JOptionPane.showMessageDialog(null, ettNamn + " är nu omregistrerad");
+                        namnFält.setText("");
+                        lösenFält.setText("");
+                        telNrFält.setText("");
+                        attributFält.setText("");
+                        datum.setText("");
+                        gammaltNamnLåda.removeItem(gammaltNamn);
+                        gammaltNamnLåda.addItem(ettNamn);
+                        
+                    }
                 }
 
             } catch (InfException ex) {
