@@ -342,19 +342,22 @@ public class MetoderUnikaAdmin {
             enLåda.addItem("Nej");
         }
         
-        public static void hamtaKontorsChef(JComboBox KCLåda, JComboBox kontorsLåda) {
+        public static void hamtaKontorsChef(JComboBox KCLåda, JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
-            boolean resultat = true;
+            String enAgent = Validera.hamtaCbSträng(valdAgent);
             String KCStatus = Validera.hamtaCbSträng(KCLåda);
             String ettKontor = Validera.hamtaCbSträng(kontorsLåda);
-            String agentNamn  = idb.fetchSingle("select namn from agent join kontorschef on Agent.Agent_ID = kontorschef.Agent_ID");
             ArrayList<String> agentLista = idb.fetchColumn("select namn from kontorschef join agent on Agent.Agent_ID");
-            if(agentLista.contains(agentNamn)){
-                resultat = false;
-                JOptionPane.showMessageDialog(null, agentNamn + "ansvarar redan för ett kontor");
+            String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
+            if(Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+               
+            
+       
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
+        
+        
 }
