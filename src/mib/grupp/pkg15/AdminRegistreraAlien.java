@@ -26,7 +26,6 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         txtRasAttribut.setVisible(false);
         lblvisaID.setText(GetMetoder.getNextAlienID());
         ComboBoxar.fyllCBPlats(cbPlatser);
-        ComboBoxar.fyllCBras(cbRaser);
         ComboBoxar.fyllCBAgentNamn(cbAgenter);
         
        }

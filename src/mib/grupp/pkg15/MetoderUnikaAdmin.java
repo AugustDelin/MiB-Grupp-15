@@ -120,14 +120,14 @@ public class MetoderUnikaAdmin {
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
                     idb.insert("insert into Utrustning values(" + ettID + ",'"  + ettNamn +")");
-                    if (valdUtrustning.equals("Boglodite")) {
-                        idb.insert("insert into boglodite values(" + ettID + "," + mängdAttribut + ")");
-//                    }
-//                    if (valdRas.equals("Squid")) {
-//                        idb.insert("insert into squid values(" + ettID + "," + mängdAttribut + ")");
-//                    }
-//                    if (valdRas.equals("Worm")) {
-//                        idb.insert("insert into worm values(" + ettID + ")");
+                    if (valdUtrustning.equals("Vapen")) {
+                        idb.insert("insert into Vapen values(" + ettID + "," + mängdAttribut + ")");
+                    }
+                    if (valdUtrustning.equals("Kommunikation")) {
+                        idb.insert("insert into Kommunikation values(" + ettID + "," + mängdAttribut + ")");
+                    }
+                    if (valdUtrustning.equals("Teknik")) {
+                        idb.insert("insert into Teknik values(" + ettID + ")");
                     }
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
                     id.setText(GetMetoder.getNextUtrustningsID());

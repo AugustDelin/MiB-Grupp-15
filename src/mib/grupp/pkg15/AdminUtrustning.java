@@ -24,6 +24,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
         ComboBoxar.fyllCBAgentUtrustning(cbVäljUtrustning);
         ComboBoxar.fyllCBAgentUtrustning(cbTaBort);
         ComboBoxar.fyllCBAgentNamn(cbAgenter);
+        txtTypAttribut.setVisible(false);
+        lblvisaID.setText(GetMetoder.getNextUtrustningsID());
     }
 
     /**
@@ -56,6 +58,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
         cbTyper = new javax.swing.JComboBox<>();
         lblTypAttribut = new javax.swing.JLabel();
         txtTypAttribut = new javax.swing.JTextField();
+        btnVisaUtrustning = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +137,13 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
+        btnVisaUtrustning.setText("Visa utrustning");
+        btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaUtrustningActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,10 +156,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBacka)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAvsluta))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblInloggadSom)
                                 .addGap(0, 621, Short.MAX_VALUE))
@@ -195,7 +201,13 @@ public class AdminUtrustning extends javax.swing.JFrame {
                                 .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnLoggaut)))
+                                .addComponent(btnLoggaut))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnBacka)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnVisaUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAvsluta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -232,7 +244,9 @@ public class AdminUtrustning extends javax.swing.JFrame {
                     .addComponent(btnLaggtillUtrustning)
                     .addComponent(btnRegisteraUtrustning)
                     .addComponent(btnTaBort))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(btnVisaUtrustning)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
                     .addComponent(btnBacka)))
@@ -269,32 +283,37 @@ MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn,cbTyper, txtTypAttri
     }//GEN-LAST:event_btnRegisteraUtrustningActionPerformed
 
     private void cbTyperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTyperActionPerformed
-        String valdRas = Validera.hamtaCbSträng(cbTyper);
-        if(valdRas.equals("Boglodite"))
+        String valdUtrustning = Validera.hamtaCbSträng(cbTyper);
+        if(valdUtrustning.equals("Vapen"))
         {
-            lblTypAttribut.setText("Antal boogies");
+            lblTypAttribut.setText("Kaliber");
             txtTypAttribut.setText("");
             lblTypAttribut.setVisible(true);
             txtTypAttribut.setVisible(true);
         }
-        if(valdRas.equals("Squid"))
+        if(valdUtrustning.equals("Kommunikation"))
         {
-            lblTypAttribut.setText("Antal armar");
+            lblTypAttribut.setText("Överföringsteknik");
             txtTypAttribut.setText("");
             lblTypAttribut.setVisible(true);
             txtTypAttribut.setVisible(true);
         }
-        if(valdRas.equals("Worm"))
-        {
-            txtTypAttribut.setText("1");
-            lblTypAttribut.setVisible(false);
-            txtTypAttribut.setVisible(false);
+        if(valdUtrustning.equals("Teknik"))
+        {   lblTypAttribut.setText ("Kraftkälla");
+            txtTypAttribut.setText("");
+            lblTypAttribut.setVisible(true);
+            txtTypAttribut.setVisible(true);
         }
     }//GEN-LAST:event_cbTyperActionPerformed
 
     private void txtTypAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypAttributActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTypAttributActionPerformed
+
+    private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
+  new AdminVisaUtrustning(användarnamn).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
@@ -303,6 +322,7 @@ MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn,cbTyper, txtTypAttri
     private javax.swing.JButton btnLoggaut;
     private javax.swing.JButton btnRegisteraUtrustning;
     private javax.swing.JButton btnTaBort;
+    private javax.swing.JButton btnVisaUtrustning;
     private javax.swing.JComboBox<String> cbAgenter;
     private javax.swing.JComboBox<String> cbTaBort;
     private javax.swing.JComboBox<String> cbTyper;
