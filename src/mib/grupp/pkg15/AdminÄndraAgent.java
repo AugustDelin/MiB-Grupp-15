@@ -343,7 +343,7 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_cbKCActionPerformed
 
     private void btnAndraKCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraKCStatusActionPerformed
-        
+        MetoderUnikaAdmin.hamtaKontorsChef(cbKC, cbVilketKontor);
     }//GEN-LAST:event_btnAndraKCStatusActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
