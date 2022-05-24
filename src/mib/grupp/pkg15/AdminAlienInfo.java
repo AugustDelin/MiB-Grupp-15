@@ -319,7 +319,7 @@ public class AdminAlienInfo extends javax.swing.JFrame {
         new AdminAlienRegDatum(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSökRegDatumActionPerformed
-   // Knappen för att öppna ett nytt fönster för klassen AgentÄndraAlien.
+    // Knappen för att öppna ett nytt fönster för klassen AgentÄndraAlien.
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         new AdminÄndraAlien(användarnamn).setVisible(true);
         dispose();
@@ -327,13 +327,13 @@ public class AdminAlienInfo extends javax.swing.JFrame {
 
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
 
-        if(cbAlienNamn.getSelectedItem() == null)
-   {
-       JOptionPane.showMessageDialog(null, "Vänligen välj en alien först!");
-   }
-        else MetoderUnikaAdmin.taBortAlienUrSystemet(cbAlienNamn);
-       
-   
+        if (cbAlienNamn.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Vänligen välj en alien först!");
+        } else {
+            MetoderUnikaAdmin.taBortAlienUrSystemet(cbAlienNamn);
+        }
+
+
     }//GEN-LAST:event_btnTaBortAlienActionPerformed
 
     /**

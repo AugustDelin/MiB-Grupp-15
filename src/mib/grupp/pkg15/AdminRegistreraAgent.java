@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 package mib.grupp.pkg15;
+
 /**
  *
  * @author Linda
  */
 //    Fälten för AgentRegistreraAlien.
 public class AdminRegistreraAgent extends javax.swing.JFrame {
-    private String användarnamn;
 
+    private String användarnamn;
 
     /**
      * Konstruktorn för AgentRegistreraAlien.
+     *
      * @param användarnamn
      */
     public AdminRegistreraAgent(String användarnamn) {
@@ -25,9 +27,8 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
         lblvisaID.setText(GetMetoder.getNextAgentID());
         ComboBoxar.fyllCBområden(cbOmråden);
         ComboBoxar.fyllAdminStatus(cbAdminstatus);
-      
-        
-       }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -229,23 +230,23 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   // Knappen för att starta metoden Logga ut.
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
     // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-     // Knappen för att starta metoden Backa.
+    // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AdminAgentInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAgentActionPerformed
-       MetoderUnikaAdmin.nyRegistreraAgent(lblvisaID, lblDagensDatum, txtNamn, txtLösenord, txtTelefon, cbAdminstatus, cbOmråden);
+        MetoderUnikaAdmin.nyRegistreraAgent(lblvisaID, lblDagensDatum, txtNamn, txtLösenord, txtTelefon, cbAdminstatus, cbOmråden);
     }//GEN-LAST:event_btnRegistreraAgentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

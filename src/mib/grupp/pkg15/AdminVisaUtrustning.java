@@ -167,12 +167,12 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-       new AdminUtrustning(användarnamn).setVisible(true);
+        new AdminUtrustning(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
-      MetoderUnikaAdmin.listaAgentsUtrustning(cbVäljAgent, txtareaVisaUtrustning);
+        MetoderUnikaAdmin.listaAgentsUtrustning(cbVäljAgent, txtareaVisaUtrustning);
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
     private void btnVisaFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaFordonActionPerformed

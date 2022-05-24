@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 package mib.grupp.pkg15;
+
 /**
  *
  * @author Linda
  */
 //    Fälten för AdminUtrustning.
 public class AdminUtrustning extends javax.swing.JFrame {
+
     private String användarnamn;
-    
 
     /**
      * Konstruktorn för AdminUtrustning.
+     *
      * @param användarnamn
      */
     public AdminUtrustning(String användarnamn) {
@@ -26,7 +28,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
         ComboBoxar.fyllCBAgentNamn(cbAgenter);
         ComboBoxar.fyllCBtyp(cbTyper);
         txtTypAttribut.setVisible(true);
-        lblTypAttribut.setVisible (true);
+        lblTypAttribut.setVisible(true);
         lblvisaID.setText(GetMetoder.getNextUtrustningsID());
     }
 
@@ -224,11 +226,12 @@ public class AdminUtrustning extends javax.swing.JFrame {
                     .addComponent(lblLäggaTill)
                     .addComponent(lblRegistreraUtrustning))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbRubrikID)
-                    .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbRubrikID)
+                        .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,23 +260,23 @@ public class AdminUtrustning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   // Knappen för att starta metoden Logga ut.
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
     // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-     //    Knappen för att starta metoden Backa.
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
-         MetoderUnikaAdmin.laggTillUtrustningPåValdAgent(cbVäljUtrustning, cbAgenter);
+        MetoderUnikaAdmin.laggTillUtrustningPåValdAgent(cbVäljUtrustning, cbAgenter);
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
@@ -281,12 +284,12 @@ public class AdminUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTaBortActionPerformed
 
     private void btnRegisteraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisteraUtrustningActionPerformed
-MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn,cbTyper, txtTypAttribut);
+        MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn, cbTyper, txtTypAttribut);
     }//GEN-LAST:event_btnRegisteraUtrustningActionPerformed
-    
+
     private void cbTyperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTyperActionPerformed
         ComboBoxar.CBvaldUtrustning(cbTyper, lblTypAttribut, txtTypAttribut);
-    
+
     }//GEN-LAST:event_cbTyperActionPerformed
 
     private void txtTypAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypAttributActionPerformed
@@ -294,7 +297,7 @@ MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn,cbTyper, txtTypAttri
     }//GEN-LAST:event_txtTypAttributActionPerformed
 
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
-  new AdminVisaUtrustning(användarnamn).setVisible(true);
+        new AdminVisaUtrustning(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 

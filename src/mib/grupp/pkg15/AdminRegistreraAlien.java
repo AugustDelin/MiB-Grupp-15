@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 package mib.grupp.pkg15;
+
 /**
  *
  * @author Linda
  */
 //    Fälten för AgentRegistreraAlien.
 public class AdminRegistreraAlien extends javax.swing.JFrame {
-    private String användarnamn;
 
+    private String användarnamn;
 
     /**
      * Konstruktorn för AgentRegistreraAlien.
+     *
      * @param användarnamn
      */
     public AdminRegistreraAlien(String användarnamn) {
@@ -27,8 +29,8 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         lblvisaID.setText(GetMetoder.getNextAlienID());
         ComboBoxar.fyllCBPlats(cbPlatser);
         ComboBoxar.fyllCBAgentNamn(cbAgenter);
-        
-       }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -263,27 +265,27 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   // Knappen för att starta metoden Logga ut.
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggautActionPerformed
-       Navigera.openStartSkärm();
-       dispose();
+        Navigera.openStartSkärm();
+        dispose();
     }//GEN-LAST:event_btnLoggautActionPerformed
     // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-     // Knappen för att starta metoden Backa.
+    // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-       MetoderAgentAdmin.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
+        MetoderAgentAdmin.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
-        
+
         ComboBoxar.CBvaldAlienRas(cbRaser, lblRasAttribut, txtRasAttribut);
     }//GEN-LAST:event_cbRaserActionPerformed
 

@@ -338,40 +338,34 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
 
     private void cbKCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKCActionPerformed
         String valtVärde = GetMetoder.hamtaCbSträng(cbKC);
-        if(valtVärde.equals("Ja")) {
-        lblVilketKontor.setVisible(true);
-        cbVilketKontor.setVisible(true);
-        }
-        else {
-        lblVilketKontor.setVisible(false);
-        cbVilketKontor.setVisible(false);
+        if (valtVärde.equals("Ja")) {
+            lblVilketKontor.setVisible(true);
+            cbVilketKontor.setVisible(true);
+        } else {
+            lblVilketKontor.setVisible(false);
+            cbVilketKontor.setVisible(false);
         }
     }//GEN-LAST:event_cbKCActionPerformed
 
     private void btnAndraKCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraKCStatusActionPerformed
-        if(cbKC.getSelectedItem().equals("Ja"))
-        { 
-        MetoderUnikaAdmin.laggTillKontorsChef(cbVilketKontor, cbAgentNamn, cbKC);
+        if (cbKC.getSelectedItem().equals("Ja")) {
+            MetoderUnikaAdmin.laggTillKontorsChef(cbVilketKontor, cbAgentNamn, cbKC);
         }
-        if (cbKC.getSelectedItem().equals("Nej"))
-        {
+        if (cbKC.getSelectedItem().equals("Nej")) {
             MetoderUnikaAdmin.taBortKontorsChef(cbVilketKontor, cbAgentNamn, cbKC);
         }
     }//GEN-LAST:event_btnAndraKCStatusActionPerformed
 
     private void btnAndraOCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraOCStatusActionPerformed
-        if(cbOC.getSelectedItem().equals("Ja"))
-        {
+        if (cbOC.getSelectedItem().equals("Ja")) {
             MetoderUnikaAdmin.laggTillOmrådesChef(cbAgentNamn, cbOmråden, cbOC);
-            
+
         }
-        if (cbOC.getSelectedItem().equals("Nej"))
-        {
+        if (cbOC.getSelectedItem().equals("Nej")) {
             MetoderUnikaAdmin.taBortOmrådesChef(cbAgentNamn, cbOmråden, cbKC);
         }
-        
-         
-        
+
+
     }//GEN-LAST:event_btnAndraOCStatusActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
