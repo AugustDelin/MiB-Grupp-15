@@ -171,7 +171,7 @@ public class MetoderAgentAdmin {
      */
     public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn) {
         //Deklarerar felmeddelande som ska användas i om utrustning redan finns på agenten
-        String felmeddelande = "Denna utrusnting är redan registrerad på " + användarnamn;
+        String felmeddelande = "Denna utrustning är redan registrerad på " + användarnamn;
         //Hämtar vald utrustning ifrån en Combobox och gör om String variabler till integers
         String valdUtrustning = GetMetoder.hamtaCbSträng(enLåda);
         int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);

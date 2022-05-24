@@ -28,42 +28,53 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnLoggaUt" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnRegistreraAgent" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="btnÄndraAgent" alignment="0" pref="193" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="365" max="-2" attributes="0"/>
-              <Component id="btnSokAgent" min="-2" pref="95" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnÄndraAgent" max="32767" attributes="0"/>
+                          <Component id="btnRegistreraAgent" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnSokAgent" min="-2" pref="164" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="375" max="-2" attributes="0"/>
                       <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTaBortAgent" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblFörklaring3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFörklaring2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="btnTaBortAgent" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="cbAgentNamn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblFörklaring3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblFörklaring2" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane2" min="-2" pref="287" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="cbOmråden" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cbAgentNamn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnSokOC" min="-2" pref="164" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="287" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,14 +90,16 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnÄndraAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSokAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSokAgent" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cbAgentNamn" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnTaBortAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnTaBortAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbAgentNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbOmråden" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSokOC" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
@@ -212,6 +225,27 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="och tryck sedan p&#xe5; knappen &quot;Ta bort agent ur systemet&quot;."/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbOmr&#xe5;den">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbOmr&#xe5;denActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSokOC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Visa omr&#xe5;deschefer"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokOCActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
