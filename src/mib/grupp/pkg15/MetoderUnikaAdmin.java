@@ -456,6 +456,7 @@ public class MetoderUnikaAdmin {
      * @param OCLåda
      */
     public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
+
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
             String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
@@ -467,24 +468,24 @@ public class MetoderUnikaAdmin {
 
             if (GetMetoder.hamtaCbSträng(OCLåda).equals("Ja") && Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
 
-                try {
-                    idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
-                } catch (InfException ex) {
-                    Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
+            
+            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde); }
+
+            if (GetMetoder.hamtaCbSträng(OCLåda).equals("Nej")) {
+                if (!Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+                    
+
                 }
-                JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
-
+                else {
+                    idb.delete("delete from omradeschef where agent_ID =" + agentID);
+                    JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
+                }
             }
-
-            if (GetMetoder.hamtaCbSträng(OCLåda).equals("Nej") && (!Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2))) {
-                idb.delete("delete from omradeschef where agent_ID =" + agentID);
-                JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
-
-            }
-
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /**
