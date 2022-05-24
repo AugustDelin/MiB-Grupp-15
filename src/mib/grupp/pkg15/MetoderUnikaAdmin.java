@@ -427,9 +427,9 @@ public class MetoderUnikaAdmin {
             String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
-            String ettMeddelande2 = (enAgent + " ansvarar inte för något kontor");
+            ArrayList<String> kontorsLista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            if (GetMetoder.hamtaCbSträng(KCLåda).equals("Ja") && Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(kontorsLista, ettKontor, "Området " + ettKontor +" har redan en chef")) {
                 idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
 
