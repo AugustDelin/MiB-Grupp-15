@@ -275,5 +275,16 @@ public static ArrayList<String> getUtrustningsNamn() {
         }
         return agentLista;
     }
+    
+    public static ArrayList<String> getAllaOidFrånOC()
+    {
+        ArrayList<String> områdesIDfrånOC = null;
+        try {
+            områdesIDfrånOC = idb.fetchColumn("Select omrade from omradesChef");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return områdesIDfrånOC;
+    }
 
 }

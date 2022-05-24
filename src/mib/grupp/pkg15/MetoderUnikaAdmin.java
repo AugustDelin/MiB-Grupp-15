@@ -483,10 +483,11 @@ public class MetoderUnikaAdmin {
         } else {
             try {
                 idb.delete("delete from omradeschef where agent_ID =" + agentID);
+                JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
             } catch (InfException ex) {
                 Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
+            
         }
     }
 
