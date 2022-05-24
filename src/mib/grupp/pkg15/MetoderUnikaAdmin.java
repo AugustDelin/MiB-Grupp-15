@@ -144,9 +144,12 @@ public class MetoderUnikaAdmin {
 
                     idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
                     if (valdUtrustning.equals("Vapen")) {
-//                        validering krävs
-                        int Kaliber = Integer.parseInt(Attribut);
-                        idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
+                        if(Validera.kollaIntVapen(attributFält))
+                        {
+                             int Kaliber = Integer.parseInt(Attribut);
+                             idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
+                        }
+                        
                     }
                     if (valdUtrustning.equals("Kommunikation")) {
 //                        validering krävs

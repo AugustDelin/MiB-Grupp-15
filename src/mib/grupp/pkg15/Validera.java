@@ -268,6 +268,21 @@ public class Validera {
         }
         return resultat;
     }
+    
+    public static boolean kollaIntVapen(JTextField ettFält) {
+        boolean resultat = true;
+        String ettTelefonnummer = ettFält.getText();
+        Pattern pattern = Pattern.compile("^[0-9]{1,10}$");
+        Matcher matcher = pattern.matcher(ettTelefonnummer);
+        boolean matchFound = matcher.matches();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt angivenkaliber, du kan ange max tio siffror i detta fält!");
+            ettFält.requestFocus();
+        }
+
+        return resultat;
+    }
 
 
 }
