@@ -433,7 +433,24 @@ public class MetoderUnikaAdmin {
                 idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
 
-            } else if (GetMetoder.hamtaCbSträng(KCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+            } 
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void taBortKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent, JComboBox KCLåda) {
+        try {
+            String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
+            String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
+            ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
+            String ettMeddelande = (enAgent + " ansvarar inte för något kontor");
+            int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
+
+            if (!agentLista.contains(enAgent)) {
+                JOptionPane.showMessageDialog(null, ettMeddelande);
+            
+            } else {
                 idb.delete("delete from kontorschef where agent_ID =" + agentID);
                 JOptionPane.showMessageDialog(null, "Du har tagit bort '" + enAgent + "' från kontoret '" + ettKontor + "'");
             }
@@ -471,7 +488,7 @@ public class MetoderUnikaAdmin {
         }
     }
 
-    public static void taBortOC(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
+    public static void taBortOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
         String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
         ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
