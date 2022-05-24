@@ -347,7 +347,14 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_cbKCActionPerformed
 
     private void btnAndraKCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraKCStatusActionPerformed
+        if(cbKC.getSelectedItem().equals("Ja"))
+        { 
         MetoderUnikaAdmin.laggTillKontorsChef(cbVilketKontor, cbAgentNamn, cbKC);
+        }
+        if (cbKC.getSelectedItem().equals("Nej"))
+        {
+            MetoderUnikaAdmin.taBortKontorsChef(cbVilketKontor, cbAgentNamn, cbKC);
+        }
     }//GEN-LAST:event_btnAndraKCStatusActionPerformed
 
     private void btnAndraOCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraOCStatusActionPerformed
@@ -358,7 +365,7 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         }
         if (cbOC.getSelectedItem().equals("Nej"))
         {
-            MetoderUnikaAdmin.taBortOC(cbAgentNamn, cbOmråden, cbKC);
+            MetoderUnikaAdmin.taBortOmrådesChef(cbAgentNamn, cbOmråden, cbKC);
         }
         
          
