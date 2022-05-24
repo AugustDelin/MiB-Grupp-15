@@ -431,18 +431,25 @@ public class MetoderUnikaAdmin {
      *
      * @param kontorsLåda
      * @param valdAgent
+     * @param KCLåda
      */
-    public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
+    public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent, JComboBox KCLåda) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
             String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
+            String ettMeddelande2 = (enAgent + " ansvarar inte för något kontor");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
-                idb.insert("insert into kontorschef values(" + agentID + "','" + ettKontor + "')");
-                JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till kontoret " + ettKontor);
+            if (GetMetoder.hamtaCbSträng(KCLåda).equals("Ja") && Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+                idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
+                JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
 
+            }
+            
+            else if(GetMetoder.hamtaCbSträng(KCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+                idb.delete("delete from kontorschef where agent_ID =" + agentID);
+                JOptionPane.showMessageDialog(null, "Du har tagit bort '" + enAgent + "' från kontoret '" + ettKontor + "'");
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
@@ -472,8 +479,8 @@ public class MetoderUnikaAdmin {
             
             JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde); }
 
-            if (GetMetoder.hamtaCbSträng(OCLåda).equals("Nej")) {
-                if (!Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+            if (GetMetoder.hamtaCbSträng(OCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+                
                     
 
                 }
@@ -482,7 +489,7 @@ public class MetoderUnikaAdmin {
                     JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
                 }
             }
-        } catch (InfException ex) {
+         catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 

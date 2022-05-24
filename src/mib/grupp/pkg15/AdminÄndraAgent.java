@@ -347,7 +347,7 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_cbKCActionPerformed
 
     private void btnAndraKCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraKCStatusActionPerformed
-        MetoderUnikaAdmin.laggTillKontorsChef(cbVilketKontor, cbAgentNamn);
+        MetoderUnikaAdmin.laggTillKontorsChef(cbVilketKontor, cbAgentNamn, cbKC);
     }//GEN-LAST:event_btnAndraKCStatusActionPerformed
 
     private void btnAndraOCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraOCStatusActionPerformed
