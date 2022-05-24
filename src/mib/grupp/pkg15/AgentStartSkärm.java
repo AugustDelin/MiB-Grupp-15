@@ -52,7 +52,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
             }
         });
 
-        btnVisaOC.setText("Områdeschefer");
+        btnVisaOC.setText("Visa chefer");
         btnVisaOC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisaOCActionPerformed(evt);
@@ -100,7 +100,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnVisaOC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgentUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblRubrik)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

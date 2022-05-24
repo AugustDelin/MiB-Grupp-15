@@ -19,8 +19,6 @@ public class AgentOCinfo extends javax.swing.JFrame {
     public AgentOCinfo(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
-        cbValtOmråde.setVisible(false);
-        txtAreaListaChefer.setVisible(false);
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
 
     }
@@ -36,12 +34,12 @@ public class AgentOCinfo extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaListaChefer = new javax.swing.JTextArea();
-        cbValtOmråde = new javax.swing.JComboBox<>();
         btnBacka = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         lblInloggadSom = new javax.swing.JLabel();
-        btnSokChef = new javax.swing.JButton();
+        btnVisaOmrådeschefer = new javax.swing.JButton();
+        btnVisaKontorschefer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,12 +47,6 @@ public class AgentOCinfo extends javax.swing.JFrame {
         txtAreaListaChefer.setColumns(20);
         txtAreaListaChefer.setRows(5);
         jScrollPane2.setViewportView(txtAreaListaChefer);
-
-        cbValtOmråde.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbValtOmrådeActionPerformed(evt);
-            }
-        });
 
         btnBacka.setText("Föregående Sida");
         btnBacka.addActionListener(new java.awt.event.ActionListener() {
@@ -79,10 +71,17 @@ public class AgentOCinfo extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad Som");
 
-        btnSokChef.setText("Sök chef");
-        btnSokChef.addActionListener(new java.awt.event.ActionListener() {
+        btnVisaOmrådeschefer.setText("Visa Områdeschefer");
+        btnVisaOmrådeschefer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSokChefActionPerformed(evt);
+                btnVisaOmrådescheferActionPerformed(evt);
+            }
+        });
+
+        btnVisaKontorschefer.setText("Visa Kontorschefer");
+        btnVisaKontorschefer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaKontorscheferActionPerformed(evt);
             }
         });
 
@@ -95,7 +94,7 @@ public class AgentOCinfo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSokChef)
+                        .addComponent(btnVisaOmrådeschefer)
                         .addContainerGap())
                     .addComponent(btnLoggaUt, javax.swing.GroupLayout.Alignment.TRAILING)))
             .addGroup(layout.createSequentialGroup()
@@ -104,10 +103,12 @@ public class AgentOCinfo extends javax.swing.JFrame {
                 .addComponent(btnAvsluta))
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbValtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVisaKontorschefer)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,10 +116,10 @@ public class AgentOCinfo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInloggadSom)
                     .addComponent(btnLoggaUt))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbValtOmråde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSokChef))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVisaKontorschefer)
+                .addGap(11, 11, 11)
+                .addComponent(btnVisaOmrådeschefer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
@@ -130,11 +131,8 @@ public class AgentOCinfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // Knappen för att starta metoden Lista alla aliens på en plats.
-    private void cbValtOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValtOmrådeActionPerformed
-        MetoderAgentAdmin.listaChefAvOmrade(txtAreaListaChefer, cbValtOmråde);
-    }//GEN-LAST:event_cbValtOmrådeActionPerformed
-    //    Knappen för att starta metoden Backa.
+
+   //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
@@ -149,14 +147,13 @@ public class AgentOCinfo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
-    private void btnSokChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokChefActionPerformed
-        cbValtOmråde.setVisible(true);
-        txtAreaListaChefer.setVisible(true);
-        if (cbValtOmråde.getItemCount() == 0) {
+    private void btnVisaOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaOmrådescheferActionPerformed
+       MetoderAgentAdmin.listaAllaOmrådesChefer(txtAreaListaChefer);
+    }//GEN-LAST:event_btnVisaOmrådescheferActionPerformed
 
-            ComboBoxar.fyllCBområden(cbValtOmråde);
-        }
-    }//GEN-LAST:event_btnSokChefActionPerformed
+    private void btnVisaKontorscheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaKontorscheferActionPerformed
+        MetoderAgentAdmin.listaAllaKontorsChefer(txtAreaListaChefer);
+    }//GEN-LAST:event_btnVisaKontorscheferActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +163,8 @@ public class AgentOCinfo extends javax.swing.JFrame {
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaUt;
-    private javax.swing.JButton btnSokChef;
-    private javax.swing.JComboBox<String> cbValtOmråde;
+    private javax.swing.JButton btnVisaKontorschefer;
+    private javax.swing.JButton btnVisaOmrådeschefer;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JTextArea txtAreaListaChefer;

@@ -214,6 +214,46 @@ public class MetoderAgentAdmin {
         }
 
     }
+    
+     public static void listaAllaKontorsChefer(JTextArea lista) {
+        //Sätter textfältet blankt
+        lista.setText("");
+        lista.setText("Kontor\tChef\n");
+        
+            
+            //Hämtar lista ifrån DB
+            ArrayList<HashMap<String,String>> chefAvkontor = GetMetoder.hämtaKontorsChefer();
+            
+                    //idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
+            //Listar alla agenet i valt område
+            for (HashMap<String,String> enChef : chefAvkontor) {
+                lista.append(enChef.get("Kontorsbeteckning")+"\t");
+                 lista.append(enChef.get("Namn")+"\n");
+            }
+        
+         
+
+    }
+     
+      public static void listaAllaOmrådesChefer(JTextArea lista) {
+        //Sätter textfältet blankt
+        lista.setText("");
+        lista.setText("Område\tChef\n");
+        
+            
+            //Hämtar lista ifrån DB
+            ArrayList<HashMap<String,String>> chefAvkontor = GetMetoder.hämtaOmrådesChefer();
+            
+                    //idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
+            //Listar alla agenet i valt område
+            for (HashMap<String,String> enChef : chefAvkontor) {
+                lista.append(enChef.get("Benamning")+"\t");
+                 lista.append(enChef.get("Namn")+"\n");
+            }
+        
+         
+
+    }
 
     /**
      *

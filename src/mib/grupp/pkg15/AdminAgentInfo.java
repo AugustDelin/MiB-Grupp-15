@@ -22,9 +22,7 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         cbAgentNamn.setVisible(false);
-        cbOmråden.setVisible(false);
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        
 
     }
 
@@ -51,8 +49,8 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         lblFörklaring1 = new javax.swing.JLabel();
         lblFörklaring2 = new javax.swing.JLabel();
         lblFörklaring3 = new javax.swing.JLabel();
-        cbOmråden = new javax.swing.JComboBox<>();
         btnSokOC = new javax.swing.JButton();
+        btnVisaKontorschef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,16 +122,17 @@ public class AdminAgentInfo extends javax.swing.JFrame {
 
         lblFörklaring3.setText("och tryck sedan på knappen \"Ta bort agent ur systemet\".");
 
-        cbOmråden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOmrådenActionPerformed(evt);
-            }
-        });
-
         btnSokOC.setText("Visa områdeschefer");
         btnSokOC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSokOCActionPerformed(evt);
+            }
+        });
+
+        btnVisaKontorschef.setText("Visa kontorschefer");
+        btnVisaKontorschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaKontorschefActionPerformed(evt);
             }
         });
 
@@ -148,37 +147,36 @@ public class AdminAgentInfo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnÄndraAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRegistreraAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBacka)
                         .addGap(375, 375, 375)
-                        .addComponent(btnAvsluta)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btnAvsluta))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFörklaring3)
-                                    .addComponent(lblFörklaring2)
-                                    .addComponent(lblFörklaring1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnTaBortAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(143, 143, 143)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblFörklaring3)
+                                        .addComponent(lblFörklaring2)
+                                        .addComponent(lblFörklaring1))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnTaBortAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(143, 143, 143)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnÄndraAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRegistreraAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnVisaKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSokOC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbOmråden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(78, 78, 78)
                                 .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSokOC, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -187,23 +185,17 @@ public class AdminAgentInfo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblInloggadSom)
                     .addComponent(btnLoggaUt))
-                .addGap(3, 3, 3)
-                .addComponent(btnRegistreraAgent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnÄndraAgent)
-                    .addComponent(btnSokAgent))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnRegistreraAgent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTaBortAgent)
-                            .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbOmråden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSokOC))
+                        .addComponent(btnÄndraAgent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTaBortAgent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblFörklaring1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addComponent(lblFörklaring2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblFörklaring3)
@@ -211,8 +203,16 @@ public class AdminAgentInfo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBacka)
                             .addComponent(btnAvsluta)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVisaKontorschef)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSokOC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSokAgent))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))))
         );
@@ -237,9 +237,8 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAgentActionPerformed
-        txtAreaListaAgenter.setText("");
+        //txtAreaListaAgenter.setText("");
         cbAgentNamn.setVisible(true);
-        cbOmråden.setVisible(false);
         if (cbAgentNamn.getItemCount() == 0) {
             ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
         }
@@ -262,26 +261,26 @@ public class AdminAgentInfo extends javax.swing.JFrame {
 //Trycka knapp, hämta information från kombo-box.
     private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
 
-   if(cbAgentNamn.getSelectedItem() == null)
-   {
-       JOptionPane.showMessageDialog(null, "Vänligen välj en agent först!");
-   }
-   else MetoderUnikaAdmin.taBortAgentUrSystemet(cbAgentNamn);
-   
+        if (cbAgentNamn.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Vänligen välj en agent först!");
+        } else {
+            MetoderUnikaAdmin.taBortAgentUrSystemet(cbAgentNamn);
+        }
+
     }//GEN-LAST:event_btnTaBortAgentActionPerformed
 
-    private void cbOmrådenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOmrådenActionPerformed
-     MetoderAgentAdmin.listaChefAvOmrade(txtAreaListaAgenter, cbOmråden);
-    }//GEN-LAST:event_cbOmrådenActionPerformed
-
     private void btnSokOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokOCActionPerformed
-        cbOmråden.setVisible(true);
         cbAgentNamn.setVisible(false);
-        if (cbOmråden.getItemCount() == 0) {
+        MetoderAgentAdmin.listaAllaOmrådesChefer(txtAreaListaAgenter);
 
-            ComboBoxar.fyllCBområden(cbOmråden);
-        }
+
     }//GEN-LAST:event_btnSokOCActionPerformed
+
+    private void btnVisaKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaKontorschefActionPerformed
+        cbAgentNamn.setVisible(false);
+        MetoderAgentAdmin.listaAllaKontorsChefer(txtAreaListaAgenter);
+
+    }//GEN-LAST:event_btnVisaKontorschefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,9 +294,9 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnSokAgent;
     private javax.swing.JButton btnSokOC;
     private javax.swing.JButton btnTaBortAgent;
+    private javax.swing.JButton btnVisaKontorschef;
     private javax.swing.JButton btnÄndraAgent;
     private javax.swing.JComboBox<String> cbAgentNamn;
-    private javax.swing.JComboBox<String> cbOmråden;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblFörklaring1;
     private javax.swing.JLabel lblFörklaring2;

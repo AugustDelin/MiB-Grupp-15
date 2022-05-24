@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 /**
  *
  * @author erike
- * 
+ *
  * I klassen fnns de valideringsmetoder som behövs i programmet
  */
 public class Validera {
@@ -22,10 +22,9 @@ public class Validera {
     /**
      *
      * @param enRuta
-     * @return
-     * Metod för att kolla om rutan för användarnamn är tom. Ifall rutan är tom skrivs ett felmeddelande ut 
-       som beskriver problemet.
-
+     * @return Metod för att kolla om rutan för användarnamn är tom. Ifall rutan
+     * är tom skrivs ett felmeddelande ut som beskriver problemet.
+     *
      */
     public static boolean kollaTom(JTextField enRuta) {
         boolean resultat = true;
@@ -37,15 +36,13 @@ public class Validera {
         return resultat;
     }
 
-    
-
     /**
      *
      * @param enSträng
      * @param lösenruta
-     * @return
-     * Kontrollerar så att lösenordet som skrivs in och som finns i databasen stämmer överens.
-     * Om det inte stämmer skrivs ett felmeddelande ut.
+     * @return Kontrollerar så att lösenordet som skrivs in och som finns i
+     * databasen stämmer överens. Om det inte stämmer skrivs ett felmeddelande
+     * ut.
      */
     public static boolean kollaLösen(String enSträng, JPasswordField lösenruta) {
         boolean resultat = true;
@@ -59,14 +56,11 @@ public class Validera {
 
     }
 
-    
-
     /**
      *
      * @param adminstatus
-     * @return
-     * Kontrollerar adminstatus, genom att kontrollera om "J" står skrivet i administratör
-     * Om detta inte är fallet skrivs felmeddlande ut.
+     * @return Kontrollerar adminstatus, genom att kontrollera om "J" står
+     * skrivet i administratör Om detta inte är fallet skrivs felmeddlande ut.
      */
     public static boolean kollaAdmin(String adminstatus) {
         boolean resultat = true;
@@ -77,14 +71,12 @@ public class Validera {
         return resultat;
     }
 
-    
     /**
      *
      * @param variabelAttKolla
-     * @return
-     * Kontrollerar om en viss variabel innehåller ett nullvärde.
-     * Används vid inloggning och kollar om det finns ett lösenord till vald namn.
-     * Om valt namn inte har något lösenord kommer felmeddelande upp.
+     * @return Kontrollerar om en viss variabel innehåller ett nullvärde.
+     * Används vid inloggning och kollar om det finns ett lösenord till vald
+     * namn. Om valt namn inte har något lösenord kommer felmeddelande upp.
      */
     public static boolean kollaNullvärde(String variabelAttKolla) {
         boolean resultat = true;
@@ -100,12 +92,12 @@ public class Validera {
      * @param ArrayListSträng
      * @param strängAttJämföra
      * @param felmeddelande
-     * @return
-     * Tar in en ArrayList, en sträng samt valt felmeddelande.
-     * Metoden går igenom ett ArrayList och kollar om vald sträng finns i listan.
-     * Om vald sträng finns skrivs ett felmeddelande ut.
-     * Metoden kan återanvändas på många ställen då den även tar in en sträng som motsvarar ett felmeddelande.
-     * 
+     * @return Tar in en ArrayList, en sträng samt valt felmeddelande. Metoden
+     * går igenom ett ArrayList och kollar om vald sträng finns i listan. Om
+     * vald sträng finns skrivs ett felmeddelande ut. Metoden kan återanvändas
+     * på många ställen då den även tar in en sträng som motsvarar ett
+     * felmeddelande.
+     *
      */
     public static boolean kollaOmvärdeFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
         boolean resultat = true;
@@ -122,8 +114,7 @@ public class Validera {
     /**
      *
      * @param enSträng
-     * @return
-     * Kollar om värdet i en sträng är Null, utan felmeddelande
+     * @return Kollar om värdet i en sträng är Null, utan felmeddelande
      */
     public static boolean kollaNullSträng(String enSträng) {
         boolean resultat = true;
@@ -133,14 +124,12 @@ public class Validera {
         return resultat;
     }
 
-    
-
     /**
      *
      * @param fält1
-     * @return
-     * Metod för att kolla så att man angivet rätt datumformat och inom rätt årsinterval.
-     * Har valt från 1950 som tidigaste datum och nuvarande år som senaste datum.
+     * @return Metod för att kolla så att man angivet rätt datumformat och inom
+     * rätt årsinterval. Har valt från 1950 som tidigaste datum och nuvarande år
+     * som senaste datum.
      */
     public static boolean kollaDatumFormat(JTextField fält1) {
         boolean resultat = true;
@@ -172,10 +161,10 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return
-     * Denna metod används för att kontrollera rutan "rasattribut"
-     * Vi har gjort en begränings som säger att man som minst måste ha 1 och max får ha 19 boogies eller armar
-     * Om man inte gjort rätt skrivs felmeddelande ut
+     * @return Denna metod används för att kontrollera rutan "rasattribut" Vi
+     * har gjort en begränings som säger att man som minst måste ha 1 och max
+     * får ha 19 boogies eller armar Om man inte gjort rätt skrivs felmeddelande
+     * ut
      */
     public static boolean kollaMängdRasAttribut(JTextField ettFält) {
         boolean resultat = true;
@@ -196,9 +185,9 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return
-     * Kontrollerar att man skrivit in telefonnummer med endast siffor.
-     * Har lagt till begränsning att man BARA kan ha siffor och måste ange minst en siffra men max tio siffor
+     * @return Kontrollerar att man skrivit in telefonnummer med endast siffor.
+     * Har lagt till begränsning att man BARA kan ha siffor och måste ange minst
+     * en siffra men max tio siffor
      */
     public static boolean kollaTelefonnummer(JTextField ettFält) {
         boolean resultat = true;
@@ -218,9 +207,9 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return
-     * Databasen tar max sex tecken i lösenordsfältet. Denna metoden ser till så att man inte matar in för många tecken.
-     * Om man skrivit fler än sex tecken kommer felmeddelande upp
+     * @return Databasen tar max sex tecken i lösenordsfältet. Denna metoden ser
+     * till så att man inte matar in för många tecken. Om man skrivit fler än
+     * sex tecken kommer felmeddelande upp
      */
     public static boolean kollaLängdLösenord(JTextField ettFält) {
         boolean resultat = true;
@@ -236,10 +225,10 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return
-     * Denna metod kontrollerar så att man angivit endast en VERSAL när man matar in agentnamn vid nyregistrering samt omregistrering av agent.
+     * @return Denna metod kontrollerar så att man angivit endast en VERSAL när
+     * man matar in agentnamn vid nyregistrering samt omregistrering av agent.
      * Om man gjort "fel" kommer felmeddelande upp.
-     * 
+     *
      */
     public static boolean kontrolleraAgentNamn(JTextField ettFält) {
         boolean resultat = true;
@@ -256,7 +245,7 @@ public class Validera {
         return resultat;
 
     }
-    
+
     public static boolean kollaVärdeINTEFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
         boolean resultat = false;
         for (String enSträng : ArrayListSträng) {
@@ -268,7 +257,7 @@ public class Validera {
         }
         return resultat;
     }
-    
+
     public static boolean kollaIntVapen(JTextField ettFält) {
         boolean resultat = true;
         String ettTelefonnummer = ettFält.getText();
@@ -277,12 +266,54 @@ public class Validera {
         boolean matchFound = matcher.matches();
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt angivenkaliber, du kan ange max tio siffror i detta fält!");
+            JOptionPane.showMessageDialog(null, "Felaktigt angiven kaliber, du kan ange max tio siffror i detta fält!");
             ettFält.requestFocus();
         }
 
         return resultat;
     }
 
+    public static boolean kollaIntÅrsModell(JTextField ettFält) {
+        boolean resultat = true;
+        String årsModell = ettFält.getText();
+        Pattern pattern = Pattern.compile("^(19[0-9]{2}|20[0-9]{2})$");
+        Matcher matcher = pattern.matcher(årsModell);
+        boolean matchFound = matcher.matches();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Felaktigt angiven årsmodell vänligen ange ett korrekt årtal!");
+            ettFält.requestFocus();
+        }
+        return resultat;
+    }
+    
+    public static boolean kollaRegNummer(JTextField ettFält)
+    {
+        boolean resultat = true;
+        String regNummer = ettFält.getText();
+        Pattern pattern = Pattern.compile("^([A-Z]{3}[0-9]{3}|[A-Z]{3}[0-9]{2}[A-Z])$");
+//                + ""
+//                + "|[A-Z]{3}[0-9]{2}[A-Z])$");
+        //"^(1[0-9]|[1-9])$"
+        Matcher matcher = pattern.matcher(regNummer);
+        boolean matchFound = matcher.matches();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Regnummer anges i formatet AAA000 eller AAA00A!");
+            ettFält.requestFocus();
+        }
+        return resultat;
+    }
+    
+    public static boolean kollaArrayListContains(ArrayList<String> lista, String enSträng, String felmeddelande)
+    {
+        boolean resultat = true;
+        if(lista.contains(enSträng))
+        {
+            resultat = false;
+            JOptionPane.showConfirmDialog(null, felmeddelande);
+        }
+        return resultat;
+    }
 
 }

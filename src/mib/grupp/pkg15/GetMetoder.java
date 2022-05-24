@@ -282,4 +282,63 @@ public class GetMetoder {
         return områdesIDfrånOC;
     }
 
+    public static ArrayList<HashMap<String, String>> hämtaKontorsChefer() {
+        ArrayList<HashMap<String, String>> kontorsChefer = null;
+
+        try {
+            kontorsChefer = idb.fetchRows("select namn, kontorsbeteckning from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return kontorsChefer;
+    }
+
+    public static ArrayList<HashMap<String, String>> hämtaOmrådesChefer() {
+        ArrayList<HashMap<String, String>> områdesChefer = null;
+
+        try {
+            områdesChefer = idb.fetchRows("select namn, Benamning from agent join omradeschef o on agent.Agent_ID = o.Agent_ID join omrade o2 on o.Omrade = o2.Omrades_ID");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return områdesChefer;
+    }
+    
+    // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+    public static String getNextFordonsID() {
+        String nextId = null;
+        try {
+            nextId = idb.getAutoIncrement("Fordon", "Fordons_ID");
+
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nextId;
+    }
+    
+    public static ArrayList<String> getFordonsNamn()
+    {
+        ArrayList<String> allaFordon = null;
+        
+        try {
+            allaFordon = idb.fetchColumn("select Fordonsbeskrivning from fordon");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allaFordon;
+    }
+    
+    public static ArrayList<String> getFordonsID()
+    {
+        ArrayList<String> allaFordon = null;
+        
+        try {
+            allaFordon = idb.fetchColumn("select Fordons_ID from fordon");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allaFordon;
+    }
+
 }

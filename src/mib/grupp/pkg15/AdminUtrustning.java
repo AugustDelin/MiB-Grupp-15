@@ -30,6 +30,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
         txtTypAttribut.setVisible(true);
         lblTypAttribut.setVisible(true);
         lblvisaID.setText(GetMetoder.getNextUtrustningsID());
+        txtFordonRegdatum.setText(DatumHanterare.getDagensDatum());
     }
 
     /**
@@ -54,6 +55,10 @@ public class AdminUtrustning extends javax.swing.JFrame {
         cbAgenter = new javax.swing.JComboBox<>();
         lblRegistreraUtrustning = new javax.swing.JLabel();
         btnRegisteraUtrustning = new javax.swing.JButton();
+        btnVisaUtrustning = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnNyttFordon = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
         lblRubrikNamn = new javax.swing.JLabel();
@@ -62,7 +67,15 @@ public class AdminUtrustning extends javax.swing.JFrame {
         cbTyper = new javax.swing.JComboBox<>();
         lblTypAttribut = new javax.swing.JLabel();
         txtTypAttribut = new javax.swing.JTextField();
-        btnVisaUtrustning = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblFordonsIDRubrik = new javax.swing.JLabel();
+        lblFordonsbeskrivning = new javax.swing.JLabel();
+        lblFordonRegdatum = new javax.swing.JLabel();
+        lblFordonÅrsmodell = new javax.swing.JLabel();
+        txtFordonsbeskrivning = new javax.swing.JTextField();
+        txtFordonRegdatum = new javax.swing.JTextField();
+        txtFordonÅrsmodell = new javax.swing.JTextField();
+        txtFordonsID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,16 +102,16 @@ public class AdminUtrustning extends javax.swing.JFrame {
 
         lblInloggadSom.setText("Inloggad som");
 
-        btnLaggtillUtrustning.setText("Lägg till utrustning");
+        btnLaggtillUtrustning.setText("Lägg till utrustning på Agent");
         btnLaggtillUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLaggtillUtrustningActionPerformed(evt);
             }
         });
 
-        lblLäggaTill.setText("Lägg till utrustning på vald Agent.");
+        lblLäggaTill.setText("Välj Agent");
 
-        lblTaBort.setText("Ta bort utrustning från systemet.");
+        lblTaBort.setText("Välj utrustning att ta bort");
 
         btnTaBort.setText("Ta bort utrustning");
         btnTaBort.addActionListener(new java.awt.event.ActionListener() {
@@ -107,12 +120,28 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
-        lblRegistreraUtrustning.setText("Registrera ny utrustning i systemet.");
+        lblRegistreraUtrustning.setText("Registrera ny utrustning");
 
         btnRegisteraUtrustning.setText("Registrera ny utrustning");
         btnRegisteraUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisteraUtrustningActionPerformed(evt);
+            }
+        });
+
+        btnVisaUtrustning.setText("Visa utrustning");
+        btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaUtrustningActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Registrera nytt fordon");
+
+        btnNyttFordon.setText("Registrera nytt fordon");
+        btnNyttFordon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNyttFordonActionPerformed(evt);
             }
         });
 
@@ -141,68 +170,138 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
-        btnVisaUtrustning.setText("Visa utrustning");
-        btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisaUtrustningActionPerformed(evt);
-            }
-        });
+        lblFordonsIDRubrik.setText("ID-Nummer");
+
+        lblFordonsbeskrivning.setText("Fordonsbeskrivning");
+
+        lblFordonRegdatum.setText("Registreringsdatum");
+
+        lblFordonÅrsmodell.setText("Årsmodell");
+
+        txtFordonsbeskrivning.setColumns(5);
+
+        txtFordonRegdatum.setColumns(5);
+
+        txtFordonÅrsmodell.setColumns(5);
+
+        txtFordonsID.setColumns(5);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(lblFordonÅrsmodell)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFordonÅrsmodell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(lblFordonRegdatum)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFordonRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(lblFordonsbeskrivning)
+                            .addGap(33, 33, 33)
+                            .addComponent(txtFordonsbeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblFordonsIDRubrik)
+                        .addGap(73, 73, 73)
+                        .addComponent(txtFordonsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFordonsIDRubrik)
+                    .addComponent(txtFordonsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFordonsbeskrivning)
+                    .addComponent(txtFordonsbeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFordonRegdatum)
+                    .addComponent(txtFordonRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFordonÅrsmodell)
+                    .addComponent(txtFordonÅrsmodell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lbRubrikID)
+                        .addGap(31, 31, 31)
+                        .addComponent(lblvisaID))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblRubrikTyp)
+                                .addGap(29, 29, 29)
+                                .addComponent(cbTyper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblRubrikNamn)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTypAttribut)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTypAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbRubrikID)
+                            .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRubrikTyp, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTyper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTypAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTypAttribut))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
+                        .addComponent(btnRegisteraUtrustning)
+                        .addGap(158, 158, 158)
+                        .addComponent(btnNyttFordon)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblInloggadSom)
-                                .addGap(0, 621, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(lblLäggaTill))
-                                    .addComponent(btnLaggtillUtrustning))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblRegistreraUtrustning)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lblTaBort))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbRubrikID)
-                                                    .addComponent(lblRubrikNamn)
-                                                    .addComponent(lblRubrikTyp))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lblvisaID)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(cbTyper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(29, 29, 29)
-                                                        .addComponent(lblTypAttribut)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(txtTypAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnRegisteraUtrustning)
-                                        .addGap(170, 170, 170)
-                                        .addComponent(btnTaBort))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnLoggaut))
@@ -211,7 +310,34 @@ public class AdminUtrustning extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnVisaUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAvsluta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(btnAvsluta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblRegistreraUtrustning)
+                                            .addGap(195, 195, 195)
+                                            .addComponent(jLabel1))
+                                        .addComponent(lblInloggadSom)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGap(14, 14, 14)
+                                                .addComponent(lblLäggaTill)
+                                                .addGap(167, 167, 167)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnTaBort)
+                                                    .addComponent(lblTaBort)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnLaggtillUtrustning)
+                                        .addGap(0, 400, Short.MAX_VALUE)))
+                                .addGap(0, 91, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -220,41 +346,40 @@ public class AdminUtrustning extends javax.swing.JFrame {
                 .addComponent(lblInloggadSom)
                 .addGap(14, 14, 14)
                 .addComponent(btnLoggaut)
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTaBort)
-                    .addComponent(lblLäggaTill)
-                    .addComponent(lblRegistreraUtrustning))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbRubrikID)
-                        .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTaBort)
+                            .addComponent(lblLäggaTill))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbVäljUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTaBort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRubrikTyp, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbTyper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTypAttribut)
-                    .addComponent(txtTypAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLaggtillUtrustning)
-                    .addComponent(btnRegisteraUtrustning)
-                    .addComponent(btnTaBort))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(btnVisaUtrustning)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAvsluta)
-                    .addComponent(btnBacka)))
+                        .addGap(115, 115, 115)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lblRegistreraUtrustning))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNyttFordon)
+                            .addComponent(btnRegisteraUtrustning))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addComponent(btnVisaUtrustning)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAvsluta)
+                            .addComponent(btnBacka)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLaggtillUtrustning)
+                            .addComponent(btnTaBort))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -301,11 +426,16 @@ public class AdminUtrustning extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
+    private void btnNyttFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyttFordonActionPerformed
+       MetoderUnikaAdmin.nyRegistreraFordon(txtFordonsID, txtFordonsbeskrivning, txtFordonRegdatum, txtFordonÅrsmodell);
+    }//GEN-LAST:event_btnNyttFordonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLaggtillUtrustning;
     private javax.swing.JButton btnLoggaut;
+    private javax.swing.JButton btnNyttFordon;
     private javax.swing.JButton btnRegisteraUtrustning;
     private javax.swing.JButton btnTaBort;
     private javax.swing.JButton btnVisaUtrustning;
@@ -313,7 +443,14 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTaBort;
     private javax.swing.JComboBox<String> cbTyper;
     private javax.swing.JComboBox<String> cbVäljUtrustning;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbRubrikID;
+    private javax.swing.JLabel lblFordonRegdatum;
+    private javax.swing.JLabel lblFordonsIDRubrik;
+    private javax.swing.JLabel lblFordonsbeskrivning;
+    private javax.swing.JLabel lblFordonÅrsmodell;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblLäggaTill;
     private javax.swing.JLabel lblRegistreraUtrustning;
@@ -322,6 +459,10 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblTaBort;
     private javax.swing.JLabel lblTypAttribut;
     private javax.swing.JLabel lblvisaID;
+    private javax.swing.JTextField txtFordonRegdatum;
+    private javax.swing.JTextField txtFordonsID;
+    private javax.swing.JTextField txtFordonsbeskrivning;
+    private javax.swing.JTextField txtFordonÅrsmodell;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtTypAttribut;
     // End of variables declaration//GEN-END:variables

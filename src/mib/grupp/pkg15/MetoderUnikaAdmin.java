@@ -144,12 +144,11 @@ public class MetoderUnikaAdmin {
 
                     idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
                     if (valdUtrustning.equals("Vapen")) {
-                        if(Validera.kollaIntVapen(attributFält))
-                        {
-                             int Kaliber = Integer.parseInt(Attribut);
-                             idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
+                        if (Validera.kollaIntVapen(attributFält)) {
+                            int Kaliber = Integer.parseInt(Attribut);
+                            idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
                         }
-                        
+
                     }
                     if (valdUtrustning.equals("Kommunikation")) {
 //                        validering krävs
@@ -401,8 +400,6 @@ public class MetoderUnikaAdmin {
         }
     }
 
-    
-
     /**
      *
      * @param kontorsLåda
@@ -417,16 +414,16 @@ public class MetoderUnikaAdmin {
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             ArrayList<String> kontorsLista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(kontorsLista, ettKontor, ettKontor +" har redan en chef")) {
+            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(kontorsLista, ettKontor, ettKontor + " har redan en chef")) {
                 idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
 
-            } 
+            }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static void taBortKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent, JComboBox KCLåda) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
@@ -437,7 +434,7 @@ public class MetoderUnikaAdmin {
 
             if (!agentLista.contains(enAgent)) {
                 JOptionPane.showMessageDialog(null, ettMeddelande);
-            
+
             } else {
                 idb.delete("delete from kontorschef where agent_ID =" + agentID);
                 JOptionPane.showMessageDialog(null, "Du har tagit bort '" + enAgent + "' från kontoret '" + ettKontor + "'");
@@ -464,7 +461,7 @@ public class MetoderUnikaAdmin {
         int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
         String områdesIDSträng = Integer.toString(områdesID);
 
-        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde +" har redan en chef")) {
+        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde + " har redan en chef")) {
 
             try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
@@ -482,7 +479,6 @@ public class MetoderUnikaAdmin {
         ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
         String ettMeddelande = (enAgent + " ansvarar inte för något område");
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-       
 
         if (!agentLista.contains(enAgent)) {
             JOptionPane.showMessageDialog(null, ettMeddelande);
@@ -494,7 +490,7 @@ public class MetoderUnikaAdmin {
             } catch (InfException ex) {
                 Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
     }
 
@@ -531,6 +527,58 @@ public class MetoderUnikaAdmin {
             enArea.append(ettFordon.get("Utkvitteringsdatum") + "\n");
 
         }
+    }
+
+    public static void nyRegistreraFordon(JTextField idFält, JTextField beskrivningsFält, JTextField regFält, JTextField årsmodellsFält) {
+        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        if (Validera.kollaTom(beskrivningsFält) && Validera.kollaTom(regFält) && Validera.kollaTom(årsmodellsFält) && Validera.kollaDatumFormat(regFält) && Validera.kollaRegNummer(idFält) && Validera.kollaIntÅrsModell(årsmodellsFält)) {
+
+            String ettNamn = null;
+
+//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+            String ettID = idFält.getText();
+            String fordonsBeskrivning = beskrivningsFält.getText();
+            String regDatum = regFält.getText();
+            String årsModellsomSträng = årsmodellsFält.getText();
+            int årsModell = Integer.parseInt(årsModellsomSträng);
+
+            ArrayList<String> NamnLista = GetMetoder.getFordonsNamn();
+            ArrayList<String> regNrLista = GetMetoder.getFordonsID();
+
+            if (Validera.kollaOmvärdeFinnsIArrayList(regNrLista, ettID, "Ett fordon med registreringsnummer " + ettID + " finns redan registrerat i systemet") && Validera.kollaOmvärdeFinnsIArrayList(NamnLista, fordonsBeskrivning, "Ett fordon med detta namn finns redan i listan")) {
+
+                try {
+
+                    idb.insert("INSERT INTO fordon values('" + ettID + "','" + fordonsBeskrivning + "', '" + regDatum + "' ," + årsModell + ")");
+
+                } catch (InfException ex) {
+                    Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Fordonet " + fordonsBeskrivning + " med registreringsnummer " + ettID + " är nu registrat i systemet");
+
+                idFält.setText("");
+                beskrivningsFält.setText("");
+                regFält.setText(DatumHanterare.getDagensDatum());
+                årsmodellsFält.setText("");
+
+            }
+
+        }
+    }
+
+    public static void taBortFordon(JComboBox enLåda) 
+    {
+        String valtFordon = GetMetoder.hamtaCbSträng(enLåda);
+        try {
+            
+            
+            idb.delete("Delete from innehar_fordon where Fordons_ID ="+ valtFordon);
+            idb.delete("Delete from fordon where Fordons_ID ="+ valtFordon);
+            JOptionPane.showConfirmDialog(null, "Du har nu tagit bort fordonet med registreringsnummer " +valtFordon + " från systemet!");
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
     }
 
 }
