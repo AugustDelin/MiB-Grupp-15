@@ -207,8 +207,29 @@ public class ComboBoxar {
      * @param enLåda Denna metod fyller en ComboBox med värdena Ja och Nej, och
      * används vid ändring av chefsstatus
      */
-    public static void fyllCBJaOchNej(JComboBox enLåda) {
-        enLåda.addItem("Ja");
-        enLåda.addItem("Nej");
+    public static void fyllCBkontorchefsVal(JComboBox enLåda) {
+        enLåda.addItem("Gör till kontorschef");
+        enLåda.addItem("Ta bort kontorschef");
+    }
+    
+    public static void fyllCBområdeschefsVal(JComboBox enLåda) {
+        enLåda.addItem("Gör till områdeschef");
+        enLåda.addItem("Ta bort områdeschef");
+    }
+    /**
+     *
+     * @param enLåda
+     */
+    public static void fyllCBAllaKontor(JComboBox enLåda) {
+
+        try {
+            ArrayList<String> kontorslista = idb.fetchColumn("select kontorsbeteckning from kontorschef order by kontorsbeteckning");
+            for (String kontor : kontorslista) {
+                enLåda.addItem(kontor);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

@@ -401,22 +401,7 @@ public class MetoderUnikaAdmin {
         }
     }
 
-    /**
-     *
-     * @param enLåda
-     */
-    public static void listaAllaKontor(JComboBox enLåda) {
-
-        try {
-            ArrayList<String> kontorslista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
-            for (String kontor : kontorslista) {
-                enLåda.addItem(kontor);
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+    
 
     /**
      *
@@ -432,7 +417,7 @@ public class MetoderUnikaAdmin {
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             ArrayList<String> kontorsLista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(kontorsLista, ettKontor, "Området " + ettKontor +" har redan en chef")) {
+            if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(kontorsLista, ettKontor, ettKontor +" har redan en chef")) {
                 idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
 
