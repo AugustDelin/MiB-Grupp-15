@@ -70,11 +70,11 @@ public class GetMetoder {
         }
         return utrustningsNR;
     }
-    
+
     public static int hämtaOmrådesIDFrånNamn(String benämning) {
         String områdesID = "Finns ej";
         int områdesNR = 99;
-        
+
         try {
             områdesID = idb.fetchSingle("select omrades_ID from omrade where benamning ='" + benämning + "'");
             områdesNR = Integer.parseInt(områdesID);
@@ -143,9 +143,8 @@ public class GetMetoder {
         }
         return nextId;
     }
-    
-    // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
 
+    // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
     public static String getNextUtrustningsID() {
         String nextId = null;
         try {
@@ -225,8 +224,7 @@ public class GetMetoder {
 
     }
 
-
-public static ArrayList<String> getUtrustningsNamn() {
+    public static ArrayList<String> getUtrustningsNamn() {
         ArrayList<String> NamnListaUtrustning = null;
         try {
             NamnListaUtrustning = idb.fetchColumn("Select benamning from Utrustning order by benamning");
@@ -234,10 +232,10 @@ public static ArrayList<String> getUtrustningsNamn() {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return NamnListaUtrustning;
-}
+    }
 
-    public static ArrayList<HashMap<String,String>> getUtrustningsNamnfrånAgentnamn(String agentNamn) {
-        ArrayList<HashMap<String,String>> listan = null;
+    public static ArrayList<HashMap<String, String>> getUtrustningsNamnfrånAgentnamn(String agentNamn) {
+        ArrayList<HashMap<String, String>> listan = null;
         try {
             listan = idb.fetchRows("select Benamning, Utkvitteringsdatum from utrustning join innehar_utrustning iu on utrustning.Utrustnings_ID = iu.Utrustnings_ID join agent a on iu.Agent_ID = a.Agent_ID where Namn = '" + agentNamn + "'");
         } catch (InfException ex) {
@@ -246,27 +244,25 @@ public static ArrayList<String> getUtrustningsNamn() {
         return listan;
 
     }
-    
-    public static ArrayList<HashMap<String,String>> getFordonsNamnFrånAgentNamn(String agentNamn)
-    {
-     ArrayList<HashMap<String, String>> fordonsNamn = null;
+
+    public static ArrayList<HashMap<String, String>> getFordonsNamnFrånAgentNamn(String agentNamn) {
+        ArrayList<HashMap<String, String>> fordonsNamn = null;
         try {
-            fordonsNamn = idb.fetchRows("select Fordonsbeskrivning, Arsmodell, Utkvitteringsdatum from fordon join innehar_fordon i on fordon.Fordons_ID = i.Fordons_ID join agent a on a.Agent_ID = i.Agent_ID where namn ='" + agentNamn+ "'");
+            fordonsNamn = idb.fetchRows("select Fordonsbeskrivning, Arsmodell, Utkvitteringsdatum from fordon join innehar_fordon i on fordon.Fordons_ID = i.Fordons_ID join agent a on a.Agent_ID = i.Agent_ID where namn ='" + agentNamn + "'");
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-     return fordonsNamn;
+
+        return fordonsNamn;
     }
-    
+
     // Hämtar och returnerar strängar från komboboxar.
     public static String hamtaCbSträng(JComboBox enLåda) {
         String cbSträng = enLåda.getSelectedItem().toString();
         return cbSträng;
     }
 
-    public static ArrayList<String> getKontorsCherfer()
-    {
+    public static ArrayList<String> getKontorsCherfer() {
         ArrayList<String> agentLista = null;
         try {
             agentLista = idb.fetchColumn("select namn from agent join omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID");
@@ -275,9 +271,8 @@ public static ArrayList<String> getUtrustningsNamn() {
         }
         return agentLista;
     }
-    
-    public static ArrayList<String> getAllaOidFrånOC()
-    {
+
+    public static ArrayList<String> getAllaOidFrånOC() {
         ArrayList<String> områdesIDfrånOC = null;
         try {
             områdesIDfrånOC = idb.fetchColumn("Select omrade from omradesChef");

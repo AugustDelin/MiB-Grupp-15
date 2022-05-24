@@ -34,12 +34,10 @@ public class MetoderAgentAdmin {
 
     }
 
-
     /**
      *
      * @param användarnamnRuta
-     * @param lösenruta
-     * Metoden för att logga in som Agent.
+     * @param lösenruta Metoden för att logga in som Agent.
      */
     public static void loggainAgent(JTextField användarnamnRuta, JPasswordField lösenruta) {
 
@@ -71,8 +69,7 @@ public class MetoderAgentAdmin {
      *
      * @param användarnamn
      * @param gammaltlösen
-     * @param nyttlösen
-     * Metod för att byta lösenord för Agent.
+     * @param nyttlösen Metod för att byta lösenord för Agent.
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         //Kontrollerar att båda fälten är ifyllda
@@ -112,13 +109,10 @@ public class MetoderAgentAdmin {
         }
     }
 
-    
-
     /**
      *
      * @param lista
-     * @param låda
-     * Visar alla aliens som tillhör vald ras
+     * @param låda Visar alla aliens som tillhör vald ras
      */
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
 
@@ -138,12 +132,11 @@ public class MetoderAgentAdmin {
 
     }
 
-
     /**
      *
      * @param lista
-     * @param låda
-     * Skapar en hashmap och visar all information om varje enskild alien.
+     * @param låda Skapar en hashmap och visar all information om varje enskild
+     * alien.
      */
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
 
@@ -187,7 +180,7 @@ public class MetoderAgentAdmin {
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
         String dagensDatum = DatumHanterare.getDagensDatum();
         if (Validera.kollaOmvärdeFinnsIArrayList(GetMetoder.getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng, felmeddelande)) {
-        // om Valideringen godkänns registreras den nya utrustningen på agenten
+            // om Valideringen godkänns registreras den nya utrustningen på agenten
             try {
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
@@ -248,7 +241,6 @@ public class MetoderAgentAdmin {
         }
     }
 
-
     /**
      *
      * @param id
@@ -259,8 +251,7 @@ public class MetoderAgentAdmin {
      * @param telNrFält
      * @param platsLåda
      * @param agentLåda
-     * @param attributFält
-     * Metod för att registrera en ny Alien.
+     * @param attributFält Metod för att registrera en ny Alien.
      */
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
@@ -269,7 +260,7 @@ public class MetoderAgentAdmin {
             String ettNamn = null;
 
             try {
-        //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+                //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 String ettDatum = datum.getText();

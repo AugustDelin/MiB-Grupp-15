@@ -12,14 +12,16 @@ import oru.inf.InfException;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
+
 /**
  *
  * @author augustdelin
  */
 //Fälten för klassen AlienMetoder.
 public class MetoderAlien {
+
     private static InfDB idb;
-    private static StartSkärm ettFönster; 
+    private static StartSkärm ettFönster;
 
 //    Konstruktorn för klassen AlienMetoder.
     public MetoderAlien(StartSkärm ettFönster) {
@@ -28,6 +30,7 @@ public class MetoderAlien {
 
     }
 //  Metoden för att logga in som Alien.
+
     public static void loggaInAlien(JTextField användarnamnRuta, JPasswordField lösenruta) {
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {
@@ -51,30 +54,31 @@ public class MetoderAlien {
         }
     }
 //    Metoden för att visa områdeschef.
+
     public static void visaMinOC(JLabel ettFönster, String användarnamn) {
         try {
-            String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '"+ användarnamn+"'");
+            String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '" + användarnamn + "'");
             ettFönster.setText("Din områdeschef är: " + OC + ".");
         } catch (InfException ex) {
             Logger.getLogger(MetoderAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-                
+
     }
 //    Metoden för att byta lösenord för Alien.
-    public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen){
-        if(Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
+
+    public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
+        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
             String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
-            if(Validera.kollaLösen(lösenord, gammaltlösen)){
+            if (Validera.kollaLösen(lösenord, gammaltlösen)) {
                 String nyttLösenord = nyttlösen.getText();
-                idb.update("UPDATE alien SET losenord='"+nyttLösenord +"' where namn ='" + användarnamn +  "'");
+                idb.update("UPDATE alien SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats.");
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+    }
 }
 
 

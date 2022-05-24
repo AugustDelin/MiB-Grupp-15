@@ -29,8 +29,9 @@ public class Main {
         new GetMetoder();
     }
 //Metod som returnerar ett databasObjekt
+
     public static InfDB getDB() {
         return idb;
     }
-    
+
 }

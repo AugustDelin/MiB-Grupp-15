@@ -12,7 +12,6 @@ package mib.grupp.pkg15;
 public class AdminAlienRegDatum extends javax.swing.JFrame {
 
     private String användarnamn;
-    
 
     /**
      * Konstruktorn för AgentAlienInfo.
@@ -21,7 +20,6 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        
 
     }
 
@@ -164,9 +162,9 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AdminAlienInfo(användarnamn).setVisible(true);
-        dispose(); 
+        dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-      // Knappen för att starta metoden Avsluta program.
+    // Knappen för att starta metoden Avsluta program.
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
@@ -178,7 +176,7 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
 // Knappen för att starta metoden för att söka efter aliens mellan två valda datum.
     private void btnSökAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökAliensActionPerformed
         MetoderAgentAdmin.visaAlienFrånRegDatum(txtDatum1, txtDatum2, txtAreaListaAliens);
-        
+
     }//GEN-LAST:event_btnSökAliensActionPerformed
 
     /**

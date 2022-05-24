@@ -15,8 +15,8 @@ import oru.inf.InfException;
 
 /**
  *
- * @author erike
- * Denna klass ansvarar för att hantera saker som händer i ComboBoxar såsom att fylla dem.
+ * @author erike Denna klass ansvarar för att hantera saker som händer i
+ * ComboBoxar såsom att fylla dem.
  */
 //Fälten för klassen ComboBoxar.
 public class ComboBoxar {
@@ -85,22 +85,8 @@ public class ComboBoxar {
         }
 
     }
-//    Hämtar en ArrayList från databasen och fyller en ComboBox med alla områdesnamn som finns.
 
-//    public static void fyllCBchefsOmråden(JComboBox enLåda) {
-//
-//        try {
-//            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
-//
-//            for (String ettOmråde : områdesLista) {
-//                enLåda.addItem(ettOmråde);
-//            }
-//        } catch (InfException ex) {
-//            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 //     Hämtar en ArrayList ifrån databasen och fyller en ComboBox med med samtliga namn på agenterna som finns i databasen.
-
     public static void fyllCBAgentNamn(JComboBox enLåda) {
 
         try {
@@ -114,15 +100,12 @@ public class ComboBoxar {
         }
 
     }
-    
 
     /**
      *
-     * @param enLåda
-     * Fyller vald ComboBox med värden J eller N som motsvarar adminstatus
+     * @param enLåda Fyller vald ComboBox med värden J eller N som motsvarar
+     * adminstatus
      */
-
-
     public static void fyllAdminStatus(JComboBox enLåda) {
         enLåda.addItem("J");
         enLåda.addItem("N");
@@ -130,8 +113,8 @@ public class ComboBoxar {
 
     /**
      *
-     * @param enLåda
-     * Hämtar en ArrayList från databasen och fyller en ComboBox med alla områdesnamn som finns
+     * @param enLåda Hämtar en ArrayList från databasen och fyller en ComboBox
+     * med alla områdesnamn som finns
      */
     public static void fyllCBområden(JComboBox enLåda) {
         try {
@@ -144,15 +127,13 @@ public class ComboBoxar {
         }
     }
 
-    
-
     /**
      *
      * @param cbRaser
      * @param lblRasAttribut
-     * @param txtRasAttribut
-     * Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
-       en extra ruta genom en if-sats för att ange de extra attributen.
+     * @param txtRasAttribut Rullistan för att välja ras. Några av raserna har
+     * tillhörande attribut, i de fallen så tillkommer en extra ruta genom en
+     * if-sats för att ange de extra attributen.
      */
     public static void CBvaldAlienRas(JComboBox cbRaser, JLabel lblRasAttribut, JTextField txtRasAttribut) {
         String valdRas = GetMetoder.hamtaCbSträng(cbRaser);
@@ -179,8 +160,8 @@ public class ComboBoxar {
      *
      * @param cbTyper
      * @param lblTypAttribut
-     * @param txtTypAttribut
-     * Denna metoden används vid nyregistrering av utrustning och reagerar på vald utrustningstyp
+     * @param txtTypAttribut Denna metoden används vid nyregistrering av
+     * utrustning och reagerar på vald utrustningstyp
      */
     public static void CBvaldUtrustning(JComboBox cbTyper, JLabel lblTypAttribut, JTextField txtTypAttribut) {
         String valdUtrustning = GetMetoder.hamtaCbSträng(cbTyper);
@@ -206,8 +187,8 @@ public class ComboBoxar {
 
     /**
      *
-     * @param enLåda
-     * Denna metod gör en arraylist av de utrustningstyper som finns och lägger in denna i en ComboBox 
+     * @param enLåda Denna metod gör en arraylist av de utrustningstyper som
+     * finns och lägger in denna i en ComboBox
      */
     public static void fyllCBtyp(JComboBox enLåda) {
         ArrayList<String> typlista = new ArrayList();
@@ -220,10 +201,11 @@ public class ComboBoxar {
         }
 
     }
+
     /**
      *
-     * @param enLåda
-     * Denna metod fyller en ComboBox med värdena Ja och Nej, och används vid ändring av chefsstatus
+     * @param enLåda Denna metod fyller en ComboBox med värdena Ja och Nej, och
+     * används vid ändring av chefsstatus
      */
     public static void fyllCBJaOchNej(JComboBox enLåda) {
         enLåda.addItem("Ja");

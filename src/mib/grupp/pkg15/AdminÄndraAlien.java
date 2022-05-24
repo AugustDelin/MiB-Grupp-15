@@ -101,11 +101,6 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
         lblRubrikNamn.setText("Namn");
 
         txtNamn.setColumns(5);
-        txtNamn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamnActionPerformed(evt);
-            }
-        });
 
         lblRubrikRas.setText("Ras");
 
@@ -125,19 +120,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
 
         lblRubrikPlats.setText("Plats");
 
-        cbPlatser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbPlatserActionPerformed(evt);
-            }
-        });
-
         lblRubrikAgent.setText("Ansvarig Agent");
-
-        cbAgent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAgentActionPerformed(evt);
-            }
-        });
 
         lblRasAttribut.setText("Attribut");
 
@@ -300,7 +283,7 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-         new AdminAlienInfo(användarnamn).setVisible(true);
+        new AdminAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 
@@ -310,41 +293,12 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
 
     private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
         ComboBoxar.CBvaldAlienRas(cbRas, lblRasAttribut, txtRasAttribut);
-//        String valdRas = Validera.hamtaCbSträng(cbRas);
-//        if (valdRas.equals("Boglodite")) {
-//            lblRasAttribut.setText("Antal boogies");
-//            lblRasAttribut.setVisible(true);
-//            txtRasAttribut.setVisible(true);
-//            txtRasAttribut.setText("");
-//        }
-//        if (valdRas.equals("Squid")) {
-//            lblRasAttribut.setText("Antal armar");
-//            lblRasAttribut.setVisible(true);
-//            txtRasAttribut.setVisible(true);
-//            txtRasAttribut.setText("");
-//        }
-//        if (valdRas.equals("Worm")) {
-//            txtRasAttribut.setText("1");
-//            lblRasAttribut.setVisible(false);
-//            txtRasAttribut.setVisible(false);
-//        }
+
     }//GEN-LAST:event_cbRasActionPerformed
 
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
-        MetoderAgentAdmin.visaInformationAlien(cbAlienNamn, lblvisaID,txtDatum,txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
+        MetoderAgentAdmin.visaInformationAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
-
-    private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamnActionPerformed
-
-    private void cbPlatserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPlatserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbPlatserActionPerformed
-
-    private void cbAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbAgentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;

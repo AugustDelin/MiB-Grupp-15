@@ -9,8 +9,8 @@ import java.time.Year;
 
 /**
  *
- * @author augustdelin
- * Klassen används för att skapa och hantera olika datum och årvariabler(date).
+ * @author augustdelin Klassen används för att skapa och hantera olika datum och
+ * årvariabler(date).
  */
 //Fälten för klassen DatumHanterare.
 public class DatumHanterare {
