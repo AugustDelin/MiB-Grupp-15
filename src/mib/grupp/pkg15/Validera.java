@@ -67,12 +67,7 @@ public class Validera {
         return resultat;
     }
 
-    // Hämtar och returnerar strängar från komboboxar.
-    public static String hamtaCbSträng(JComboBox enLåda) {
-        String cbSträng = enLåda.getSelectedItem().toString();
-        return cbSträng;
-    }
-
+    
     public static boolean kollaOmvärdeFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
         boolean resultat = true;
         for (String enSträng : ArrayListSträng) {

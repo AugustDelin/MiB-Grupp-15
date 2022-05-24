@@ -27,6 +27,7 @@ public class ComboBoxar {
         idb = Main.getDB();
 
     }
+
     //Skapa en ArrayList och fyller denna med platserna som finns
     //enLåda.addItem("");
     public static void fyllCBPlats(JComboBox enLåda) {
@@ -112,79 +113,69 @@ public class ComboBoxar {
         }
 
     }
-    
-    public static void fyllAdminStatus(JComboBox enLåda)
-    {
+
+    public static void fyllAdminStatus(JComboBox enLåda) {
         enLåda.addItem("J");
         enLåda.addItem("N");
     }
-    
-    public static void fyllCBområden(JComboBox enLåda)
-    {
+
+    public static void fyllCBområden(JComboBox enLåda) {
         try {
             ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
-            for(String ettOmråde : områdesLista)
-            {
+            for (String ettOmråde : områdesLista) {
                 enLåda.addItem(ettOmråde);
             }
         } catch (InfException ex) {
             Logger.getLogger(ComboBoxar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
 //    en extra ruta genom en if-sats för att ange de extra attributen.
-    public static void CBvaldAlienRas(JComboBox cbRaser,JLabel lblRasAttribut,JTextField txtRasAttribut)
-    {
-            String valdRas = Validera.hamtaCbSträng(cbRaser);
-        if(valdRas.equals("Boglodite"))
-        {
+    public static void CBvaldAlienRas(JComboBox cbRaser, JLabel lblRasAttribut, JTextField txtRasAttribut) {
+        String valdRas = GetMetoder.hamtaCbSträng(cbRaser);
+        if (valdRas.equals("Boglodite")) {
             lblRasAttribut.setText("Antal boogies");
             txtRasAttribut.setText("");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
         }
-        if(valdRas.equals("Squid"))
-        {
+        if (valdRas.equals("Squid")) {
             lblRasAttribut.setText("Antal armar");
             txtRasAttribut.setText("");
             lblRasAttribut.setVisible(true);
             txtRasAttribut.setVisible(true);
         }
-        if(valdRas.equals("Worm"))
-        {
+        if (valdRas.equals("Worm")) {
             txtRasAttribut.setText("1");
             lblRasAttribut.setVisible(false);
             txtRasAttribut.setVisible(false);
         }
-}
+    }
 
-     public static void CBvaldUtrustning(JComboBox cbTyper, JLabel lblTypAttribut, JTextField txtTypAttribut)
-    {
-            String valdUtrustning = Validera.hamtaCbSträng(cbTyper);
-        if(valdUtrustning.equals("Vapen"))
-        {
+    public static void CBvaldUtrustning(JComboBox cbTyper, JLabel lblTypAttribut, JTextField txtTypAttribut) {
+        String valdUtrustning = GetMetoder.hamtaCbSträng(cbTyper);
+        if (valdUtrustning.equals("Vapen")) {
             lblTypAttribut.setText("Kaliber");
             txtTypAttribut.setText("");
             lblTypAttribut.setVisible(true);
             txtTypAttribut.setVisible(true);
         }
-        if(valdUtrustning.equals("Kommunikation"))
-        {
+        if (valdUtrustning.equals("Kommunikation")) {
             lblTypAttribut.setText("Överföringsteknik");
             txtTypAttribut.setText("");
             lblTypAttribut.setVisible(true);
             txtTypAttribut.setVisible(true);
         }
-        if(valdUtrustning.equals("Teknik"))
-        {   lblTypAttribut.setText ("Kraftkälla");
+        if (valdUtrustning.equals("Teknik")) {
+            lblTypAttribut.setText("Kraftkälla");
             txtTypAttribut.setText("");
             lblTypAttribut.setVisible(true);
             txtTypAttribut.setVisible(true);
         }
-        }
-     
-      public static void fyllCBtyp(JComboBox enLåda) {
+    }
+
+    public static void fyllCBtyp(JComboBox enLåda) {
         ArrayList<String> typlista = new ArrayList();
         typlista.add("Vapen");
         typlista.add("Kommunikation");
@@ -195,5 +186,12 @@ public class ComboBoxar {
         }
 
     }
+    /**
+     *
+     * @param enLåda
+     */
+    public static void fyllCBJaOchNej(JComboBox enLåda) {
+        enLåda.addItem("Ja");
+        enLåda.addItem("Nej");
+    }
 }
-

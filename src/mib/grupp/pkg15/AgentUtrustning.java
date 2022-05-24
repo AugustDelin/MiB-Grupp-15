@@ -186,7 +186,7 @@ public class AgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
 
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
-       MetoderAgentAdmin.listaAllInnehavandeUtrustning(användarnamn, txtareaVisaUtrustning);
+       MetoderAgentAdmin.listaMinUtrustning(användarnamn, txtareaVisaUtrustning);
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
     private void btnVisFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisFordonActionPerformed

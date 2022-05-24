@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -256,4 +257,13 @@ public static ArrayList<String> getUtrustningsNamn() {
         }
      
      return fordonsNamn;
-    }}
+    }
+    
+    // Hämtar och returnerar strängar från komboboxar.
+    public static String hamtaCbSträng(JComboBox enLåda) {
+        String cbSträng = enLåda.getSelectedItem().toString();
+        return cbSträng;
+    }
+
+
+}

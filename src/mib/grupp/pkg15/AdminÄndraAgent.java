@@ -27,8 +27,8 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
         ComboBoxar.fyllCBområden(cbOmråden);
         ComboBoxar.fyllAdminStatus(cbAdminstatus);
         MetoderUnikaAdmin.listaAllaKontor(cbVilketKontor);
-        MetoderUnikaAdmin.cbJaOchNej(cbOC);
-        MetoderUnikaAdmin.cbJaOchNej(cbKC);
+        ComboBoxar.fyllCBJaOchNej(cbOC);
+        ComboBoxar.fyllCBJaOchNej(cbKC);
     }
 
     /**
@@ -335,7 +335,7 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_cbAgentNamnActionPerformed
 
     private void cbKCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKCActionPerformed
-        String valtVärde = Validera.hamtaCbSträng(cbKC);
+        String valtVärde = GetMetoder.hamtaCbSträng(cbKC);
         if(valtVärde.equals("Ja")) {
         lblVilketKontor.setVisible(true);
         cbVilketKontor.setVisible(true);
