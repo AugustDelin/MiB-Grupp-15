@@ -23,11 +23,12 @@ public class Main {
         } catch (InfException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Startar de metoder som behövs i programmet.
         Navigera.openStartSkärm();
         new ComboBoxar();
         new GetMetoder();
     }
-
+//Metod som returnerar ett databasObjekt
     public static InfDB getDB() {
         return idb;
     }

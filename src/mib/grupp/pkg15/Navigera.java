@@ -6,7 +6,10 @@ package mib.grupp.pkg15;
 
 /**
  *
- * @author erike
+ * @author erike Används främst för att hantera vanliga navigeringsåtgärder,
+ * såsom att stänga ner programmet, eller att återvända till StartSkärmen där
+ * man loggar in
+ *
  */
 //Fälten för klassen Navigera.
 public class Navigera {
@@ -44,8 +47,8 @@ public class Navigera {
     public static void openAdminStartSkärm(String användarnamn) {
         new AdminStartSkärm(användarnamn).setVisible(true);
     }
-//    Metod som öppnar en ny sida av AdminMinSida.
 
+    //    Metod som öppnar en ny sida av AdminMinSida
     public static void openAdminMinSida(String användarnamn) {
         new AdminMinSida(användarnamn).setVisible(true);
     }
