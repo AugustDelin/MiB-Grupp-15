@@ -351,8 +351,17 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraKCStatusActionPerformed
 
     private void btnAndraOCStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraOCStatusActionPerformed
+        if(cbOC.getSelectedItem().equals("Ja"))
+        {
+            MetoderUnikaAdmin.laggTillOmrådesChef(cbAgentNamn, cbOmråden, cbOC);
+            
+        }
+        if (cbOC.getSelectedItem().equals("Nej"))
+        {
+            MetoderUnikaAdmin.taBortOC(cbAgentNamn, cbOmråden, cbKC);
+        }
         
-        MetoderUnikaAdmin.laggTillOmrådesChef(cbAgentNamn, cbOmråden, cbOC);
+         
         
     }//GEN-LAST:event_btnAndraOCStatusActionPerformed
 

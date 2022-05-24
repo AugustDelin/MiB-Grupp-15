@@ -28,12 +28,9 @@ public class MetoderUnikaAdmin {
     private static InfDB idb;
     private static StartSkärm ettFönster;
 
- 
-
     /**
      *
-     * @param ettFönster
-     * Konstruktorn för klassen UnikaAdminMetoder.
+     * @param ettFönster Konstruktorn för klassen UnikaAdminMetoder.
      */
     public MetoderUnikaAdmin(StartSkärm ettFönster) {
         this.ettFönster = ettFönster;
@@ -73,12 +70,11 @@ public class MetoderUnikaAdmin {
         }
     }
 
-
     /**
      *
      * @param lista
-     * @param låda
-     * Skapar en hashmap och visar all information om varje enskild agent.
+     * @param låda Skapar en hashmap och visar all information om varje enskild
+     * agent.
      */
     public static void listaEnskildAgent(JTextArea lista, JComboBox låda) {
         //Sätter textfältet som tomt
@@ -101,14 +97,11 @@ public class MetoderUnikaAdmin {
 
     }
 
-    
-
     /**
      *
      * @param användarnamn
      * @param gammaltlösen
-     * @param nyttlösen
-     * Metod för att byta lösenord för Admin.
+     * @param nyttlösen Metod för att byta lösenord för Admin.
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
@@ -124,15 +117,12 @@ public class MetoderUnikaAdmin {
         }
     }
 
-   
-
     /**
      *
      * @param id
      * @param namnFält
      * @param typLåda
-     * @param attributFält
-     * Metod för att registrera ny utrustning.
+     * @param attributFält Metod för att registrera ny utrustning.
      */
     public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
@@ -425,8 +415,6 @@ public class MetoderUnikaAdmin {
 
     }
 
-    
-
     /**
      *
      * @param kontorsLåda
@@ -445,9 +433,7 @@ public class MetoderUnikaAdmin {
                 idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
 
-            }
-            
-            else if(GetMetoder.hamtaCbSträng(KCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
+            } else if (GetMetoder.hamtaCbSträng(KCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
                 idb.delete("delete from kontorschef where agent_ID =" + agentID);
                 JOptionPane.showMessageDialog(null, "Du har tagit bort '" + enAgent + "' från kontoret '" + ettKontor + "'");
             }
@@ -464,35 +450,44 @@ public class MetoderUnikaAdmin {
      */
     public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
 
-        try {
-            String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
-            String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
-            ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID");
-            String ettMeddelande = (enAgent + " ansvarar redan för ett område");
-            String ettMeddelande2 = (enAgent + " ansvarar inte för något område");
-            int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
+        String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
+        String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
+        ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
+        String ettMeddelande = (enAgent + " ansvarar redan för ett område");
+        int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
+        int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
 
-            if (GetMetoder.hamtaCbSträng(OCLåda).equals("Ja") && Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
 
+            try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
-            
-            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde); }
-
-            if (GetMetoder.hamtaCbSträng(OCLåda).equals("Nej") && !Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande2)) {
-                
-                    
-
-                }
-                else {
-                    idb.delete("delete from omradeschef where agent_ID =" + agentID);
-                    JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
-                }
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
-         catch (InfException ex) {
-            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
+            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
+        }
+    }
+
+    public static void taBortOC(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
+        String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
+        String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
+        ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
+        String ettMeddelande = (enAgent + " ansvarar inte för något område");
+        int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
+       
+
+        if (!agentLista.contains(enAgent)) {
+            JOptionPane.showMessageDialog(null, ettMeddelande);
+
+        } else {
+            try {
+                idb.delete("delete from omradeschef where agent_ID =" + agentID);
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
+        }
     }
 
     /**
