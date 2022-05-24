@@ -453,11 +453,13 @@ public class MetoderUnikaAdmin {
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
         String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
         ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
+        ArrayList<String> omradesIDn = GetMetoder.getAllaOidFrånOC();
         String ettMeddelande = (enAgent + " ansvarar redan för ett område");
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
         int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
+        String områdesIDSträng = Integer.toString(områdesID);
 
-        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande)) {
+        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde +" har redan en chef")) {
 
             try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
