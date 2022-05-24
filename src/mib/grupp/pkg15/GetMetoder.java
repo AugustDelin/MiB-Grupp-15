@@ -265,5 +265,15 @@ public static ArrayList<String> getUtrustningsNamn() {
         return cbSträng;
     }
 
+    public static ArrayList<String> getKontorsCherfer()
+    {
+        ArrayList<String> agentLista = null;
+        try {
+            agentLista = idb.fetchColumn("select namn from agent join omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return agentLista;
+    }
 
 }

@@ -256,5 +256,18 @@ public class Validera {
         return resultat;
 
     }
+    
+    public static boolean kollaVärdeINTEFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
+        boolean resultat = false;
+        for (String enSträng : ArrayListSträng) {
+            if (enSträng.equalsIgnoreCase(strängAttJämföra)) {
+                resultat = true;
+                JOptionPane.showMessageDialog(null, felmeddelande);
+
+            }
+        }
+        return resultat;
+    }
+
 
 }
