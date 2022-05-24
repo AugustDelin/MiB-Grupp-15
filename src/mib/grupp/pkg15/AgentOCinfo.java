@@ -154,7 +154,7 @@ public class AgentOCinfo extends javax.swing.JFrame {
         txtAreaListaChefer.setVisible(true);
         if (cbValtOmråde.getItemCount() == 0) {
 
-            ComboBoxar.fyllCBchefsOmråden(cbValtOmråde);
+            ComboBoxar.fyllCBområden(cbValtOmråde);
         }
     }//GEN-LAST:event_btnSokChefActionPerformed
 

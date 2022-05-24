@@ -6,11 +6,11 @@ package mib.grupp.pkg15;
 
 import java.time.LocalDate;
 import java.time.Year;
-import java.util.Date;
 
 /**
  *
  * @author augustdelin
+ * Klassen används för att skapa och hantera olika datum och årvariabler(date).
  */
 //Fälten för klassen DatumHanterare.
 public class DatumHanterare {
@@ -20,11 +20,13 @@ public class DatumHanterare {
 
     }
 
+    //Hämtar och returnerar dagens datum
     public static String getDagensDatum() {
         String dagensDatum = LocalDate.now().toString();
         return dagensDatum;
     }
 
+    //Hämtar och returnerar nuvarande år
     public static String getNuvarandeÅrtal() {
         String nuvarandeÅr = Year.now().toString();
         return nuvarandeÅr;

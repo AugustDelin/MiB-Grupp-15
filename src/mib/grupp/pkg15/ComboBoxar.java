@@ -16,6 +16,7 @@ import oru.inf.InfException;
 /**
  *
  * @author erike
+ * Denna klass ansvarar för att hantera saker som händer i ComboBoxar såsom att fylla dem.
  */
 //Fälten för klassen ComboBoxar.
 public class ComboBoxar {
@@ -69,7 +70,7 @@ public class ComboBoxar {
             Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-//    Skapar en ArrayList och fyller den med namnen från utrustningslistan.
+//    Hämtar en ArrayList från databasen och fyller vald ComboBox med namnen från utrustningslistan.
 
     public static void fyllCBAgentUtrustning(JComboBox enLåda) {
 
@@ -84,21 +85,21 @@ public class ComboBoxar {
         }
 
     }
-//    Skapa en ArrayList och fyller den med chefer inom de olika områdena.
+//    Hämtar en ArrayList från databasen och fyller en ComboBox med alla områdesnamn som finns.
 
-    public static void fyllCBchefsOmråden(JComboBox enLåda) {
-
-        try {
-            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
-
-            for (String ettOmråde : områdesLista) {
-                enLåda.addItem(ettOmråde);
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-//     Skapar en ArrayList och fyller den med namn på agenter.
+//    public static void fyllCBchefsOmråden(JComboBox enLåda) {
+//
+//        try {
+//            ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
+//
+//            for (String ettOmråde : områdesLista) {
+//                enLåda.addItem(ettOmråde);
+//            }
+//        } catch (InfException ex) {
+//            Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//     Hämtar en ArrayList ifrån databasen och fyller en ComboBox med med samtliga namn på agenterna som finns i databasen.
 
     public static void fyllCBAgentNamn(JComboBox enLåda) {
 
@@ -113,12 +114,25 @@ public class ComboBoxar {
         }
 
     }
+    
+
+    /**
+     *
+     * @param enLåda
+     * Fyller vald ComboBox med värden J eller N som motsvarar adminstatus
+     */
+
 
     public static void fyllAdminStatus(JComboBox enLåda) {
         enLåda.addItem("J");
         enLåda.addItem("N");
     }
 
+    /**
+     *
+     * @param enLåda
+     * Hämtar en ArrayList från databasen och fyller en ComboBox med alla områdesnamn som finns
+     */
     public static void fyllCBområden(JComboBox enLåda) {
         try {
             ArrayList<String> områdesLista = idb.fetchColumn("Select Benamning from Omrade order by Benamning");
@@ -130,8 +144,16 @@ public class ComboBoxar {
         }
     }
 
-    //Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
-//    en extra ruta genom en if-sats för att ange de extra attributen.
+    
+
+    /**
+     *
+     * @param cbRaser
+     * @param lblRasAttribut
+     * @param txtRasAttribut
+     * Rullistan för att välja ras. Några av raserna har tillhörande attribut, i de fallen så tillkommer 
+       en extra ruta genom en if-sats för att ange de extra attributen.
+     */
     public static void CBvaldAlienRas(JComboBox cbRaser, JLabel lblRasAttribut, JTextField txtRasAttribut) {
         String valdRas = GetMetoder.hamtaCbSträng(cbRaser);
         if (valdRas.equals("Boglodite")) {
@@ -153,6 +175,13 @@ public class ComboBoxar {
         }
     }
 
+    /**
+     *
+     * @param cbTyper
+     * @param lblTypAttribut
+     * @param txtTypAttribut
+     * Denna metoden används vid nyregistrering av utrustning och reagerar på vald utrustningstyp
+     */
     public static void CBvaldUtrustning(JComboBox cbTyper, JLabel lblTypAttribut, JTextField txtTypAttribut) {
         String valdUtrustning = GetMetoder.hamtaCbSträng(cbTyper);
         if (valdUtrustning.equals("Vapen")) {
@@ -175,6 +204,11 @@ public class ComboBoxar {
         }
     }
 
+    /**
+     *
+     * @param enLåda
+     * Denna metod gör en arraylist av de utrustningstyper som finns och lägger in denna i en ComboBox 
+     */
     public static void fyllCBtyp(JComboBox enLåda) {
         ArrayList<String> typlista = new ArrayList();
         typlista.add("Vapen");
@@ -189,6 +223,7 @@ public class ComboBoxar {
     /**
      *
      * @param enLåda
+     * Denna metod fyller en ComboBox med värdena Ja och Nej, och används vid ändring av chefsstatus
      */
     public static void fyllCBJaOchNej(JComboBox enLåda) {
         enLåda.addItem("Ja");
