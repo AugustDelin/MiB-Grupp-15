@@ -21,6 +21,7 @@ import oru.inf.InfException;
 /**
  *
  * @author Linda
+ * I denna klass finns metoder som används både i Agent- och adminfönstren
  */
 //Fälten för klassen UnikaAdminMetoder.
 public class MetoderUnikaAdmin {
@@ -74,9 +75,9 @@ public class MetoderUnikaAdmin {
      *
      * @param lista
      * @param låda 
+     * //    Hämtar en hashmap och visar all information om varje enskild agent i en textArea.
      */
-//    Skapar en hashmap och visar all information om varje enskild
-//    agent.
+
     public static void listaEnskildAgent(JTextArea lista, JComboBox låda) {
         //Sätter textfältet som tomt
         lista.setText("");
@@ -102,7 +103,11 @@ public class MetoderUnikaAdmin {
      *
      * @param användarnamn
      * @param gammaltlösen
-     * @param nyttlösen Metod för att byta lösenord för Admin.
+     * @param nyttlösen 
+     * 
+     * Metod för att byta lösenord för Admin.
+     * Kontrollerar först så att det gamla lösenordet stämmer överens med det som finns i Databasen
+     * Om detta stämmer byts lösenordet ut till det nya.
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
@@ -123,7 +128,9 @@ public class MetoderUnikaAdmin {
      * @param id
      * @param namnFält
      * @param typLåda
-     * @param attributFält Metod för att registrera ny utrustning.
+     * @param attributFält 
+     * Metod för att registrera ny utrustning, vi har valt att varje utrustning måste ha unikt namn.
+     * Specialvalidering för vapen, eftersom kaliberfältet endast tar ints.
      */
     public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
@@ -176,6 +183,9 @@ public class MetoderUnikaAdmin {
     /**
      *
      * @param enLåda
+     * Metod för att ta bort vald utrustning ur systemet.
+     * Tas bort i korrekt ordning så att inga fel kastas ifrån databasen
+     * När en utrustning tagits bort försvinner den även ur comboboxen
      */
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
@@ -194,8 +204,11 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     * Hämtar agentID från ett namn och tar bort vald agent ur systemet, detta görs i korrekt ordning så att inga fel kastas
+     * tar även bort vald agent ur comboboxen när det är borta ur systemet
+     * 
      * @param enLåda
+     * 
      */
     public static void taBortAgentUrSystemet(JComboBox enLåda) {
         String valdAgent = GetMetoder.hamtaCbSträng(enLåda);
@@ -213,7 +226,8 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     *  Hämtar alien_ID och gör om till int från aliennamnet och tar bort vald alien från systemet
+     * Namnet tas även bort ifrån comboboxen
      * @param enLåda
      */
     public static void taBortAlienUrSystemet(JComboBox enLåda) {
@@ -232,7 +246,7 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     * Metod för nyregistrering av agent 
      * @param id
      * @param datum
      * @param namnFält
@@ -262,10 +276,11 @@ public class MetoderUnikaAdmin {
                 String felMeddelande = "En Agent vid namn " + ettNamn + " finns redan registrerad.";
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande) && Validera.kontrolleraAgentNamn(namnFält)) {
-
+// Om alla valideringen fungerar läggs all data in i agenttabell och meddelande kommer upp.
                     idb.insert("insert into agent values(" + ettID + ",'" + ettNamn + "','" + ettTelNr + "','" + ettDatum + "','" + adminStatus + "','" + ettLösen + "'," + områdesID + ")");
-
+                    
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                    // Slutligen sätts alla fält som tomma och nästa ID hämtas ifrån databasen
                     id.setText(GetMetoder.getNextAgentID());
                     namnFält.setText("");
                     lösenFält.setText("");
@@ -282,7 +297,10 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     *Denna metod lägger in all information om vald agent i en liknade skärm som nyregstringens skärmen
+     * En HashMap hämtas och data läggs i respektive textfield. 
+     * Dessa fält kan sedan.
+     * 
      * @param valdAgentFält
      * @param IDFält
      * @param NamnFält
@@ -291,6 +309,7 @@ public class MetoderUnikaAdmin {
      * @param LösenFält
      * @param adminFält
      * @param områdesFält
+     * 
      */
     public static void visaInformationAgent(JComboBox valdAgentFält, JLabel IDFält, JTextField NamnFält, JTextField datumFält, JTextField TeleFält, JTextField LösenFält, JComboBox adminFält, JComboBox områdesFält) {
         String valdAgent = GetMetoder.hamtaCbSträng(valdAgentFält);
@@ -307,7 +326,10 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     * Denna metod fungerar på liknande sätt som nyregistering av agent.
+     * 
+     * 
+     * 
      * @param valdAgentFält
      * @param id
      * @param namnFält
@@ -340,6 +362,8 @@ public class MetoderUnikaAdmin {
                 ArrayList<String> NamnLista = GetMetoder.getAgentNamn();
                 String felMeddelande = "En Agent vid namn " + ettNamn + " finns redan registrerad.";
 
+                // validering görs om ett nytt namn har angivits eller ej.
+                // Om inget nytt namn angivits updateras alla värden.
                 if (gammaltNamn.equals(ettNamn)) {
                     idb.update("Update agent set Namn ='" + ettNamn + "', Telefon = '" + ettTelNr + "', Anstallningsdatum = '" + ettDatum + "', Administrator='" + adminStatus + "', Losenord ='" + ettLösen + "', Omrade=" + områdesID + " where Agent_ID =" + ettID);
 
@@ -351,7 +375,8 @@ public class MetoderUnikaAdmin {
                 } else if (!gammaltNamn.equals(ettNamn)) {
 
                     if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande) && Validera.kontrolleraAgentNamn(namnFält)) {
-
+// Om ett nytt namn angivits görs en kontroll om samma namn finns i tabellen.
+// Om inte uppdateras tabellen, annars  kommer ett felmeddelande upp.
                         idb.update("Update agent set Namn ='" + ettNamn + "', Telefon = '" + ettTelNr + "', Anstallningsdatum = '" + ettDatum + "', Administrator='" + adminStatus + "', Losenord ='" + ettLösen + "', Omrade=" + områdesID + " Where agent_ID =" + ettID);
 
                         JOptionPane.showMessageDialog(null, gammaltNamn + " är nu omregistrerad");
@@ -371,7 +396,7 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     * Metod för att lägga till utrustning på vald Agent.
      * @param utrustningsLåda
      * @param agentLÅda
      */
@@ -402,19 +427,26 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     * Metod för att göra vald agent till kontorschef
      * @param kontorsLåda
      * @param valdAgent
-     * @param KCLåda
      */
     public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
             String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
+            //Hämtar värdena i från boxarna
+            
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             ArrayList<String> kontorsLista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
+            //Hämtar lista över alla kontorschefer och en lista över alla kontor som finns
+            
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
+            
+            //Här görs två kontroller, dels om kontoret redan har en kontorschef
+            //dels en kontroll görs om agenten redan är kontorschef
+            //Om något av dessa stämmer kommer felmeddelanden upp
             if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(kontorsLista, ettKontor, ettKontor + " har redan en chef")) {
                 idb.insert("insert into kontorschef values(" + agentID + ", '" + ettKontor + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till '" + enAgent + "' till kontoret '" + ettKontor + "'");
@@ -425,17 +457,22 @@ public class MetoderUnikaAdmin {
         }
     }
 
+    /**
+     *Metod för att ta bort en kontorschef från valt kontor.
+     * @param valdAgent
+     */
     public static void taBortKontorsChef(JComboBox valdAgent) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
-            //String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
+            //Hämtar en namnlista på alla kontorschefer
             String ettMeddelande = (enAgent + " ansvarar inte för något kontor");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
 
             if (!agentLista.contains(enAgent)) {
                 JOptionPane.showMessageDialog(null, ettMeddelande);
-
+//Här görs en kontroll om vald agent är kontorschef eller ej. Är den inte det kommer felmeddelande upp.
+//Annars tas agent bort från kontoret
             } else {
                 idb.delete("delete from kontorschef where agent_ID =" + agentID);
                 JOptionPane.showMessageDialog(null, enAgent + "är inte längre kontorschef!");
@@ -446,10 +483,9 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     *  Lägger vald agent som områdeschef för valt område.
      * @param valdAgent
      * @param områdesLåda
-     * @param OCLåda
      */
     public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda) {
 
@@ -457,13 +493,15 @@ public class MetoderUnikaAdmin {
         String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
         ArrayList<String> agentLista = GetMetoder.hämtaNamnFrånKontorsChefer();
         ArrayList<String> omradesIDn = GetMetoder.getAllaOidFrånOC();
+        //Hämtar listor som gås igenom för att konttrollera om området har en chef eller om agenten redan är chef
         String ettMeddelande = (enAgent + " ansvarar redan för ett område");
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
         int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
+        //Agentnamnet och områdesbenämningen görs om till int för att kunna läggas in i tabellen
         String områdesIDSträng = Integer.toString(områdesID);
 
         if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde + " har redan en chef")) {
-
+//Här valideras listora gentemot agent namnet
             try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
             } catch (InfException ex) {
