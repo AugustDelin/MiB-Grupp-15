@@ -4,12 +4,14 @@
  */
 package mib.grupp.pkg15;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import oru.inf.InfException;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
 
@@ -94,5 +96,18 @@ public class MetoderAlien {
         } catch (InfException ex) {
             Logger.getLogger(MetoderAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void listaAliensIMittområde(String användarnamn, JTextArea enArea, JLabel enLabel) {
+        String aliensOmråde = GetMetoder.hamtaEnAliensOmråde(användarnamn);
+        ArrayList<String> aliensIMittOmråde = GetMetoder.hamtaAllaAliensfrånOmråde(aliensOmråde);
+        enLabel.setText("Aliens i " + aliensOmråde);
+        
+        for(String enAlien : aliensIMittOmråde)
+        {
+            enArea.append(enAlien + "\n");
+        }
+
+        
     }
 }

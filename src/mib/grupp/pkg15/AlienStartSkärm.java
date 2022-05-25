@@ -23,6 +23,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         this.användarnamn = användarnamn;
         FyllText.välkomstLabel(lblRubrik, användarnamn);
         MetoderAlien.visaMinOC(lblMinOc, användarnamn);
+        MetoderAlien.listaAliensIMittområde(användarnamn, txtareaAliensIOmråde, lblMittområde);
     }
 
     /**
@@ -39,6 +40,9 @@ public class AlienStartSkärm extends javax.swing.JFrame {
         btnMinSida = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         btnAvsluta = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtareaAliensIOmråde = new javax.swing.JTextArea();
+        lblMittområde = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -67,6 +71,12 @@ public class AlienStartSkärm extends javax.swing.JFrame {
             }
         });
 
+        txtareaAliensIOmråde.setColumns(20);
+        txtareaAliensIOmråde.setRows(5);
+        jScrollPane1.setViewportView(txtareaAliensIOmråde);
+
+        lblMittområde.setText("Aliens i mitt område");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,17 +85,24 @@ public class AlienStartSkärm extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnMinSida)
-                            .addComponent(lblMinOc))
-                        .addContainerGap(270, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lblRubrik)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLoggaUt))))
-            .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnLoggaUt))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMinOc)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnMinSida)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                                .addComponent(lblMittområde, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvsluta))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAvsluta, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,8 +115,12 @@ public class AlienStartSkärm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblMinOc)
                 .addGap(18, 18, 18)
-                .addComponent(btnMinSida)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnMinSida)
+                    .addComponent(lblMittområde))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(btnAvsluta))
         );
 
@@ -125,7 +146,10 @@ public class AlienStartSkärm extends javax.swing.JFrame {
     private javax.swing.JButton btnAvsluta;
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnMinSida;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMinOc;
+    private javax.swing.JLabel lblMittområde;
     private javax.swing.JLabel lblRubrik;
+    private javax.swing.JTextArea txtareaAliensIOmråde;
     // End of variables declaration//GEN-END:variables
 }
