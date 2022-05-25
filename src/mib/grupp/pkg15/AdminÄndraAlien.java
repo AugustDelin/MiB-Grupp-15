@@ -25,7 +25,6 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
         FyllText.inloggadSom(lblInloggadSom, användarnamn);
         lblRasAttribut.setVisible(false);
         txtRasAttribut.setVisible(false);
-        //lblvisaID.setText(GetMetoder.getNextAlienID());
         ComboBoxar.fyllCBAlienNamn(cbAlienNamn);
         ComboBoxar.fyllCBPlats(cbPlatser);
         ComboBoxar.fyllCBras(cbRas);
@@ -286,16 +285,16 @@ public class AdminÄndraAlien extends javax.swing.JFrame {
         new AdminHanteraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att ändra alien.
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         MetoderAgentAdmin.ändraAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
-
+    // ComboBox för att visa ras och rasattribut för en vald alien.
     private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
         ComboBoxar.CBvaldAlienRas(cbRas, lblRasAttribut, txtRasAttribut);
 
     }//GEN-LAST:event_cbRasActionPerformed
-
+    // ComboBox för att visa information om alien.
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
         MetoderAgentAdmin.visaInformationAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
