@@ -20,8 +20,8 @@ import oru.inf.InfException;
 
 /**
  *
- * @author Linda
- * I denna klass finns metoder som används både i Agent- och adminfönstren
+ * @author Linda I denna klass finns metoder som används både i Agent- och
+ * adminfönstren
  */
 //Fälten för klassen UnikaAdminMetoder.
 public class MetoderUnikaAdmin {
@@ -74,10 +74,9 @@ public class MetoderUnikaAdmin {
     /**
      *
      * @param lista
-     * @param låda 
-     * //    Hämtar en hashmap och visar all information om varje enskild agent i en textArea.
+     * @param låda // Hämtar en hashmap och visar all information om varje
+     * enskild agent i en textArea.
      */
-
     public static void listaEnskildAgent(JTextArea lista, JComboBox låda) {
         //Sätter textfältet som tomt
         lista.setText("");
@@ -103,11 +102,11 @@ public class MetoderUnikaAdmin {
      *
      * @param användarnamn
      * @param gammaltlösen
-     * @param nyttlösen 
-     * 
-     * Metod för att byta lösenord för Admin.
-     * Kontrollerar först så att det gamla lösenordet stämmer överens med det som finns i Databasen
-     * Om detta stämmer byts lösenordet ut till det nya.
+     * @param nyttlösen
+     *
+     * Metod för att byta lösenord för Admin. Kontrollerar först så att det
+     * gamla lösenordet stämmer överens med det som finns i Databasen Om detta
+     * stämmer byts lösenordet ut till det nya.
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
@@ -128,9 +127,9 @@ public class MetoderUnikaAdmin {
      * @param id
      * @param namnFält
      * @param typLåda
-     * @param attributFält 
-     * Metod för att registrera ny utrustning, vi har valt att varje utrustning måste ha unikt namn.
-     * Specialvalidering för vapen, eftersom kaliberfältet endast tar ints.
+     * @param attributFält Metod för att registrera ny utrustning, vi har valt
+     * att varje utrustning måste ha unikt namn. Specialvalidering för vapen,
+     * eftersom kaliberfältet endast tar ints.
      */
     public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
@@ -182,10 +181,9 @@ public class MetoderUnikaAdmin {
 
     /**
      *
-     * @param enLåda
-     * Metod för att ta bort vald utrustning ur systemet.
-     * Tas bort i korrekt ordning så att inga fel kastas ifrån databasen
-     * När en utrustning tagits bort försvinner den även ur comboboxen
+     * @param enLåda Metod för att ta bort vald utrustning ur systemet. Tas bort
+     * i korrekt ordning så att inga fel kastas ifrån databasen När en
+     * utrustning tagits bort försvinner den även ur comboboxen
      */
     public static void taBortUtrustningUrSystemet(JComboBox enLåda) {
         try {
@@ -204,39 +202,39 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     * Hämtar agentID från ett namn och tar bort vald agent ur systemet, detta görs i korrekt ordning så att inga fel kastas
-     * tar även bort vald agent ur comboboxen när det är borta ur systemet
-     * Om agenten är ansvarig för någon kommer felmeddelande upp.
-     * 
+     * Hämtar agentID från ett namn och tar bort vald agent ur systemet, detta
+     * görs i korrekt ordning så att inga fel kastas tar även bort vald agent ur
+     * comboboxen när det är borta ur systemet Om agenten är ansvarig för någon
+     * kommer felmeddelande upp.
+     *
      * @param enLåda
-     * 
+     *
      */
     public static void taBortAgentUrSystemet(JComboBox enLåda) {
         String valdAgent = GetMetoder.hamtaCbSträng(enLåda);
         ArrayList<String> ansvarigaAgenter = GetMetoder.hämtaAnsvarigaAgenter();
         int AgentID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
         String agentIDsomSträng = Integer.toString(AgentID);
-        if(Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort " + valdAgent + " har alienansvar"))
-        {
-            
-        
-        try {
-            
-            idb.delete("delete from omradeschef where agent_id =" + AgentID);
-            idb.delete("delete from kontorschef where agent_id =" + AgentID);
-            idb.delete("delete from faltagent where agent_id =" + AgentID);
-            idb.delete("delete from agent where agent_id =" + AgentID);
-            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
-            enLåda.removeItem(valdAgent);
-        } catch (InfException ex) {
-            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        if (Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort vald agent.\n" + valdAgent + " har alienansvar.\nVänligen ändra ansvarig agent under 'Hantera aliens'.")) {
+
+            try {
+
+                idb.delete("delete from omradeschef where agent_id =" + AgentID);
+                idb.delete("delete from kontorschef where agent_id =" + AgentID);
+                idb.delete("delete from faltagent where agent_id =" + AgentID);
+                idb.delete("delete from agent where agent_id =" + AgentID);
+                JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
+                enLåda.removeItem(valdAgent);
+            } catch (InfException ex) {
+                Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }
     }
 
     /**
-     *  Hämtar alien_ID och gör om till int från aliennamnet och tar bort vald alien från systemet
-     * Namnet tas även bort ifrån comboboxen
+     * Hämtar alien_ID och gör om till int från aliennamnet och tar bort vald
+     * alien från systemet Namnet tas även bort ifrån comboboxen
+     *
      * @param enLåda
      */
     public static void taBortAlienUrSystemet(JComboBox enLåda) {
@@ -255,7 +253,8 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     * Metod för nyregistrering av agent 
+     * Metod för nyregistrering av agent
+     *
      * @param id
      * @param datum
      * @param namnFält
@@ -287,7 +286,7 @@ public class MetoderUnikaAdmin {
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, felMeddelande) && Validera.kontrolleraAgentNamn(namnFält)) {
 // Om alla valideringen fungerar läggs all data in i agenttabell och meddelande kommer upp.
                     idb.insert("insert into agent values(" + ettID + ",'" + ettNamn + "','" + ettTelNr + "','" + ettDatum + "','" + adminStatus + "','" + ettLösen + "'," + områdesID + ")");
-                    
+
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
                     // Slutligen sätts alla fält som tomma och nästa ID hämtas ifrån databasen
                     id.setText(GetMetoder.getNextAgentID());
@@ -306,10 +305,11 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *Denna metod lägger in all information om vald agent i en liknade skärm som nyregstringens skärmen
-     * En HashMap hämtas och data läggs i respektive textfield. 
-     * 
-     * 
+     * Denna metod lägger in all information om vald agent i en liknade skärm
+     * som nyregstringens skärmen En HashMap hämtas och data läggs i respektive
+     * textfield.
+     *
+     *
      * @param valdAgentFält
      * @param IDFält
      * @param NamnFält
@@ -318,7 +318,7 @@ public class MetoderUnikaAdmin {
      * @param LösenFält
      * @param adminFält
      * @param områdesFält
-     * 
+     *
      */
     public static void visaInformationAgent(JComboBox valdAgentFält, JLabel IDFält, JTextField NamnFält, JTextField datumFält, JTextField TeleFält, JTextField LösenFält, JComboBox adminFält, JComboBox områdesFält) {
         String valdAgent = GetMetoder.hamtaCbSträng(valdAgentFält);
@@ -335,11 +335,11 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     * Denna metod fungerar på liknande sätt som nyregistering av agent.
-     * Men kör en set istället för insert into statement till databasen
-     * 
-     * 
-     * 
+     * Denna metod fungerar på liknande sätt som nyregistering av agent. Men kör
+     * en set istället för insert into statement till databasen
+     *
+     *
+     *
      * @param valdAgentFält
      * @param id
      * @param namnFält
@@ -407,6 +407,7 @@ public class MetoderUnikaAdmin {
 
     /**
      * Metod för att lägga till utrustning på vald Agent.
+     *
      * @param utrustningsLåda
      * @param agentLÅda
      */
@@ -438,6 +439,7 @@ public class MetoderUnikaAdmin {
 
     /**
      * Metod för att göra vald agent till kontorschef
+     *
      * @param kontorsLåda
      * @param valdAgent
      */
@@ -446,14 +448,14 @@ public class MetoderUnikaAdmin {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
             String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
             //Hämtar värdena i från boxarna
-            
+
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar redan för ett kontor");
             ArrayList<String> kontorsLista = idb.fetchColumn("select kontorsbeteckning from kontorschef");
             //Hämtar lista över alla kontorschefer och en lista över alla kontor som finns
-            
+
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            
+
             //Här görs två kontroller, dels om kontoret redan har en kontorschef
             //dels en kontroll görs om agenten redan är kontorschef
             //Om något av dessa stämmer kommer felmeddelanden upp
@@ -468,7 +470,8 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *Metod för att ta bort en kontorschef från valt kontor.
+     * Metod för att ta bort en kontorschef från valt kontor.
+     *
      * @param valdAgent
      */
     public static void taBortKontorsChef(JComboBox valdAgent) {
@@ -493,7 +496,8 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *  Lägger vald agent som områdeschef för valt område.
+     * Lägger vald agent som områdeschef för valt område.
+     *
      * @param valdAgent
      * @param områdesLåda
      */
@@ -512,7 +516,7 @@ public class MetoderUnikaAdmin {
         String agentIDsomSträng = Integer.toString(agentID);
 
         if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, agentIDsomSträng, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde + " har redan en chef")) {
-        //Här valideras listora gentemot agentnamnet och områdesbenämningen
+            //Här valideras listora gentemot agentnamnet och områdesbenämningen
             try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
             } catch (InfException ex) {
@@ -524,26 +528,27 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *Denna metod tar bort vald områdeschef från tabellen.
-     
+     * Denna metod tar bort vald områdeschef från tabellen.
+     *
      * @param valdAgent
-     * 
+     *
      */
     public static void taBortOmrådesChef(JComboBox valdAgent) {
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-            try {
-                idb.delete("delete from omradeschef where agent_ID =" + agentID);
-                JOptionPane.showMessageDialog(null, enAgent + " är inte längre områdeschef");
-            } catch (InfException ex) {
-                Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+        try {
+            idb.delete("delete from omradeschef where agent_ID =" + agentID);
+            JOptionPane.showMessageDialog(null, enAgent + " är inte längre områdeschef");
+        } catch (InfException ex) {
+            Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
+    }
 
     /**
-     *Denna metod listar den utrustningen samt utkvitterings datum som vald agent har utkvitterat
+     * Denna metod listar den utrustningen samt utkvitterings datum som vald
+     * agent har utkvitterat
+     *
      * @param namnLåda
      * @param enArea
      */
@@ -559,7 +564,8 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *Denna metod listar information om det fordon en agent har kvitterat
+     * Denna metod listar information om det fordon en agent har kvitterat
+     *
      * @param namnLåda
      * @param enArea
      */
@@ -579,7 +585,8 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *Metod för att nyregistrera fordon.
+     * Metod för att nyregistrera fordon.
+     *
      * @param idFält
      * @param beskrivningsFält
      * @param regFält
@@ -622,39 +629,37 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *Metod för att ta bort fordon ur systemet
+     * Metod för att ta bort fordon ur systemet
+     *
      * @param enLåda
      */
-    public static void taBortFordon(JComboBox enLåda) 
-    {
+    public static void taBortFordon(JComboBox enLåda) {
         String valtFordon = GetMetoder.hamtaCbSträng(enLåda);
         try {
-            
-            
-            idb.delete("Delete from innehar_fordon where Fordons_ID ="+ valtFordon);
-            idb.delete("Delete from fordon where Fordons_ID ="+ valtFordon);
-            JOptionPane.showConfirmDialog(null, "Du har nu tagit bort fordonet med registreringsnummer " +valtFordon + " från systemet!");
+
+            idb.delete("Delete from innehar_fordon where Fordons_ID =" + valtFordon);
+            idb.delete("Delete from fordon where Fordons_ID =" + valtFordon);
+            JOptionPane.showConfirmDialog(null, "Du har nu tagit bort fordonet med registreringsnummer " + valtFordon + " från systemet!");
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
     }
-    
+
     /**
      * Denna metod listar aliens som vald agent är ansvarig för.
+     *
      * @param enLåda
      * @param enArea
      */
-    public static void visaAgentAnsvar(JComboBox enLåda, JTextArea enArea)
-    {
+    public static void visaAgentAnsvar(JComboBox enLåda, JTextArea enArea) {
         enArea.setText("");
         String enAgent = GetMetoder.hamtaCbSträng(enLåda);
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-        
+
         ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentID);
-        for(String enAlien : aliensSomagentAnsvararFör)
-        {
-            enArea.append(enAlien+ "\n");
+        for (String enAlien : aliensSomagentAnsvararFör) {
+            enArea.append(enAlien + "\n");
         }
     }
 
