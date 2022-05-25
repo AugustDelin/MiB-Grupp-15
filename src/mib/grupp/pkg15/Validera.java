@@ -22,9 +22,9 @@ public class Validera {
     /**
      *
      * @param enRuta
-     * @return Metod för att kolla om rutan för användarnamn är tom. Ifall rutan
+     * @return 
+     * Metod för att kolla om rutan för användarnamn är tom. Ifall rutan
      * är tom skrivs ett felmeddelande ut som beskriver problemet.
-     *
      */
     public static boolean kollaTom(JTextField enRuta) {
         boolean resultat = true;
@@ -40,7 +40,8 @@ public class Validera {
      *
      * @param enSträng
      * @param lösenruta
-     * @return Kontrollerar så att lösenordet som skrivs in och som finns i
+     * @return 
+     * Kontrollerar så att lösenordet som skrivs in och som finns i
      * databasen stämmer överens. Om det inte stämmer skrivs ett felmeddelande
      * ut.
      */
@@ -59,7 +60,8 @@ public class Validera {
     /**
      *
      * @param adminstatus
-     * @return Kontrollerar adminstatus, genom att kontrollera om "J" står
+     * @return 
+     * Kontrollerar adminstatus, genom att kontrollera om "J" står
      * skrivet i administratör Om detta inte är fallet skrivs felmeddlande ut.
      */
     public static boolean kollaAdmin(String adminstatus) {
@@ -74,7 +76,8 @@ public class Validera {
     /**
      *
      * @param variabelAttKolla
-     * @return Kontrollerar om en viss variabel innehåller ett nullvärde.
+     * @return 
+     * Kontrollerar om en viss variabel innehåller ett nullvärde.
      * Används vid inloggning och kollar om det finns ett lösenord till vald
      * namn. Om valt namn inte har något lösenord kommer felmeddelande upp.
      */
@@ -88,11 +91,11 @@ public class Validera {
     }
 
     /**
-     *
      * @param ArrayListSträng
      * @param strängAttJämföra
      * @param felmeddelande
-     * @return Tar in en ArrayList, en sträng samt valt felmeddelande. Metoden
+     * @return 
+     * Tar in en ArrayList, en sträng samt valt felmeddelande. Metoden
      * går igenom ett ArrayList och kollar om vald sträng finns i listan. Om
      * vald sträng finns skrivs ett felmeddelande ut. Metoden kan återanvändas
      * på många ställen då den även tar in en sträng som motsvarar ett
@@ -114,7 +117,8 @@ public class Validera {
     /**
      *
      * @param enSträng
-     * @return Kollar om värdet i en sträng är Null, utan felmeddelande
+     * @return 
+     * Kollar om värdet i en sträng är Null, utan felmeddelande.
      */
     public static boolean kollaNullSträng(String enSträng) {
         boolean resultat = true;
@@ -127,7 +131,8 @@ public class Validera {
     /**
      *
      * @param fält1
-     * @return Metod för att kolla så att man angivet rätt datumformat och inom
+     * @return 
+     * Metod för att kolla så att man angivet rätt datumformat och inom
      * rätt årsinterval. Har valt från 1950 som tidigaste datum och nuvarande år
      * som senaste datum.
      */
@@ -149,7 +154,7 @@ public class Validera {
             JOptionPane.showMessageDialog(null, "Felaktigt datumformat(korrekt format är YYYY-MM-DD)");
         }
         //Här används int variblerna för kontrollera årsintervallerna. Vi har valt korrekta intervall från 1950-(nuvarande år) 2022
-        //Om inmatat värde faller utanför detta intervall kommer ett felmeddelande
+        //Om inmatat värde faller utanför detta intervall kommer ett felmeddelande.
         if (kollaÅrtal < 1950 || kollaÅrtal > nuvarandeÅr) {
             resultat = false;
             JOptionPane.showMessageDialog(null, "Felaktigt årsintervall (korrekta årtal 1950-nuvarande år)");
@@ -161,9 +166,10 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return Denna metod används för att kontrollera rutan "rasattribut" Vi
+     * @return 
+     * Denna metod används för att kontrollera rutan "rasattribut" Vi
      * har gjort en begränings som säger att man som minst måste ha 1 och max
-     * får ha 19 boogies eller armar Om man inte gjort rätt skrivs felmeddelande
+     * får ha 19 boogies eller armar. Om man inte gjort rätt skrivs felmeddelande
      * ut
      */
     public static boolean kollaMängdRasAttribut(JTextField ettFält) {
@@ -185,7 +191,8 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return Kontrollerar att man skrivit in telefonnummer med endast siffor.
+     * @return 
+     * Kontrollerar att man skrivit in telefonnummer med endast siffor.
      * Har lagt till begränsning att man BARA kan ha siffor och måste ange minst
      * en siffra men max tio siffor
      */
@@ -207,9 +214,10 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return Databasen tar max sex tecken i lösenordsfältet. Denna metoden ser
+     * @return 
+     * Databasen tar max sex tecken i lösenordsfältet. Denna metoden ser
      * till så att man inte matar in för många tecken. Om man skrivit fler än
-     * sex tecken kommer felmeddelande upp
+     * sex tecken kommer felmeddelande upp.
      */
     public static boolean kollaLängdLösenord(JTextField ettFält) {
         boolean resultat = true;
@@ -225,7 +233,8 @@ public class Validera {
     /**
      *
      * @param ettFält
-     * @return Denna metod kontrollerar så att man angivit endast en VERSAL när
+     * @return 
+     * Denna metod kontrollerar så att man angivit endast en VERSAL när
      * man matar in agentnamn vid nyregistrering samt omregistrering av agent.
      * Om man gjort "fel" kommer felmeddelande upp.
      *
@@ -246,23 +255,16 @@ public class Validera {
 
     }
 
-    public static boolean kollaVärdeINTEFinnsIArrayList(ArrayList<String> ArrayListSträng, String strängAttJämföra, String felmeddelande) {
-        boolean resultat = false;
-        for (String enSträng : ArrayListSträng) {
-            if (enSträng.equalsIgnoreCase(strängAttJämföra)) {
-                resultat = true;
-                JOptionPane.showMessageDialog(null, felmeddelande);
-
-            }
-        }
-        return resultat;
-    }
-
+    /**
+     * @param ettFält
+     * @return
+     * 
+     */
     public static boolean kollaIntVapen(JTextField ettFält) {
         boolean resultat = true;
-        String ettTelefonnummer = ettFält.getText();
-        Pattern pattern = Pattern.compile("^[0-9]{1,10}$");
-        Matcher matcher = pattern.matcher(ettTelefonnummer);
+        String kaliber = ettFält.getText();
+        Pattern pattern = Pattern.compile("^[1-9]{1,10}$");
+        Matcher matcher = pattern.matcher(kaliber);
         boolean matchFound = matcher.matches();
         if (!matchFound) {
             resultat = false;
@@ -292,9 +294,6 @@ public class Validera {
         boolean resultat = true;
         String regNummer = ettFält.getText();
         Pattern pattern = Pattern.compile("^([A-Z]{3}[0-9]{3}|[A-Z]{3}[0-9]{2}[A-Z])$");
-//                + ""
-//                + "|[A-Z]{3}[0-9]{2}[A-Z])$");
-        //"^(1[0-9]|[1-9])$"
         Matcher matcher = pattern.matcher(regNummer);
         boolean matchFound = matcher.matches();
         if (!matchFound) {

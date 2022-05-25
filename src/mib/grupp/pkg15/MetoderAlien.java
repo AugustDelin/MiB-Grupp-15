@@ -29,8 +29,13 @@ public class MetoderAlien {
         this.ettFönster = ettFönster;
 
     }
-//  Metoden för att logga in som Alien.
 
+    /**
+     * Metoden för att logga in som Alien.
+     *
+     * @param användarnamnRuta
+     * @param lösenruta
+     */
     public static void loggaInAlien(JTextField användarnamnRuta, JPasswordField lösenruta) {
         if (Validera.kollaTom(användarnamnRuta) && Validera.kollaTom(lösenruta)) {
             try {
@@ -53,8 +58,13 @@ public class MetoderAlien {
             }
         }
     }
-//    Metoden för att visa områdeschef.
 
+    /**
+     * Metoden för att visa områdeschef.
+     *
+     * @param ettFönster
+     * @param användarnamn
+     */
     public static void visaMinOC(JLabel ettFönster, String användarnamn) {
         try {
             String OC = idb.fetchSingle("Select agent.namn from agent join omradeschef on agent.Agent_ID = omradeschef.Agent_ID join omrade on omradeschef.omrade = omrade.Omrades_ID join plats on omrade.Omrades_ID = plats.Finns_I join alien on plats.Plats_ID = alien.Plats where alien.namn = '" + användarnamn + "'");
@@ -64,8 +74,14 @@ public class MetoderAlien {
         }
 
     }
-//    Metoden för att byta lösenord för Alien.
 
+    /**
+     * Metoden för att byta lösenord för Alien.
+     *
+     * @param användarnamn
+     * @param gammaltlösen
+     * @param nyttlösen
+     */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
         try {
@@ -80,5 +96,3 @@ public class MetoderAlien {
         }
     }
 }
-
-
