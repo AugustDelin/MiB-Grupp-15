@@ -371,6 +371,18 @@ public class GetMetoder {
         }
         return agentLista;
     }
+    
+    public static ArrayList<String> getAllaAgentIDFrånOC()
+    {
+        ArrayList<String> agentIDn = null;
+        
+        try {
+            agentIDn = idb.fetchColumn("Select agent_ID from omradeschef");
+                    } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return agentIDn;
+    }
 
     /**
      * Hämtar och returnerar alla områdesid från områdeschefer.
@@ -536,12 +548,12 @@ public class GetMetoder {
         return listaAnsvarigaAgenter;
     }
     
-    public static ArrayList<String> hämtaAlienFrånAnsvarigAgent(String agentID)
+    public static ArrayList<String> hämtaAlienFrånAnsvarigAgent(int agentID)
     {
         ArrayList<String> alienSomAgentAnsvararFör = null;
         
         try {
-            alienSomAgentAnsvararFör = idb.fetchColumn("select alien.namn from alien join agent a on alien.Ansvarig_Agent = a.Agent_ID where Agent_ID" + agentID);
+            alienSomAgentAnsvararFör = idb.fetchColumn("select alien.namn from alien join agent a on alien.Ansvarig_Agent = a.Agent_ID where Agent_ID =" + agentID);
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -500,7 +500,7 @@ public class MetoderUnikaAdmin {
 
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
         String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
-        ArrayList<String> agentLista = GetMetoder.hämtaNamnFrånKontorsChefer();
+        ArrayList<String> agentLista = GetMetoder.getAllaAgentIDFrånOC();
         ArrayList<String> omradesIDn = GetMetoder.getAllaOidFrånOC();
         //Hämtar listor som gås igenom för att konttrollera om området har en chef eller om agenten redan är chef
         String ettMeddelande = (enAgent + " ansvarar redan för ett område");
@@ -508,8 +508,9 @@ public class MetoderUnikaAdmin {
         int områdesID = GetMetoder.hämtaOmrådesIDFrånNamn(ettOmråde);
         //Agentnamnet och områdesbenämningen görs om till int för att kunna läggas in i tabellen
         String områdesIDSträng = Integer.toString(områdesID);
+        String agentIDsomSträng = Integer.toString(agentID);
 
-        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde + " har redan en chef")) {
+        if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, agentIDsomSträng, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde + " har redan en chef")) {
         //Här valideras listora gentemot agentnamnet och områdesbenämningen
             try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
@@ -517,7 +518,7 @@ public class MetoderUnikaAdmin {
                 Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " till området " + ettOmråde);
+            JOptionPane.showMessageDialog(null, "Du har lagt till " + enAgent + " är nu områdeschef över " + ettOmråde);
         }
     }
 
@@ -638,13 +639,13 @@ public class MetoderUnikaAdmin {
     {
         enArea.setText("");
         String enAgent = GetMetoder.hamtaCbSträng(enLåda);
-        int agentID = GetMetoder.hämtaAlienIDFrånNamn(enAgent);
+        int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
         String agentIDSträng = Integer.toString(agentID);
         
-        ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentIDSträng);
+        ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentID);
         for(String enAlien : aliensSomagentAnsvararFör)
         {
-            enArea.append(enAlien);
+            enArea.append(enAlien+ "\n");
         }
     }
 
