@@ -258,6 +258,8 @@ public class Validera {
     /**
      * @param ettFält
      * @return
+     * Kontrollerar så att ett textfield endast innehåller siffror, minimum 1 max 10 siffror.
+     * Används vid nyregistrering av utrustning(vapen)
      * 
      */
     public static boolean kollaIntVapen(JTextField ettFält) {
@@ -274,7 +276,14 @@ public class Validera {
 
         return resultat;
     }
-
+    
+    /**
+     *
+     * @param ettFält
+     * @return
+     * Metod som kontrollerar om man angett en korrekt årsmodell.
+     * Vi har valt att avgränsa denna till från 1900 och 20...
+     */
     public static boolean kollaIntÅrsModell(JTextField ettFält) {
         boolean resultat = true;
         String årsModell = ettFält.getText();
@@ -289,6 +298,13 @@ public class Validera {
         return resultat;
     }
     
+    /**
+     *
+     * @param ettFält
+     * @return
+     * Metoden för att kontrollera att man angett regnummer i korrekt format, vi har valt att endast godkända ska vara
+     * svenska regnummer dvs formaten ABC123 eller ABC12A
+     */
     public static boolean kollaRegNummer(JTextField ettFält)
     {
         boolean resultat = true;
@@ -304,6 +320,15 @@ public class Validera {
         return resultat;
     }
     
+    /**
+     *
+     * @param lista
+     * @param enSträng
+     * @param felmeddelande
+     * @return
+     * 
+     * En check som kontrollerar som kontrollerar om vald sträng finns i ArrayList, denna gång med .contains() istället för equals().
+     */
     public static boolean kollaArrayListContains(ArrayList<String> lista, String enSträng, String felmeddelande)
     {
         boolean resultat = true;
