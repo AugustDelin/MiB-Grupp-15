@@ -407,7 +407,7 @@ public class MetoderUnikaAdmin {
      * @param valdAgent
      * @param KCLåda
      */
-    public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent, JComboBox KCLåda) {
+    public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
             String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
@@ -425,10 +425,10 @@ public class MetoderUnikaAdmin {
         }
     }
 
-    public static void taBortKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent, JComboBox KCLåda) {
+    public static void taBortKontorsChef(JComboBox valdAgent) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
-            String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
+            //String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
             String ettMeddelande = (enAgent + " ansvarar inte för något kontor");
             int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
@@ -438,7 +438,7 @@ public class MetoderUnikaAdmin {
 
             } else {
                 idb.delete("delete from kontorschef where agent_ID =" + agentID);
-                JOptionPane.showMessageDialog(null, "Du har tagit bort '" + enAgent + "' från kontoret '" + ettKontor + "'");
+                JOptionPane.showMessageDialog(null, enAgent + "är inte längre kontorschef!");
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
@@ -451,11 +451,11 @@ public class MetoderUnikaAdmin {
      * @param områdesLåda
      * @param OCLåda
      */
-    public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
+    public static void laggTillOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda) {
 
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
         String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
-        ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
+        ArrayList<String> agentLista = GetMetoder.hämtaNamnFrånKontorsChefer();
         ArrayList<String> omradesIDn = GetMetoder.getAllaOidFrånOC();
         String ettMeddelande = (enAgent + " ansvarar redan för ett område");
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);

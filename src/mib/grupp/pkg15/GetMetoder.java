@@ -271,6 +271,16 @@ public class GetMetoder {
         }
         return agentLista;
     }
+    
+    public static ArrayList<String> hämtaNamnFrånKontorsChefer() {
+        ArrayList<String> agentLista = null;
+        try {
+            agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return agentLista;
+    }
 
     public static ArrayList<String> getAllaOidFrånOC() {
         ArrayList<String> områdesIDfrånOC = null;
