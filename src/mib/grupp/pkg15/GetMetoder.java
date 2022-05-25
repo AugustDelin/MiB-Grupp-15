@@ -24,10 +24,11 @@ public class GetMetoder {
 //    Konstruktorn för GetMetoder.
     public GetMetoder() {
         idb = Main.getDB();
-    }   
+    }
 
     /**
      * Get-metod för att hämta ID från Agent med användarnamnet.
+     *
      * @param användarnamn
      * @return
      */
@@ -46,7 +47,8 @@ public class GetMetoder {
     }
 
     /**
-     *Get-metod för att hämta ID från Alien med användarnamnet.
+     * Get-metod för att hämta ID från Alien med användarnamnet.
+     *
      * @param användarnamn
      * @return
      */
@@ -62,10 +64,11 @@ public class GetMetoder {
         }
 
         return alienNR;
-    }  
+    }
 
     /**
      * Get-metod för att hämta ID från utrustning med det inmatade namnet.
+     *
      * @param benämning
      * @return
      */
@@ -85,6 +88,7 @@ public class GetMetoder {
 
     /**
      * Get-metod för att hämta områdes-ID från namnet på de tre landsdelarna.
+     *
      * @param benämning
      * @return
      */
@@ -99,10 +103,12 @@ public class GetMetoder {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return områdesNR;
-    }  
+    }
 
     /**
-     * Get-metod för att hämta utrustnings-ID från agent med det inmatade Agent-ID.
+     * Get-metod för att hämta utrustnings-ID från agent med det inmatade
+     * Agent-ID.
+     *
      * @param agentID
      * @return
      */
@@ -119,6 +125,7 @@ public class GetMetoder {
 
     /**
      * Get-metod för att ta ur rasen från en specifik alien.
+     *
      * @param ettNamn
      * @return
      */
@@ -148,6 +155,7 @@ public class GetMetoder {
 
     /**
      * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     *
      * @return
      */
     public static String getNextAlienID() {
@@ -162,7 +170,8 @@ public class GetMetoder {
     }
 
     /**
-     *Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     *
      * @return
      */
     public static String getNextAgentID() {
@@ -178,6 +187,7 @@ public class GetMetoder {
 
     /**
      * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     *
      * @return
      */
     public static String getNextUtrustningsID() {
@@ -204,6 +214,7 @@ public class GetMetoder {
 
     /**
      * Get-metod för att få fram rasattributen från ett ID.
+     *
      * @param ettID
      * @return
      */
@@ -241,6 +252,7 @@ public class GetMetoder {
 
     /**
      * Returnerar en arraylist av alla agenters namn.
+     *
      * @return
      */
     public static ArrayList<String> getAgentNamn() {
@@ -255,7 +267,8 @@ public class GetMetoder {
     }
 
     /**
-     *Returnerar en arraylist av alla aliens namn.
+     * Returnerar en arraylist av alla aliens namn.
+     *
      * @return
      */
     public static ArrayList<String> getAlienNamn() {
@@ -271,6 +284,7 @@ public class GetMetoder {
 
     /**
      * Returnerar en arraylist av alla utrustningars namn.
+     *
      * @return
      */
     public static ArrayList<String> getUtrustningsNamn() {
@@ -285,6 +299,7 @@ public class GetMetoder {
 
     /**
      * Visar vilken utrustning en vald agent har på sig.
+     *
      * @param agentNamn
      * @return
      */
@@ -301,6 +316,7 @@ public class GetMetoder {
 
     /**
      * Visar vilka fordon en vald agent har.
+     *
      * @param agentNamn
      * @return
      */
@@ -316,7 +332,8 @@ public class GetMetoder {
     }
 
     /**
-     *Hämtar och returnerar strängar från komboboxar.
+     * Hämtar och returnerar strängar från komboboxar.
+     *
      * @param enLåda
      * @return
      */
@@ -327,6 +344,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar namn områdeschefer.
+     *
      * @return
      */
     public static ArrayList<String> hämtaNamnFrånOmrådesChefer() {
@@ -341,6 +359,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar namn på kontorschefer.
+     *
      * @return
      */
     public static ArrayList<String> hämtaNamnFrånKontorsChefer() {
@@ -355,6 +374,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar alla områdesid från områdeschefer.
+     *
      * @return
      */
     public static ArrayList<String> getAllaOidFrånOC() {
@@ -369,6 +389,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar vilka som är kontorschefer.
+     *
      * @return
      */
     public static ArrayList<HashMap<String, String>> hämtaKontorsChefer() {
@@ -385,6 +406,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar områdeschefer.
+     *
      * @return
      */
     public static ArrayList<HashMap<String, String>> hämtaOmrådesChefer() {
@@ -400,6 +422,7 @@ public class GetMetoder {
 
     /**
      * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     *
      * @return
      */
     public static String getNextFordonsID() {
@@ -415,6 +438,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar fordonsnamnen.
+     *
      * @return
      */
     public static ArrayList<String> getFordonsNamn() {
@@ -430,6 +454,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar fordons-ID.
+     *
      * @return
      */
     public static ArrayList<String> getFordonsID() {
@@ -445,6 +470,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar vilka aliens som finns inom ett visst område.
+     *
      * @param ettOmråde
      * @return
      */
@@ -461,6 +487,7 @@ public class GetMetoder {
 
     /**
      * Hämtar och returnerar en alien inom ett visst område.
+     *
      * @param användarnamn
      * @return
      */
@@ -475,22 +502,34 @@ public class GetMetoder {
 
         return aliensOmråde;
     }
-    
+
     /**
      * Hämtar och returnerar vilka tre agenter som har hand om flest aliens.
+     *
      * @param ettOmråde
      * @return
      */
-    public static ArrayList<String> toppListaAnsvarPerOmråde(String ettOmråde)
-    {
+    public static ArrayList<String> toppListaAnsvarPerOmråde(String ettOmråde) {
         ArrayList<String> topplista = null;
-        
+
         try {
-            topplista = idb.fetchColumn("select agent.namn, count(Agent_ID) from agent join alien on alien.Ansvarig_Agent = agent.Agent_ID join omrade o on agent.Omrade = o.Omrades_ID where Benamning = '"+ettOmråde+"' group by agent_ID order by count(Agent_ID) desc limit 3");
+            topplista = idb.fetchColumn("select agent.namn, count(Agent_ID) from agent join alien on alien.Ansvarig_Agent = agent.Agent_ID join omrade o on agent.Omrade = o.Omrades_ID where Benamning = '" + ettOmråde + "' group by agent_ID order by count(Agent_ID) desc limit 3");
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return topplista;
+    }
+
+    public static ArrayList<String> hämtaAnsvarigaAgenter() {
+        ArrayList<String> listaAnsvarigaAgenter = null;
+
+        try {
+           listaAnsvarigaAgenter = idb.fetchColumn("select Ansvarig_Agent from alien");
+        } catch (InfException ex) {
+
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaAnsvarigaAgenter;
     }
 
 }

@@ -206,14 +206,22 @@ public class MetoderUnikaAdmin {
     /**
      * Hämtar agentID från ett namn och tar bort vald agent ur systemet, detta görs i korrekt ordning så att inga fel kastas
      * tar även bort vald agent ur comboboxen när det är borta ur systemet
+     * Om agenten är ansvarig för någon kommer felmeddelande upp.
      * 
      * @param enLåda
      * 
      */
     public static void taBortAgentUrSystemet(JComboBox enLåda) {
         String valdAgent = GetMetoder.hamtaCbSträng(enLåda);
+        ArrayList<String> ansvarigaAgenter = GetMetoder.hämtaAnsvarigaAgenter();
+        int AgentID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
+        String agentIDsomSträng = Integer.toString(AgentID);
+        if(Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort " + valdAgent + " har alienansvar för aliens"))
+        {
+            
+        
         try {
-            int AgentID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
+            
             idb.delete("delete from omradeschef where agent_id =" + AgentID);
             idb.delete("delete from kontorschef where agent_id =" + AgentID);
             idb.delete("delete from faltagent where agent_id =" + AgentID);
@@ -223,6 +231,7 @@ public class MetoderUnikaAdmin {
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
     }
 
     /**
@@ -501,7 +510,7 @@ public class MetoderUnikaAdmin {
         String områdesIDSträng = Integer.toString(områdesID);
 
         if (Validera.kollaOmvärdeFinnsIArrayList(agentLista, enAgent, ettMeddelande) && Validera.kollaOmvärdeFinnsIArrayList(omradesIDn, områdesIDSträng, "Området " + ettOmråde + " har redan en chef")) {
-//Här valideras listora gentemot agent namnet
+        //Här valideras listora gentemot agentnamnet och områdesbenämningen
             try {
                 idb.insert("insert into omradeschef values(" + agentID + ",'" + områdesID + "')");
             } catch (InfException ex) {
