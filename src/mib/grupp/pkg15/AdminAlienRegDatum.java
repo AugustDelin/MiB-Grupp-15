@@ -8,13 +8,13 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
-// Fälten för AgentAlienInfo.
+// Fälten för AdminAlienRegDatum.
 public class AdminAlienRegDatum extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
-     * Konstruktorn för AgentAlienInfo.
+     * Konstruktorn för AdminAlienRegDatum.
      */
     public AdminAlienRegDatum(String användarnamn) {
         initComponents();
@@ -43,8 +43,8 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
         lblDatum1 = new javax.swing.JLabel();
         lblDatum2 = new javax.swing.JLabel();
         btnSökAliens = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblRubrik2 = new javax.swing.JLabel();
+        lblRubrik1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,24 +91,19 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Vänligen ange datum i formatet YYYY-MM-DD.");
+        lblRubrik2.setText("Vänligen ange datum i formatet YYYY-MM-DD.");
 
-        jLabel3.setText("Hitta information om aliens som är registrerade mellan valda två datum.");
+        lblRubrik1.setText("Hitta information om aliens som är registrerade mellan valda två datum.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btnBacka)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvsluta)
-                .addGap(95, 95, 95))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(lblInloggadSom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -121,13 +116,16 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
                                     .addComponent(lblDatum2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(62, 62, 62)
                                 .addComponent(btnSökAliens))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(lblRubrik2)
+                            .addComponent(lblRubrik1))
                         .addGap(0, 168, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLoggaUt)
-                        .addGap(108, 108, 108))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnLoggaUt))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBacka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +134,9 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
                     .addComponent(lblInloggadSom)
                     .addComponent(btnLoggaUt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(lblRubrik1)
                 .addGap(2, 2, 2)
-                .addComponent(jLabel2)
+                .addComponent(lblRubrik2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDatum2)
@@ -150,11 +148,10 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
                     .addComponent(btnSökAliens))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBacka)
-                    .addComponent(btnAvsluta))
-                .addGap(24, 24, 24))
+                    .addComponent(btnAvsluta)))
         );
 
         pack();
@@ -188,12 +185,12 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
     private javax.swing.JButton btnBacka;
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnSökAliens;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDatum1;
     private javax.swing.JLabel lblDatum2;
     private javax.swing.JLabel lblInloggadSom;
+    private javax.swing.JLabel lblRubrik1;
+    private javax.swing.JLabel lblRubrik2;
     private javax.swing.JTextArea txtAreaListaAliens;
     private javax.swing.JTextField txtDatum1;
     private javax.swing.JTextField txtDatum2;

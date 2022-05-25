@@ -16,7 +16,7 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
     private String användarnamn;
 
     /**
-     * Konstruktorn för AdminAlienInfo.
+     * Konstruktorn för AdminHanteraAlien.
      */
     public AdminHanteraAlien(String användarnamn) {
         initComponents();
@@ -171,8 +171,7 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnBacka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvsluta)
-                .addContainerGap())
+                .addComponent(btnAvsluta))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistreraAlien)
@@ -198,9 +197,9 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
                                 .addComponent(cbAlienPlatser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 29, Short.MAX_VALUE)
+                                .addGap(0, 23, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(66, 66, 66)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +279,7 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+    // Knappen för att söka alienraser på specifika platser.
     private void btnSokRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokRasActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
@@ -291,11 +290,11 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSokRasActionPerformed
-
+    // ComboBox för att lista alla aliens per ras.
     private void cbAlienRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienRaserActionPerformed
         MetoderAgentAdmin.listaAliensPerRas(txtAreaListaAliens, cbAlienRaser);
     }//GEN-LAST:event_cbAlienRaserActionPerformed
-
+    // Knappen för att söka information om en alien.
     private void btnSokAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAlienActionPerformed
         txtAreaListaAliens.setText("");
         cbAlienPlatser.setVisible(false);
@@ -305,7 +304,7 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
             ComboBoxar.fyllCBAlienNamn(cbAlienNamn);
         }
     }//GEN-LAST:event_btnSokAlienActionPerformed
-
+    // ComboBox för att lista enskilda aliens.        
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
         MetoderAgentAdmin.listaEnskildaAliens(txtAreaListaAliens, cbAlienNamn);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
@@ -324,7 +323,7 @@ public class AdminHanteraAlien extends javax.swing.JFrame {
         new AdminÄndraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
-
+    // Knappen för att ta bort en alien.
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
 
         if (cbAlienNamn.getSelectedItem() == null) {

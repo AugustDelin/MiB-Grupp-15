@@ -16,7 +16,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
     private String användarnamn;
 
     /**
-     * Konstruktorn för AdminAgentInfo.
+     * Konstruktorn för AdminHanteraAgent.
      */
     public AdminHanteraAgent(String användarnamn) {
         initComponents();
@@ -29,7 +29,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         ComboBoxar.fyllKontorschefer(cbKontorschefer);
         btnTabortKC.setVisible(false);
         btnTabortOC.setVisible(false);
-         cbAlienansvar.setVisible(false);
+        cbAlienansvar.setVisible(false);
 
     }
 
@@ -181,65 +181,59 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(btnBacka)
-                        .addGap(794, 794, 794)
-                        .addComponent(btnAvsluta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblInloggadSom)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnLoggaUt))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnTaBortAgent)
-                                    .addComponent(btnRegistreraAgent)
-                                    .addComponent(btnÄndraAgent)
-                                    .addComponent(lblFörklaring1)
-                                    .addComponent(lblFörklaring2))
-                                .addGap(243, 243, 243)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                    .addComponent(btnTabortKC, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(cbKontorschefer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btnTabortOC)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(cbOmrådeschefer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(cbAlienansvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSokOC, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnVisaKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnAlienAnsvar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(14, 14, 14))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFörklaring3)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(btnTaBortAgent)
+                            .addComponent(btnRegistreraAgent)
+                            .addComponent(btnÄndraAgent)
+                            .addComponent(lblFörklaring1)
+                            .addComponent(lblFörklaring2))
+                        .addGap(243, 243, 243)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cbAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(btnTabortKC, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(cbKontorschefer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnTabortOC)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(cbOmrådeschefer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbAlienansvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnSokOC, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnVisaKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAlienAnsvar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(14, 14, 14))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInloggadSom)
+                            .addComponent(lblFörklaring3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBacka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvsluta))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLoggaUt))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnLoggaUt)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblInloggadSom)
-                        .addGap(18, 18, 18)))
+                .addComponent(btnLoggaUt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInloggadSom)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnÄndraAgent)
@@ -278,11 +272,10 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
                             .addComponent(cbAlienansvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAvsluta)
-                    .addComponent(btnBacka))
-                .addContainerGap())
+                    .addComponent(btnBacka)
+                    .addComponent(btnAvsluta)))
         );
 
         pack();
@@ -298,12 +291,12 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
 
-// Knappen för att starta metoden Logga ut.
+    // Knappen för att starta metoden Logga ut.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+    // Knappen för att söka agent.
     private void btnSokAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAgentActionPerformed
         txtAreaListaAgenter.setText("");
         cbAgentNamn.setVisible(true);
@@ -311,27 +304,27 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         btnTabortKC.setVisible(false);
         cbKontorschefer.setVisible(false);
         cbOmrådeschefer.setVisible(false);
-         cbAlienansvar.setVisible(false);
+        cbAlienansvar.setVisible(false);
         if (cbAgentNamn.getItemCount() == 0) {
             ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
         }
     }//GEN-LAST:event_btnSokAgentActionPerformed
-
+    // comboBox för att lista enskilda agenter.  
     private void cbAgentNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAgentNamnActionPerformed
         MetoderUnikaAdmin.listaEnskildAgent(txtAreaListaAgenter, cbAgentNamn);
     }//GEN-LAST:event_cbAgentNamnActionPerformed
-
+    // Knappen för att registrera en ny agent.
     private void btnRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAgentActionPerformed
         new AdminRegistreraAgent(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegistreraAgentActionPerformed
 
-//Öppnar ett nytt fönster för klassen ÄndraAlien.
+    //Öppnar ett nytt fönster för klassen ÄndraAlien.
     private void btnÄndraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAgentActionPerformed
         new AdminÄndraAgent(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnÄndraAgentActionPerformed
-//Trycka knapp, hämta information från kombo-box.
+    // Knappen för att ta bort agent.
     private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
 
         if (cbAgentNamn.getSelectedItem() == null) {
@@ -341,7 +334,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnTaBortAgentActionPerformed
-
+    // Knapp för att söka fram OC. 
     private void btnSokOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokOCActionPerformed
         cbAgentNamn.setVisible(false);
         cbAlienansvar.setVisible(false);
@@ -354,7 +347,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnSokOCActionPerformed
-
+    // Knappen för att lista alla kontorschefer.
     private void btnVisaKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaKontorschefActionPerformed
         cbAgentNamn.setVisible(false);
         btnTabortOC.setVisible(false);
@@ -362,19 +355,18 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         cbKontorschefer.setVisible(true);
         cbOmrådeschefer.setVisible(false);
         cbAlienansvar.setVisible(false);
-
         MetoderAgentAdmin.listaAllaKontorsChefer(txtAreaListaAgenter);
 
     }//GEN-LAST:event_btnVisaKontorschefActionPerformed
-
+    // Knappen för att ta bort kontorschef.
     private void btnTabortKCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortKCActionPerformed
         MetoderUnikaAdmin.taBortKontorsChef(cbKontorschefer);
     }//GEN-LAST:event_btnTabortKCActionPerformed
-
+    // Knappen för att ta bort områdeschef.
     private void btnTabortOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortOCActionPerformed
         MetoderUnikaAdmin.taBortOmrådesChef(cbOmrådeschefer);
     }//GEN-LAST:event_btnTabortOCActionPerformed
-
+    // Knappen för att lista vilka aliens som en agent ansvarar för.
     private void btnAlienAnsvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienAnsvarActionPerformed
         txtAreaListaAgenter.setText("");
         cbAgentNamn.setVisible(false);
@@ -386,12 +378,12 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         if (cbAlienansvar.getItemCount() == 0) {
             ComboBoxar.fyllCBAgentNamn(cbAlienansvar);
         }
-        
-        
-    }//GEN-LAST:event_btnAlienAnsvarActionPerformed
 
+
+    }//GEN-LAST:event_btnAlienAnsvarActionPerformed
+    // Combobox för att visa vilka aliens som en agent ansvarar för.
     private void cbAlienansvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienansvarActionPerformed
-       MetoderUnikaAdmin.visaAgentAnsvar(cbAlienansvar, txtAreaListaAgenter);
+        MetoderUnikaAdmin.visaAgentAnsvar(cbAlienansvar, txtAreaListaAgenter);
     }//GEN-LAST:event_cbAlienansvarActionPerformed
 
     /**
