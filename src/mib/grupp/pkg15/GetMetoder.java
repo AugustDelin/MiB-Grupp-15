@@ -273,7 +273,7 @@ public class GetMetoder {
         }
         return agentLista;
     }
-    
+
     public static ArrayList<String> hämtaNamnFrånKontorsChefer() {
         ArrayList<String> agentLista = null;
         try {
@@ -316,7 +316,7 @@ public class GetMetoder {
         }
         return områdesChefer;
     }
-    
+
     // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
     public static String getNextFordonsID() {
         String nextId = null;
@@ -328,11 +328,10 @@ public class GetMetoder {
         }
         return nextId;
     }
-    
-    public static ArrayList<String> getFordonsNamn()
-    {
+
+    public static ArrayList<String> getFordonsNamn() {
         ArrayList<String> allaFordon = null;
-        
+
         try {
             allaFordon = idb.fetchColumn("select Fordonsbeskrivning from fordon");
         } catch (InfException ex) {
@@ -340,17 +339,39 @@ public class GetMetoder {
         }
         return allaFordon;
     }
-    
-    public static ArrayList<String> getFordonsID()
-    {
+
+    public static ArrayList<String> getFordonsID() {
         ArrayList<String> allaFordon = null;
-        
+
         try {
             allaFordon = idb.fetchColumn("select Fordons_ID from fordon");
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return allaFordon;
+    }
+
+    public static ArrayList<String> hamtaAllaAliensfrånOmråde(String ettOmråde) {
+        ArrayList<String> aliensIområde = null;
+
+        try {
+            aliensIområde = idb.fetchColumn("select namn from alien join plats p on alien.Plats = p.Plats_ID join omrade o on p.Finns_I = o.Omrades_ID where o.Benamning = '" + ettOmråde + "'");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return aliensIområde;
+    }
+
+    public static String hamtaEnAliensOmråde(String användarnamn) {
+        String aliensOmråde = null;
+
+        try {
+            aliensOmråde = idb.fetchSingle("select omrade.Benamning from omrade join plats p on omrade.Omrades_ID = p.Finns_I join alien a on p.Plats_ID = a.Plats where namn ='" + användarnamn + "'");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return aliensOmråde;
     }
 
 }
