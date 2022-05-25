@@ -132,7 +132,7 @@ public class AgentOCinfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   //    Knappen för att starta metoden Backa.
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
@@ -146,11 +146,11 @@ public class AgentOCinfo extends javax.swing.JFrame {
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_btnLoggaUtActionPerformed
-
+    // Knappen för att lista alla områdeschefer.
     private void btnVisaOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaOmrådescheferActionPerformed
-       MetoderAgentAdmin.listaAllaOmrådesChefer(txtAreaListaChefer);
+        MetoderAgentAdmin.listaAllaOmrådesChefer(txtAreaListaChefer);
     }//GEN-LAST:event_btnVisaOmrådescheferActionPerformed
-
+    // Knappen för att visa alla kontorschefer.
     private void btnVisaKontorscheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaKontorscheferActionPerformed
         MetoderAgentAdmin.listaAllaKontorsChefer(txtAreaListaChefer);
     }//GEN-LAST:event_btnVisaKontorscheferActionPerformed
