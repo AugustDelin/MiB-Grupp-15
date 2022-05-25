@@ -366,6 +366,10 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         btnTabortKC.setVisible(false);
         cbKontorschefer.setVisible(false);
         cbOmrådeschefer.setVisible(false);
+        if (cbAgentNamn.getItemCount() == 0) {
+            ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
+        }
+        
         MetoderUnikaAdmin.visaAgentAnsvar(cbAgentNamn, txtAreaListaAgenter);
     }//GEN-LAST:event_btnAlienAnsvarActionPerformed
 
