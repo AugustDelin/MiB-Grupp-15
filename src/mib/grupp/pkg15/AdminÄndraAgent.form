@@ -122,10 +122,7 @@
                               <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblAdminstatus" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblVilketKontor" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="lblRubrikKontorschef" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblOmråde" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblRubrikKontorschef" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -149,9 +146,17 @@
                           <Component id="lblOmrådeRubrik" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="75" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblOmråde" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="lblOCRubrik" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnAndraKCStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnAndraKCStatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
@@ -220,6 +225,7 @@
                       <Component id="lblVilketKontor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbVilketKontor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAndraKCStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
                   <Component id="btnOmRegistreraAgent" min="-2" max="-2" attributes="0"/>
@@ -350,7 +356,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAndraOCStatus">
           <Properties>
-            <Property name="text" type="java.lang.String" value="G&#xf6;r till Omr&#xe5;deschef"/>
+            <Property name="text" type="java.lang.String" value="G&#xf6;r till omr&#xe5;deschef"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraOCStatusActionPerformed"/>
@@ -382,6 +388,11 @@
         <Component class="javax.swing.JLabel" name="lblRubrikKontorschef">
           <Properties>
             <Property name="text" type="java.lang.String" value="F&#xf6;r att g&#xf6;ra en agent till kontorschef, v&#xe4;nligen v&#xe4;lj ett kontor i rullistan och tryck sedan p&#xe5; knappen."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Plats"/>
           </Properties>
         </Component>
       </SubComponents>
