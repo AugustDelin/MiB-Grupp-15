@@ -20,13 +20,19 @@ public class DatumHanterare {
 
     }
 
-    //Hämtar och returnerar dagens datum
+    /**
+     * Hämtar och returnerar dagens datum.
+     * @return
+     */
     public static String getDagensDatum() {
         String dagensDatum = LocalDate.now().toString();
         return dagensDatum;
     }
 
-    //Hämtar och returnerar nuvarande år
+    /**
+     * Hämtar och returnerar nuvarande år.
+     * @return
+     */
     public static String getNuvarandeÅrtal() {
         String nuvarandeÅr = Year.now().toString();
         return nuvarandeÅr;
