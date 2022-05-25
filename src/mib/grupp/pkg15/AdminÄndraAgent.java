@@ -107,6 +107,12 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
 
         txtTelefon.setColumns(6);
 
+        cbOmråden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbOmrådenActionPerformed(evt);
+            }
+        });
+
         btnOmRegistreraAgent.setText("Slutför omregistrering");
         btnOmRegistreraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,6 +319,10 @@ public class AdminÄndraAgent extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnAndraOCStatusActionPerformed
+
+    private void cbOmrådenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOmrådenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbOmrådenActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraKCStatus;
