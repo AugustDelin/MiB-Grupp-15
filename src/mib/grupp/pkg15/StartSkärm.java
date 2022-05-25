@@ -32,8 +32,8 @@ public class StartSkärm extends javax.swing.JFrame {
         AgentM = new MetoderAgentAdmin(this);
         AlienM = new MetoderAlien(this);
         AdminM = new MetoderUnikaAdmin(this);
-        txtStartAnvändarnamn.setText("Agent O");
-        pwfStartLogin.setText("planka");
+//        txtStartAnvändarnamn.setText("Agent O");
+//        pwfStartLogin.setText("planka");
 
     }
 
@@ -54,10 +54,11 @@ public class StartSkärm extends javax.swing.JFrame {
         txtStartAnvändarnamn = new javax.swing.JTextField();
         lblStartAnvändarnamn = new javax.swing.JLabel();
         lblStartLösenord = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnLoginAgent.setText("Logga in Agent");
+        btnLoginAgent.setText("Logga in som Agent");
         btnLoginAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginAgentActionPerformed(evt);
@@ -78,13 +79,15 @@ public class StartSkärm extends javax.swing.JFrame {
             }
         });
 
-        lblStartRubrik.setText("Välkommen till MIBs system. Logga in nedan.");
+        lblStartRubrik.setText("Välkommen till MIBs databassystem.");
 
         pwfStartLogin.setColumns(5);
 
         lblStartAnvändarnamn.setText("Användarnamn");
 
         lblStartLösenord.setText("Lösenord");
+
+        jLabel1.setText("Vänligen ange ditt användarnamn och lösenord och logga in enligt din status.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,6 +96,7 @@ public class StartSkärm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStartRubrik)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnLoginAgent)
                         .addGap(18, 18, 18)
@@ -108,15 +112,17 @@ public class StartSkärm extends javax.swing.JFrame {
                         .addComponent(lblStartLösenord)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pwfStartLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblStartRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(142, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblStartRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblStartRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStartAnvändarnamn)
                     .addComponent(txtStartAnvändarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,6 +160,7 @@ public class StartSkärm extends javax.swing.JFrame {
     private javax.swing.JButton btnLoginAdmin;
     private javax.swing.JButton btnLoginAgent;
     private javax.swing.JButton btnLoginAlien;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblStartAnvändarnamn;
     private javax.swing.JLabel lblStartLösenord;
     private javax.swing.JLabel lblStartRubrik;

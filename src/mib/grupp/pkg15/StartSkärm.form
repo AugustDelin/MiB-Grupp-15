@@ -26,6 +26,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblStartRubrik" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnLoginAgent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -43,9 +44,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pwfStartLogin" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lblStartRubrik" min="-2" pref="340" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="142" max="32767" attributes="0"/>
+              <EmptySpace pref="116" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,8 +54,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblStartRubrik" min="-2" pref="63" max="-2" attributes="0"/>
+              <Component id="lblStartRubrik" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblStartAnvändarnamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtStartAnvändarnamn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -75,7 +78,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnLoginAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Logga in Agent"/>
+        <Property name="text" type="java.lang.String" value="Logga in som Agent"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginAgentActionPerformed"/>
@@ -99,7 +102,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblStartRubrik">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till MIBs system. Logga in nedan."/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till MIBs databassystem."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pwfStartLogin">
@@ -117,6 +120,11 @@
     <Component class="javax.swing.JLabel" name="lblStartL&#xf6;senord">
       <Properties>
         <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange ditt anv&#xe4;ndarnamn och l&#xf6;senord och logga in enligt din status."/>
       </Properties>
     </Component>
   </SubComponents>
