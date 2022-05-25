@@ -170,7 +170,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
-        lblFordonsIDRubrik.setText("ID-Nummer");
+        lblFordonsIDRubrik.setText("Registreringsnummer");
 
         lblFordonsbeskrivning.setText("Fordonsbeskrivning");
 
@@ -178,13 +178,18 @@ public class AdminUtrustning extends javax.swing.JFrame {
 
         lblFordonÅrsmodell.setText("Årsmodell");
 
-        txtFordonsbeskrivning.setColumns(5);
+        txtFordonsbeskrivning.setColumns(6);
+        txtFordonsbeskrivning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFordonsbeskrivningActionPerformed(evt);
+            }
+        });
 
-        txtFordonRegdatum.setColumns(5);
+        txtFordonRegdatum.setColumns(6);
 
-        txtFordonÅrsmodell.setColumns(5);
+        txtFordonÅrsmodell.setColumns(6);
 
-        txtFordonsID.setColumns(5);
+        txtFordonsID.setColumns(6);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,24 +198,23 @@ public class AdminUtrustning extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblFordonÅrsmodell)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFordonÅrsmodell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(lblFordonRegdatum)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFordonRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(lblFordonsbeskrivning)
-                            .addGap(33, 33, 33)
-                            .addComponent(txtFordonsbeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblFordonRegdatum))
+                        .addGap(83, 83, 83)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFordonÅrsmodell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFordonRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblFordonsIDRubrik)
                         .addGap(73, 73, 73)
-                        .addComponent(txtFordonsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addComponent(txtFordonsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblFordonsbeskrivning)
+                        .addGap(81, 81, 81)
+                        .addComponent(txtFordonsbeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,11 +231,14 @@ public class AdminUtrustning extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFordonRegdatum)
                     .addComponent(txtFordonRegdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFordonÅrsmodell)
-                    .addComponent(txtFordonÅrsmodell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblFordonÅrsmodell)
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtFordonÅrsmodell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -336,8 +343,8 @@ public class AdminUtrustning extends javax.swing.JFrame {
                                                     .addComponent(lblTaBort)))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnLaggtillUtrustning)
-                                        .addGap(0, 400, Short.MAX_VALUE)))
-                                .addGap(0, 91, Short.MAX_VALUE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 80, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -363,7 +370,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(lblRegistreraUtrustning))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnNyttFordon)
@@ -429,6 +436,10 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private void btnNyttFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyttFordonActionPerformed
        MetoderUnikaAdmin.nyRegistreraFordon(txtFordonsID, txtFordonsbeskrivning, txtFordonRegdatum, txtFordonÅrsmodell);
     }//GEN-LAST:event_btnNyttFordonActionPerformed
+
+    private void txtFordonsbeskrivningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFordonsbeskrivningActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFordonsbeskrivningActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;

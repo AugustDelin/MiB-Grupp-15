@@ -79,10 +79,10 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="btnLaggtillUtrustning" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -117,7 +117,7 @@
                           <Component id="lblRegistreraUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" pref="157" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnNyttFordon" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -393,21 +393,15 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblFordonÅrsmodell" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lblFordonRegdatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="83" pref="83" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtFordonÅrsmodell" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblFordonRegdatum" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtFordonRegdatum" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblFordonsbeskrivning" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="txtFordonsbeskrivning" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFordonRegdatum" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -415,8 +409,13 @@
                               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                               <Component id="txtFordonsID" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblFordonsbeskrivning" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="txtFordonsbeskrivning" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -438,12 +437,17 @@
                           <Component id="lblFordonRegdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtFordonRegdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblFordonÅrsmodell" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtFordonÅrsmodell" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblFordonÅrsmodell" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="txtFordonÅrsmodell" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -451,7 +455,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblFordonsIDRubrik">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ID-Nummer"/>
+                <Property name="text" type="java.lang.String" value="Registreringsnummer"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblFordonsbeskrivning">
@@ -471,22 +475,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtFordonsbeskrivning">
               <Properties>
-                <Property name="columns" type="int" value="5"/>
+                <Property name="columns" type="int" value="6"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFordonsbeskrivningActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFordonRegdatum">
               <Properties>
-                <Property name="columns" type="int" value="5"/>
+                <Property name="columns" type="int" value="6"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFordon&#xc5;rsmodell">
               <Properties>
-                <Property name="columns" type="int" value="5"/>
+                <Property name="columns" type="int" value="6"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFordonsID">
               <Properties>
-                <Property name="columns" type="int" value="5"/>
+                <Property name="columns" type="int" value="6"/>
               </Properties>
             </Component>
           </SubComponents>
