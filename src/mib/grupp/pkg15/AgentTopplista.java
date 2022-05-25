@@ -8,13 +8,13 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
-// Fälten för AgentAlienInfo.
+// Fälten för AgentTopplista.
 public class AgentTopplista extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
-     * Konstruktorn för AgentOCInfo.
+     * Konstruktorn för AgentTopplista.
      */
     public AgentTopplista(String användarnamn) {
         initComponents();
@@ -118,7 +118,7 @@ public class AgentTopplista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   //    Knappen för att starta metoden Backa.
+    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         Navigera.openAgentStartSkärm(användarnamn);
         dispose();
@@ -134,7 +134,7 @@ public class AgentTopplista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void cbOmrådenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOmrådenActionPerformed
-       MetoderAgentAdmin.toppTreAnsvarigaAgenterValtOmråde(cbOmråden, txtAreaTopplista);
+        MetoderAgentAdmin.toppTreAnsvarigaAgenterValtOmråde(cbOmråden, txtAreaTopplista);
     }//GEN-LAST:event_cbOmrådenActionPerformed
 
     /**

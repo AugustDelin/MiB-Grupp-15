@@ -167,15 +167,15 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         new AgentUtrustning(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgentUtrustningActionPerformed
-//Knappen startar metoden för att öppna fönstret för klassen Visa OC.
+    //Knappen startar metoden för att öppna fönstret för klassen Visa OC.
     private void btnVisaOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaOCActionPerformed
         new AgentOCinfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVisaOCActionPerformed
-
+    // Knappen öppnar klassen AgentTopplista.
     private void btnTopplistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaActionPerformed
-       new AgentTopplista(användarnamn).setVisible(true);
-       dispose();
+        new AgentTopplista(användarnamn).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnTopplistaActionPerformed
 
 
