@@ -430,5 +430,17 @@ public class GetMetoder {
 
         return aliensOmråde;
     }
+    
+    public static ArrayList<String> toppListaAnsvarPerOmråde(String ettOmråde)
+    {
+        ArrayList<String> topplista = null;
+        
+        try {
+            topplista = idb.fetchColumn("select agent.namn, count(Agent_ID) from agent join alien on alien.Ansvarig_Agent = agent.Agent_ID join omrade o on agent.Omrade = o.Omrades_ID where Benamning = '"+ettOmråde+"' group by agent_ID order by count(Agent_ID) desc limit 3");
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return topplista;
+    }
 
 }

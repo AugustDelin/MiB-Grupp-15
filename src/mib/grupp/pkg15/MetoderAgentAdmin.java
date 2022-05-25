@@ -519,4 +519,17 @@ public class MetoderAgentAdmin {
 
         }
     }
+    
+    public static void toppTreAnsvarigaAgenterValtOmråde(JComboBox områdesLåda, JTextArea enArea)
+    {
+        enArea.setText("");
+        String valtOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
+        ArrayList<String> toppTre = GetMetoder.toppListaAnsvarPerOmråde(valtOmråde);
+        for(String enAgent : toppTre)
+        {
+        enArea.append(enAgent+ "\n");    
+        }
+        
+        
+    }
 }
