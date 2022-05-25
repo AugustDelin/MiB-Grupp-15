@@ -19,30 +19,33 @@ public class FyllText {
     }
 
     /**
+     * Fyller labeln Välkommen och tar in det namn som man loggat in som som
+     * parameter
      *
      * @param textruta
-     * @param användarnamn // Fyller labeln Välkommen och lägger till tar in det
-     * namn som man loggat in som som parameter
+     * @param användarnamn
      */
     public static void välkomstLabel(JLabel textruta, String användarnamn) {
         textruta.setText("Välkommen " + användarnamn + ".");
     }
 
     /**
+     * Fyller rutan där det står "Du är in loggad som" och tar inloggningsnamnet
+     * som parameter
      *
      * @param textruta
-     * @param användarnamn Fyller rutan där det står "Du är in loggad som" och
-     * tar inloggningsnamnet som parameter
+     * @param användarnamn
      */
     public static void inloggadSom(JLabel textruta, String användarnamn) {
         textruta.setText("Du är inloggad som: " + användarnamn + ".");
     }
 
     /**
+     * Fyller rutan där det står "Du är in loggad som" och tar inloggningsnamnet
+     * som parameter samt lägger till Administratör
      *
      * @param textruta
-     * @param användarnamn Fyller rutan där det står "Du är in loggad som" och
-     * tar inloggningsnamnet som parameter samt lägger till Administratör
+     * @param användarnamn
      */
     public static void inloggadSomAdmin(JLabel textruta, String användarnamn) {
         textruta.setText("Du är inloggad som: " + användarnamn + " (Administratör).");

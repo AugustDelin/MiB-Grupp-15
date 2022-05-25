@@ -368,7 +368,7 @@ public class GetMetoder {
     }
 
     /**
-     *
+     * Hämtar och returnerar vilka som är kontorschefer.
      * @return
      */
     public static ArrayList<HashMap<String, String>> hämtaKontorsChefer() {
@@ -383,6 +383,10 @@ public class GetMetoder {
         return kontorsChefer;
     }
 
+    /**
+     * Hämtar och returnerar områdeschefer.
+     * @return
+     */
     public static ArrayList<HashMap<String, String>> hämtaOmrådesChefer() {
         ArrayList<HashMap<String, String>> områdesChefer = null;
 
@@ -394,7 +398,10 @@ public class GetMetoder {
         return områdesChefer;
     }
 
-    // Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+    /**
+     * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     * @return
+     */
     public static String getNextFordonsID() {
         String nextId = null;
         try {
@@ -406,6 +413,10 @@ public class GetMetoder {
         return nextId;
     }
 
+    /**
+     * Hämtar och returnerar fordonsnamnen.
+     * @return
+     */
     public static ArrayList<String> getFordonsNamn() {
         ArrayList<String> allaFordon = null;
 
@@ -417,6 +428,10 @@ public class GetMetoder {
         return allaFordon;
     }
 
+    /**
+     * Hämtar och returnerar fordons-ID.
+     * @return
+     */
     public static ArrayList<String> getFordonsID() {
         ArrayList<String> allaFordon = null;
 
@@ -428,6 +443,11 @@ public class GetMetoder {
         return allaFordon;
     }
 
+    /**
+     * Hämtar och returnerar vilka aliens som finns inom ett visst område.
+     * @param ettOmråde
+     * @return
+     */
     public static ArrayList<String> hamtaAllaAliensfrånOmråde(String ettOmråde) {
         ArrayList<String> aliensIområde = null;
 
@@ -439,6 +459,11 @@ public class GetMetoder {
         return aliensIområde;
     }
 
+    /**
+     * Hämtar och returnerar en alien inom ett visst område.
+     * @param användarnamn
+     * @return
+     */
     public static String hamtaEnAliensOmråde(String användarnamn) {
         String aliensOmråde = null;
 
@@ -451,6 +476,11 @@ public class GetMetoder {
         return aliensOmråde;
     }
     
+    /**
+     * Hämtar och returnerar vilka tre agenter som har hand om flest aliens.
+     * @param ettOmråde
+     * @return
+     */
     public static ArrayList<String> toppListaAnsvarPerOmråde(String ettOmråde)
     {
         ArrayList<String> topplista = null;

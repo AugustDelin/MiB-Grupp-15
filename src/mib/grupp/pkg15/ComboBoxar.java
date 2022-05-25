@@ -30,8 +30,11 @@ public class ComboBoxar {
 
     }
 
-    //Skapa en ArrayList och fyller denna med platserna som finns
-    //enLåda.addItem("");
+    /**
+     * Skapa en ArrayList och fyller denna med platserna som finns.
+     *
+     * @param enLåda
+     */
     public static void fyllCBPlats(JComboBox enLåda) {
         try {
             enLåda.removeAllItems();
@@ -44,9 +47,12 @@ public class ComboBoxar {
             Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    //Skapar en ArrayList och fyller denna med de tre raserna som finns
-    //enLåda.addItem("");
 
+    /**
+     * Skapar en ArrayList och fyller denna med de tre raserna som finns.
+     *
+     * @param enLåda
+     */
     public static void fyllCBras(JComboBox enLåda) {
         ArrayList<String> raslista = new ArrayList();
         raslista.add("Boglodite");
@@ -58,8 +64,12 @@ public class ComboBoxar {
         }
 
     }
-//Skapar en ArrayList och fyller denna namnen som finns hos aliens.
 
+    /**
+     * Skapar en ArrayList och fyller denna namnen som finns hos aliens.
+     *
+     * @param enLåda
+     */
     public static void fyllCBAlienNamn(JComboBox enLåda) {
         try {
             ArrayList<String> namnLista = idb.fetchColumn("select namn from alien");
@@ -71,8 +81,13 @@ public class ComboBoxar {
             Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-//    Hämtar en ArrayList från databasen och fyller vald ComboBox med namnen från utrustningslistan.
 
+    /**
+     * Hämtar en ArrayList från databasen och fyller vald ComboBox med namnen
+     * från utrustningslistan.
+     *
+     * @param enLåda
+     */
     public static void fyllCBAgentUtrustning(JComboBox enLåda) {
 
         try {
@@ -87,7 +102,12 @@ public class ComboBoxar {
 
     }
 
-//     Hämtar en ArrayList ifrån databasen och fyller en ComboBox med med samtliga namn på agenterna som finns i databasen.
+    /**
+     * Hämtar en ArrayList ifrån databasen och fyller en ComboBox med med
+     * samtliga namn på agenterna som finns i databasen.
+     *
+     * @param enLåda
+     */
     public static void fyllCBAgentNamn(JComboBox enLåda) {
 
         try {
@@ -103,9 +123,9 @@ public class ComboBoxar {
     }
 
     /**
+     * Fyller vald ComboBox med värden J eller N som motsvarar adminstatus.
      *
-     * @param enLåda Fyller vald ComboBox med värden J eller N som motsvarar
-     * adminstatus
+     * @param enLåda
      */
     public static void fyllAdminStatus(JComboBox enLåda) {
         enLåda.addItem("J");
@@ -113,9 +133,10 @@ public class ComboBoxar {
     }
 
     /**
+     * Hämtar en ArrayList från databasen och fyller en ComboBox med alla
+     * områdesnamn som finns.
      *
-     * @param enLåda Hämtar en ArrayList från databasen och fyller en ComboBox
-     * med alla områdesnamn som finns
+     * @param enLåda
      */
     public static void fyllCBområden(JComboBox enLåda) {
         try {
@@ -129,12 +150,13 @@ public class ComboBoxar {
     }
 
     /**
+     * Rullistan för att välja ras. Några av raserna har tillhörande attribut, i
+     * de fallen så tillkommer en extra ruta genom en if-sats för att ange de
+     * extra attributen.
      *
      * @param cbRaser
      * @param lblRasAttribut
-     * @param txtRasAttribut Rullistan för att välja ras. Några av raserna har
-     * tillhörande attribut, i de fallen så tillkommer en extra ruta genom en
-     * if-sats för att ange de extra attributen.
+     * @param txtRasAttribut
      */
     public static void CBvaldAlienRas(JComboBox cbRaser, JLabel lblRasAttribut, JTextField txtRasAttribut) {
         String valdRas = GetMetoder.hamtaCbSträng(cbRaser);
@@ -158,11 +180,12 @@ public class ComboBoxar {
     }
 
     /**
+     * Denna metoden används vid nyregistrering av utrustning och reagerar på
+     * vald utrustningstyp.
      *
      * @param cbTyper
      * @param lblTypAttribut
-     * @param txtTypAttribut Denna metoden används vid nyregistrering av
-     * utrustning och reagerar på vald utrustningstyp
+     * @param txtTypAttribut
      */
     public static void CBvaldUtrustning(JComboBox cbTyper, JLabel lblTypAttribut, JTextField txtTypAttribut) {
         String valdUtrustning = GetMetoder.hamtaCbSträng(cbTyper);
@@ -187,9 +210,10 @@ public class ComboBoxar {
     }
 
     /**
+     * Denna metod gör en arraylist av de utrustningstyper som finns och lägger
+     * in denna i en ComboBox.
      *
-     * @param enLåda Denna metod gör en arraylist av de utrustningstyper som
-     * finns och lägger in denna i en ComboBox
+     * @param enLåda
      */
     public static void fyllCBtyp(JComboBox enLåda) {
         ArrayList<String> typlista = new ArrayList();
@@ -204,20 +228,29 @@ public class ComboBoxar {
     }
 
     /**
+     * Denna metod fyller en ComboBox med värdena Ja och Nej, och används vid
+     * ändring av chefsstatus.
      *
-     * @param enLåda Denna metod fyller en ComboBox med värdena Ja och Nej, och
-     * används vid ändring av chefsstatus
+     * @param enLåda
      */
     public static void fyllCBkontorchefsVal(JComboBox enLåda) {
         enLåda.addItem("Gör till kontorschef");
         enLåda.addItem("Ta bort kontorschef");
     }
-    
+
+    /**
+     * Denna metod fyller en ComboBox med värdena Ja och Nej, och används vid
+     * ändring av chefsstatus.
+     *
+     * @param enLåda
+     */
     public static void fyllCBområdeschefsVal(JComboBox enLåda) {
         enLåda.addItem("Gör till områdeschef");
         enLåda.addItem("Ta bort områdeschef");
     }
+
     /**
+     * Denna metod fyller en ComboBox med alla kontor.
      *
      * @param enLåda
      */
@@ -233,23 +266,30 @@ public class ComboBoxar {
         }
 
     }
-    public static void fyllOmrådesChefer(JComboBox enLåda)
-    {
-        ArrayList <HashMap <String,String>> chefsLista = GetMetoder.hämtaOmrådesChefer();
-        for(HashMap<String, String> enAgent : chefsLista)
-        {
+
+    /**
+     * Denna metod fyller en ComboBox med alla områdeschefer.
+     *
+     * @param enLåda
+     */
+    public static void fyllOmrådesChefer(JComboBox enLåda) {
+        ArrayList<HashMap<String, String>> chefsLista = GetMetoder.hämtaOmrådesChefer();
+        for (HashMap<String, String> enAgent : chefsLista) {
             enLåda.addItem(enAgent.get("Namn"));
         }
-        
+
     }
-    
-    public static void fyllKontorschefer(JComboBox enLåda)
-    {
-        ArrayList <HashMap <String,String>> chefsLista = GetMetoder.hämtaKontorsChefer();
-        for(HashMap<String, String> enAgent : chefsLista)
-        {
+
+    /**
+     * Denna metod fyller en ComboBox med alla kontorschefer.
+     *
+     * @param enLåda
+     */
+    public static void fyllKontorschefer(JComboBox enLåda) {
+        ArrayList<HashMap<String, String>> chefsLista = GetMetoder.hämtaKontorsChefer();
+        for (HashMap<String, String> enAgent : chefsLista) {
             enLåda.addItem(enAgent.get("Namn"));
         }
-        
+
     }
 }
