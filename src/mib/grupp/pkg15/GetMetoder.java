@@ -536,12 +536,12 @@ public class GetMetoder {
         return listaAnsvarigaAgenter;
     }
     
-    public static ArrayList<String> hämtaAlienFrånAnsvarigAgent(String agentID)
+    public static ArrayList<String> hämtaAlienFrånAnsvarigAgent(int agentID)
     {
         ArrayList<String> alienSomAgentAnsvararFör = null;
         
         try {
-            alienSomAgentAnsvararFör = idb.fetchColumn("select alien.namn from alien join agent a on alien.Ansvarig_Agent = a.Agent_ID where Agent_ID" + agentID);
+            alienSomAgentAnsvararFör = idb.fetchColumn("select alien.namn from alien join agent a on alien.Ansvarig_Agent = a.Agent_ID where Agent_ID =" + agentID);
         } catch (InfException ex) {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }

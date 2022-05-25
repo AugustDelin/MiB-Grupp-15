@@ -638,13 +638,13 @@ public class MetoderUnikaAdmin {
     {
         enArea.setText("");
         String enAgent = GetMetoder.hamtaCbSträng(enLåda);
-        int agentID = GetMetoder.hämtaAlienIDFrånNamn(enAgent);
+        int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
         String agentIDSträng = Integer.toString(agentID);
         
-        ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentIDSträng);
+        ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentID);
         for(String enAlien : aliensSomagentAnsvararFör)
         {
-            enArea.append(enAlien);
+            enArea.append(enAlien+ "\n");
         }
     }
 
