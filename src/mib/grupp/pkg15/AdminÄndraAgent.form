@@ -23,29 +23,24 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblRegistreraAgent" min="-2" pref="103" max="-2" attributes="0"/>
-                      <EmptySpace pref="662" max="32767" attributes="0"/>
-                      <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="lblRegistreraAgent" min="-2" pref="103" max="-2" attributes="0"/>
+              <EmptySpace pref="662" max="32767" attributes="0"/>
+              <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,9 +53,9 @@
                   <Component id="btnLoggaut" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblRegistreraAgent" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAvsluta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBacka" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -102,7 +97,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblRegistreraAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra agentdata"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra agentinformation"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
@@ -143,34 +138,20 @@
                               </Group>
                               <Component id="lblvisaID" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblKC" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblOC" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="cbOC" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="cbKC" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblVilketKontor" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="cbVilketKontor" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnAndraKCStatus" min="-2" max="-2" attributes="0"/>
                               <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnAndraKCStatus" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -181,8 +162,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbAgentNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbOC" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblOC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -193,7 +172,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRubrikRegd" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndraOCStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -211,10 +189,9 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblKC" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbKC" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbVilketKontor" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblVilketKontor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAndraKCStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       </Group>
@@ -227,12 +204,12 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndraKCStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblOmråde" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="cbOmråden" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAndraOCStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Component id="btnOmRegistreraAgent" min="-2" max="-2" attributes="0"/>
@@ -343,39 +320,6 @@
             <Property name="columns" type="int" value="6"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblOC">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Omr&#xe5;deschefsval"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cbOC">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblKC">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Kontorschefsval"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cbKC">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbKCActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblVilketKontor">
           <Properties>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj kontor"/>
@@ -393,7 +337,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAndraOCStatus">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschefsstatus"/>
+            <Property name="text" type="java.lang.String" value="G&#xf6;r till Omr&#xe5;deschef"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraOCStatusActionPerformed"/>
@@ -401,7 +345,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAndraKCStatus">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschefsstatus"/>
+            <Property name="text" type="java.lang.String" value="G&#xf6;r till kontorschef"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraKCStatusActionPerformed"/>
