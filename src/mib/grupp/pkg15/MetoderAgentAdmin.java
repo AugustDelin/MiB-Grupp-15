@@ -35,9 +35,9 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     *Metoden för att logga in som Agent.
      * @param användarnamnRuta
-     * @param lösenruta Metoden för att logga in som Agent.
+     * @param lösenruta 
      */
     public static void loggainAgent(JTextField användarnamnRuta, JPasswordField lösenruta) {
 
@@ -66,10 +66,10 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod för att byta lösenord för Agent.
      * @param användarnamn
      * @param gammaltlösen
-     * @param nyttlösen Metod för att byta lösenord för Agent.
+     * @param nyttlösen 
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         //Kontrollerar att båda fälten är ifyllda
@@ -89,7 +89,7 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod för att lista aliens på specifika platser.
      * @param lista
      * @param låda
      */
@@ -110,18 +110,17 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Visar alla aliens som tillhör vald ras.
      * @param lista
-     * @param låda Visar alla aliens som tillhör vald ras
+     * @param låda 
      */
     public static void listaAliensPerRas(JTextArea lista, JComboBox låda) {
-
         //Listan sätts blank
         lista.setText("");
         try {
-//Hämtar sträng ifrån COmboBox
+        //Hämtar sträng ifrån COmboBox.
             String valdRas = GetMetoder.hamtaCbSträng(låda);
-            //Hämtar en ArrayList av vald ras och skriver ut denna i listan
+            //Hämtar en ArrayList av vald ras och skriver ut denna i listan.
             ArrayList<String> alienavRas = idb.fetchColumn("select Namn from alien join " + valdRas + " on alien.alien_id =" + valdRas + ".alien_id");
             for (String enAlien : alienavRas) {
                 lista.append(enAlien + "\n");
@@ -133,21 +132,19 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     *Skapar en hashmap och visar all information om varje enskild alien.
      * @param lista
-     * @param låda Skapar en hashmap och visar all information om varje enskild
-     * alien.
+     * @param låda 
+     * 
      */
     public static void listaEnskildaAliens(JTextArea lista, JComboBox låda) {
-
         //Sätter textfältet som tomt
         lista.setText("");
         try {
             // hämtar variabler ifrån fälten
             String valdAlien = GetMetoder.hamtaCbSträng(låda);
             String ras = GetMetoder.getRasFrånNamn(valdAlien);
-
-            //HashMapen gås igenom. Först namnges rubriker sedan hämtas data med hjälp av nyckeln som skrivs ut i listan
+            //HashMapen gås igenom. Först namnges rubriker sedan hämtas data med hjälp av nyckeln som skrivs ut i listan.
             HashMap<String, String> alienAvNamn = idb.fetchRow("select alien.Losenord, Alien_ID, alien.Namn, Registreringsdatum, alien.Telefon, Benamning, agent.Namn from alien join agent on alien.Ansvarig_Agent = agent.Agent_ID join plats on alien.Plats = plats.Plats_ID where alien.namn = '" + valdAlien + "'");
             lista.append("ID\tNamn\tRas\tTelefon\tPlats\tAnsvar\tRegdatum\tLösenord\n");
             lista.append(alienAvNamn.get("Alien_ID") + "\t");
@@ -165,14 +162,14 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod för att lägga till utrustning på en agent.
      * @param enLåda
      * @param användarnamn
      */
     public static void laggTillUtrustningPåAgent(JComboBox enLåda, String användarnamn) {
-        //Deklarerar felmeddelande som ska användas i om utrustning redan finns på agenten
+        //Deklarerar felmeddelande som ska användas i om utrustning redan finns på agenten.
         String felmeddelande = "Denna utrustning är redan registrerad på " + användarnamn;
-        //Hämtar vald utrustning ifrån en Combobox och gör om String variabler till integers
+        //Hämtar vald utrustning ifrån en Combobox och gör om String variabler till integers.
         String valdUtrustning = GetMetoder.hamtaCbSträng(enLåda);
         int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(användarnamn);
@@ -180,7 +177,7 @@ public class MetoderAgentAdmin {
         String utrustningsIDSomSträng = Integer.toString(utrustningsID);
         String dagensDatum = DatumHanterare.getDagensDatum();
         if (Validera.kollaOmvärdeFinnsIArrayList(GetMetoder.getUtrustningsIDnFrånAgentID(agentID), utrustningsIDSomSträng, felmeddelande)) {
-            // om Valideringen godkänns registreras den nya utrustningen på agenten
+            // om Valideringen godkänns registreras den nya utrustningen på agenten.
             try {
                 idb.insert("Insert into Innehar_Utrustning values(" + agentID + "," + utrustningsID + ",'" + dagensDatum + "')");
                 JOptionPane.showMessageDialog(null, "Du har lagt till " + valdUtrustning + " till din lista!");
@@ -193,7 +190,7 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod för att lista vem som är chef över ett visst område.
      * @param lista
      * @param låda
      */
@@ -201,11 +198,11 @@ public class MetoderAgentAdmin {
         //Sätter textfältet blankt
         lista.setText("");
         try {
-            //Hämtar en sträng ifrån en Combobox, i detta fall valt område
+            //Hämtar en sträng ifrån en Combobox, i detta fall valt område.
             String valtOmrade = GetMetoder.hamtaCbSträng(låda);
-            //Hämtar lista ifrån DB
+            //Hämtar lista ifrån DB.
             ArrayList<String> chefAvOmrade = idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
-            //Listar alla agenet i valt område
+            //Listar alla områdeschef i valt område.
             for (String enChef : chefAvOmrade) {
                 lista.append(enChef);
             }
@@ -215,63 +212,57 @@ public class MetoderAgentAdmin {
 
     }
     
-     public static void listaAllaKontorsChefer(JTextArea lista) {
+    /**
+     * Metod för att visa en lista över alla kontorschefer.
+     * @param lista
+     */
+    public static void listaAllaKontorsChefer(JTextArea lista) {
         //Sätter textfältet blankt
         lista.setText("");
         lista.setText("Kontor\tChef\n");
-        
-            
-            //Hämtar lista ifrån DB
+            //Hämtar lista ifrån DB.
             ArrayList<HashMap<String,String>> chefAvkontor = GetMetoder.hämtaKontorsChefer();
-            
-                    //idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
-            //Listar alla agenet i valt område
+            //Listar alla kontorschefer.
             for (HashMap<String,String> enChef : chefAvkontor) {
                 lista.append(enChef.get("Kontorsbeteckning")+"\t");
                  lista.append(enChef.get("Namn")+"\n");
             }
         
-         
-
     }
      
-      public static void listaAllaOmrådesChefer(JTextArea lista) {
+    /**
+     * Listar samtliga områdeschefer.
+     * @param lista
+     */
+    public static void listaAllaOmrådesChefer(JTextArea lista) {
         //Sätter textfältet blankt
         lista.setText("");
         lista.setText("Område\tChef\n");
-        
-            
             //Hämtar lista ifrån DB
             ArrayList<HashMap<String,String>> chefAvkontor = GetMetoder.hämtaOmrådesChefer();
-            
-                    //idb.fetchColumn("select Agent.namn from agent join omradeschef on omradeschef.Agent_ID = agent.Agent_ID join omrade on omrade.Omrades_ID= omradeschef.Agent_ID where omrade.benamning= '" + valtOmrade + "'");
-            //Listar alla agenet i valt område
+            //Listar alla områdeschefer i valt område
             for (HashMap<String,String> enChef : chefAvkontor) {
                 lista.append(enChef.get("Benamning")+"\t");
                  lista.append(enChef.get("Namn")+"\n");
             }
-        
-         
-
     }
 
     /**
-     *
+     * Metod för att visa aliens inom två specifika registreringsdatum.
      * @param fält1
      * @param fält2
      * @param enArea
      */
     public static void visaAlienFrånRegDatum(JTextField fält1, JTextField fält2, JTextArea enArea) {
-        //Nödvändiga valideringar görs innan programet körs
+        //Nödvändiga valideringar görs innan programet körs.
         if (Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)) {
             try {
-
-                //variabler hämtas ifrån getfält
+                //Variabler hämtas ifrån getfält.
                 String datum1 = fält1.getText();
                 String datum2 = fält2.getText();
                 ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
 
-                //listan gås igenom och läggs upp i en textarea
+                //Listan gås igenom och läggs upp i en textarea.
                 for (HashMap<String, String> enRad : alien) {
                     enArea.append(enRad.get("Namn") + "\n");
                 }
@@ -282,7 +273,7 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     *  Metod för att registrera en ny Alien.
      * @param id
      * @param datum
      * @param namnFält
@@ -291,16 +282,17 @@ public class MetoderAgentAdmin {
      * @param telNrFält
      * @param platsLåda
      * @param agentLåda
-     * @param attributFält Metod för att registrera en ny Alien.
+     * @param attributFält 
+     * 
      */
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
-        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        //Validering för samtliga fält görs så om valideringen godkänns körs programmet.
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMängdRasAttribut(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
             String ettNamn = null;
 
             try {
-                //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+                //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int.
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 String ettDatum = datum.getText();
@@ -348,7 +340,7 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod för att visa all information om en specifik alien.
      * @param alienLåda
      * @param IDFält
      * @param RegFält
@@ -379,7 +371,7 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod för att ändra information om en alien.
      * @param gammaltNamnLåda
      * @param id
      * @param datum
@@ -392,7 +384,7 @@ public class MetoderAgentAdmin {
      * @param attributFält
      */
     public static void ändraAlien(JComboBox gammaltNamnLåda, JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
-        //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
+        //Validering för samtliga fält görs så om valideringen godkänns körs programmet.
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMängdRasAttribut(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
             String ettNamn = null;
             try {
@@ -400,7 +392,7 @@ public class MetoderAgentAdmin {
                 String gammaltNamn = GetMetoder.hamtaCbSträng(gammaltNamnLåda);
                 String gammalRas = GetMetoder.getRasFrånNamn(gammaltNamn);
 
-//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
+//Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int.
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 String ettDatum = datum.getText();
@@ -496,7 +488,7 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * 
      * @param användarnamn
      * @param enArea
      */

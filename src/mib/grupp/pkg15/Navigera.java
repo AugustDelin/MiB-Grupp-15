@@ -18,37 +18,61 @@ public class Navigera {
 
     }
 
-    //Metod som skapar en instans av klassen StartSkärm och visar denna.
+    /**
+     * Metod som skapar en instans av klassen StartSkärm och visar denna.
+     */
     public static void openStartSkärm() {
         new StartSkärm().setVisible(true);
     }
 
-    //Metod som skapar en instans av klassen AlienStartSkärm och visar denna.
+    /**
+     * Metod som skapar en instans av klassen AlienStartSkärm och visar denna.
+     *
+     * @param användarnamn
+     */
     public static void openAlienStartSkärm(String användarnamn) {
         new AlienStartSkärm(användarnamn).setVisible(true);
     }
 
-    //Metod som skapar en instans av klassen AgentStartSkärm och visar denna.
+    /**
+     * Metod som skapar en instans av klassen AgentStartSkärm och visar denna.
+     *
+     * @param användarnamn
+     */
     public static void openAgentStartSkärm(String användarnamn) {
         new AgentStartSkärm(användarnamn).setVisible(true);
     }
 
-    //Metod som öppnar en ny sida av AgentMinSIda.
+    /**
+     * Metod som öppnar en ny sida av AgentMinSIda.
+     *
+     * @param användarnamn
+     */
     public static void openAgentMinSida(String användarnamn) {
         new AgentMinSida(användarnamn).setVisible(true);
     }
 
-    //    Metod som Avslutar programmet.
+    /**
+     * Metod som Avslutar programmet.
+     */
     public static void avslutaProgram() {
         System.exit(0);
     }
 
-    //Metod som öppnar en ny sida av AdminStartskärm
+    /**
+     * Metod som öppnar en ny sida av AdminStartskärm
+     *
+     * @param användarnamn
+     */
     public static void openAdminStartSkärm(String användarnamn) {
         new AdminStartSkärm(användarnamn).setVisible(true);
     }
 
-    //    Metod som öppnar en ny sida av AdminMinSida
+    /**
+     * Metod som öppnar en ny sida av AdminMinSida
+     *
+     * @param användarnamn
+     */
     public static void openAdminMinSida(String användarnamn) {
         new AdminMinSida(användarnamn).setVisible(true);
     }
