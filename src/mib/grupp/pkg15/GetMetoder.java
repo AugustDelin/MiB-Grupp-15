@@ -167,23 +167,25 @@ public class GetMetoder {
 
     }
 
+    /**
+     * 
+     * @param ettID
+     * @return
+     */
     public static String getRasAttributFrånID(String ettID) {
         String mängdAttribut = null;
         try {
-//Hämtar antal armar eller boogies från lista berende på ras.
+            //Hämtar antal armar eller boogies från lista berende på ras.
             String boogies = idb.fetchSingle("Select Antal_Boogies from boglodite where Alien_ID = '" + ettID + "'");
             String armar = idb.fetchSingle("Select Antal_Armar from squid where Alien_ID = '" + ettID + "'");
             //String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
-//Om den inte hittar något är går detta vidare till nästa ras
+            //Om den inte hittar något är går detta vidare till nästa ras.
             if (Validera.kollaNullSträng(boogies)) {
                 mängdAttribut = boogies;
             }
             if (Validera.kollaNullSträng(armar)) {
                 mängdAttribut = armar;
             }
-//            if (Validera.kollaNullSträng(worm)) {
-//                ras = "Worm";
-//            }
 
         } catch (InfException ex) {
             Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
