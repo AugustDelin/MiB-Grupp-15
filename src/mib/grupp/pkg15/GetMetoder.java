@@ -520,6 +520,10 @@ public class GetMetoder {
         return topplista;
     }
 
+    /**
+     *Hämtar agentID från aliens
+     * @return
+     */
     public static ArrayList<String> hämtaAnsvarigaAgenter() {
         ArrayList<String> listaAnsvarigaAgenter = null;
 
@@ -530,6 +534,19 @@ public class GetMetoder {
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listaAnsvarigaAgenter;
+    }
+    
+    public static ArrayList<String> hämtaAlienFrånAnsvarigAgent(String agentID)
+    {
+        ArrayList<String> alienSomAgentAnsvararFör = null;
+        
+        try {
+            alienSomAgentAnsvararFör = idb.fetchColumn("select alien.namn from alien join agent a on alien.Ansvarig_Agent = a.Agent_ID where Agent_ID" + agentID);
+        } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return alienSomAgentAnsvararFör;
     }
 
 }
