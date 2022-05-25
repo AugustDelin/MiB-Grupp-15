@@ -247,7 +247,7 @@ public class Validera {
         boolean matchFound = matcher.matches();
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt angivet Agentnamn, du kan endast ange en bokstav med stora bokstäver i detta fält");
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet Agentnamn. Vänligen ange en stor bokstav mellan A-Z. ");
             ettFält.requestFocus();
         }
 

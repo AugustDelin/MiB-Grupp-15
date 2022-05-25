@@ -8,7 +8,7 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
-// Fälten för AgentAlienInfo.
+// Fälten för AgentOCInfo.
 public class AgentOCinfo extends javax.swing.JFrame {
 
     private String användarnamn;

@@ -275,13 +275,11 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
         new AgentAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    //    Knappen för att registrera en alien.
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
         MetoderAgentAdmin.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
-
-
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-
+    //  ComboBox för att visa raser och attribut.
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
         ComboBoxar.CBvaldAlienRas(cbRaser, lblRasAttribut, txtRasAttribut);
 
