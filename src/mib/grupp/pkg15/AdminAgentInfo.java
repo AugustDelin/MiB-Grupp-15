@@ -146,13 +146,12 @@ public class AdminAgentInfo extends javax.swing.JFrame {
             }
         });
 
-        cbOmrådeschefer.addActionListener(new java.awt.event.ActionListener() {
+        btnTabortOC.setText("Ta bort områdeschef");
+        btnTabortOC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOmrådescheferActionPerformed(evt);
+                btnTabortOCActionPerformed(evt);
             }
         });
-
-        btnTabortOC.setText("Ta bort områdeschef");
 
         btnTabortKC.setText("Ta bort kontorschef");
         btnTabortKC.addActionListener(new java.awt.event.ActionListener() {
@@ -279,6 +278,10 @@ public class AdminAgentInfo extends javax.swing.JFrame {
     private void btnSokAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAgentActionPerformed
         //txtAreaListaAgenter.setText("");
         cbAgentNamn.setVisible(true);
+        btnTabortOC.setVisible(false);
+        btnTabortKC.setVisible(false);
+        cbKontorschefer.setVisible(false);
+        cbOmrådeschefer.setVisible(false);
         if (cbAgentNamn.getItemCount() == 0) {
             ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
         }
@@ -311,6 +314,10 @@ public class AdminAgentInfo extends javax.swing.JFrame {
 
     private void btnSokOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokOCActionPerformed
         cbAgentNamn.setVisible(false);
+        btnTabortOC.setVisible(true);
+        btnTabortKC.setVisible(false);
+        cbKontorschefer.setVisible(false);
+        cbOmrådeschefer.setVisible(true);
         MetoderAgentAdmin.listaAllaOmrådesChefer(txtAreaListaAgenter);
 
 
@@ -320,18 +327,20 @@ public class AdminAgentInfo extends javax.swing.JFrame {
         cbAgentNamn.setVisible(false);
         btnTabortOC.setVisible(false);
         btnTabortKC.setVisible(true);
+        cbKontorschefer.setVisible(true);
+        cbOmrådeschefer.setVisible(false);
         
         MetoderAgentAdmin.listaAllaKontorsChefer(txtAreaListaAgenter);
 
     }//GEN-LAST:event_btnVisaKontorschefActionPerformed
 
-    private void cbOmrådescheferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOmrådescheferActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbOmrådescheferActionPerformed
-
     private void btnTabortKCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortKCActionPerformed
-        // TODO add your handling code here:
+       MetoderUnikaAdmin.taBortKontorsChef(cbKontorschefer);
     }//GEN-LAST:event_btnTabortKCActionPerformed
+
+    private void btnTabortOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortOCActionPerformed
+        MetoderUnikaAdmin.taBortOmrådesChef(cbOmrådeschefer);
+    }//GEN-LAST:event_btnTabortOCActionPerformed
 
     /**
      * @param args the command line arguments

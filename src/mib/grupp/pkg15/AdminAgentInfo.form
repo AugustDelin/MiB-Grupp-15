@@ -269,9 +269,6 @@
           <StringArray count="0"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbOmr&#xe5;descheferActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -290,6 +287,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort omr&#xe5;deschef"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTabortOCActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTabortKC">
       <Properties>

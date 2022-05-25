@@ -479,10 +479,9 @@ public class MetoderUnikaAdmin {
      * @param områdesLåda
      * @param OCLåda
      */
-    public static void taBortOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
+    public static void taBortOmrådesChef(JComboBox valdAgent) {
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
-        String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);
-        ArrayList<String> agentLista = GetMetoder.getKontorsCherfer();
+        ArrayList<String> agentLista = GetMetoder.hämtaNamnFrånOmrådesChefer();
         String ettMeddelande = (enAgent + " ansvarar inte för något område");
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
 
@@ -492,7 +491,7 @@ public class MetoderUnikaAdmin {
         } else {
             try {
                 idb.delete("delete from omradeschef where agent_ID =" + agentID);
-                JOptionPane.showMessageDialog(null, "Du har tagit bort " + enAgent + " från området " + ettOmråde);
+                JOptionPane.showMessageDialog(null, enAgent + " är inte längre områdeschef");
             } catch (InfException ex) {
                 Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }

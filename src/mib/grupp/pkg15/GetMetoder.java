@@ -262,7 +262,7 @@ public class GetMetoder {
         return cbSträng;
     }
 
-    public static ArrayList<String> getKontorsCherfer() {
+    public static ArrayList<String> hämtaNamnFrånOmrådesChefer() {
         ArrayList<String> agentLista = null;
         try {
             agentLista = idb.fetchColumn("select namn from agent join omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID");
