@@ -16,7 +16,8 @@ import oru.inf.InfException;
 
 /**
  *
- * @author erike Denna klass ansvarar för att hantera saker som händer i
+ * @author erike 
+ * Denna klass ansvarar för att hantera saker som händer i
  * ComboBoxar såsom att fylla dem.
  */
 //Fälten för klassen ComboBoxar.
@@ -31,7 +32,7 @@ public class ComboBoxar {
     }
 
     /**
-     * Skapa en ArrayList och fyller denna med platserna som finns.
+     * Hämtar en ArrayList och fyller lådan med namnen på de platserna som finns i databasen
      *
      * @param enLåda
      */
@@ -49,7 +50,7 @@ public class ComboBoxar {
     }
 
     /**
-     * Skapar en ArrayList och fyller denna med de tre raserna som finns.
+     * Skapar en ArrayList och fyller lådan med de tre raserna som finns.
      *
      * @param enLåda
      */
@@ -66,7 +67,7 @@ public class ComboBoxar {
     }
 
     /**
-     * Skapar en ArrayList och fyller denna namnen som finns hos aliens.
+     * Hämtar en ArrayList och fyller lådan med de namn som finns hos aliens.
      *
      * @param enLåda
      */
@@ -181,7 +182,7 @@ public class ComboBoxar {
 
     /**
      * Denna metoden används vid nyregistrering av utrustning och reagerar på
-     * vald utrustningstyp.
+     * vald utrustningstyp, exempelvis så ändras textfält.
      *
      * @param cbTyper
      * @param lblTypAttribut
@@ -227,30 +228,9 @@ public class ComboBoxar {
 
     }
 
+    
     /**
-     * Denna metod fyller en ComboBox med värdena Ja och Nej, och används vid
-     * ändring av chefsstatus.
-     *
-     * @param enLåda
-     */
-    public static void fyllCBkontorchefsVal(JComboBox enLåda) {
-        enLåda.addItem("Gör till kontorschef");
-        enLåda.addItem("Ta bort kontorschef");
-    }
-
-    /**
-     * Denna metod fyller en ComboBox med värdena Ja och Nej, och används vid
-     * ändring av chefsstatus.
-     *
-     * @param enLåda
-     */
-    public static void fyllCBområdeschefsVal(JComboBox enLåda) {
-        enLåda.addItem("Gör till områdeschef");
-        enLåda.addItem("Ta bort områdeschef");
-    }
-
-    /**
-     * Denna metod fyller en ComboBox med alla kontor.
+     * Denna metod hämtar en ArrayList och fyller en ComboBox med alla kontor som finns i databasen
      *
      * @param enLåda
      */
@@ -268,7 +248,7 @@ public class ComboBoxar {
     }
 
     /**
-     * Denna metod fyller en ComboBox med alla områdeschefer.
+     * Denna metod hämtar en ArrayList och fyller en ComboBox med namnet på områdeschefer.
      *
      * @param enLåda
      */
@@ -281,7 +261,7 @@ public class ComboBoxar {
     }
 
     /**
-     * Denna metod fyller en ComboBox med alla kontorschefer.
+     * Denna metod hämtar en ArrayList och fyller en ComboBox med namnet på kontorschefer.
      *
      * @param enLåda
      */
