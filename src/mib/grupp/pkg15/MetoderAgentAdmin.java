@@ -73,7 +73,7 @@ public class MetoderAgentAdmin {
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
         //Kontrollerar att båda fälten är ifyllda
-        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
+        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen) && Validera.kollaLängdLösenord(nyttlösen))
         try {
             //Hämtar lösenord som tillhör inskrivet ID ifrån databasen
             String lösenord = idb.fetchSingle("Select Losenord from AGENT where namn ='" + användarnamn + "'");
@@ -82,6 +82,8 @@ public class MetoderAgentAdmin {
                 String nyttLösenord = nyttlösen.getText();
                 idb.update("UPDATE AGENT SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
+                gammaltlösen.setText("");
+                nyttlösen.setText("");
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);

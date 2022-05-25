@@ -85,13 +85,15 @@ public class MetoderAlien {
      * @param nyttlösen
      */
     public static void bytLösenord(String användarnamn, JPasswordField gammaltlösen, JPasswordField nyttlösen) {
-        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen))
+        if (Validera.kollaTom(gammaltlösen) && Validera.kollaTom(nyttlösen) && Validera.kollaLängdLösenord(nyttlösen))
         try {
             String lösenord = idb.fetchSingle("Select Losenord from alien where namn ='" + användarnamn + "'");
             if (Validera.kollaLösen(lösenord, gammaltlösen)) {
                 String nyttLösenord = nyttlösen.getText();
                 idb.update("UPDATE alien SET losenord='" + nyttLösenord + "' where namn ='" + användarnamn + "'");
                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats.");
+                gammaltlösen.setText("");
+                nyttlösen.setText("");
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderAlien.class.getName()).log(Level.SEVERE, null, ex);
