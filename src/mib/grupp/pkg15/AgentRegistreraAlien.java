@@ -272,7 +272,7 @@ public class AgentRegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AgentAlienInfo(användarnamn).setVisible(true);
+        new AgentHanteraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
     //    Knappen för att registrera en alien.

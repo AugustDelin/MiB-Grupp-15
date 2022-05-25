@@ -157,9 +157,9 @@ public class AgentStartSkärm extends javax.swing.JFrame {
         Navigera.openStartSkärm();
         dispose();
     }//GEN-LAST:event_lblLoggautActionPerformed
-    // Knappen för att starta metoden AgentAlienInfo.
+    // Knappen för att starta metoden AgentHanteraAlien.
     private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
-        new AgentAlienInfo(användarnamn).setVisible(true);
+        new AgentHanteraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAlienInfoActionPerformed
 //Knappen startar metoden för att öppna fönstret för klassen AgentUtrustning.

@@ -8,15 +8,15 @@ package mib.grupp.pkg15;
  *
  * @author augustdelin
  */
-// Fälten för AgentAlienInfo.
-public class AgentAlienInfo extends javax.swing.JFrame {
+// Fälten för AgentHanteraAlien.
+public class AgentHanteraAlien extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
      * Konstruktorn för AgentAlienInfo.
      */
-    public AgentAlienInfo(String användarnamn) {
+    public AgentHanteraAlien(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         cbAlienPlatser.setVisible(false);
