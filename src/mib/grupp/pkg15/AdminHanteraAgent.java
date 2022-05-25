@@ -29,6 +29,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         ComboBoxar.fyllKontorschefer(cbKontorschefer);
         btnTabortKC.setVisible(false);
         btnTabortOC.setVisible(false);
+         cbAlienansvar.setVisible(false);
 
     }
 
@@ -62,6 +63,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         cbOmrådeschefer = new javax.swing.JComboBox<>();
         btnTabortKC = new javax.swing.JButton();
         btnAlienAnsvar = new javax.swing.JButton();
+        cbAlienansvar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,6 +170,12 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
             }
         });
 
+        cbAlienansvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlienansvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -207,7 +215,8 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(btnTabortOC)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(cbOmrådeschefer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addComponent(cbOmrådeschefer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(cbAlienansvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,7 +273,9 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSokAgent)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAlienAnsvar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAlienAnsvar)
+                            .addComponent(cbAlienansvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -300,6 +311,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         btnTabortKC.setVisible(false);
         cbKontorschefer.setVisible(false);
         cbOmrådeschefer.setVisible(false);
+         cbAlienansvar.setVisible(false);
         if (cbAgentNamn.getItemCount() == 0) {
             ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
         }
@@ -332,10 +344,12 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
 
     private void btnSokOCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokOCActionPerformed
         cbAgentNamn.setVisible(false);
+        cbAlienansvar.setVisible(false);
         btnTabortOC.setVisible(true);
         btnTabortKC.setVisible(false);
         cbKontorschefer.setVisible(false);
         cbOmrådeschefer.setVisible(true);
+        cbAlienansvar.setVisible(false);
         MetoderAgentAdmin.listaAllaOmrådesChefer(txtAreaListaAgenter);
 
 
@@ -347,6 +361,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         btnTabortKC.setVisible(true);
         cbKontorschefer.setVisible(true);
         cbOmrådeschefer.setVisible(false);
+        cbAlienansvar.setVisible(false);
 
         MetoderAgentAdmin.listaAllaKontorsChefer(txtAreaListaAgenter);
 
@@ -361,17 +376,23 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTabortOCActionPerformed
 
     private void btnAlienAnsvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienAnsvarActionPerformed
-        cbAgentNamn.setVisible(true);
+        txtAreaListaAgenter.setText("");
+        cbAgentNamn.setVisible(false);
         btnTabortOC.setVisible(false);
         btnTabortKC.setVisible(false);
         cbKontorschefer.setVisible(false);
         cbOmrådeschefer.setVisible(false);
-        if (cbAgentNamn.getItemCount() == 0) {
-            ComboBoxar.fyllCBAgentNamn(cbAgentNamn);
+        cbAlienansvar.setVisible(true);
+        if (cbAlienansvar.getItemCount() == 0) {
+            ComboBoxar.fyllCBAgentNamn(cbAlienansvar);
         }
         
-        MetoderUnikaAdmin.visaAgentAnsvar(cbAgentNamn, txtAreaListaAgenter);
+        
     }//GEN-LAST:event_btnAlienAnsvarActionPerformed
+
+    private void cbAlienansvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienansvarActionPerformed
+       MetoderUnikaAdmin.visaAgentAnsvar(cbAlienansvar, txtAreaListaAgenter);
+    }//GEN-LAST:event_cbAlienansvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,6 +412,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnVisaKontorschef;
     private javax.swing.JButton btnÄndraAgent;
     private javax.swing.JComboBox<String> cbAgentNamn;
+    private javax.swing.JComboBox<String> cbAlienansvar;
     private javax.swing.JComboBox<String> cbKontorschefer;
     private javax.swing.JComboBox<String> cbOmrådeschefer;
     private javax.swing.JScrollPane jScrollPane2;
