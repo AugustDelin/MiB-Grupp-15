@@ -335,7 +335,7 @@ public class Validera {
         if(lista.contains(enSträng))
         {
             resultat = false;
-            JOptionPane.showConfirmDialog(null, felmeddelande);
+            JOptionPane.showMessageDialog(null, felmeddelande);
         }
         return resultat;
     }
