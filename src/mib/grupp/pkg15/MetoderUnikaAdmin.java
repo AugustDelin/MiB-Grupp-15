@@ -216,7 +216,7 @@ public class MetoderUnikaAdmin {
         ArrayList<String> ansvarigaAgenter = GetMetoder.hämtaAnsvarigaAgenter();
         int AgentID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
         String agentIDsomSträng = Integer.toString(AgentID);
-        if(Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort " + valdAgent + " har alienansvar för aliens"))
+        if(Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort " + valdAgent + " har alienansvar"))
         {
             
         
@@ -632,6 +632,20 @@ public class MetoderUnikaAdmin {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+    
+    public static void visaAgentAnsvar(JComboBox enLåda, JTextArea enArea)
+    {
+        enArea.setText("");
+        String enAgent = GetMetoder.hamtaCbSträng(enLåda);
+        int agentID = GetMetoder.hämtaAlienIDFrånNamn(enAgent);
+        String agentIDSträng = Integer.toString(agentID);
+        
+        ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentIDSträng);
+        for(String enAlien : aliensSomagentAnsvararFör)
+        {
+            enArea.append(enAlien);
+        }
     }
 
 }
