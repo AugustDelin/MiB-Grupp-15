@@ -73,9 +73,10 @@ public class MetoderUnikaAdmin {
     /**
      *
      * @param lista
-     * @param låda Skapar en hashmap och visar all information om varje enskild
-     * agent.
+     * @param låda 
      */
+//    Skapar en hashmap och visar all information om varje enskild
+//    agent.
     public static void listaEnskildAgent(JTextArea lista, JComboBox låda) {
         //Sätter textfältet som tomt
         lista.setText("");
