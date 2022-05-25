@@ -349,7 +349,7 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar och returnerar namn områdeschefer.
+     * Hämtar en lista från databasen och returnerar namn områdeschefer.
      *
      * @return
      */
@@ -364,7 +364,7 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar och returnerar namn på kontorschefer.
+     * Hämtar en lista ifrån databsen och returnerar namn på kontorschefer.
      *
      * @return
      */
@@ -378,6 +378,11 @@ public class GetMetoder {
         return agentLista;
     }
     
+    /**
+     *Hämtar en lista med alla agent_ID som finns i områdeschefer
+     * och returnerar denna
+     * @return
+     */
     public static ArrayList<String> getAllaAgentIDFrånOC()
     {
         ArrayList<String> agentIDn = null;
@@ -391,7 +396,8 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar och returnerar alla områdesid från områdeschefer.
+     * Hämtar en lista med områdes id ifrån Områdeschefer och returnerar listan.
+     * 
      *
      * @return
      */
@@ -406,7 +412,9 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar och returnerar vilka som är kontorschefer.
+     * Hämtar en lista med namn och kontorsbeteckning ifrån tabellen kontorschefer
+     * och returnerar denna.
+     * 
      *
      * @return
      */
@@ -423,7 +431,8 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar och returnerar områdeschefer.
+     * Hämtar lista med namn och områdes benämning och returnerar denna
+     * 
      *
      * @return
      */
@@ -439,7 +448,7 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     * Hämtar ut senaste ifrån ID:t i listan och ökar denna till ett oanvänt ID.
      *
      * @return
      */
@@ -539,7 +548,7 @@ public class GetMetoder {
     }
 
     /**
-     *Hämtar agentID från aliens
+     *Hämtar agentID från aliens kolumnen ansvarig_agent
      * @return
      */
     public static ArrayList<String> hämtaAnsvarigaAgenter() {
@@ -554,6 +563,11 @@ public class GetMetoder {
         return listaAnsvarigaAgenter;
     }
     
+    /**
+     * Hämtar en lista på aliennamn på de aliens som har angiven AgentID som ansvarig agent
+     * @param agentID
+     * @return
+     */
     public static ArrayList<String> hämtaAlienFrånAnsvarigAgent(int agentID)
     {
         ArrayList<String> alienSomAgentAnsvararFör = null;

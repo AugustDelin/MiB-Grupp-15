@@ -443,10 +443,11 @@ public class MetoderUnikaAdmin {
      * @param kontorsLåda
      * @param valdAgent
      */
-    public static void laggTillKontorsChef(JComboBox kontorsLåda, JComboBox valdAgent) {
+    public static void laggTillKontorsChef(JComboBox plats, JComboBox valdAgent) {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
-            String ettKontor = GetMetoder.hamtaCbSträng(kontorsLåda);
+            String enPlats = GetMetoder.hamtaCbSträng(plats);
+            String ettKontor = enPlats+"kontoret";
             //Hämtar värdena i från boxarna
 
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
