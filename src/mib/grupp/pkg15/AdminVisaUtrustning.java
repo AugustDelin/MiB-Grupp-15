@@ -170,11 +170,11 @@ public class AdminVisaUtrustning extends javax.swing.JFrame {
         new AdminUtrustning(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att visa vilken utrustning en agent har på sig.
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         MetoderUnikaAdmin.listaAgentsUtrustning(cbVäljAgent, txtareaVisaUtrustning);
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
-
+    // Knappen för att visa vilka fordon en agent har.
     private void btnVisaFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaFordonActionPerformed
         MetoderUnikaAdmin.listaAgentsFordon(cbVäljAgent, txtareaVisaUtrustning);
     }//GEN-LAST:event_btnVisaFordonActionPerformed
