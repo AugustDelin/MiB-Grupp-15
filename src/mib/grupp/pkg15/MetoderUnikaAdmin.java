@@ -336,6 +336,7 @@ public class MetoderUnikaAdmin {
 
     /**
      * Denna metod fungerar på liknande sätt som nyregistering av agent.
+     * Men kör en set istället för insert into statement till databasen
      * 
      * 
      * 
@@ -523,21 +524,14 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     *Denna metod tar bort vald områdeschef från tabellen.
+     
      * @param valdAgent
-     * @param områdesLåda
-     * @param OCLåda
+     * 
      */
     public static void taBortOmrådesChef(JComboBox valdAgent) {
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
-        ArrayList<String> agentLista = GetMetoder.hämtaNamnFrånOmrådesChefer();
-        String ettMeddelande = (enAgent + " ansvarar inte för något område");
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-
-        if (!agentLista.contains(enAgent)) {
-            JOptionPane.showMessageDialog(null, ettMeddelande);
-
-        } else {
             try {
                 idb.delete("delete from omradeschef where agent_ID =" + agentID);
                 JOptionPane.showMessageDialog(null, enAgent + " är inte längre områdeschef");
@@ -546,10 +540,10 @@ public class MetoderUnikaAdmin {
             }
 
         }
-    }
+    
 
     /**
-     *
+     *Denna metod listar den utrustningen samt utkvitterings datum som vald agent har utkvitterat
      * @param namnLåda
      * @param enArea
      */
@@ -565,17 +559,18 @@ public class MetoderUnikaAdmin {
     }
 
     /**
-     *
+     *Denna metod listar information om det fordon en agent har kvitterat
      * @param namnLåda
      * @param enArea
      */
     public static void listaAgentsFordon(JComboBox namnLåda, JTextArea enArea) {
         String agentNamn = GetMetoder.hamtaCbSträng(namnLåda);
         enArea.setText("");
-        enArea.append("Beskrivning\t\tÅrsmodell\tUtkvitteringsdatum\n");
+        enArea.append("Regnummer\tBeskrivning\t\tÅrsmodell\tUtkvitteringsdatum\n");
         ArrayList<HashMap<String, String>> fordonsLista = GetMetoder.getFordonsNamnFrånAgentNamn(agentNamn);
         for (HashMap<String, String> ettFordon : fordonsLista) {
 
+            enArea.append(ettFordon.get("Fordons_ID") + "\t\t");
             enArea.append(ettFordon.get("Fordonsbeskrivning") + "\t\t");
             enArea.append(ettFordon.get("Arsmodell") + "\t");
             enArea.append(ettFordon.get("Utkvitteringsdatum") + "\n");
@@ -583,11 +578,16 @@ public class MetoderUnikaAdmin {
         }
     }
 
+    /**
+     *Metod för att nyregistrera fordon.
+     * @param idFält
+     * @param beskrivningsFält
+     * @param regFält
+     * @param årsmodellsFält
+     */
     public static void nyRegistreraFordon(JTextField idFält, JTextField beskrivningsFält, JTextField regFält, JTextField årsmodellsFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
         if (Validera.kollaTom(beskrivningsFält) && Validera.kollaTom(regFält) && Validera.kollaTom(årsmodellsFält) && Validera.kollaDatumFormat(regFält) && Validera.kollaRegNummer(idFält) && Validera.kollaIntÅrsModell(årsmodellsFält)) {
-
-            String ettNamn = null;
 
 //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
             String ettID = idFält.getText();
@@ -600,7 +600,8 @@ public class MetoderUnikaAdmin {
             ArrayList<String> regNrLista = GetMetoder.getFordonsID();
 
             if (Validera.kollaOmvärdeFinnsIArrayList(regNrLista, ettID, "Ett fordon med registreringsnummer " + ettID + " finns redan registrerat i systemet") && Validera.kollaOmvärdeFinnsIArrayList(NamnLista, fordonsBeskrivning, "Ett fordon med detta namn finns redan i listan")) {
-
+// Här koller vi om regnummer och fordonsnamn redan finns i databasen vilket inte accepteras.
+// Olika felmeddeladne skrivs ut beroende på likhet
                 try {
 
                     idb.insert("INSERT INTO fordon values('" + ettID + "','" + fordonsBeskrivning + "', '" + regDatum + "' ," + årsModell + ")");
@@ -620,6 +621,10 @@ public class MetoderUnikaAdmin {
         }
     }
 
+    /**
+     *Metod för att ta bort fordon ur systemet
+     * @param enLåda
+     */
     public static void taBortFordon(JComboBox enLåda) 
     {
         String valtFordon = GetMetoder.hamtaCbSträng(enLåda);
@@ -635,12 +640,16 @@ public class MetoderUnikaAdmin {
       
     }
     
+    /**
+     * Denna metod listar aliens som vald agent är ansvarig för.
+     * @param enLåda
+     * @param enArea
+     */
     public static void visaAgentAnsvar(JComboBox enLåda, JTextArea enArea)
     {
         enArea.setText("");
         String enAgent = GetMetoder.hamtaCbSträng(enLåda);
         int agentID = GetMetoder.hämtaAgentIDFrånNamn(enAgent);
-        String agentIDSträng = Integer.toString(agentID);
         
         ArrayList<String> aliensSomagentAnsvararFör = GetMetoder.hämtaAlienFrånAnsvarigAgent(agentID);
         for(String enAlien : aliensSomagentAnsvararFör)
