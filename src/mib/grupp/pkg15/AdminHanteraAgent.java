@@ -10,15 +10,15 @@ import javax.swing.JOptionPane;
  *
  * @author augustdelin
  */
-// Fälten för AdminAgentInfo.
-public class AdminAgentInfo extends javax.swing.JFrame {
+// Fälten för AdminHanteraAgent.
+public class AdminHanteraAgent extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
      * Konstruktorn för AdminAgentInfo.
      */
-    public AdminAgentInfo(String användarnamn) {
+    public AdminHanteraAgent(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         cbAgentNamn.setVisible(false);

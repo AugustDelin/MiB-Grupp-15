@@ -241,7 +241,7 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvslutaActionPerformed
     // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AdminAgentInfo(användarnamn).setVisible(true);
+        new AdminHanteraAgent(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
 

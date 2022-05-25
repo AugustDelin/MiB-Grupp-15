@@ -10,15 +10,15 @@ import javax.swing.JOptionPane;
  *
  * @author augustdelin
  */
-// Fälten för AdminAlienInfo.
-public class AdminAlienInfo extends javax.swing.JFrame {
+// Fälten för AdminHanteraAlien.
+public class AdminHanteraAlien extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
      * Konstruktorn för AdminAlienInfo.
      */
-    public AdminAlienInfo(String användarnamn) {
+    public AdminHanteraAlien(String användarnamn) {
         initComponents();
         this.användarnamn = användarnamn;
         cbAlienPlatser.setVisible(false);

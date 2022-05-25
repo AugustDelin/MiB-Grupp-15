@@ -161,7 +161,7 @@ public class AdminAlienRegDatum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    //    Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
-        new AdminAlienInfo(användarnamn).setVisible(true);
+        new AdminHanteraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
     // Knappen för att starta metoden Avsluta program.
