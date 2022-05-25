@@ -192,7 +192,9 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     * Metod för att lista vem som är chef över ett visst område.
+     * Metod för att lista vem som är chef över ett valt område.
+     * Denna metod används inte i systemet, vi hade med denna i början för att bokstavlingen uppfylla kravet visa chef av valt område
+     * Men eftersom det bara finns tre områden valde vi att ta bort denna och istället lista alla områdeschefer med tillhörande i en och samma area
      * @param lista
      * @param låda
      */

@@ -87,7 +87,7 @@ public class StartSkärm extends javax.swing.JFrame {
 
         lblStartLösenord.setText("Lösenord");
 
-        jLabel1.setText("Vänligen ange ditt användarnamn och lösenord och logga in enligt din status.");
+        jLabel1.setText("Vänligen ange ditt användarnamn och lösenord och logga in som din användartyp.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

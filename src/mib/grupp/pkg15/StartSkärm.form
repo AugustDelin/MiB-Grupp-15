@@ -124,7 +124,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange ditt anv&#xe4;ndarnamn och l&#xf6;senord och logga in enligt din status."/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange ditt anv&#xe4;ndarnamn och l&#xf6;senord och logga in som din anv&#xe4;ndartyp."/>
       </Properties>
     </Component>
   </SubComponents>
