@@ -46,7 +46,7 @@ public class AlienStartSkärm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblRubrik.setText("Välkommen");
+        lblRubrik.setText("Inloggad som");
 
         lblMinOc.setText("Min områdeschef är:");
 

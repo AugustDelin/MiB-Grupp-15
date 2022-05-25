@@ -280,21 +280,21 @@ public class AgentÄndraAlien extends javax.swing.JFrame {
     private void btnAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvslutaActionPerformed
         Navigera.avslutaProgram();
     }//GEN-LAST:event_btnAvslutaActionPerformed
-    //    Knappen för att starta metoden Backa.
+    // Knappen för att starta metoden Backa.
     private void btnBackaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackaActionPerformed
         new AgentAlienInfo(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att starta metoden för att ändra alien-information.
     private void btnÄndraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraAlienActionPerformed
         MetoderAgentAdmin.ändraAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_btnÄndraAlienActionPerformed
-
+    // ComboBox för att visa alienraser.
     private void cbRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRasActionPerformed
         ComboBoxar.CBvaldAlienRas(cbRas, lblRasAttribut, txtRasAttribut);
 
     }//GEN-LAST:event_cbRasActionPerformed
-
+    // ComboBox för att visa information om en alien.
     private void cbAlienNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienNamnActionPerformed
         MetoderAgentAdmin.visaInformationAlien(cbAlienNamn, lblvisaID, txtDatum, txtNamn, cbRas, txtLösenord, txtTelefon, cbPlatser, cbAgent, txtRasAttribut);
     }//GEN-LAST:event_cbAlienNamnActionPerformed
