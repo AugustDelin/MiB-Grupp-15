@@ -13,7 +13,8 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ *I denna klass finns metoder som returnerar olika värden, främst listor ifrån databasen.
+ * Den tillkom inte direkt vid påbörjan av programbyggandet därför finns det även metoder som gör egna hämtningar också.
  * @author erike
  */
 //Fälten för GetMetoder.
@@ -27,7 +28,8 @@ public class GetMetoder {
     }
 
     /**
-     * Get-metod för att hämta ID från Agent med användarnamnet.
+     * Metod för att hämta ID från Agent med användarnamnet
+     * som returneras som en int
      *
      * @param användarnamn
      * @return
@@ -47,7 +49,8 @@ public class GetMetoder {
     }
 
     /**
-     * Get-metod för att hämta ID från Alien med användarnamnet.
+     * Get-metod för att hämta ID från Alien med användarnamnet
+     * som returneras som en int
      *
      * @param användarnamn
      * @return
@@ -67,7 +70,8 @@ public class GetMetoder {
     }
 
     /**
-     * Get-metod för att hämta ID från utrustning med det inmatade namnet.
+     * Get-metod för att hämta ID från utrustning med det inmatade namnet
+     * som returneras som en int
      *
      * @param benämning
      * @return
@@ -87,8 +91,8 @@ public class GetMetoder {
     }
 
     /**
-     * Get-metod för att hämta områdes-ID från namnet på de tre landsdelarna.
-     *
+     * Get-metod för att hämta områdes-ID från namnet från vald landsdel
+     * returneras som en int
      * @param benämning
      * @return
      */
@@ -124,7 +128,9 @@ public class GetMetoder {
 //
 
     /**
-     * Get-metod för att ta ur rasen från en specifik alien.
+     * Get-metod för att ta ur rasen från en specifik alien, baserat på namn.
+     * returnerar rasnamnet
+     * 
      *
      * @param ettNamn
      * @return
@@ -137,6 +143,7 @@ public class GetMetoder {
             String squid = idb.fetchSingle("Select Namn from alien join squid s on alien.Alien_ID = s.Alien_ID where namn = '" + ettNamn + "'");
             String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
 
+            // Om ett nullvärde returneras går metoden vidare till nästa ras tills något värde hittas
             if (Validera.kollaNullSträng(boglodite)) {
                 ras = "Boglodite";
             }
@@ -154,7 +161,7 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     * Hämtar ut senaste ID:t i Alienlistan och ökar denna till ett oanvänt ID.
      *
      * @return
      */
@@ -170,7 +177,7 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     * Hämtar ut senaste Agent-ID:t från listan och ökar denna till ett oanvänt ID.
      *
      * @return
      */
@@ -186,7 +193,7 @@ public class GetMetoder {
     }
 
     /**
-     * Hämtar ut senaste ID:t i listan och ökar denna till ett oanvänt ID.
+     * Hämtar ut senaste Utrustnings-ID:t i listan och ökar denna till ett oanvänt ID.
      *
      * @return
      */
@@ -224,7 +231,6 @@ public class GetMetoder {
             //Hämtar antal armar eller boogies från lista berende på ras.
             String boogies = idb.fetchSingle("Select Antal_Boogies from boglodite where Alien_ID = '" + ettID + "'");
             String armar = idb.fetchSingle("Select Antal_Armar from squid where Alien_ID = '" + ettID + "'");
-            //String worm = idb.fetchSingle("Select Namn from alien join worm w on alien.Alien_ID = w.Alien_ID where namn = '" + ettNamn + "'");
             //Om den inte hittar något är går detta vidare till nästa ras.
             if (Validera.kollaNullSträng(boogies)) {
                 mängdAttribut = boogies;
