@@ -138,15 +138,13 @@
                               <Component id="lblAdminstatus" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cbOmråden" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLösenord" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDagensDatum" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="cbAdminstatus" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtTelefon" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtLösenord" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtNamn" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblDagensDatum" max="32767" attributes="0"/>
+                              <Component id="txtTelefon" alignment="1" max="32767" attributes="0"/>
+                              <Component id="cbAdminstatus" alignment="1" max="32767" attributes="0"/>
+                              <Component id="cbOmråden" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

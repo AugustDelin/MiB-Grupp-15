@@ -9,13 +9,13 @@ package mib.grupp.pkg15;
  *
  * @author Linda
  */
-//    Fälten för AgentRegistreraAlien.
+//    Fälten för AdminRegistreraAlien.
 public class AdminRegistreraAlien extends javax.swing.JFrame {
 
     private String användarnamn;
 
     /**
-     * Konstruktorn för AgentRegistreraAlien.
+     * Konstruktorn för AdminRegistreraAlien.
      *
      * @param användarnamn
      */
@@ -125,11 +125,6 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         lblRasAttribut.setText("Attribut");
 
         txtRasAttribut.setColumns(5);
-        txtRasAttribut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRasAttributActionPerformed(evt);
-            }
-        });
 
         btnRegistreraAlien.setText("Slutför registrering");
         btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -279,19 +274,14 @@ public class AdminRegistreraAlien extends javax.swing.JFrame {
         new AdminHanteraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att registrera en ny alien.
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
         MetoderAgentAdmin.nyRegistreraAlien(lblvisaID, lblDagensDatum, txtNamn, cbRaser, txtLösenord, txtTelefon, cbPlatser, cbAgenter, txtRasAttribut);
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
-
+    // ComboBox för att visa raser och rasattribut.
     private void cbRaserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaserActionPerformed
-
         ComboBoxar.CBvaldAlienRas(cbRaser, lblRasAttribut, txtRasAttribut);
     }//GEN-LAST:event_cbRaserActionPerformed
-
-    private void txtRasAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRasAttributActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRasAttributActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;

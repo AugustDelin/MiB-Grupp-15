@@ -56,7 +56,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
         lblRegistreraUtrustning = new javax.swing.JLabel();
         btnRegisteraUtrustning = new javax.swing.JButton();
         btnVisaUtrustning = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblRegistreraFordon = new javax.swing.JLabel();
         btnNyttFordon = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lbRubrikID = new javax.swing.JLabel();
@@ -136,7 +136,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Registrera nytt fordon");
+        lblRegistreraFordon.setText("Registrera nytt fordon");
 
         btnNyttFordon.setText("Registrera nytt fordon");
         btnNyttFordon.addActionListener(new java.awt.event.ActionListener() {
@@ -164,11 +164,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
         lblTypAttribut.setText("Attribut");
 
         txtTypAttribut.setColumns(5);
-        txtTypAttribut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTypAttributActionPerformed(evt);
-            }
-        });
 
         lblFordonsIDRubrik.setText("Registreringsnummer");
 
@@ -179,11 +174,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
         lblFordonÅrsmodell.setText("Årsmodell");
 
         txtFordonsbeskrivning.setColumns(6);
-        txtFordonsbeskrivning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFordonsbeskrivningActionPerformed(evt);
-            }
-        });
 
         txtFordonRegdatum.setColumns(6);
 
@@ -307,7 +297,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblRegistreraUtrustning)
                             .addGap(195, 195, 195)
-                            .addComponent(jLabel1))
+                            .addComponent(lblRegistreraFordon))
                         .addComponent(lblInloggadSom)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -358,7 +348,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
                         .addComponent(cbAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(lblRegistreraFordon)
                             .addComponent(lblRegistreraUtrustning))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -414,10 +404,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
         ComboBoxar.CBvaldUtrustning(cbTyper, lblTypAttribut, txtTypAttribut);
 
     }//GEN-LAST:event_cbTyperActionPerformed
-
-    private void txtTypAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypAttributActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTypAttributActionPerformed
     // Knappen för att öppna ett nytt fönster med klassen VisaUtrustning.
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         new AdminVisaUtrustning(användarnamn).setVisible(true);
@@ -427,10 +413,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private void btnNyttFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyttFordonActionPerformed
         MetoderUnikaAdmin.nyRegistreraFordon(txtFordonsID, txtFordonsbeskrivning, txtFordonRegdatum, txtFordonÅrsmodell);
     }//GEN-LAST:event_btnNyttFordonActionPerformed
-
-    private void txtFordonsbeskrivningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFordonsbeskrivningActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFordonsbeskrivningActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvsluta;
@@ -445,7 +427,6 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTaBort;
     private javax.swing.JComboBox<String> cbTyper;
     private javax.swing.JComboBox<String> cbVäljUtrustning;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbRubrikID;
@@ -455,6 +436,7 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblFordonÅrsmodell;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblLäggaTill;
+    private javax.swing.JLabel lblRegistreraFordon;
     private javax.swing.JLabel lblRegistreraUtrustning;
     private javax.swing.JLabel lblRubrikNamn;
     private javax.swing.JLabel lblRubrikTyp;
