@@ -473,6 +473,12 @@ public class MetoderUnikaAdmin {
         }
     }
 
+    /**
+     *
+     * @param valdAgent
+     * @param områdesLåda
+     * @param OCLåda
+     */
     public static void taBortOmrådesChef(JComboBox valdAgent, JComboBox områdesLåda, JComboBox OCLåda) {
         String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
         String ettOmråde = GetMetoder.hamtaCbSträng(områdesLåda);

@@ -5,6 +5,7 @@
 package mib.grupp.pkg15;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -231,5 +232,24 @@ public class ComboBoxar {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public static void fyllOmrådesChefer(JComboBox enLåda)
+    {
+        ArrayList <HashMap <String,String>> chefsLista = GetMetoder.hämtaOmrådesChefer();
+        for(HashMap<String, String> enAgent : chefsLista)
+        {
+            enLåda.addItem(enAgent.get("Namn"));
+        }
+        
+    }
+    
+    public static void fyllKontorschefer(JComboBox enLåda)
+    {
+        ArrayList <HashMap <String,String>> chefsLista = GetMetoder.hämtaKontorsChefer();
+        for(HashMap<String, String> enAgent : chefsLista)
+        {
+            enLåda.addItem(enAgent.get("Namn"));
+        }
+        
     }
 }
