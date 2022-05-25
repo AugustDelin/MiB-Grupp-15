@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import oru.inf.InfDB;
 
 /**
- *
+ *  Denna klass innehåller metoder som används när man är inloggad som Alien
  * @author augustdelin
  */
 //Fälten för klassen AlienMetoder.

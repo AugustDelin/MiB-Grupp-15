@@ -269,7 +269,7 @@ public class MetoderUnikaAdmin {
         if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
             try {
-//Först deklarerars alla variabler, text hämtas från fält och lådar och nödvändiga Stringvaribler konverteras till int
+//Först deklarerars alla variabler, text hämtas från fält och lådor och nödvändiga Stringvaribler konverteras till int
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
                 String ettDatum = datum.getText();
@@ -308,7 +308,7 @@ public class MetoderUnikaAdmin {
     /**
      *Denna metod lägger in all information om vald agent i en liknade skärm som nyregstringens skärmen
      * En HashMap hämtas och data läggs i respektive textfield. 
-     * Dessa fält kan sedan.
+     * 
      * 
      * @param valdAgentFält
      * @param IDFält
