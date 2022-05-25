@@ -41,7 +41,7 @@ public class AdminStartSkärm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblRubrik.setText("Välkommen");
+        lblRubrik.setText("Inloggad som");
 
         btnMinSida.setText("Min Sida");
         btnMinSida.addActionListener(new java.awt.event.ActionListener() {

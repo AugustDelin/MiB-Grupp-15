@@ -397,19 +397,19 @@ public class AdminUtrustning extends javax.swing.JFrame {
         Navigera.openAdminStartSkärm(användarnamn);
         dispose();
     }//GEN-LAST:event_btnBackaActionPerformed
-
+    // Knappen för att lägga till utrustning på en agent.
     private void btnLaggtillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggtillUtrustningActionPerformed
         MetoderUnikaAdmin.laggTillUtrustningPåValdAgent(cbVäljUtrustning, cbAgenter);
     }//GEN-LAST:event_btnLaggtillUtrustningActionPerformed
-
+    // Knappen för att ta bort utrustning ur systemet.
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
         MetoderUnikaAdmin.taBortUtrustningUrSystemet(cbTaBort);
     }//GEN-LAST:event_btnTaBortActionPerformed
-
+    //    Knappen för att registrera ny utrustning.
     private void btnRegisteraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisteraUtrustningActionPerformed
         MetoderUnikaAdmin.nyRegistreraUtrustning(lblvisaID, txtNamn, cbTyper, txtTypAttribut);
     }//GEN-LAST:event_btnRegisteraUtrustningActionPerformed
-
+    // ComboBox för att visa vald utrustning.
     private void cbTyperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTyperActionPerformed
         ComboBoxar.CBvaldUtrustning(cbTyper, lblTypAttribut, txtTypAttribut);
 
@@ -418,14 +418,14 @@ public class AdminUtrustning extends javax.swing.JFrame {
     private void txtTypAttributActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypAttributActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTypAttributActionPerformed
-
+    // Knappen för att öppna ett nytt fönster med klassen VisaUtrustning.
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         new AdminVisaUtrustning(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
-
+    // Knappen för att registrera ett nytt fordon.
     private void btnNyttFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyttFordonActionPerformed
-       MetoderUnikaAdmin.nyRegistreraFordon(txtFordonsID, txtFordonsbeskrivning, txtFordonRegdatum, txtFordonÅrsmodell);
+        MetoderUnikaAdmin.nyRegistreraFordon(txtFordonsID, txtFordonsbeskrivning, txtFordonRegdatum, txtFordonÅrsmodell);
     }//GEN-LAST:event_btnNyttFordonActionPerformed
 
     private void txtFordonsbeskrivningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFordonsbeskrivningActionPerformed
