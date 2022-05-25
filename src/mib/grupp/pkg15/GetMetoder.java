@@ -371,6 +371,18 @@ public class GetMetoder {
         }
         return agentLista;
     }
+    
+    public static ArrayList<String> getAllaAgentIDFrånOC()
+    {
+        ArrayList<String> agentIDn = null;
+        
+        try {
+            agentIDn = idb.fetchColumn("Select agent_ID from omradeschef");
+                    } catch (InfException ex) {
+            Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return agentIDn;
+    }
 
     /**
      * Hämtar och returnerar alla områdesid från områdeschefer.
