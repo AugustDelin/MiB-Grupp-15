@@ -28,31 +28,39 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTaBortAgent" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnRegistreraAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnÄndraAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblFörklaring2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnRegistreraAgent" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnÄndraAgent" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="cbAgentNamn" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="btnTabortKC" min="-2" pref="140" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="cbKontorschefer" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="cbAlienansvar" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="btnTaBortAgent" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="cbAgentNamn" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnTabortOC" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnTabortOC" min="-2" pref="166" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="cbOmrådeschefer" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="cbAlienansvar" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="btnTabortKC" max="32767" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cbKontorschefer" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace pref="131" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -98,9 +106,7 @@
                       <Component id="btnÄndraAgent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnRegistreraAgent" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="btnTaBortAgent" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblFörklaring2" min="-2" max="-2" attributes="0"/>
@@ -121,7 +127,10 @@
                                   <Component id="btnTabortOC" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cbAgentNamn" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cbAgentNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnTaBortAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="btnVisaKontorschef" min="-2" max="-2" attributes="0"/>
@@ -181,7 +190,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn&#xc4;ndraAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra agentinformation"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra agentdata och chefsstatus"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraAgentActionPerformed"/>
@@ -246,7 +255,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRegistreraAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrera agent"/>
+        <Property name="text" type="java.lang.String" value="Nyregistrera agent"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraAgentActionPerformed"/>

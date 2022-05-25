@@ -133,7 +133,7 @@ public class MetoderUnikaAdmin {
      */
     public static void nyRegistreraUtrustning(JLabel id, JTextField namnFält, JComboBox typLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
-        if (Validera.kollaTom(namnFält) && Validera.kollaTom(attributFält)) {
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(attributFält) && Validera.kollaSträngBörjaStorBokstav(namnFält)) {
 
             String ettNamn = null;
 
@@ -223,7 +223,7 @@ public class MetoderUnikaAdmin {
                 idb.delete("delete from kontorschef where agent_id =" + AgentID);
                 idb.delete("delete from faltagent where agent_id =" + AgentID);
                 idb.delete("delete from agent where agent_id =" + AgentID);
-                JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " ur systemet");
+                JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " från systemet");
                 enLåda.removeItem(valdAgent);
             } catch (InfException ex) {
                 Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
@@ -358,11 +358,9 @@ public class MetoderUnikaAdmin {
                 String gammaltNamn = GetMetoder.hamtaCbSträng(valdAgentFält);
                 String ettIDString = id.getText();
                 int ettID = Integer.parseInt(ettIDString);
-                System.out.println(ettID);
                 String ettDatum = datumFält.getText();
                 String agentBokstav = namnFält.getText();
                 String ettNamn = "Agent " + agentBokstav;
-                //String ettNamn = "Agent "+namnFält.getText();
                 String ettLösen = lösenFält.getText();
                 String ettTelNr = telNrFält.getText();
                 String adminStatus = GetMetoder.hamtaCbSträng(adminLåda);
@@ -390,9 +388,6 @@ public class MetoderUnikaAdmin {
                         idb.update("Update agent set Namn ='" + ettNamn + "', Telefon = '" + ettTelNr + "', Anstallningsdatum = '" + ettDatum + "', Administrator='" + adminStatus + "', Losenord ='" + ettLösen + "', Omrade=" + områdesID + " Where agent_ID =" + ettID);
 
                         JOptionPane.showMessageDialog(null, gammaltNamn + " är nu omregistrerad");
-                        namnFält.setText("");
-                        lösenFält.setText("");
-                        telNrFält.setText("");
                         valdAgentFält.removeItem(gammaltNamn);
                         valdAgentFält.addItem(ettNamn);
 
@@ -440,7 +435,7 @@ public class MetoderUnikaAdmin {
     /**
      * Metod för att göra vald agent till kontorschef
      *
-     * @param kontorsLåda
+     * @param plats
      * @param valdAgent
      */
     public static void laggTillKontorsChef(JComboBox plats, JComboBox valdAgent) {
@@ -489,7 +484,7 @@ public class MetoderUnikaAdmin {
 //Annars tas agent bort från kontoret
             } else {
                 idb.delete("delete from kontorschef where agent_ID =" + agentID);
-                JOptionPane.showMessageDialog(null, enAgent + "är inte längre kontorschef!");
+                JOptionPane.showMessageDialog(null, enAgent + " är inte längre kontorschef!");
             }
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
@@ -595,7 +590,7 @@ public class MetoderUnikaAdmin {
      */
     public static void nyRegistreraFordon(JTextField idFält, JTextField beskrivningsFält, JTextField regFält, JTextField årsmodellsFält) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
-        if (Validera.kollaTom(beskrivningsFält) && Validera.kollaTom(regFält) && Validera.kollaTom(årsmodellsFält) && Validera.kollaDatumFormat(regFält) && Validera.kollaRegNummer(idFält) && Validera.kollaIntÅrsModell(årsmodellsFält)) {
+        if (Validera.kollaTom(beskrivningsFält) && Validera.kollaTom(regFält) && Validera.kollaTom(årsmodellsFält) && Validera.kollaTom(idFält) && Validera.kollaSträngBörjaStorBokstav(beskrivningsFält) && Validera.kollaDatumFormat(regFält) && Validera.kollaRegNummer(idFält) && Validera.kollaIntÅrsModell(årsmodellsFält)) {
 
 //Först deklarerars alla variabler, text hämtas från fält och nödvändiga Stringvaribler konverteras till int
             String ettID = idFält.getText();

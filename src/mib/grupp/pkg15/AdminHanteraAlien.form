@@ -35,47 +35,54 @@
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnÄndraAlien" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnTaBortAlien" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblFörklaring1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblFörklaring2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblFörklaring3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="84" max="32767" attributes="0"/>
+                              <Component id="btnTaBortAlien" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="btnSokPlats" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
-                      <Component id="btnSokRas" alignment="1" min="-2" pref="87" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btnRegistreraAlien" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnÄndraAlien" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="cbAlienRaser" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="cbAlienPlatser" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cbAlienRaser" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="cbAlienNamn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="125" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="287" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnSokAlien" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
-                          <Component id="btnSökRegDatum" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnSokAlien" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnSökRegDatum" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnSokRas" max="32767" attributes="0"/>
+                          <Component id="btnSokPlats" pref="95" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,9 +103,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnSokAlien" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTaBortAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbAlienRaser" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbAlienPlatser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -111,9 +119,7 @@
                       <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnÄndraAlien" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnTaBortAlien" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="lblFörklaring1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblFörklaring2" min="-2" max="-2" attributes="0"/>
@@ -238,7 +244,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRegistreraAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrera alien"/>
+        <Property name="text" type="java.lang.String" value="Nyregistrera alien"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraAlienActionPerformed"/>
@@ -254,7 +260,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn&#xc4;ndraAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra alien information"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra aliendata"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraAlienActionPerformed"/>
@@ -262,7 +268,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTaBortAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ta bort alien ur systemet"/>
+        <Property name="text" type="java.lang.String" value="Ta bort alien"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaBortAlienActionPerformed"/>

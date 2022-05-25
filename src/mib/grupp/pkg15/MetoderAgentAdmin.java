@@ -289,7 +289,7 @@ public class MetoderAgentAdmin {
      */
     public static void nyRegistreraAlien(JLabel id, JLabel datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så om valideringen godkänns körs programmet.
-        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMängdRasAttribut(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaSträngBörjaStorBokstav(namnFält) && Validera.kollaMängdRasAttribut(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
 
             String ettNamn = null;
 
@@ -343,6 +343,7 @@ public class MetoderAgentAdmin {
 
     /**
      * Metod för att visa all information om en specifik alien.
+     * Används i registreringsfönstret för omregistrering av alien
      * @param alienLåda
      * @param IDFält
      * @param RegFält
@@ -387,7 +388,7 @@ public class MetoderAgentAdmin {
      */
     public static void ändraAlien(JComboBox gammaltNamnLåda, JLabel id, JTextField datum, JTextField namnFält, JComboBox rasLåda, JPasswordField lösenFält, JTextField telNrFält, JComboBox platsLåda, JComboBox agentLåda, JTextField attributFält) {
         //Validering för samtliga fält görs så om valideringen godkänns körs programmet.
-        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaMängdRasAttribut(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaSträngBörjaStorBokstav(namnFält) && Validera.kollaMängdRasAttribut(attributFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
             String ettNamn = null;
             try {
 
@@ -490,7 +491,8 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     * 
+     * Metod som används för att visa inloggad agents utrustning
+     * En HashMap används och informationen skrivs ut i en textarea
      * @param användarnamn
      * @param enArea
      */
@@ -505,7 +507,8 @@ public class MetoderAgentAdmin {
     }
 
     /**
-     *
+     * Metod som används för att visa inloggad agents fordon
+     * En HashMap används och informationen skrivs ut i en textarea
      * @param användarnamn
      * @param enArea
      */
@@ -522,6 +525,11 @@ public class MetoderAgentAdmin {
         }
     }
     
+    /**
+     * Metod som visar de agenter som ansvarar för flest aliens i valt område(top 3)
+     * @param områdesLåda
+     * @param enArea
+     */
     public static void toppTreAnsvarigaAgenterValtOmråde(JComboBox områdesLåda, JTextArea enArea)
     {
         enArea.setText("");

@@ -339,5 +339,26 @@ public class Validera {
         }
         return resultat;
     }
+    
+    /**
+     *Denna metod kontrollerar om en sträng börjar med stor bokstav och används vid validering av namn
+     * @param ettFält
+     * @return
+     */
+    public static boolean kollaSträngBörjaStorBokstav(JTextField ettFält)
+    {
+        boolean resultat = true;
+        String enSträng = ettFält.getText();
+        Pattern pattern = Pattern.compile("^[A-Z].+");
+        Matcher matcher = pattern.matcher(enSträng);
+        boolean matchFound = matcher.matches();
+        if (!matchFound) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Namnet måste börja med stor bokstav!");
+            ettFält.requestFocus();
+        }
+        return resultat;
+    }
+    }
 
-}
+
