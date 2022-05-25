@@ -77,7 +77,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblRubrik">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen"/>
+        <Property name="text" type="java.lang.String" value="Inloggad som"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnMinSida">
