@@ -146,12 +146,12 @@ public class AdminStartSkärm extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLoggautActionPerformed
 // Knappen öppnar ett nytt fönster med klassen Alien Info.
     private void btnAlienInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienInfoActionPerformed
-        new AdminAlienInfo(användarnamn).setVisible(true);
+        new AdminHanteraAlien(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAlienInfoActionPerformed
 //Knappen öppnar ett nytt fönster med klassen Agent Info.
     private void btnAgentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentInfoActionPerformed
-        new AdminAgentInfo(användarnamn).setVisible(true);
+        new AdminHanteraAgent(användarnamn).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgentInfoActionPerformed
 //Knappen öppnar ett nytt fönster med klassen Utrustning.
