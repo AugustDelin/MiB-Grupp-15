@@ -300,7 +300,7 @@ public class GetMetoder {
     }
 
     /**
-     * Visar 
+     * Visar vilka fordon en vald agent har.
      * @param agentNamn
      * @return
      */
@@ -315,12 +315,20 @@ public class GetMetoder {
         return fordonsNamn;
     }
 
-    // Hämtar och returnerar strängar från komboboxar.
+    /**
+     *Hämtar och returnerar strängar från komboboxar.
+     * @param enLåda
+     * @return
+     */
     public static String hamtaCbSträng(JComboBox enLåda) {
         String cbSträng = enLåda.getSelectedItem().toString();
         return cbSträng;
     }
 
+    /**
+     * Hämtar och returnerar namn områdeschefer.
+     * @return
+     */
     public static ArrayList<String> hämtaNamnFrånOmrådesChefer() {
         ArrayList<String> agentLista = null;
         try {
@@ -331,6 +339,10 @@ public class GetMetoder {
         return agentLista;
     }
 
+    /**
+     * Hämtar och returnerar namn på kontorschefer.
+     * @return
+     */
     public static ArrayList<String> hämtaNamnFrånKontorsChefer() {
         ArrayList<String> agentLista = null;
         try {
@@ -341,6 +353,10 @@ public class GetMetoder {
         return agentLista;
     }
 
+    /**
+     * Hämtar och returnerar alla områdesid från områdeschefer.
+     * @return
+     */
     public static ArrayList<String> getAllaOidFrånOC() {
         ArrayList<String> områdesIDfrånOC = null;
         try {
@@ -351,6 +367,10 @@ public class GetMetoder {
         return områdesIDfrånOC;
     }
 
+    /**
+     *
+     * @return
+     */
     public static ArrayList<HashMap<String, String>> hämtaKontorsChefer() {
         ArrayList<HashMap<String, String>> kontorsChefer = null;
 
