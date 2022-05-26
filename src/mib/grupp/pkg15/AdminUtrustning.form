@@ -62,7 +62,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnLaggtillUtrustning" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="413" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="101" max="32767" attributes="0"/>
@@ -70,13 +70,16 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnLoggaut" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnVisaUtrustning" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="btnAvsluta" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLoggaut" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVisaUtrustning" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -115,7 +118,7 @@
                           <Component id="btnNyttFordon" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnRegisteraUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <EmptySpace pref="168" max="32767" attributes="0"/>
                       <Component id="btnVisaUtrustning" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -129,7 +132,7 @@
                           <Component id="btnLaggtillUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnTaBort" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="514" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -263,22 +266,26 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRubrikNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRubrikNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lblTypAttribut" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtTypAttribut" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblRubrikTyp" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cbTyper" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtTypAttribut" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="lblTypAttribut" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
@@ -302,12 +309,14 @@
                               <Component id="lblRubrikNamn" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblTypAttribut" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblRubrikTyp" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="cbTyper" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTypAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtTypAttribut" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -425,7 +434,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="lblFordonÅrsmodell" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>

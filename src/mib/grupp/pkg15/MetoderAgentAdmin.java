@@ -223,8 +223,8 @@ public class MetoderAgentAdmin {
     public static void listaAllaKontorsChefer(JTextArea lista) {
         //Sätter textfältet blankt
         lista.setText("");
-        lista.setText("Kontor\tChef\n");
-            //Hämtar lista ifrån DB.
+        lista.setText("Kontor\t                         Chef\n");
+            //Hämtar lista ifrån DB. 
             ArrayList<HashMap<String,String>> chefAvkontor = GetMetoder.hämtaKontorsChefer();
             //Listar alla kontorschefer.
             for (HashMap<String,String> enChef : chefAvkontor) {
@@ -262,6 +262,7 @@ public class MetoderAgentAdmin {
         if (Validera.kollaTom(fält1) && Validera.kollaTom(fält2) && Validera.kollaDatumFormat(fält1) && Validera.kollaDatumFormat(fält2)) {
             try {
                 //Variabler hämtas ifrån getfält.
+                enArea.setText("");
                 String datum1 = fält1.getText();
                 String datum2 = fält2.getText();
                 ArrayList<HashMap<String, String>> alien = idb.fetchRows("select namn from alien where Registreringsdatum between'" + datum1 + "'and'" + datum2 + "'");
