@@ -23,48 +23,47 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-              <Component id="lblRegistreraAgent" min="-2" pref="177" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="lblRegistreraAgent" min="-2" pref="177" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnLoggaut" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRegistreraAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblInloggadSom" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnLoggaut" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="lblRegistreraAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAvsluta" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnBacka" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAvsluta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBacka" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,39 +112,55 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblRubrikLösen" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblRubrikTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblRubrikNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblRubrikRegd" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAdminstatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVilketKontor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblVilketKontor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="cbVilketKontor" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="btnAndraKCStatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="lblRubrikKontorschef" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtNamn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cbAdminstatus" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="txtDatum" alignment="0" pref="104" max="32767" attributes="0"/>
-                                          <Component id="txtTelefon" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbRubrikID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRubrikRegd" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRubrikNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRubrikLösen" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="cbAgentNamn" min="-2" pref="104" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                          <Component id="cbOmråden" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtDatum" pref="104" max="32767" attributes="0"/>
+                                          <Component id="lblvisaID" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbAgentNamn" pref="104" max="32767" attributes="0"/>
+                                          <Component id="txtNamn" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtLösenord" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblRubrikTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAdminstatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtTelefon" pref="104" max="32767" attributes="0"/>
+                                          <Component id="cbAdminstatus" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="cbVilketKontor" min="-2" pref="131" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblOmråde" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="cbOmråden" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -153,19 +168,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblOmrådeRubrik" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="75" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="btnAndraOCStatus" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lblOmråde" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lblOCRubrik" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnAndraKCStatus" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="lblOCRubrik" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -211,11 +214,11 @@
                       <Component id="lblRubrikTelefon" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cbAdminstatus" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAdminstatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblOmrådeRubrik" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblOCRubrik" alignment="3" min="-2" max="-2" attributes="0"/>
