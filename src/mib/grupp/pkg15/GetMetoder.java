@@ -173,6 +173,7 @@ public class GetMetoder {
         } catch (InfException ex) {
             Logger.getLogger(MetoderAgentAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+              
         return nextId;
     }
 
