@@ -72,7 +72,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAvsluta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBacka" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -141,10 +141,10 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtLösenord" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtNamn" alignment="1" max="32767" attributes="0"/>
-                              <Component id="lblDagensDatum" max="32767" attributes="0"/>
                               <Component id="txtTelefon" alignment="1" max="32767" attributes="0"/>
-                              <Component id="cbAdminstatus" alignment="1" max="32767" attributes="0"/>
+                              <Component id="cbAdminstatus" alignment="1" pref="85" max="32767" attributes="0"/>
                               <Component id="cbOmråden" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtRegDatum" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -156,9 +156,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblRubrikRegd" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDagensDatum" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblRubrikRegd" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtRegDatum" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -196,11 +196,6 @@
         <Component class="javax.swing.JLabel" name="lblRubrikRegd">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registreringsdatum"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblDagensDatum">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Dagens datum"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRubrikNamn">
@@ -270,6 +265,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtRegDatum">
+          <Properties>
+            <Property name="columns" type="int" value="5"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
