@@ -218,7 +218,8 @@ public class MetoderUnikaAdmin {
         if (Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort vald agent.\n" + valdAgent + " har alienansvar.\nVänligen ändra ansvarig agent under 'Hantera aliens'.")) {
 
             try {
-
+                idb.delete("delete from fordon where Agent_ID =" + AgentID);
+                idb.delete("delete from innehar_utrustning where Agent_ID =" + AgentID);
                 idb.delete("delete from omradeschef where agent_id =" + AgentID);
                 idb.delete("delete from kontorschef where agent_id =" + AgentID);
                 idb.delete("delete from faltagent where agent_id =" + AgentID);
