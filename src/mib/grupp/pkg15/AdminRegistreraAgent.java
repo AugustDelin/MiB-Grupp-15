@@ -23,7 +23,6 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
         initComponents();
         this.användarnamn = användarnamn;
         FyllText.inloggadSomAdmin(lblInloggadSom, användarnamn);
-        lblDagensDatum.setText(DatumHanterare.getDagensDatum());
         lblvisaID.setText(GetMetoder.getNextAgentID());
         ComboBoxar.fyllCBområden(cbOmråden);
         ComboBoxar.fyllAdminStatus(cbAdminstatus);
@@ -46,7 +45,6 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
         lblRegistreraAgent = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblRubrikRegd = new javax.swing.JLabel();
-        lblDagensDatum = new javax.swing.JLabel();
         lblRubrikNamn = new javax.swing.JLabel();
         txtNamn = new javax.swing.JTextField();
         lblRubrikLösen = new javax.swing.JLabel();
@@ -58,6 +56,7 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
         btnRegistreraAgent = new javax.swing.JButton();
         lblAdminstatus = new javax.swing.JLabel();
         cbAdminstatus = new javax.swing.JComboBox<>();
+        txtRegDatum = new javax.swing.JTextField();
         lbRubrikID = new javax.swing.JLabel();
         lblvisaID = new javax.swing.JLabel();
 
@@ -90,8 +89,6 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
 
         lblRubrikRegd.setText("Registreringsdatum");
 
-        lblDagensDatum.setText("Dagens datum");
-
         lblRubrikNamn.setText("Namn - ange endast en bokstav");
 
         txtNamn.setColumns(5);
@@ -115,6 +112,8 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
 
         lblAdminstatus.setText("Adminstatus");
 
+        txtRegDatum.setColumns(5);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -136,19 +135,19 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtLösenord, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtNamn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDagensDatum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbAdminstatus, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbOmråden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cbAdminstatus, javax.swing.GroupLayout.Alignment.TRAILING, 0, 85, Short.MAX_VALUE)
+                            .addComponent(cbOmråden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtRegDatum))))
                 .addContainerGap(311, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblRubrikRegd)
-                    .addComponent(lblDagensDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRubrikNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +218,7 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
                     .addComponent(lblvisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvsluta)
                     .addComponent(btnBacka))
@@ -245,7 +244,7 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackaActionPerformed
     // Knappen för att registrera en ny agent.
     private void btnRegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAgentActionPerformed
-        MetoderUnikaAdmin.nyRegistreraAgent(lblvisaID, lblDagensDatum, txtNamn, txtLösenord, txtTelefon, cbAdminstatus, cbOmråden);
+        MetoderUnikaAdmin.nyRegistreraAgent(lblvisaID, txtRegDatum, txtNamn, txtLösenord, txtTelefon, cbAdminstatus, cbOmråden);
     }//GEN-LAST:event_btnRegistreraAgentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -258,7 +257,6 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbRubrikID;
     private javax.swing.JLabel lblAdminstatus;
-    private javax.swing.JLabel lblDagensDatum;
     private javax.swing.JLabel lblInloggadSom;
     private javax.swing.JLabel lblOmråde;
     private javax.swing.JLabel lblRegistreraAgent;
@@ -269,6 +267,7 @@ public class AdminRegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblvisaID;
     private javax.swing.JPasswordField txtLösenord;
     private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtRegDatum;
     private javax.swing.JTextField txtTelefon;
     // End of variables declaration//GEN-END:variables
 }

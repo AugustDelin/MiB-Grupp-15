@@ -266,9 +266,9 @@ public class MetoderUnikaAdmin {
      * @param adminLåda
      * @param områdesLåda
      */
-    public static void nyRegistreraAgent(JLabel id, JLabel datum, JTextField namnFält, JPasswordField lösenFält, JTextField telNrFält, JComboBox adminLåda, JComboBox områdesLåda) {
+    public static void nyRegistreraAgent(JLabel id, JTextField datum, JTextField namnFält, JPasswordField lösenFält, JTextField telNrFält, JComboBox adminLåda, JComboBox områdesLåda) {
         //Validering för samtliga fält görs så, om valideringen godkänns körs programmet
-        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält)) {
+        if (Validera.kollaTom(namnFält) && Validera.kollaTom(lösenFält) && Validera.kollaTom(telNrFält) && Validera.kollaTelefonnummer(telNrFält) && Validera.kollaLängdLösenord(lösenFält) && Validera.kollaDatumFormat(datum)) {
 
             try {
 //Först deklarerars alla variabler, text hämtas från fält och lådor och nödvändiga Stringvaribler konverteras till int
