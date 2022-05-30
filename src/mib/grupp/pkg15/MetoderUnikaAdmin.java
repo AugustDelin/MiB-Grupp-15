@@ -149,28 +149,36 @@ public class MetoderUnikaAdmin {
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
-                    
                     if (valdUtrustning.equals("Vapen")) {
                         if (Validera.kollaIntVapen(attributFält)) {
                             int Kaliber = Integer.parseInt(Attribut);
                             idb.insert("insert into Vapen values(" + ettID + "," + Kaliber + ")");
+                            idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
+                            JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                            id.setText(GetMetoder.getNextUtrustningsID());
+                            namnFält.setText("");
+                            attributFält.setText("");
                         }
 
                     }
                     if (valdUtrustning.equals("Kommunikation")) {
 //                        validering krävs
                         idb.insert("insert into Kommunikation values(" + ettID + ",'" + Attribut + "')");
+                        idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
+                        JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                        id.setText(GetMetoder.getNextUtrustningsID());
+                        namnFält.setText("");
+                        attributFält.setText("");
                     }
                     if (valdUtrustning.equals("Teknik")) {
                         //validering krävs
                         idb.insert("insert into Teknik values(" + ettID + ",'" + Attribut + "')");
+                        idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
+                        JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
+                        id.setText(GetMetoder.getNextUtrustningsID());
+                        namnFält.setText("");
+                        attributFält.setText("");
                     }
-                    
-                    idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
-                    JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
-                    id.setText(GetMetoder.getNextUtrustningsID());
-                    namnFält.setText("");
-                    attributFält.setText("");
 
                 }
 
@@ -191,13 +199,17 @@ public class MetoderUnikaAdmin {
         try {
             String valdUtrustning = GetMetoder.hamtaCbSträng(enLåda);
             int utrustningsID = GetMetoder.hämtaUtrustningsIDFrånNamn(valdUtrustning);
-            idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
-            idb.delete("delete from vapen where Utrustnings_ID =" + utrustningsID);
-            idb.delete("delete from kommunikation where Utrustnings_ID =" + utrustningsID);
-            idb.delete("delete from teknik where Utrustnings_ID =" + utrustningsID);
-            idb.delete("delete from utrustning where Utrustnings_ID =" + utrustningsID);
-            JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
-            enLåda.removeItem(valdUtrustning);
+            int val = JOptionPane.showConfirmDialog(null, "Vill du verkligen ta bort " + valdUtrustning);
+            if (val == JOptionPane.YES_OPTION) {
+                idb.delete("delete from innehar_utrustning where Utrustnings_ID =" + utrustningsID);
+                idb.delete("delete from vapen where Utrustnings_ID =" + utrustningsID);
+                idb.delete("delete from kommunikation where Utrustnings_ID =" + utrustningsID);
+                idb.delete("delete from teknik where Utrustnings_ID =" + utrustningsID);
+                idb.delete("delete from utrustning where Utrustnings_ID =" + utrustningsID);
+                JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdUtrustning + " ur systemet");
+                enLåda.removeItem(valdUtrustning);
+            }
+
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -218,18 +230,23 @@ public class MetoderUnikaAdmin {
         int AgentID = GetMetoder.hämtaAgentIDFrånNamn(valdAgent);
         String agentIDsomSträng = Integer.toString(AgentID);
         if (Validera.kollaArrayListContains(ansvarigaAgenter, agentIDsomSträng, "Kan inte ta bort vald agent.\n" + valdAgent + " har alienansvar.\nVänligen ändra ansvarig agent under 'Hantera aliens'.")) {
+            int val = JOptionPane.showConfirmDialog(null, "Vill du verkligen ta bort " + valdAgent);
+            if (val == JOptionPane.YES_OPTION) {
 
-            try {
-                idb.delete("delete from innehar_fordon where Agent_ID =" + AgentID);
-                idb.delete("delete from innehar_utrustning where Agent_ID =" + AgentID);
-                idb.delete("delete from omradeschef where agent_id =" + AgentID);
-                idb.delete("delete from kontorschef where agent_id =" + AgentID);
-                idb.delete("delete from faltagent where agent_id =" + AgentID);
-                idb.delete("delete from agent where agent_id =" + AgentID);
-                JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " från systemet");
-                enLåda.removeItem(valdAgent);
-            } catch (InfException ex) {
-                Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+
+                    idb.delete("delete from innehar_fordon where Agent_ID =" + AgentID);
+                    idb.delete("delete from innehar_utrustning where Agent_ID =" + AgentID);
+                    idb.delete("delete from omradeschef where agent_id =" + AgentID);
+                    idb.delete("delete from kontorschef where agent_id =" + AgentID);
+                    idb.delete("delete from faltagent where agent_id =" + AgentID);
+                    idb.delete("delete from agent where agent_id =" + AgentID);
+                    JOptionPane.showMessageDialog(null, "Du har tagit bort " + valdAgent + " från systemet");
+                    enLåda.removeItem(valdAgent);
+
+                } catch (InfException ex) {
+                    Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }
@@ -242,6 +259,11 @@ public class MetoderUnikaAdmin {
      */
     public static void taBortAlienUrSystemet(JComboBox enLåda) {
         String valdAlien = GetMetoder.hamtaCbSträng(enLåda);
+        int val = JOptionPane.showConfirmDialog(null, "Vill du verkligen ta bort " + valdAlien);
+            if (val == JOptionPane.YES_OPTION)
+            {
+                
+            
         try {
             int AlienID = GetMetoder.hämtaAlienIDFrånNamn(valdAlien);
             idb.delete("delete from boglodite where alien_id =" + AlienID);
@@ -253,6 +275,7 @@ public class MetoderUnikaAdmin {
         } catch (InfException ex) {
             Logger.getLogger(MetoderUnikaAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }
     }
 
     /**
@@ -445,7 +468,7 @@ public class MetoderUnikaAdmin {
         try {
             String enAgent = GetMetoder.hamtaCbSträng(valdAgent);
             String enPlats = GetMetoder.hamtaCbSträng(plats);
-            String ettKontor = enPlats+"kontoret";
+            String ettKontor = enPlats + "kontoret";
             //Hämtar värdena i från boxarna
 
             ArrayList<String> agentLista = idb.fetchColumn("select namn from agent join kontorschef k on agent.Agent_ID = k.Agent_ID");
