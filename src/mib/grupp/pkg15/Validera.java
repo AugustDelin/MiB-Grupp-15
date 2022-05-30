@@ -199,12 +199,12 @@ public class Validera {
     public static boolean kollaTelefonnummer(JTextField ettFält) {
         boolean resultat = true;
         String ettTelefonnummer = ettFält.getText();
-        Pattern pattern = Pattern.compile("^[0-9]{1,10}$");
+        Pattern pattern = Pattern.compile("^^[0-9][0-9][0-9]-?[0-9]{1,7}$");
         Matcher matcher = pattern.matcher(ettTelefonnummer);
         boolean matchFound = matcher.matches();
         if (!matchFound) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Felaktigt angivet telefonnummer, du kan ange max tio siffror i detta fält (använd ej bindelstreck!)");
+            JOptionPane.showMessageDialog(null, "Felaktigt angivet telefonnummer,du kan ange minium tre siffror och max 10 siffror.");
             ettFält.requestFocus();
         }
 
