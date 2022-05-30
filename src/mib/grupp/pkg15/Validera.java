@@ -265,7 +265,7 @@ public class Validera {
     public static boolean kollaIntVapen(JTextField ettFält) {
         boolean resultat = true;
         String kaliber = ettFält.getText();
-        Pattern pattern = Pattern.compile("^(1[0-9]{1,9}|[1-9]{1,10})$");
+        Pattern pattern = Pattern.compile("^([0-9]{1,9}|[1-9]{1,10})$");
         Matcher matcher = pattern.matcher(kaliber);
         boolean matchFound = matcher.matches();
         if (!matchFound) {
