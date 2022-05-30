@@ -272,4 +272,13 @@ public class ComboBoxar {
         }
 
     }
+    
+    public static void fyllAnsvarigaAgenter(JComboBox enLåda)
+    {
+        ArrayList<String> ansvarigaAgenter = GetMetoder.hämtaAnsvarigaAgenter();
+        for(String enAgent : ansvarigaAgenter)
+        {
+            enLåda.addItem(enAgent);
+        }
+    }
 }
