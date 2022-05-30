@@ -403,7 +403,7 @@ public class AdminHanteraAgent extends javax.swing.JFrame {
         cbAlienansvar.setVisible(true);
         btnTaBortAgent.setVisible(false);
         if (cbAlienansvar.getItemCount() == 0) {
-            ComboBoxar.fyllCBAgentNamn(cbAlienansvar);
+            ComboBoxar.fyllAnsvarigaAgenter(cbAlienansvar);
         }
     }
     //Reagerar på comboboxen och listar de aliens som vald agent ansvarar för

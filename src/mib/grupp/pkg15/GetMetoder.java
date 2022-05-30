@@ -555,7 +555,7 @@ public class GetMetoder {
         ArrayList<String> listaAnsvarigaAgenter = null;
 
         try {
-           listaAnsvarigaAgenter = idb.fetchColumn("select Ansvarig_Agent from alien");
+           listaAnsvarigaAgenter = idb.fetchColumn("select agent.namn from agent join alien a on agent.Agent_ID = a.Ansvarig_Agent group by namn order by namn");
         } catch (InfException ex) {
 
             Logger.getLogger(GetMetoder.class.getName()).log(Level.SEVERE, null, ex);
