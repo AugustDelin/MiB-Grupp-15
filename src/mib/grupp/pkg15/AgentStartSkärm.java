@@ -147,6 +147,7 @@ public class AgentStartSkärm extends javax.swing.JFrame {
     // Knappen för att logga in på Min Sida.
     private void btnMinSidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinSidaActionPerformed
         Navigera.openAgentMinSida(användarnamn);
+        dispose();
     }//GEN-LAST:event_btnMinSidaActionPerformed
     // Knappen för att starta metoden Avsluta program.
     private void lblAvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAvslutaActionPerformed

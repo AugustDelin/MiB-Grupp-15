@@ -149,7 +149,7 @@ public class MetoderUnikaAdmin {
 
                 if (Validera.kollaOmvärdeFinnsIArrayList(NamnLista, ettNamn, "En utrustning vid namn " + ettNamn + " finns redan registerad")) {
 
-                    idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
+                    
                     if (valdUtrustning.equals("Vapen")) {
                         if (Validera.kollaIntVapen(attributFält)) {
                             int Kaliber = Integer.parseInt(Attribut);
@@ -165,6 +165,8 @@ public class MetoderUnikaAdmin {
                         //validering krävs
                         idb.insert("insert into Teknik values(" + ettID + ",'" + Attribut + "')");
                     }
+                    
+                    idb.insert("insert into Utrustning values(" + ettID + ",'" + ettNamn + "')");
                     JOptionPane.showMessageDialog(null, ettNamn + " är nu registrerad");
                     id.setText(GetMetoder.getNextUtrustningsID());
                     namnFält.setText("");
